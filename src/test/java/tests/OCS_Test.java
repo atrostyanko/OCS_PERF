@@ -12,13 +12,18 @@ import com.configuration.properties.PropertiesLoader;
 import com.configuration.properties.PropertyFile;
 import com.reporting.ExtentManager;
 import com.webtestsbase.WebDriverFactory;
+import pages.MainPage;
+import pages.MenuPage;
+import pages.issue.IssueDetailsPage;
+import tests.loginPage.LoginPage_Tests;
+
 import java.util.Properties;
 
 /**
  * Created by Alexandr Trostyanko.
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@PropertyFile("ocs.properties")
+@PropertyFile("testData/ocs.properties")
 public class OCS_Test {
     public static ExtentManager eReports;
 
@@ -41,8 +46,15 @@ public class OCS_Test {
     }
 
     @Test
-    public void navigationTest() {
-        ExtentManager.createTest("Navigation Test", "Verify Navigation Tabs, Menu's, Sub-menu's and Logo.");
-
+    public void issueTest() {
+        MainPage mainPage = new LoginPage_Tests().login();
+        MenuPage menuPage = new MenuPage();
+        if (mainPage != null && menuPage != null) {
+            //Issue Details
+            menuPage.clickIssue();
+            IssueDetailsPage issueDetailsPage = (IssueDetailsPage) menuPage.clickIssueSubMenu("Issue Details");
+            issueDetailsPage.setAccession("485QV");
+            issueDetailsPage.clickSubmit();
+        }
     }
 }

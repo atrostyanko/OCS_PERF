@@ -13,6 +13,8 @@ import com.configuration.TestsConfig;
 import com.reporting.ExtentManager;
 import com.utils.TimeUtils;
 
+import java.util.List;
+
 /**
  * Created by Alexandr Trostyanko
  * Base class for web tests. It contains web driver {@link org.openqa.selenium.WebDriver} instance, used in all tests.
@@ -58,9 +60,11 @@ public class WebDriverFactory {
                 }
             }
             driver.get(sURL);
+            /*
             if (System.getProperty("os.name").toLowerCase().contains("mac")) {
                 TimeUtils.waitForSeconds(20);
             }
+            */
             System.out.println("Browser is started...");
         } else {
             throw new IllegalStateException("Driver has already been initialized. Quit it before using this method");
@@ -101,6 +105,19 @@ public class WebDriverFactory {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public static WebElement getItemContainsText(List<WebElement> webElements, String sValue) {
+        for (WebElement item : webElements) {
+            try {
+                if (item.getText().trim().contains(sValue)) {
+                    return item;
+                }
+            } catch (StaleElementReferenceException ex) {
+
+            }
+        }
+        return null;
     }
 
     //===== CheckBox Methods ===========================================================================================
