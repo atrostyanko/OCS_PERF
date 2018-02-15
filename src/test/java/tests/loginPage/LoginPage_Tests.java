@@ -21,7 +21,7 @@ public class LoginPage_Tests {
         String password = prop.getProperty("password");
         MainPage returnPage = null;
 
-        ExtentManager.createTest("Login Page.", "Verify that user can login to the APP.");
+        ExtentManager.createNode("Login Page.", "Verify that user can login to the APP.");
 
         LoginPage loginPage = new LoginPage();
         if (ExtentManager.compareNotNULL(loginPage, "Check that HOME Page is opened.")) {

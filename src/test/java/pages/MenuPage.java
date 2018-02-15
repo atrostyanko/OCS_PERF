@@ -10,10 +10,7 @@ import pages.issue.IssueDetailsPage;
 
 import java.util.List;
 
-public class MenuPage extends BasePage {
-    @FindBy(id = "divoCMenu0_0")
-    private Button openIndicator;
-
+public abstract class MenuPage extends BasePage {
     //=== Main Menu Sections ===========================================================================================
     @FindBy(xpath = ".//div[.= 'PUBLISHER']")
     @CacheLookup
@@ -47,23 +44,12 @@ public class MenuPage extends BasePage {
     @FindBy(xpath = ".//div[contains(@style, 'position: absolute; padding: 3px;')]")
     private List<WebElement> subMenuList;
 
-    @FindBy(xpath = ".//div[.= 'Publisher Inquiry']")
-    private Button publisherInquiryMenu;
-
-    @FindBy(xpath = ".//div[.= 'List of Journals']")
-    private Button listofJournalsSubMenu;
-
     public MenuPage() {
         super(false);
     }
 
-    @Override
-    public void openPage() {
-    }
-
-    @Override
-    public boolean isPageOpened() {
-        return openIndicator.isDisplayed();
+    public MenuPage(boolean openFromMenu) {
+        super(openFromMenu);
     }
 
     //===== Set methods ================================================================================================

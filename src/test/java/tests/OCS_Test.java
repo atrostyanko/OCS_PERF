@@ -15,6 +15,7 @@ import com.webtestsbase.WebDriverFactory;
 import pages.MainPage;
 import pages.MenuPage;
 import pages.issue.IssueDetailsPage;
+import tests.issue.IssueDetailsTest;
 import tests.loginPage.LoginPage_Tests;
 
 import java.util.Properties;
@@ -46,15 +47,14 @@ public class OCS_Test {
     }
 
     @Test
-    public void issueTest() {
+    public void issueTests() {
+        ExtentManager.createTest("ISSUE Tests.", "Verify all items from ISSUE menu.");
+
         MainPage mainPage = new LoginPage_Tests().login();
-        MenuPage menuPage = new MenuPage();
-        if (mainPage != null && menuPage != null) {
-            //Issue Details
-            menuPage.clickIssue();
-            IssueDetailsPage issueDetailsPage = (IssueDetailsPage) menuPage.clickIssueSubMenu("Issue Details");
-            issueDetailsPage.setAccession("485QV");
-            issueDetailsPage.clickSubmit();
-        }
+
+        new IssueDetailsTest().issueDetailsTest();
+
+        ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
+
 }
