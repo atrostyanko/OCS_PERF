@@ -9,9 +9,10 @@ import org.hamcrest.core.Is;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import pages.MainPage;
 import pages.MenuPage;
 
-public class IssueDetailsPage extends MenuPage {
+public class IssueDetailsPage extends MainPage {
     @FindBy (name = "accession")
     @CacheLookup
     private TextInput accession;
@@ -23,10 +24,6 @@ public class IssueDetailsPage extends MenuPage {
     @FindBy (name = "issueNo")
     @CacheLookup
     private TextInput issueNo;
-
-    @FindBy (name = "submit")
-    @CacheLookup
-    private Button submitBtn;
 
     @FindBy (xpath = ".//b[.='DF Issueno']")
     @CacheLookup

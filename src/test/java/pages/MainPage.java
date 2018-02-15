@@ -1,6 +1,7 @@
 package pages;
 
 import com.webtestsbase.BasePage;
+import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
 import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.support.CacheLookup;
@@ -17,6 +18,10 @@ public class MainPage extends MenuPage {
     @FindBy(xpath = ".//div[.= 'PUBLISHER']")
     @CacheLookup
     private Button publisherMenu;
+
+    @FindBy(name = "submit")
+    @CacheLookup
+    public Button submitBtn;
 
     public MainPage() {
         super(false);
@@ -36,4 +41,10 @@ public class MainPage extends MenuPage {
     }
 
     //===== Set methods ================================================================================================
+
+    //===== Click methods ==============================================================================================
+    public boolean clickSubmit() {
+        return submitBtn.click();
+    }
+
 }

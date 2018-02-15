@@ -4,7 +4,6 @@ import com.reporting.ExtentManager;
 import pages.MainPage;
 import pages.issue.IssueDetailsPage;
 import tests.OCS_Test;
-import tests.loginPage.LoginPage_Tests;
 
 import java.util.Properties;
 
@@ -17,7 +16,6 @@ public class IssueDetailsTest {
 
         ExtentManager.createNode("ISSUE -> Issue Details Page.", "Verify Issue Details Page.");
 
-        //MainPage mainPage = new LoginPage_Tests().login();
         MainPage mainPage = new MainPage(false);
 
         if (mainPage != null) {
@@ -31,8 +29,8 @@ public class IssueDetailsTest {
             ExtentManager.compareTrue(issueDetailsPage.openListArticlesTab(), "Open 'List Articles' tab.");
             ExtentManager.compareTrue(issueDetailsPage.openIssueTrackingRetrieveTab(), "Open 'Issue Tracking' tab.");
             ExtentManager.compareTrue(issueDetailsPage.openIssueDetailsTab(), "Open 'Issue Details' tab.");
+        } else {
+            ExtentManager.compareTrue(false, "Main Page was not opened.");
         }
-        //ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
-
 }

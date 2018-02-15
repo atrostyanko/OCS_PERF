@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import pages.issue.IssueDetailsPage;
+import pages.publisher.PublisherInquiryPage;
 
 import java.util.List;
 
@@ -88,5 +89,11 @@ public abstract class MenuPage extends BasePage {
             }
         }
         return null;
+    }
+    public void clickPublisherSubMenu(String sMenu) {
+        WebElement webElement = WebDriverFactory.getItemContainsText(subMenuList, sMenu);
+        if (webElement != null) {
+            WebDriverFactory.clickElement(webElement);
+        }
     }
 }
