@@ -2,55 +2,40 @@ package pages.publisher;
 
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
-import com.webtestsbase.commonElements.elements.CheckBox;
-import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
-import pages.MainPage;
 
-public class PublisherInquiryPage extends MainPage {
-    @FindBy(name = "publisherKey")
-    @CacheLookup
-    private TextInput publisherKey;
-
-    @FindBy(css = "input[name='publisherKeyType'][value='J']")
-    @CacheLookup
-    private CheckBox Journal;
-
-    @FindBy(css = "input[name='publisherKeyType'][value='B']")
-    @CacheLookup
-    private CheckBox Book;
-
-    @FindBy (xpath = ".//span[contains(text(), 'Publisher Number')]")
-    @CacheLookup
-    private WebElement publisherNumber;
-
+public class PublisherInquiryPage extends MainPublisherPage {
     @FindBy (xpath = ".//span[.= 'Summary Counts of Journals']")
-    @CacheLookup
     private WebElement summaryCounts;
+
+    @FindBy (xpath = ".//span[contains(text(), 'Royalty Remarks')]")
+    private WebElement royaltyRemarks;
+
+    @FindBy (xpath = ".//span[contains(text(), 'Publisher Notes')]")
+    private WebElement publisherNotes;
 
     @FindBy (css = "a.NavBarLinks[href *= 'PublisherInquiry.do?']")
     @CacheLookup
-    private Button publisherInquiryTab;
+    public Button publisherInquiryTab;
 
     @FindBy (css = "a.NavBarLinks[href *= 'PublisherJournalList.do?']")
     @CacheLookup
-    private Button JournalListTab;
+    public Button journalListTab;
 
     @FindBy (css = "a.NavBarLinks[href *= 'PublisherRoyaltyInquiry.do?']")
     @CacheLookup
-    private Button royaltyInquiryTab;
+    public Button royaltyInquiryTab;
 
     @FindBy (css = "a.NavBarLinks[href *= 'PublisherJournalsRoyalty.do?']")
     @CacheLookup
-    private Button JournalsRoyaltyList;
+    public Button journalsRoyaltyList;
 
     //====== Constructor ==============================
     public PublisherInquiryPage() {
         super(true);
     }
-
     public PublisherInquiryPage(boolean openFromMenu) {
         super(openFromMenu);
     }
@@ -58,7 +43,7 @@ public class PublisherInquiryPage extends MainPage {
     @Override
     public void openPage() {
         clickPublisher();
-        clickPublisherSubMenu("Publisher Inquiry");
+        clickSubMenu("Publisher Inquiry");
     }
 
     @Override
@@ -66,21 +51,28 @@ public class PublisherInquiryPage extends MainPage {
         return publisherKey.isDisplayed() && Journal.isDisplayed() && Book.isDisplayed();
     }
 
-    //===== Set methods ================================================================================================
-    public boolean setPublisherKey(String sValue) {
-        return publisherKey.setText(sValue);
-    }
-
     //===== Click methods ==============================================================================================
-    public boolean clickSubmit() {
-        if (submitBtn.click()) {
-            return WebDriverFactory.waitElementIsVisible(publisherNumber);
+    public boolean clickJournalListTab() {
+        if (journalListTab.click()) {
+            return WebDriverFactory.waitElementIsVisible(summaryCounts);
         }
         return false;
     }
-    public boolean clickJournalListTab() {
-        if (JournalListTab.click()) {
-            return WebDriverFactory.waitElementIsVisible(summaryCounts);
+    public boolean clickRoyaltyInquiryTab() {
+        if (royaltyInquiryTab.click()) {
+            return WebDriverFactory.waitElementIsVisible(royaltyRemarks);
+        }
+        return false;
+    }
+    public boolean clickJournalsRoyaltyList() {
+        if (journalsRoyaltyList.click()) {
+            return WebDriverFactory.waitElementIsVisible(royaltyRemarks);
+        }
+        return false;
+    }
+    public boolean clickPublisherInquiryTab() {
+        if (publisherInquiryTab.click()) {
+            return WebDriverFactory.waitElementIsVisible(publisherNotes);
         }
         return false;
     }

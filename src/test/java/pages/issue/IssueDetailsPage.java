@@ -5,12 +5,10 @@ import com.webtestsbase.commonElements.elements.Button;
 import com.webtestsbase.commonElements.elements.CheckBox;
 import com.webtestsbase.commonElements.elements.Label;
 import com.webtestsbase.commonElements.elements.TextInput;
-import org.hamcrest.core.Is;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import pages.MainPage;
-import pages.MenuPage;
 
 public class IssueDetailsPage extends MainPage {
     @FindBy (name = "accession")
@@ -53,12 +51,19 @@ public class IssueDetailsPage extends MainPage {
     @CacheLookup
     private Button issueTrackingRetrieveTab;
 
+    //====== Constructor ==============================
     public IssueDetailsPage() {
-        super();
+        super(true);
+    }
+    public IssueDetailsPage(boolean openFromMenu) {
+        super(openFromMenu);
     }
 
     @Override
-    public void openPage() {}
+    public void openPage() {
+        clickIssue();
+        clickSubMenu("Issue Details");
+    }
 
     @Override
     public boolean isPageOpened() {

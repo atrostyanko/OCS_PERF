@@ -16,21 +16,18 @@ public class IssueDetailsTest {
 
         ExtentManager.createNode("ISSUE -> Issue Details Page.", "Verify Issue Details Page.");
 
-        MainPage mainPage = new MainPage(false);
+        IssueDetailsPage issueDetailsPage = new IssueDetailsPage();
+        ExtentManager.compareNotNULL(issueDetailsPage, "Open 'ISSUE -> Issue Details' page.");
 
-        if (mainPage != null) {
-            ExtentManager.compareTrue(mainPage.clickIssue(), "Open 'ISSUE' Menu");
-
-            IssueDetailsPage issueDetailsPage = (IssueDetailsPage) mainPage.clickIssueSubMenu("Issue Details");
-            ExtentManager.compareNotNULL(issueDetailsPage, "Open 'ISSUE -> Issue Details' page.");
-
-            ExtentManager.compareTrue(issueDetailsPage.setAccession(accession), "Set Accession to " + accession);
-            ExtentManager.compareTrue(issueDetailsPage.clickSubmit(), "Click 'Submit' button.");
-            ExtentManager.compareTrue(issueDetailsPage.openListArticlesTab(), "Open 'List Articles' tab.");
-            ExtentManager.compareTrue(issueDetailsPage.openIssueTrackingRetrieveTab(), "Open 'Issue Tracking' tab.");
-            ExtentManager.compareTrue(issueDetailsPage.openIssueDetailsTab(), "Open 'Issue Details' tab.");
-        } else {
-            ExtentManager.compareTrue(false, "Main Page was not opened.");
-        }
+        ExtentManager.compareTrue(issueDetailsPage.setAccession(accession),
+                "Set Accession to " + accession);
+        ExtentManager.compareTrue(issueDetailsPage.clickSubmit(),
+                "Click 'Submit' button.");
+        ExtentManager.compareTrue(issueDetailsPage.openListArticlesTab(),
+                "Open 'List Articles' tab.");
+        ExtentManager.compareTrue(issueDetailsPage.openIssueTrackingRetrieveTab(),
+                "Open 'Issue Tracking' tab.");
+        ExtentManager.compareTrue(issueDetailsPage.openIssueDetailsTab(),
+                "Open 'Issue Details' tab.");
     }
 }

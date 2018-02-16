@@ -51,9 +51,11 @@ public class OCS_Test {
         MainPage mainPage = new LoginPage_Tests().login();
 
         new PublisherInquiryTest().publisherInquiryTest();
+        new PublisherInquiryTest().publisherEditPublisherTest();
 
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
+
 
     @Test
     public void issueTests() {
@@ -65,5 +67,4 @@ public class OCS_Test {
 
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
-
 }

@@ -76,21 +76,7 @@ public abstract class MenuPage extends BasePage {
         return logoffMainMenu.click();
     }
 
-    public Object clickIssueSubMenu(String sMenu) {
-        boolean bResult = false;
-        WebElement webElement = WebDriverFactory.getItemContainsText(subMenuList, sMenu);
-        if (webElement != null) {
-            bResult = WebDriverFactory.clickElement(webElement);
-        }
-        if (bResult) {
-            switch (sMenu) {
-                case "Issue Details":
-                    return new IssueDetailsPage();
-            }
-        }
-        return null;
-    }
-    public void clickPublisherSubMenu(String sMenu) {
+    public void clickSubMenu(String sMenu) {
         WebElement webElement = WebDriverFactory.getItemContainsText(subMenuList, sMenu);
         if (webElement != null) {
             WebDriverFactory.clickElement(webElement);
