@@ -121,4 +121,46 @@ public class PublisherInquiryTest {
                 "Click 'Confirm' button and verify that entity was created.");
 
     }
+    public void publisherAddNewSerieTest() {
+        int randomNum = (int) (Math.random() * 10000);
+
+        String publisherKey = prop.getProperty("PublisherKey");
+        String issn = prop.getProperty("issn");
+        String title11 = prop.getProperty("title11");
+        String title20 = prop.getProperty("title20");
+        String title29 = prop.getProperty("title29");
+        String fullTitle = prop.getProperty("fullTitle");
+        String country = prop.getProperty("country");
+        String frequency = prop.getProperty("frequency");
+
+        AddNewSeriePage addNewSeriePage = new AddNewSeriePage();
+        ExtentManager.compareNotNULL(addNewSeriePage, "Open 'PUBLISHER -> Add Sample Book page.");
+
+        ExtentManager.compareTrue(addNewSeriePage.setPublisherKey(publisherKey),
+                "Set Publisher Key to " + publisherKey);
+        ExtentManager.compareTrue(addNewSeriePage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(addNewSeriePage.issn.setText(issn),
+                "Set 'ISSN' to: " + issn);
+        ExtentManager.compareTrue(addNewSeriePage.title11.setText(title11),
+                "Set 'Title 11' to: " + title11);
+        ExtentManager.compareTrue(addNewSeriePage.title20.setText(title20),
+                "Set 'Title 20' to: " + title20);
+        ExtentManager.compareTrue(addNewSeriePage.title29.setText(title29),
+                "Set 'Title 29' to: " + title29);
+        ExtentManager.compareTrue(addNewSeriePage.fullTitle.setText(fullTitle + " - " + randomNum),
+                "Set 'Series Title' to: " + fullTitle + " - " + randomNum);
+        ExtentManager.compareTrue(addNewSeriePage.selectCountry(country),
+                "Set 'Country' to: " + country);
+        ExtentManager.compareTrue(addNewSeriePage.selectFrequency(frequency),
+                "Set 'Frequency' to: " + frequency);
+
+        ExtentManager.compareTrue(addNewSeriePage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        ExtentManager.compareNotNULL(addNewSeriePage.clickConfirmButton(),
+                "Click 'Confirm' button and verify that entity was created.");
+
+    }
 }

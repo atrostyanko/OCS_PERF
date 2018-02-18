@@ -50,13 +50,29 @@ public class OCS_Test {
 
         MainPage mainPage = new LoginPage_Tests().login();
 
-        /*
+        //=== Publisher Inquiry
         new PublisherInquiryTest().publisherInquiryTest();
-        new PublisherInquiryTest().publisherEditPublisherTest();
-        new PublisherInquiryTest().publisherJournalListTest();
-        */
 
+        //=== Publisher Edit
+        //===== Edit Publisher
+        new PublisherInquiryTest().publisherEditPublisherTest();
+        //===== Add Publisher
+        //===== Add Sample Publisher
+        //===== Edit Sample Publisher
+
+        //=== List of Journals
+        new PublisherInquiryTest().publisherJournalListTest();
+
+        //=== Royalty
+        //===== Royalty Inquiry
+
+        //=== Add Sample Book
         new PublisherInquiryTest().publisherAddSampleBookTest();
+
+        //=== Add Sample Journal
+
+        //=== Add a Serie
+        new PublisherInquiryTest().publisherAddNewSerieTest();
 
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }

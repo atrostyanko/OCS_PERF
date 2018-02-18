@@ -7,6 +7,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.configuration.TestsConfig;
@@ -133,6 +134,24 @@ public class WebDriverFactory {
             }
         }
         return bResult;
+    }
+
+    //===== Select methods =============================================================================================
+    public static boolean selectByText(WebElement webDropDown, String sText) {
+        Select dropdown = new Select(webDropDown);
+        if (dropdown != null) {
+            dropdown.selectByVisibleText(sText);
+            return dropdown.getFirstSelectedOption().getText().equals(sText);
+        }
+        return false;
+    }
+    public static boolean selectByValue(WebElement webDropDown, String sText) {
+        Select dropdown = new Select(webDropDown);
+        if (dropdown != null) {
+            dropdown.selectByValue(sText);
+            return dropdown.getFirstSelectedOption().getText().equals(sText);
+        }
+        return false;
     }
 
     //===== Check methods ==============================================================================================
@@ -485,15 +504,6 @@ public class WebDriverFactory {
     }
 
 
-
-    //===== Select methods =============================================================================================
-    public static boolean selectValueFromDropDownByText(WebElement webDropDown, String sText) {
-        Select dropdown = new Select(webDropDown);
-        if (dropdown != null) {
-            dropdown.selectByVisibleText(sText);
-        }
-        return dropdown.getFirstSelectedOption().getText().equals(sText);
-    }
 
     public static boolean selectItemFromOpsDropDownMenu(WebElement webElement, String sText) {
         boolean bReturn = false;
