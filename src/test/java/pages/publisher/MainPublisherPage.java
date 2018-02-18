@@ -1,6 +1,7 @@
 package pages.publisher;
 
 import com.webtestsbase.WebDriverFactory;
+import com.webtestsbase.commonElements.elements.Button;
 import com.webtestsbase.commonElements.elements.CheckBox;
 import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.WebElement;
@@ -24,6 +25,12 @@ public abstract class MainPublisherPage extends MainPage {
     @CacheLookup
     public CheckBox Book;
 
+    @FindBy(css = "[src *= 'Images/submit_changes.gif']")
+    public Button submitChanges;
+
+    @FindBy(name = "confirmButton")
+    public Button confirmButton;
+
     //====== Constructor ==============================
     public MainPublisherPage() {
         super(true);
@@ -45,5 +52,7 @@ public abstract class MainPublisherPage extends MainPage {
         }
         return false;
     }
-
+    public boolean clickSubmitChanges() {
+        return submitChanges.click();
+    }
 }

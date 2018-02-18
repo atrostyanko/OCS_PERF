@@ -53,8 +53,10 @@ public class OCS_Test {
         /*
         new PublisherInquiryTest().publisherInquiryTest();
         new PublisherInquiryTest().publisherEditPublisherTest();
-        */
         new PublisherInquiryTest().publisherJournalListTest();
+        */
+
+        new PublisherInquiryTest().publisherAddSampleBookTest();
 
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }

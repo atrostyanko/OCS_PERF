@@ -1,9 +1,7 @@
 package tests.publisher;
 
 import com.reporting.ExtentManager;
-import pages.publisher.PublisherEditPage;
-import pages.publisher.PublisherInquiryPage;
-import pages.publisher.PublisherJournalListPage;
+import pages.publisher.*;
 import tests.OCS_Test;
 
 import java.util.Properties;
@@ -75,6 +73,52 @@ public class PublisherInquiryTest {
                 "Open 'Journals Royalty List' tab.");
         ExtentManager.compareTrue(publisherJournalListPage.clickPublisherInquiryTab(),
                 "Open 'Publisher Inquiry Tab' tab.");
+
+    }
+    public void publisherAddSampleBookTest() {
+        int randomNum = (int) (Math.random() * 10000);
+
+        String publisherKey = prop.getProperty("PublisherKey");
+        String ISBN = prop.getProperty("ISBN");
+        String FullTitle = prop.getProperty("FullTitle");
+        String PubYear = prop.getProperty("PubYear");
+        String authorAddress0 = prop.getProperty("authorAddress0");
+        String SampleSource = prop.getProperty("SampleSource");
+        String PubContact = prop.getProperty("PubContact");
+        String BookDOI = prop.getProperty("BookDOI");
+
+        ExtentManager.createNode("PUBLISHER -> Add Sample Book.", "Verify Add Sample Book Page.");
+
+        AddSampleBookPage addSampleBookPage = new AddSampleBookPage();
+        ExtentManager.compareNotNULL(addSampleBookPage, "Open 'PUBLISHER -> Add Sample Book page.");
+
+        ExtentManager.compareTrue(addSampleBookPage.setPublisherKey(publisherKey),
+                "Set Publisher Key to " + publisherKey);
+        ExtentManager.compareTrue(addSampleBookPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(addSampleBookPage.requestedOrdered.set(),
+                "Set 'Requested/Ordered' option.");
+        ExtentManager.compareTrue(addSampleBookPage.isbn.setText(ISBN),
+                "Set 'ISBN' value: " + ISBN);
+        ExtentManager.compareTrue(addSampleBookPage.fullTitle.setText(FullTitle + " - " + randomNum),
+                "Set 'Full Title' value: " + FullTitle);
+        ExtentManager.compareTrue(addSampleBookPage.pubYear.setText(PubYear),
+                "Set 'PubYear' value: " + PubYear);
+        ExtentManager.compareTrue(addSampleBookPage.authorAddress0.setText(authorAddress0),
+                "Set 'Author Address' value: " + authorAddress0);
+        ExtentManager.compareTrue(addSampleBookPage.sampleSource.setText(SampleSource),
+                "Set 'Sample Source' value: " + SampleSource);
+        ExtentManager.compareTrue(addSampleBookPage.pubContact.setText(PubContact),
+                "Set 'Sample Source' value: " + SampleSource);
+        ExtentManager.compareTrue(addSampleBookPage.bookDOI.setText(BookDOI),
+                "Set 'Book DOI' value: " + BookDOI);
+
+        ExtentManager.compareTrue(addSampleBookPage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        ExtentManager.compareNotNULL(addSampleBookPage.clickConfirmButton(),
+                "Click 'Confirm' button and verify that entity was created.");
 
     }
 }

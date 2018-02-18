@@ -4,12 +4,6 @@ import com.webtestsbase.commonElements.elements.Button;
 import org.openqa.selenium.support.FindBy;
 
 public class PublisherEditPage extends MainPublisherPage {
-    @FindBy(css = "[src *= 'Images/submit_changes.gif']")
-    private Button submitChanges;
-
-    @FindBy(name = "confirmButton")
-    private Button confirmButton;
-
     //====== Constructor ==============================
     public PublisherEditPage() {
         super(true);
@@ -32,9 +26,6 @@ public class PublisherEditPage extends MainPublisherPage {
     }
 
     //===== Click methods ==============================================================================================
-    public boolean clickSubmitChanges() {
-        return submitChanges.click();
-    }
     public PublisherInquiryPage clickConfirmButton() {
         return confirmButton.click()
                 ? new PublisherInquiryPage(false)
