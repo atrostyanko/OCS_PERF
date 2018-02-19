@@ -56,13 +56,14 @@ public class OCS_Test {
         //=== Publisher Edit
         //===== Edit Publisher
         new PublisherInquiryTest().publisherEditPublisherTest();
-*/
+
         //===== Add Publisher
         new PublisherInquiryTest().publisherAddPublisherTest();
-/*
+*/
         //===== Add Sample Publisher
+        new PublisherInquiryTest().publisherAddSamplePublisherTest();
         //===== Edit Sample Publisher
-
+/*
         //=== List of Journals
         new PublisherInquiryTest().publisherJournalListTest();
 
