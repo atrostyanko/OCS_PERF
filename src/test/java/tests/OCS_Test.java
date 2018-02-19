@@ -49,14 +49,17 @@ public class OCS_Test {
         ExtentManager.createTest("PUBLISHER Tests.", "Verify all items from PUBLISHER menu.");
 
         MainPage mainPage = new LoginPage_Tests().login();
-
+/*
         //=== Publisher Inquiry
         new PublisherInquiryTest().publisherInquiryTest();
 
         //=== Publisher Edit
         //===== Edit Publisher
         new PublisherInquiryTest().publisherEditPublisherTest();
+*/
         //===== Add Publisher
+        new PublisherInquiryTest().publisherAddPublisherTest();
+/*
         //===== Add Sample Publisher
         //===== Edit Sample Publisher
 
@@ -73,7 +76,7 @@ public class OCS_Test {
 
         //=== Add a Serie
         new PublisherInquiryTest().publisherAddNewSerieTest();
-
+*/
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
 

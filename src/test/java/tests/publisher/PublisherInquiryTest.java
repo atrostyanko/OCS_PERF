@@ -52,6 +52,39 @@ public class PublisherInquiryTest {
         ExtentManager.compareNotNULL(publisherInquiryPage,
                 "Click 'Confirm' button and verify Publisher Inquiry page is opened.");
     }
+    public void publisherAddPublisherTest() {
+        String publisherName = prop.getProperty("publisherName");
+        String publisherAddressStreet = prop.getProperty("publisherAddressStreet");
+        String publisherAddressCity = prop.getProperty("publisherAddressCity");
+        String publisherAddressCountry = prop.getProperty("publisherAddressCountry");
+        String publisherAddressPostcodes = prop.getProperty("publisherAddressPostcodes");
+
+        ExtentManager.createNode("PUBLISHER -> EDIT -> Add Publisher.", "Verify Add Publisher Page.");
+
+        AddPublisherPage addPublisherPage = new AddPublisherPage();
+        ExtentManager.compareNotNULL(addPublisherPage, "Open 'PUBLISHER -> EDIT -> Add Publisher page.");
+
+        ExtentManager.compareTrue(addPublisherPage.Book.set(),
+                "Set 'Publisher Type' to: Book.");
+        ExtentManager.compareTrue(addPublisherPage.publisherName.setText(publisherName),
+                "Set 'Publisher Name' to: " + publisherName);
+        ExtentManager.compareTrue(addPublisherPage.publisherAddressStreet.setText(publisherAddressStreet),
+                "Set 'Publisher Address : Street' to: " + publisherAddressStreet);
+        ExtentManager.compareTrue(addPublisherPage.publisherAddressCity.setText(publisherAddressCity),
+                "Set 'Publisher Address : City' to: " + publisherAddressCity);
+        ExtentManager.compareTrue(addPublisherPage.selectCountry(publisherAddressCountry),
+                "Set 'Publisher Address : Country' to: " + publisherAddressCountry);
+        ExtentManager.compareTrue(addPublisherPage.publisherAddressZip.setText(publisherAddressPostcodes),
+                "Set 'Publisher Address : Postcode' to: " + publisherAddressPostcodes);
+
+        ExtentManager.compareTrue(addPublisherPage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        PublisherInquiryPage publisherInquiryPage = addPublisherPage.clickConfirmButton();
+        ExtentManager.compareNotNULL(publisherInquiryPage,
+                "Click 'Confirm' button and verify Publisher Inquiry page is opened.");
+
+    }
     public void publisherJournalListTest() {
         String publisherKey = prop.getProperty("PublisherKey");
 
