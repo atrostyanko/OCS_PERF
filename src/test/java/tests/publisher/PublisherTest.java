@@ -295,6 +295,44 @@ public class PublisherTest {
                 "Click 'Confirm' button and verify that entity was created.");
 
     }
+    public void publisherAddSampleJournalTest() {
+        int randomNum = (int) (Math.random() * 10000);
+
+        String publisherKey = prop.getProperty("PublisherKey");
+        String issn = prop.getProperty("journal_issn");
+        String isbn = prop.getProperty("journal_isbn");
+        String fullTitle = prop.getProperty("journal_fullTitle");
+        String country = prop.getProperty("journal_country");
+        String frequency = prop.getProperty("journal_frequency");
+        String sampleEvalResult = prop.getProperty("journal_sampleEvalResult");
+
+        AddSampleJournalPage addSampleJournalPage = new AddSampleJournalPage();
+        ExtentManager.compareNotNULL(addSampleJournalPage, "Open 'PUBLISHER -> Add Sample Journal page.");
+
+        ExtentManager.compareTrue(addSampleJournalPage.setPublisherKey(publisherKey),
+                "Set Publisher Key to " + publisherKey);
+        ExtentManager.compareTrue(addSampleJournalPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(addSampleJournalPage.issn.setText(issn),
+                "Set 'ISSN' to: " + issn);
+        ExtentManager.compareTrue(addSampleJournalPage.isbn.setText(isbn),
+                "Set 'ISBN' to: " + issn);
+        ExtentManager.compareTrue(addSampleJournalPage.fullTitle.setText(fullTitle + " - " + randomNum),
+                "Set 'Series Title' to: " + fullTitle + " - " + randomNum);
+        ExtentManager.compareTrue(addSampleJournalPage.selectCountry(country),
+                "Set 'Country' to: " + country);
+        ExtentManager.compareTrue(addSampleJournalPage.selectFrequency(frequency),
+                "Set 'Frequency' to: " + frequency);
+        ExtentManager.compareTrue(addSampleJournalPage.selectSampleEvalResult(sampleEvalResult),
+                "Set 'Sample Eval Result' to: " + sampleEvalResult);
+
+        ExtentManager.compareTrue(addSampleJournalPage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        ExtentManager.compareNotNULL(addSampleJournalPage.clickConfirmButton(),
+                "Click 'Confirm' button and verify that entity was created.");
+    }
     public void publisherAddNewSerieTest() {
         int randomNum = (int) (Math.random() * 10000);
 

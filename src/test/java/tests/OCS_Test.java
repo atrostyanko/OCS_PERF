@@ -85,6 +85,7 @@ public class OCS_Test {
         publisherTest.publisherAddSampleBookTest();
 
         //=== Add Sample journal
+        publisherTest.publisherAddSampleJournalTest();
 
         //=== Add a Serie
         publisherTest.publisherAddNewSerieTest();
