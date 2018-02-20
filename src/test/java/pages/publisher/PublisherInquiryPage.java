@@ -2,6 +2,7 @@ package pages.publisher;
 
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -12,6 +13,9 @@ public class PublisherInquiryPage extends MainPublisherPage {
 
     @FindBy (xpath = ".//span[contains(text(), 'Royalty Remarks')]")
     private WebElement royaltyRemarks;
+
+    @FindBy (xpath = ".//span[contains(text(), 'Publisher Number')]")
+    public WebElement publisherNumber;
 
     @FindBy (xpath = ".//span[contains(text(), 'Publisher Notes')]")
     private WebElement publisherNotes;
@@ -32,6 +36,7 @@ public class PublisherInquiryPage extends MainPublisherPage {
     @CacheLookup
     public Button journalsRoyaltyList;
 
+
     //====== Constructor ==============================
     public PublisherInquiryPage() {
         super(true);
@@ -49,6 +54,21 @@ public class PublisherInquiryPage extends MainPublisherPage {
     @Override
     public boolean isPageOpened() {
         return publisherKey.isDisplayed() && Journal.isDisplayed() && Book.isDisplayed();
+    }
+
+    //===== Get methods ================================================================================================
+    public String getElementValue(WebElement webElement) {
+        String sReturn = "";
+        if (webElement != null) {
+            WebElement eParent = WebDriverFactory.getParentUntilTagName(webElement, "tr");
+            if (eParent != null) {
+                WebElement eChild = WebDriverFactory.getChildElement(eParent, By.cssSelector("span > span.DataValue"));
+                if (eChild != null) {
+                    return WebDriverFactory.getWebElementText(eChild);
+                }
+            }
+        }
+        return sReturn;
     }
 
     //===== Click methods ==============================================================================================

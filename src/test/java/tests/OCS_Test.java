@@ -12,9 +12,8 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import pages.MainPage;
-import tests.issue.IssueDetailsTest;
 import tests.loginPage.LoginPage_Tests;
-import tests.publisher.PublisherInquiryTest;
+import tests.publisher.PublisherTest;
 
 import java.util.Properties;
 
@@ -49,35 +48,38 @@ public class OCS_Test {
         ExtentManager.createTest("PUBLISHER Tests.", "Verify all items from PUBLISHER menu.");
 
         MainPage mainPage = new LoginPage_Tests().login();
-/*
+
         //=== Publisher Inquiry
-        new PublisherInquiryTest().publisherInquiryTest();
+        new PublisherTest().publisherInquiryTest();
 
         //=== Publisher Edit
         //===== Edit Publisher
-        new PublisherInquiryTest().publisherEditPublisherTest();
+        new PublisherTest().publisherEditPublisherTest();
 
         //===== Add Publisher
-        new PublisherInquiryTest().publisherAddPublisherTest();
-*/
+        new PublisherTest().publisherAddPublisherTest();
+
         //===== Add Sample Publisher
-        new PublisherInquiryTest().publisherAddSamplePublisherTest();
+        new PublisherTest().publisherAddSamplePublisherTest();
+
         //===== Edit Sample Publisher
-/*
+        new PublisherTest().publisherEditSamplePublisherTest();
+
         //=== List of Journals
-        new PublisherInquiryTest().publisherJournalListTest();
+        new PublisherTest().publisherJournalListTest();
 
         //=== Royalty
         //===== Royalty Inquiry
+        new PublisherTest().publisherAddSampleBookTest();
 
         //=== Add Sample Book
-        new PublisherInquiryTest().publisherAddSampleBookTest();
+        new PublisherTest().publisherAddSampleBookTest();
 
         //=== Add Sample Journal
 
         //=== Add a Serie
-        new PublisherInquiryTest().publisherAddNewSerieTest();
-*/
+        new PublisherTest().publisherAddNewSerieTest();
+
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
 

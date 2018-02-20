@@ -6,9 +6,14 @@ import tests.OCS_Test;
 
 import java.util.Properties;
 
-public class PublisherInquiryTest {
+public class PublisherTest {
     public static ExtentManager eReports = OCS_Test.eReports;
     public static Properties prop = OCS_Test.prop;
+
+    //String storedPublisherNumber;
+
+    //ToDo: REMOVE
+    String storedPublisherNumber = "SAPXZ";
 
     public void publisherInquiryTest() {
         String publisherKey = prop.getProperty("PublisherKey");
@@ -117,6 +122,45 @@ public class PublisherInquiryTest {
         ExtentManager.compareNotNULL(publisherInquiryPage,
                 "Click 'Confirm' button and verify Publisher Inquiry page is opened.");
 
+        storedPublisherNumber = publisherInquiryPage.getElementValue(publisherInquiryPage.publisherNumber);
+    }
+    public void publisherEditSamplePublisherTest() {
+        String publisherKey = storedPublisherNumber;
+        String publisherName = prop.getProperty("samplePublisherName_UPD");
+        String publisherAddressStreet = prop.getProperty("samplePublisherAddressStreet_UPD");
+        String publisherAddressCity = prop.getProperty("samplePublisherAddressCity_UPD");
+        String publisherAddressCountry = prop.getProperty("samplePublisherAddressCountry_UPD");
+        String publisherAddressPostcodes = prop.getProperty("samplePublisherAddressPostcodes_UPD");
+
+        ExtentManager.createNode("PUBLISHER -> EDIT -> Edit Sample Publisher.", "Verify Edit Sample Publisher Page.");
+
+        EditSamplePublisherPage editSamplePublisherPage = new EditSamplePublisherPage();
+        ExtentManager.compareNotNULL(editSamplePublisherPage, "Open 'PUBLISHER -> EDIT -> Edit Sample Publisher page.");
+
+        ExtentManager.compareTrue(editSamplePublisherPage.setPublisherKey(publisherKey),
+                "Set Publisher Key to " + publisherKey);
+        ExtentManager.compareTrue(editSamplePublisherPage.Book.set(),
+                "Select 'Book' option.");
+        ExtentManager.compareTrue(editSamplePublisherPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(editSamplePublisherPage.publisherName.setText(publisherName),
+                "Set 'Publisher Name' to: " + publisherName);
+        ExtentManager.compareTrue(editSamplePublisherPage.publisherAddressStreet.setText(publisherAddressStreet),
+                "Set 'Publisher Address : Street' to: " + publisherAddressStreet);
+        ExtentManager.compareTrue(editSamplePublisherPage.publisherAddressCity.setText(publisherAddressCity),
+                "Set 'Publisher Address : City' to: " + publisherAddressCity);
+        ExtentManager.compareTrue(editSamplePublisherPage.selectCountry(publisherAddressCountry),
+                "Set 'Publisher Address : Country' to: " + publisherAddressCountry);
+        ExtentManager.compareTrue(editSamplePublisherPage.publisherAddressZip.setText(publisherAddressPostcodes),
+                "Set 'Publisher Address : Postcode' to: " + publisherAddressPostcodes);
+
+        ExtentManager.compareTrue(editSamplePublisherPage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        PublisherInquiryPage publisherInquiryPage = editSamplePublisherPage.clickConfirmButton();
+        ExtentManager.compareNotNULL(publisherInquiryPage,
+                "Click 'Confirm' button and verify Publisher Inquiry page is opened.");
     }
     public void publisherJournalListTest() {
         String publisherKey = prop.getProperty("PublisherKey");

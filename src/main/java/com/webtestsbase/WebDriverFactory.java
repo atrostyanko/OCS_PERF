@@ -108,6 +108,19 @@ public class WebDriverFactory {
         }
     }
 
+    public static WebElement getParentUntilTagName(WebElement el, String sTagName) {
+        try {
+            WebElement elResult = getParentElement(el);
+            while (!elResult.getTagName().toLowerCase().equals(sTagName)) {
+                elResult = getParentElement(elResult);
+            }
+            return elResult;
+        } catch (Exception e) {
+            ExtentManager.getCurrentTest().warning("getParentUntilTagName: Catch an exception: " + e.toString());
+            return null;
+        }
+    }
+
     public static WebElement getItemContainsText(List<WebElement> webElements, String sValue) {
         for (WebElement item : webElements) {
             try {
@@ -119,6 +132,22 @@ public class WebDriverFactory {
             }
         }
         return null;
+    }
+
+    public static WebElement getChildElement(WebElement parent, By child) {
+        try {
+            return parent.findElement(child);
+        } catch (Exception ex) {
+            return null;
+        }
+    }
+
+    public static String getWebElementText(WebElement webElement) {
+        try {
+            return webElement.getText();
+        } catch (Exception ex) {
+            return "";
+        }
     }
 
     //===== CheckBox Methods ===========================================================================================
@@ -145,6 +174,7 @@ public class WebDriverFactory {
         }
         return false;
     }
+
     public static boolean selectByValue(WebElement webDropDown, String sText) {
         Select dropdown = new Select(webDropDown);
         if (dropdown != null) {
@@ -275,15 +305,6 @@ public class WebDriverFactory {
 
 
     /*
-
-    public static WebElement getChildElement(WebElement parent, By child) {
-        try {
-            return parent.findElement(child);
-        } catch (Exception ex) {
-            return null;
-        }
-    }
-
     public static List<WebElement> getChildElements(WebElement parent, By child) {
         List<WebElement> list = null;
         if (parent == null) {
@@ -494,16 +515,6 @@ public class WebDriverFactory {
         }
         return listText;
     }
-
-    public static String getWebElementText(WebElement webElement) {
-        try {
-            return webElement.getText();
-        } catch (Exception ex) {
-            return "";
-        }
-    }
-
-
 
     public static boolean selectItemFromOpsDropDownMenu(WebElement webElement, String sText) {
         boolean bReturn = false;
