@@ -10,14 +10,15 @@ public class PublisherTest {
     public static ExtentManager eReports = OCS_Test.eReports;
     public static Properties prop = OCS_Test.prop;
 
-    //String storedPublisherNumber;
+    String publisherKey = prop.getProperty("PublisherKey");
+    String storedPublisherNumber;
 
-    //ToDo: REMOVE
-    String storedPublisherNumber = "SAPXZ";
+    public PublisherTest() {
+        //ToDo: REMOVE
+        publisherKey = "SAPXZ";
+    }
 
     public void publisherInquiryTest() {
-        String publisherKey = prop.getProperty("PublisherKey");
-
         ExtentManager.createNode("PUBLISHER -> Publisher Inquiry Page.", "Verify Publisher Inquiry Page.");
 
         PublisherInquiryPage publisherInquiryPage = new PublisherInquiryPage();
@@ -29,7 +30,7 @@ public class PublisherTest {
                 "Click 'Submit' button.");
 
         ExtentManager.compareTrue(publisherInquiryPage.clickJournalListTab(),
-                "Open 'Journal List' tab.");
+                "Open 'journal List' tab.");
         ExtentManager.compareTrue(publisherInquiryPage.clickRoyaltyInquiryTab(),
                 "Open 'Royalty Inquiry' tab.");
         ExtentManager.compareTrue(publisherInquiryPage.clickJournalsRoyaltyList(),
@@ -37,9 +38,8 @@ public class PublisherTest {
         ExtentManager.compareTrue(publisherInquiryPage.clickPublisherInquiryTab(),
                 "Open 'Publisher Inquiry Tab' tab.");
     }
-    public void publisherEditPublisherTest() {
-        String publisherKey = prop.getProperty("PublisherKey");
 
+    public void publisherEditPublisherTest() {
         ExtentManager.createNode("PUBLISHER -> EDIT -> Edit Publisher.", "Verify Edit Publisher Page.");
 
         PublisherEditPage publisherEditPage = new PublisherEditPage();
@@ -70,7 +70,7 @@ public class PublisherTest {
         ExtentManager.compareNotNULL(addPublisherPage, "Open 'PUBLISHER -> EDIT -> Add Publisher page.");
 
         ExtentManager.compareTrue(addPublisherPage.Book.set(),
-                "Set 'Publisher Type' to: Book.");
+                "Set 'Publisher Type' to: book.");
         ExtentManager.compareTrue(addPublisherPage.publisherName.setText(publisherName),
                 "Set 'Publisher Name' to: " + publisherName);
         ExtentManager.compareTrue(addPublisherPage.publisherAddressStreet.setText(publisherAddressStreet),
@@ -103,7 +103,7 @@ public class PublisherTest {
         ExtentManager.compareNotNULL(addSamplePublisherPage, "Open 'PUBLISHER -> EDIT -> Add Sample Publisher page.");
 
         ExtentManager.compareTrue(addSamplePublisherPage.Book.set(),
-                "Set 'Publisher Type' to: Book.");
+                "Set 'Publisher Type' to: book.");
         ExtentManager.compareTrue(addSamplePublisherPage.publisherName.setText(publisherName),
                 "Set 'Publisher Name' to: " + publisherName);
         ExtentManager.compareTrue(addSamplePublisherPage.publisherAddressStreet.setText(publisherAddressStreet),
@@ -140,7 +140,7 @@ public class PublisherTest {
         ExtentManager.compareTrue(editSamplePublisherPage.setPublisherKey(publisherKey),
                 "Set Publisher Key to " + publisherKey);
         ExtentManager.compareTrue(editSamplePublisherPage.Book.set(),
-                "Select 'Book' option.");
+                "Select 'book' option.");
         ExtentManager.compareTrue(editSamplePublisherPage.clickSubmit(),
                 "Click 'Submit' button.");
 
@@ -162,9 +162,8 @@ public class PublisherTest {
         ExtentManager.compareNotNULL(publisherInquiryPage,
                 "Click 'Confirm' button and verify Publisher Inquiry page is opened.");
     }
-    public void publisherJournalListTest() {
-        String publisherKey = prop.getProperty("PublisherKey");
 
+    public void publisherJournalListTest() {
         ExtentManager.createNode("PUBLISHER -> EDIT -> Edit Publisher.", "Verify Edit Publisher Page.");
 
         PublisherJournalListPage publisherJournalListPage = new PublisherJournalListPage();
@@ -176,7 +175,7 @@ public class PublisherTest {
                 "Click 'Submit' button.");
 
         ExtentManager.compareTrue(publisherJournalListPage.clickJournalListTab(),
-                "Open 'Journal List' tab.");
+                "Open 'journal List' tab.");
         ExtentManager.compareTrue(publisherJournalListPage.clickRoyaltyInquiryTab(),
                 "Open 'Royalty Inquiry' tab.");
         ExtentManager.compareTrue(publisherJournalListPage.clickJournalsRoyaltyList(),
@@ -185,10 +184,54 @@ public class PublisherTest {
                 "Open 'Publisher Inquiry Tab' tab.");
 
     }
+
+    public void publisherRoyaltyInquiryTest() {
+        ExtentManager.createNode("PUBLISHER -> Royalty -> Royalty Inquiry.", "Verify Royalty Inquiry Page.");
+
+        RoyaltyInquiryPage royaltyInquiryPage = new RoyaltyInquiryPage();
+        ExtentManager.compareNotNULL(royaltyInquiryPage, "Open 'PUBLISHER -> Royalty -> Royalty Inquiry page.");
+
+        ExtentManager.compareTrue(royaltyInquiryPage.setPublisherKey(publisherKey),
+                "Set Publisher Key to " + publisherKey);
+        ExtentManager.compareTrue(royaltyInquiryPage.book.set(),
+                "Select book option.");
+        ExtentManager.compareTrue(royaltyInquiryPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(royaltyInquiryPage.clickJournalListTab(),
+                "Open 'journal List' tab.");
+        ExtentManager.compareTrue(royaltyInquiryPage.clickRoyaltyInquiryTab(),
+                "Open 'Royalty Inquiry' tab.");
+        ExtentManager.compareTrue(royaltyInquiryPage.clickJournalsRoyaltyList(),
+                "Open 'Journals Royalty List' tab.");
+        ExtentManager.compareTrue(royaltyInquiryPage.clickPublisherInquiryTab(),
+                "Open 'Publisher Inquiry Tab' tab.");
+
+    }
+    public void publisherEditRoyaltyTest() {
+        ExtentManager.createNode("PUBLISHER -> Royalty -> Edit Royalty.", "Verify Edit Royalty Page.");
+
+        EditRoyaltyPage editRoyaltyPage = new EditRoyaltyPage();
+        ExtentManager.compareNotNULL(editRoyaltyPage, "Open 'PUBLISHER -> Royalty -> Edit Royalty page.");
+
+        ExtentManager.compareTrue(editRoyaltyPage.setPublisherKey(publisherKey),
+                "Set Publisher Key to " + publisherKey);
+        ExtentManager.compareTrue(editRoyaltyPage.book.set(),
+                "Select book option.");
+        ExtentManager.compareTrue(editRoyaltyPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(editRoyaltyPage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        RoyaltyInquiryPage royaltyInquiryPage = editRoyaltyPage.clickConfirmButton();
+        ExtentManager.compareNotNULL(royaltyInquiryPage,
+                "Click 'Confirm' button and verify Royalty Inquiry page is opened.");
+    }
+
     public void publisherAddSampleBookTest() {
         int randomNum = (int) (Math.random() * 10000);
 
-        String publisherKey = prop.getProperty("PublisherKey");
         String ISBN = prop.getProperty("ISBN");
         String FullTitle = prop.getProperty("FullTitle");
         String PubYear = prop.getProperty("PubYear");
@@ -197,10 +240,10 @@ public class PublisherTest {
         String PubContact = prop.getProperty("PubContact");
         String BookDOI = prop.getProperty("BookDOI");
 
-        ExtentManager.createNode("PUBLISHER -> Add Sample Book.", "Verify Add Sample Book Page.");
+        ExtentManager.createNode("PUBLISHER -> Add Sample book.", "Verify Add Sample book Page.");
 
         AddSampleBookPage addSampleBookPage = new AddSampleBookPage();
-        ExtentManager.compareNotNULL(addSampleBookPage, "Open 'PUBLISHER -> Add Sample Book page.");
+        ExtentManager.compareNotNULL(addSampleBookPage, "Open 'PUBLISHER -> Add Sample book page.");
 
         ExtentManager.compareTrue(addSampleBookPage.setPublisherKey(publisherKey),
                 "Set Publisher Key to " + publisherKey);
@@ -222,7 +265,7 @@ public class PublisherTest {
         ExtentManager.compareTrue(addSampleBookPage.pubContact.setText(PubContact),
                 "Set 'Sample Source' value: " + SampleSource);
         ExtentManager.compareTrue(addSampleBookPage.bookDOI.setText(BookDOI),
-                "Set 'Book DOI' value: " + BookDOI);
+                "Set 'book DOI' value: " + BookDOI);
 
         ExtentManager.compareTrue(addSampleBookPage.clickSubmitChanges(),
                 "Click 'Submit Changes' button.");
@@ -234,7 +277,6 @@ public class PublisherTest {
     public void publisherAddNewSerieTest() {
         int randomNum = (int) (Math.random() * 10000);
 
-        String publisherKey = prop.getProperty("PublisherKey");
         String issn = prop.getProperty("issn");
         String title11 = prop.getProperty("title11");
         String title20 = prop.getProperty("title20");
@@ -244,7 +286,7 @@ public class PublisherTest {
         String frequency = prop.getProperty("frequency");
 
         AddNewSeriePage addNewSeriePage = new AddNewSeriePage();
-        ExtentManager.compareNotNULL(addNewSeriePage, "Open 'PUBLISHER -> Add Sample Book page.");
+        ExtentManager.compareNotNULL(addNewSeriePage, "Open 'PUBLISHER -> Add Sample book page.");
 
         ExtentManager.compareTrue(addNewSeriePage.setPublisherKey(publisherKey),
                 "Set Publisher Key to " + publisherKey);

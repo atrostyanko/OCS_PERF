@@ -1,20 +1,25 @@
 package pages.publisher;
 
-public class PublisherEditPage extends MainPublisherPage {
+import com.webtestsbase.WebDriverFactory;
+import com.webtestsbase.commonElements.elements.Button;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
+
+public class EditRoyaltyPage extends MainPublisherPage {
     //====== Constructor ==============================
-    public PublisherEditPage() {
+    public EditRoyaltyPage() {
         super(true);
     }
-
-    public PublisherEditPage(boolean openFromMenu) {
+    public EditRoyaltyPage(boolean openFromMenu) {
         super(openFromMenu);
     }
 
     @Override
     public void openPage() {
         clickPublisher();
-        clickSubMenu("Edit");
-        clickSubMenu("Edit Publisher");
+        clickSubMenu("Royalty");
+        clickSubMenu("Edit Royalty");
     }
 
     @Override
@@ -23,9 +28,9 @@ public class PublisherEditPage extends MainPublisherPage {
     }
 
     //===== Click methods ==============================================================================================
-    public PublisherInquiryPage clickConfirmButton() {
+    public RoyaltyInquiryPage clickConfirmButton() {
         return confirmButton.click()
-                ? new PublisherInquiryPage(false)
+                ? new RoyaltyInquiryPage(false)
                 : null;
     }
 }

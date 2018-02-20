@@ -48,7 +48,7 @@ public class OCS_Test {
         ExtentManager.createTest("PUBLISHER Tests.", "Verify all items from PUBLISHER menu.");
 
         MainPage mainPage = new LoginPage_Tests().login();
-
+/*
         //=== Publisher Inquiry
         new PublisherTest().publisherInquiryTest();
 
@@ -70,16 +70,23 @@ public class OCS_Test {
 
         //=== Royalty
         //===== Royalty Inquiry
+        new PublisherTest().publisherRoyaltyInquiryTest();
+*/
+        //===== Edit Royalty
+        new PublisherTest().publisherEditRoyaltyTest();
+/*
+        //===== List journal Royalties
+
+        //===== Edit Multiple journal Royalties
+
+        //=== Add Sample book
         new PublisherTest().publisherAddSampleBookTest();
 
-        //=== Add Sample Book
-        new PublisherTest().publisherAddSampleBookTest();
-
-        //=== Add Sample Journal
+        //=== Add Sample journal
 
         //=== Add a Serie
         new PublisherTest().publisherAddNewSerieTest();
-
+*/
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
 

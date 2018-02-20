@@ -19,11 +19,11 @@ public abstract class MainPublisherPage extends MainPage {
 
     @FindBy(css = "input[name='publisherKeyType'][value='J']")
     @CacheLookup
-    public CheckBox Journal;
+    public CheckBox journal;
 
     @FindBy(css = "input[name='publisherKeyType'][value='B']")
     @CacheLookup
-    public CheckBox Book;
+    public CheckBox book;
 
     @FindBy(css = "[src *= 'Images/submit_changes.gif']")
     public Button submitChanges;

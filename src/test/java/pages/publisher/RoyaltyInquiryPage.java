@@ -2,25 +2,12 @@ package pages.publisher;
 
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
-public class PublisherInquiryPage extends MainPublisherPage {
-    @FindBy (xpath = ".//span[.= 'Summary Counts of Journals']")
-    private WebElement summaryCounts;
-
-    @FindBy (xpath = ".//span[contains(text(), 'Royalty Remarks')]")
-    private WebElement royaltyRemarks;
-
-    @FindBy (xpath = ".//span[contains(text(), 'Publisher Number')]")
-    public WebElement publisherNumber;
-
-    @FindBy (xpath = ".//span[contains(text(), 'Publisher Notes')]")
-    private WebElement publisherNotes;
-
-    @FindBy (css = "a.NavBarLinks[href *= 'PublisherInquiry.do?']")
+public class RoyaltyInquiryPage extends MainPublisherPage {
+    @FindBy(css = "a.NavBarLinks[href *= 'PublisherInquiry.do?']")
     @CacheLookup
     public Button publisherInquiryTab;
 
@@ -36,39 +23,36 @@ public class PublisherInquiryPage extends MainPublisherPage {
     @CacheLookup
     public Button journalsRoyaltyList;
 
+    @FindBy (xpath = ".//span[.= 'Summary Counts of Journals']")
+    private WebElement summaryCounts;
+
+    @FindBy (xpath = ".//span[contains(text(), 'Royalty Remarks')]")
+    private WebElement royaltyRemarks;
+
+    @FindBy (xpath = ".//span[contains(text(), 'Publisher Number')]")
+    public WebElement publisherNumber;
+
+    @FindBy (xpath = ".//span[contains(text(), 'Publisher Notes')]")
+    private WebElement publisherNotes;
 
     //====== Constructor ==============================
-    public PublisherInquiryPage() {
+    public RoyaltyInquiryPage() {
         super(true);
     }
-    public PublisherInquiryPage(boolean openFromMenu) {
+    public RoyaltyInquiryPage(boolean openFromMenu) {
         super(openFromMenu);
     }
 
     @Override
     public void openPage() {
         clickPublisher();
-        clickSubMenu("Publisher Inquiry");
+        clickSubMenu("Royalty");
+        clickSubMenu("Royalty Inquiry");
     }
 
     @Override
     public boolean isPageOpened() {
         return publisherKey.isDisplayed() && journal.isDisplayed() && book.isDisplayed();
-    }
-
-    //===== Get methods ================================================================================================
-    public String getElementValue(WebElement webElement) {
-        String sReturn = "";
-        if (webElement != null) {
-            WebElement eParent = WebDriverFactory.getParentUntilTagName(webElement, "tr");
-            if (eParent != null) {
-                WebElement eChild = WebDriverFactory.getChildElement(eParent, By.cssSelector("span > span.DataValue"));
-                if (eChild != null) {
-                    return WebDriverFactory.getWebElementText(eChild);
-                }
-            }
-        }
-        return sReturn;
     }
 
     //===== Click methods ==============================================================================================
@@ -96,4 +80,5 @@ public class PublisherInquiryPage extends MainPublisherPage {
         }
         return false;
     }
+
 }

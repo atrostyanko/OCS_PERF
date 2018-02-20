@@ -49,7 +49,7 @@ public class PublisherJournalListPage extends MainPublisherPage {
 
     @Override
     public boolean isPageOpened() {
-        return publisherKey.isDisplayed() && Journal.isDisplayed() && Book.isDisplayed();
+        return publisherKey.isDisplayed() && journal.isDisplayed() && book.isDisplayed();
     }
 
     //===== Click methods ==============================================================================================

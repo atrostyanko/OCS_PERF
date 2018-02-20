@@ -7,7 +7,7 @@ import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.support.FindBy;
 
 public class AddSampleBookPage extends MainPublisherPage {
-    @FindBy(xpath = ".//b[.= 'Add New Sample Book']")
+    @FindBy(xpath = ".//b[.= 'Add New Sample book']")
     private Label addNewSampleBookLabel;
 
     @FindBy(name = "isbn")
@@ -49,7 +49,7 @@ public class AddSampleBookPage extends MainPublisherPage {
     @Override
     public void openPage() {
         clickPublisher();
-        clickSubMenu("Add Sample Book");
+        clickSubMenu("Add Sample book");
     }
 
     @Override
