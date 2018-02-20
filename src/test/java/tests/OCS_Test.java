@@ -77,7 +77,7 @@ public class OCS_Test {
         publisherTest.publisherEditRoyaltyTest();
 
         //===== List journal Royalties
-        //publisherTest.publisherListJournalRoyaltiesTest();
+        publisherTest.publisherListJournalRoyaltiesTest();
 
         //===== Edit Multiple journal Royalties
 

@@ -14,7 +14,7 @@ public class PublisherTest {
 
     public PublisherTest() {
         //ToDo: REMOVE
-        //publisherKey = "SAPXZ";
+        publisherKey = "SAQEF";
     }
 
     public void publisherInquiryTest() {
@@ -229,23 +229,23 @@ public class PublisherTest {
     public void publisherListJournalRoyaltiesTest() {
         ExtentManager.createNode("PUBLISHER -> Royalty -> List Journal Royalties.", "Verify List Journal Royalties Page.");
 
-        RoyaltyInquiryPage royaltyInquiryPage = new RoyaltyInquiryPage();
-        ExtentManager.compareNotNULL(royaltyInquiryPage, "Open 'PUBLISHER -> Royalty -> List Journal Royalties page.");
+        ListJournalRoyaltiesPage listJournalRoyaltiesPage = new ListJournalRoyaltiesPage();
+        ExtentManager.compareNotNULL(listJournalRoyaltiesPage, "Open 'PUBLISHER -> Royalty -> List Journal Royalties page.");
 
-        ExtentManager.compareTrue(royaltyInquiryPage.setPublisherKey(publisherKey),
+        ExtentManager.compareTrue(listJournalRoyaltiesPage.setPublisherKey(publisherKey),
                 "Set Publisher Key to " + publisherKey);
-        ExtentManager.compareTrue(royaltyInquiryPage.book.set(),
+        ExtentManager.compareTrue(listJournalRoyaltiesPage.book.set(),
                 "Select book option.");
-        ExtentManager.compareTrue(royaltyInquiryPage.clickSubmit(),
+        ExtentManager.compareTrue(listJournalRoyaltiesPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(royaltyInquiryPage.clickJournalListTab(),
+        ExtentManager.compareTrue(listJournalRoyaltiesPage.clickJournalListTab(),
                 "Open 'journal List' tab.");
-        ExtentManager.compareTrue(royaltyInquiryPage.clickRoyaltyInquiryTab(),
+        ExtentManager.compareTrue(listJournalRoyaltiesPage.clickRoyaltyInquiryTab(),
                 "Open 'Royalty Inquiry' tab.");
-        ExtentManager.compareTrue(royaltyInquiryPage.clickJournalsRoyaltyList(),
+        ExtentManager.compareTrue(listJournalRoyaltiesPage.clickJournalsRoyaltyList(),
                 "Open 'Journals Royalty List' tab.");
-        ExtentManager.compareTrue(royaltyInquiryPage.clickPublisherInquiryTab(),
+        ExtentManager.compareTrue(listJournalRoyaltiesPage.clickPublisherInquiryTab(),
                 "Open 'Publisher Inquiry Tab' tab.");
 
     }
