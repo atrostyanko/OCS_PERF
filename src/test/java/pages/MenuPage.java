@@ -14,31 +14,24 @@ import java.util.List;
 public abstract class MenuPage extends BasePage {
     //=== Main Menu Sections ===========================================================================================
     @FindBy(xpath = ".//div[.= 'PUBLISHER']")
-    @CacheLookup
     private Button publisherMainMenu;
 
     @FindBy(xpath = ".//div[.= 'JOURNAL']")
-    @CacheLookup
     private Button journalMainMenu;
 
     @FindBy(xpath = ".//div[.= 'ISSUE']")
-    @CacheLookup
     private Button issueMainMenu;
 
     @FindBy(xpath = ".//div[.= 'Conf.']")
-    @CacheLookup
     private Button confMainMenu;
 
     @FindBy(xpath = ".//div[.= 'Misc.']")
-    @CacheLookup
     private Button miscMainMenu;
 
     @FindBy(xpath = ".//div[.= 'Search']")
-    @CacheLookup
     private Button searchMainMenu;
 
     @FindBy(xpath = ".//div[.= 'Logoff']")
-    @CacheLookup
     private Button logoffMainMenu;
 
     //=== Sub Menu Sections ==============

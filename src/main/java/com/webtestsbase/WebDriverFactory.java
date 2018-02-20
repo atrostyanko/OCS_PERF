@@ -22,7 +22,7 @@ import java.util.List;
  * All communications with driver should be done through this class
  */
 public class WebDriverFactory {
-    public static final int IMPLICIT_WAIT_TIMEOUT = 5;
+    public static final int IMPLICIT_WAIT_TIMEOUT = 10;
     public static final int SLEEP_IN_MILLIS = 50;
 
     public static final int LONG_TIME_OUT = 60;

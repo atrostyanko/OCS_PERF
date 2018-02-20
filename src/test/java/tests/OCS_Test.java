@@ -48,45 +48,47 @@ public class OCS_Test {
         ExtentManager.createTest("PUBLISHER Tests.", "Verify all items from PUBLISHER menu.");
 
         MainPage mainPage = new LoginPage_Tests().login();
-/*
+        PublisherTest publisherTest = new PublisherTest();
+
         //=== Publisher Inquiry
-        new PublisherTest().publisherInquiryTest();
+        publisherTest.publisherInquiryTest();
 
         //=== Publisher Edit
         //===== Edit Publisher
-        new PublisherTest().publisherEditPublisherTest();
+        publisherTest.publisherEditPublisherTest();
 
         //===== Add Publisher
-        new PublisherTest().publisherAddPublisherTest();
+        publisherTest.publisherAddPublisherTest();
 
         //===== Add Sample Publisher
-        new PublisherTest().publisherAddSamplePublisherTest();
+        publisherTest.publisherAddSamplePublisherTest();
 
         //===== Edit Sample Publisher
-        new PublisherTest().publisherEditSamplePublisherTest();
+        publisherTest.publisherEditSamplePublisherTest();
 
         //=== List of Journals
-        new PublisherTest().publisherJournalListTest();
+        publisherTest.publisherJournalListTest();
 
         //=== Royalty
         //===== Royalty Inquiry
-        new PublisherTest().publisherRoyaltyInquiryTest();
-*/
+        publisherTest.publisherRoyaltyInquiryTest();
+
         //===== Edit Royalty
-        new PublisherTest().publisherEditRoyaltyTest();
-/*
+        publisherTest.publisherEditRoyaltyTest();
+
         //===== List journal Royalties
+        //publisherTest.publisherListJournalRoyaltiesTest();
 
         //===== Edit Multiple journal Royalties
 
         //=== Add Sample book
-        new PublisherTest().publisherAddSampleBookTest();
+        publisherTest.publisherAddSampleBookTest();
 
         //=== Add Sample journal
 
         //=== Add a Serie
-        new PublisherTest().publisherAddNewSerieTest();
-*/
+        publisherTest.publisherAddNewSerieTest();
+
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
 

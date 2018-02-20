@@ -1,12 +1,12 @@
 package pages.publisher;
 
-public class RoyaltyInquiryPage extends BaseInquiryPage {
+public class ListJournalRoyaltiesPage extends BaseInquiryPage {
 
     //====== Constructor ==============================
-    public RoyaltyInquiryPage() {
+    public ListJournalRoyaltiesPage() {
         super(true);
     }
-    public RoyaltyInquiryPage(boolean openFromMenu) {
+    public ListJournalRoyaltiesPage(boolean openFromMenu) {
         super(openFromMenu);
     }
 

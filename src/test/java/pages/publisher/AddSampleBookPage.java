@@ -49,12 +49,12 @@ public class AddSampleBookPage extends MainPublisherPage {
     @Override
     public void openPage() {
         clickPublisher();
-        clickSubMenu("Add Sample book");
+        clickSubMenu("Add Sample Book");
     }
 
     @Override
     public boolean isPageOpened() {
-        return addNewSampleBookLabel.isDisplayed() && submitBtn.isDisplayed();
+        return publisherKey.isDisplayed() && submitBtn.isDisplayed();
     }
 
     //===== Click methods ==============================================================================================
