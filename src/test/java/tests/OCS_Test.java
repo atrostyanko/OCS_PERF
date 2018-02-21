@@ -101,17 +101,21 @@ public class OCS_Test {
 
         MainPage mainPage = new LoginPage_Tests().login();
         JournalTest journalTest = new JournalTest();
-
+/*
         //=== Journal Inquiry
         journalTest.journalInquiryTest();
 
         //=== Edit
         //===== Edit Covered Journal
+        journalTest.journalEditCoveredJournalTest();
         //===== Edit Sample Journal
+        journalTest.journalEditSampleJournalTest();
         //===== Edit Book
+        journalTest.journalEditBookTest();
         //===== Edit Sample Book
-        //===== Edit Series
-
+        journalTest.journalEditSampleBookTest();
+*/        //===== Edit Series
+        journalTest.journalEditSeriesTest();
         //=== Delete
         //====== Delete Journal
         //====== Delete Sample Journal
@@ -166,6 +170,7 @@ public class OCS_Test {
 
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
+
     /*
     @Test
     public void issueTests() {

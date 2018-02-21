@@ -1,7 +1,7 @@
 package tests.journal;
 
 import com.reporting.ExtentManager;
-import pages.journal.JournalInquiryPage;
+import pages.journal.*;
 import pages.publisher.*;
 import tests.OCS_Test;
 
@@ -48,24 +48,106 @@ public class JournalTest {
 
     }
 
-    /*
-    public void publisherEditPublisherTest() {
-        ExtentManager.createNode("PUBLISHER -> EDIT -> Edit Publisher.", "Verify Edit Publisher Page.");
+    public void journalEditCoveredJournalTest() {
+        ExtentManager.createNode("JOURNAL -> EDIT -> Edit Covered Journal.", "Verify Edit Covered Journal Page.");
 
-        PublisherEditPage publisherEditPage = new PublisherEditPage();
-        ExtentManager.compareNotNULL(publisherEditPage, "Open 'PUBLISHER -> EDIT -> Edit Publisher page.");
+        EditCoveredJournalPage editCoveredJournalPage = new EditCoveredJournalPage();
+        ExtentManager.compareNotNULL(editCoveredJournalPage, "Open 'JOURNAL -> EDIT -> Edit Covered Journal page.");
 
-        ExtentManager.compareTrue(publisherEditPage.setPublisherKey(publisherKey),
-                "Set Publisher Key to " + publisherKey);
-        ExtentManager.compareTrue(publisherEditPage.clickSubmit(),
+        ExtentManager.compareTrue(editCoveredJournalPage.setJournalSequence(journalSequenceNumber),
+                "Set Journal Sequence number to " + journalSequenceNumber);
+        ExtentManager.compareTrue(editCoveredJournalPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(publisherEditPage.clickSubmitChanges(),
+        ExtentManager.compareTrue(editCoveredJournalPage.clickSubmitChanges(),
                 "Click 'Submit Changes' button.");
 
-        PublisherInquiryPage publisherInquiryPage = publisherEditPage.clickConfirmButton();
-        ExtentManager.compareNotNULL(publisherInquiryPage,
-                "Click 'Confirm' button and verify Publisher Inquiry page is opened.");
+        JournalInquiryPage journalInquiryPage = editCoveredJournalPage.clickConfirmButton();
+        ExtentManager.compareNotNULL(journalInquiryPage,
+                "Click 'Confirm' button and verify Journal Inquiry page is opened.");
     }
-    */
+
+    public void journalEditSampleJournalTest() {
+        String journalSequenceNumber_ESJ = prop.getProperty("journalSequenceNumber_ESJ");
+
+        ExtentManager.createNode("JOURNAL -> EDIT -> Edit Sample Journal.", "Verify Edit Sample Journal Page.");
+
+        EditSampleJournalPage editSampleJournalPage = new EditSampleJournalPage();
+        ExtentManager.compareNotNULL(editSampleJournalPage, "Open 'JOURNAL -> EDIT -> Edit Sample Journal page.");
+
+        ExtentManager.compareTrue(editSampleJournalPage.setJournalSequence(journalSequenceNumber_ESJ),
+                "Set Journal Sequence number to " + journalSequenceNumber_ESJ);
+        ExtentManager.compareTrue(editSampleJournalPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(editSampleJournalPage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        JournalInquiryPage journalInquiryPage = editSampleJournalPage.clickConfirmButton();
+        ExtentManager.compareNotNULL(journalInquiryPage,
+                "Click 'Confirm' button and verify Journal Inquiry page is opened.");
+    }
+
+    public void journalEditBookTest() {
+        String bookNumber = prop.getProperty("bookNumber");
+
+        ExtentManager.createNode("JOURNAL -> EDIT -> Edit Book.", "Verify Edit Book Page.");
+
+        EditBookPage editBookPage = new EditBookPage();
+        ExtentManager.compareNotNULL(editBookPage, "Open 'JOURNAL -> EDIT -> Edit Book page.");
+
+        ExtentManager.compareTrue(editBookPage.setJournalSequence(bookNumber),
+                "Set Journal Sequence number to " + bookNumber);
+        ExtentManager.compareTrue(editBookPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(editBookPage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        JournalInquiryPage journalInquiryPage = editBookPage.clickConfirmButton();
+        ExtentManager.compareNotNULL(journalInquiryPage,
+                "Click 'Confirm' button and verify Journal Inquiry page is opened.");
+    }
+
+    public void journalEditSampleBookTest() {
+        String sampleBookNumber = prop.getProperty("sampleBookNumber");
+
+        ExtentManager.createNode("JOURNAL -> EDIT -> Edit Sample Book.", "Verify Edit Sample Book Page.");
+
+        EditSampleBookPage editSampleBookPage = new EditSampleBookPage();
+        ExtentManager.compareNotNULL(editSampleBookPage, "Open 'JOURNAL -> EDIT -> Edit Sample Book page.");
+
+        ExtentManager.compareTrue(editSampleBookPage.setJournalSequence(sampleBookNumber),
+                "Set Journal Sequence number to " + sampleBookNumber);
+        ExtentManager.compareTrue(editSampleBookPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(editSampleBookPage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        JournalInquiryPage journalInquiryPage = editSampleBookPage.clickConfirmButton();
+        ExtentManager.compareNotNULL(journalInquiryPage,
+                "Click 'Confirm' button and verify Journal Inquiry page is opened.");
+    }
+
+    public void journalEditSeriesTest() {
+        String seriesNumber = prop.getProperty("seriesNumber");
+
+        ExtentManager.createNode("JOURNAL -> EDIT -> Edit Series.", "Verify Edit Series Page.");
+
+        EditSeriesPage editSeriesPage = new EditSeriesPage();
+        ExtentManager.compareNotNULL(editSeriesPage, "Open 'JOURNAL -> EDIT -> Edit Series page.");
+
+        ExtentManager.compareTrue(editSeriesPage.setJournalSequence(seriesNumber),
+                "Set Journal Sequence number to " + seriesNumber);
+        ExtentManager.compareTrue(editSeriesPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(editSeriesPage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        JournalInquiryPage journalInquiryPage = editSeriesPage.clickConfirmButton();
+        ExtentManager.compareNotNULL(journalInquiryPage,
+                "Click 'Confirm' button and verify Journal Inquiry page is opened.");
+    }
 }
