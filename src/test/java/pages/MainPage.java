@@ -16,10 +16,6 @@ public class MainPage extends MenuPage {
     @CacheLookup
     private Button openIndicator;
 
-    @FindBy(xpath = ".//div[.= 'PUBLISHER']")
-    @CacheLookup
-    private Button publisherMenu;
-
     public MainPage() {
         super(false);
     }

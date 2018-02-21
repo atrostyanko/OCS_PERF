@@ -298,6 +298,16 @@ public class WebDriverFactory {
         }
     }
 
+    public static boolean waitTextToBePresentInElement(WebElement webElement, String sText) {
+        WebDriverWait wait = webDriverWait();
+        try {
+            wait.until(ExpectedConditions.textToBePresentInElement(webElement, sText));
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
     public static boolean waitForStandardPageNotBusy() {
         return true;
         //return waitForPageNotBusy(standartPage_PageLoadingIcon, 1);

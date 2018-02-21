@@ -14,7 +14,7 @@ public class PublisherTest {
 
     public PublisherTest() {
         //ToDo: REMOVE
-        publisherKey = "SAQEF";
+        //publisherKey = "SAQEF";
     }
 
     public void publisherInquiryTest() {
