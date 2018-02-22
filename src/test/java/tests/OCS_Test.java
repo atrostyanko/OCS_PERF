@@ -140,10 +140,15 @@ public class OCS_Test {
 
         //=== Edit Subject Categories
         //===== For Journals
+        journalTest.journalEditSubjectCategoriesForJournalsTest();
         //===== For Sample Journals
+        journalTest.journalEditSubjectCategoriesForSampleJournalsTest();
         //===== For Books
+        journalTest.journalEditSubjectCategoriesForBooksTest();
         //===== For Sample Books
+        journalTest.journalEditSubjectCategoriesForSampleBooksTest();
         //===== For Series
+        journalTest.journalEditSubjectCategoriesForSeriesTest();
 
         //=== Prod. Codes History
         //=== Sophia Journals Maintenance
