@@ -1,18 +1,18 @@
 package pages.journal;
 
-public class JournalInquiryPage extends BaseJournalInquiryPage {
+public class JournalProductCodesInquiryPage extends BaseJournalInquiryPage {
     //====== Constructor ==============================
-    public JournalInquiryPage() {
+    public JournalProductCodesInquiryPage() {
         super(true);
     }
-    public JournalInquiryPage(boolean openFromMenu) {
+    public JournalProductCodesInquiryPage(boolean openFromMenu) {
         super(openFromMenu);
     }
 
     @Override
     public void openPage() {
         clickJournal();
-        clickSubMenu("Journal Inquiry");
+        clickSubMenu("Prod. Codes - Subj. Categories");
     }
 
     @Override

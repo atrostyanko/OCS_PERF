@@ -2,7 +2,7 @@ package tests.journal;
 
 import com.reporting.ExtentManager;
 import pages.journal.*;
-import pages.publisher.*;
+import pages.journal.EditProductCodes.EditProductCodesForJournalsPage;
 import tests.OCS_Test;
 
 import java.util.Properties;
@@ -147,6 +147,70 @@ public class JournalTest {
                 "Click 'Submit Changes' button.");
 
         JournalInquiryPage journalInquiryPage = editSeriesPage.clickConfirmButton();
+        ExtentManager.compareNotNULL(journalInquiryPage,
+                "Click 'Confirm' button and verify Journal Inquiry page is opened.");
+    }
+
+    public void JournalProductCodesInquiryTest() {
+        ExtentManager.createNode("JOURNAL -> Journal Inquiry Page.", "Verify Journal Inquiry Page.");
+
+        JournalProductCodesInquiryPage journalProductCodesInquiryPage = new JournalProductCodesInquiryPage();
+        ExtentManager.compareNotNULL(journalProductCodesInquiryPage, "Open 'JOURNAL -> Journal Inquiry' page.");
+
+        ExtentManager.compareTrue(journalProductCodesInquiryPage.setJournalSequence(journalSequenceNumber),
+                "Set Journal Sequence number to " + journalSequenceNumber);
+        ExtentManager.compareTrue(journalProductCodesInquiryPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(journalProductCodesInquiryPage.clickCDRXTab(),
+                "Open 'Journal Issues List' tab.");
+        ExtentManager.compareTrue(journalProductCodesInquiryPage.clickJrnlXRefTab(),
+                "Open 'Journal Changes' tab.");
+        ExtentManager.compareTrue(journalProductCodesInquiryPage.clickPCSCTab(),
+                "Open 'Journal Product Codes Inquiry' tab.");
+        ExtentManager.compareTrue(journalProductCodesInquiryPage.clickPCHistTab(),
+                "Open 'Journal Product Code History' tab.");
+        ExtentManager.compareTrue(journalProductCodesInquiryPage.clickSCHistTab(),
+                "Open 'Journal Subject Catagory History' tab.");
+        ExtentManager.compareTrue(journalProductCodesInquiryPage.clickRoyInqTab(),
+                "Open 'Journal Royalty Inquiry' tab.");
+        ExtentManager.compareTrue(journalProductCodesInquiryPage.clickSubsHistTab(),
+                "Open 'Journal Subscription History' tab.");
+        ExtentManager.compareTrue(journalProductCodesInquiryPage.clickIssueLoginTab(),
+                "Open 'Issue Login for a Journal' tab.");
+        ExtentManager.compareTrue(journalProductCodesInquiryPage.clickJrnlInqTab(),
+                "Open 'Journal Inquiry' tab.");
+
+    }
+
+    public void journalEditProductCodesForJournalsTest() {
+        ExtentManager.createNode("JOURNAL -> Edit Product Codes -> For Journals.", "Verify Edit Product Codes For Journals Page.");
+
+        EditProductCodesForJournalsPage editProductCodesForJournalsPage = new EditProductCodesForJournalsPage();
+        ExtentManager.compareNotNULL(editProductCodesForJournalsPage, "Open 'JOURNAL -> Edit Product Codes -> For Journals page.");
+
+        ExtentManager.compareTrue(editProductCodesForJournalsPage.setJournalSequence(journalSequenceNumber),
+                "Set Journal Sequence number to " + journalSequenceNumber);
+        ExtentManager.compareTrue(editProductCodesForJournalsPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+
+        ExtentManager.compareTrue(editProductCodesForJournalsPage.clickAddProductCodesButton(),
+                "Click 'Add' button.");
+
+        ExtentManager.compareTrue(editProductCodesForJournalsPage.clickConfirmAddingProductCodesButton(),
+                "Click 'Confirm' button to complete adding product codes.");
+
+        ExtentManager.compareTrue(editProductCodesForJournalsPage.clickAddSubjectCategoriesButton(),
+                "Click 'Add' button to add Subject Categories.");
+
+        ExtentManager.compareTrue(editProductCodesForJournalsPage.clickConfirmAddingButton(),
+                "Click 'Confirm' button to add Subject Categories.");
+
+        ExtentManager.compareTrue(editProductCodesForJournalsPage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        JournalInquiryPage journalInquiryPage = editProductCodesForJournalsPage.clickConfirmButton();
         ExtentManager.compareNotNULL(journalInquiryPage,
                 "Click 'Confirm' button and verify Journal Inquiry page is opened.");
     }

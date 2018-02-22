@@ -114,8 +114,9 @@ public class OCS_Test {
         journalTest.journalEditBookTest();
         //===== Edit Sample Book
         journalTest.journalEditSampleBookTest();
-*/        //===== Edit Series
+        //===== Edit Series
         journalTest.journalEditSeriesTest();
+
         //=== Delete
         //====== Delete Journal
         //====== Delete Sample Journal
@@ -123,9 +124,11 @@ public class OCS_Test {
         //====== Delete Series
 
         //=== Prod. Codes - Subj. Categories
-
+        journalTest.JournalProductCodesInquiryTest();
+*/
         //=== Edit Product Codes
         //===== For Journals
+        journalTest.journalEditProductCodesForJournalsTest();
         //===== For Sample Journals
         //===== For Books
         //===== For Sample Books
