@@ -101,7 +101,7 @@ public class OCS_Test {
 
         MainPage mainPage = new LoginPage_Tests().login();
         JournalTest journalTest = new JournalTest();
-/*
+
         //=== Journal Inquiry
         journalTest.journalInquiryTest();
 
@@ -125,14 +125,18 @@ public class OCS_Test {
 
         //=== Prod. Codes - Subj. Categories
         journalTest.JournalProductCodesInquiryTest();
-*/
+
         //=== Edit Product Codes
         //===== For Journals
         journalTest.journalEditProductCodesForJournalsTest();
         //===== For Sample Journals
+        journalTest.journalEditProductCodesForSampleJournalsTest();
         //===== For Books
+        journalTest.journalEditProductCodesForBooksTest();
         //===== For Sample Books
+        journalTest.journalEditProductCodesForSampleBooksTest();
         //===== For Series
+        journalTest.journalEditProductCodesForSeriesTest();
 
         //=== Edit Subject Categories
         //===== For Journals
