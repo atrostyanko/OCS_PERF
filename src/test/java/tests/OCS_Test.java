@@ -101,7 +101,7 @@ public class OCS_Test {
 
         MainPage mainPage = new LoginPage_Tests().login();
         JournalTest journalTest = new JournalTest();
-
+/*
         //=== Journal Inquiry
         journalTest.journalInquiryTest();
 
@@ -149,8 +149,10 @@ public class OCS_Test {
         journalTest.journalEditSubjectCategoriesForSampleBooksTest();
         //===== For Series
         journalTest.journalEditSubjectCategoriesForSeriesTest();
-
+*/
         //=== Prod. Codes History
+        journalTest.journalJournalProductCodeHistoryTest();
+
         //=== Sophia Journals Maintenance
         //=== Subject Category History
         //=== View Issues (CRDX)

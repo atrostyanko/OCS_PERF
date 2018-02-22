@@ -43,9 +43,6 @@ public class BaseJournalInquiryPage extends MainJournalPage {
     @CacheLookup
     public Button RetrieveJournalForAddingIssueActionTab;
 
-    @FindBy (css = ".BackgroundBigHeader td[align='center'] b")
-    public WebElement pageTitle;
-
     //====== Constructor ==============================
     public BaseJournalInquiryPage() {
         super(true);

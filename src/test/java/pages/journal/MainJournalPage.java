@@ -3,6 +3,7 @@ package pages.journal;
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
 import com.webtestsbase.commonElements.elements.CheckBox;
+import com.webtestsbase.commonElements.elements.Label;
 import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -10,6 +11,8 @@ import org.openqa.selenium.support.FindBy;
 import pages.MainPage;
 
 public abstract class MainJournalPage extends MainPage {
+    @FindBy (css = ".BackgroundBigHeader td[align='center'] b")
+    public WebElement pageTitle;
 
     @FindBy(name = "journalSequenceNumber")
     public TextInput journalSequenceNumber;
@@ -27,9 +30,13 @@ public abstract class MainJournalPage extends MainPage {
     public MainJournalPage() {
         super(true);
     }
-
     public MainJournalPage(boolean openFromMenu) {
         super(openFromMenu);
+    }
+
+    //===== Get methods ================================================================================================
+    public String getTitle() {
+        return WebDriverFactory.getWebElementText(pageTitle);
     }
 
     //===== Set methods ================================================================================================

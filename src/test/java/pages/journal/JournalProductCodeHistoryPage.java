@@ -1,22 +1,20 @@
 package pages.journal;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import com.webtestsbase.WebDriverFactory;
 
-public class EditCoveredJournalPage extends MainJournalPage {
+public class JournalProductCodeHistoryPage extends BaseJournalInquiryPage {
     //====== Constructor ==============================
-    public EditCoveredJournalPage() {
+    public JournalProductCodeHistoryPage() {
         super(true);
     }
-    public EditCoveredJournalPage(boolean openFromMenu) {
+    public JournalProductCodeHistoryPage(boolean openFromMenu) {
         super(openFromMenu);
     }
 
     @Override
     public void openPage() {
         clickJournal();
-        clickSubMenu("Edit");
-        clickSubMenu("Edit Covered Journal");
+        clickSubMenu("Prod. Codes History");
     }
 
     @Override
@@ -25,6 +23,14 @@ public class EditCoveredJournalPage extends MainJournalPage {
     }
 
     //===== Click methods ==============================================================================================
+    @Override
+    public boolean clickSubmit() {
+        if (submitBtn.click()) {
+            return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Journal Product Code History");
+        }
+        return false;
+    }
+
     public JournalInquiryPage clickConfirmButton() {
         return confirmButton.click()
                 ? new JournalInquiryPage(false)
