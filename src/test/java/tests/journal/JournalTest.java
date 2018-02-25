@@ -859,6 +859,29 @@ public class JournalTest {
 
         ExtentManager.compareTrue(transformingBookPage.transformBookButton.isDisplayed(),
                 "Verify that 'Transform Book' button is displayed.");
+
+        //ToDo: Закончить, когда пойму как выставить разрешение на трансформацию книги
+    }
+
+    public void journalTransformingSampleJournalTest() {
+        String sampleJournalNumber = prop.getProperty("sampleJournalNumber");
+
+        ExtentManager.createNode("JOURNAL -> Transforming a Sample Journal.",
+                "Verify Transforming a Sample Journal Page.");
+
+        TransformingSampleJournalPage transformingSampleJournalPage = new TransformingSampleJournalPage();
+        ExtentManager.compareNotNULL(transformingSampleJournalPage,
+                "Open 'JOURNAL -> Transforming a Sample Journalpage.");
+
+        ExtentManager.compareTrue(transformingSampleJournalPage.setJournalSequence(sampleJournalNumber),
+                "Set Journal Sequence number to " + sampleJournalNumber);
+        ExtentManager.compareTrue(transformingSampleJournalPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(transformingSampleJournalPage.submitChanges.isDisplayed(),
+                "Verify that 'Submit Changes' button is displayed.");
+
+        //ToDo: Закончить, когда пойму как выставить разрешение на трансформацию журнала
     }
 
 }
