@@ -1,6 +1,7 @@
 package tests.journal;
 
 import com.reporting.ExtentManager;
+import pages.issue.IssueDetailsPage;
 import pages.journal.*;
 import pages.journal.EditProductCodes.*;
 import pages.journal.EditSubjectCategories.*;
@@ -13,6 +14,7 @@ public class JournalTest {
     public static Properties prop = OCS_Test.prop;
 
     String journalSequenceNumber = prop.getProperty("journalSequenceNumber");
+    String dfIssueNo = "";
 
     public JournalTest() {
     }
@@ -802,5 +804,42 @@ public class JournalTest {
                 "Open 'Issue Login for a Journal' tab.");
         ExtentManager.compareTrue(journalChangesPage.clickJrnlInqTab(),
                 "Open 'Journal Inquiry' tab.");
+    }
+
+    public void journalIssueLoginTest() {
+        String journalNumberForIssueLogin = prop.getProperty("journalNumberForIssueLogin");
+        String media = prop.getProperty("media");
+        String pubYearRange = prop.getProperty("pubYearRange");
+
+        ExtentManager.createNode("JOURNAL -> Issue Login.",
+                "Verify Issue Login for a Journal Page.");
+
+        JournalIssueLoginPage journalIssueLoginPage = new JournalIssueLoginPage();
+        ExtentManager.compareNotNULL(journalIssueLoginPage,
+                "Open 'JOURNAL -> Issue Login for a Journal page.");
+
+        ExtentManager.compareTrue(journalIssueLoginPage.setJournalSequence(journalNumberForIssueLogin),
+                "Set Journal Sequence number to " + journalNumberForIssueLogin);
+        ExtentManager.compareTrue(journalIssueLoginPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+
+        ExtentManager.compareTrue(journalIssueLoginPage.selectMedia(media),
+                "Set 'Media' to " + media);
+        ExtentManager.compareTrue(journalIssueLoginPage.pubYearRange.setText(pubYearRange),
+                "Set 'PubYear Range' to " + pubYearRange);
+
+        ExtentManager.compareTrue(journalIssueLoginPage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        IssueDetailsPage issueDetailsPage = journalIssueLoginPage.clickConfirmButton();
+        ExtentManager.compareNotNULL(issueDetailsPage,
+                "Click 'Confirm' button and verify Issue Details page is opened.");
+
+        ExtentManager.compare(journalNumberForIssueLogin,
+                issueDetailsPage.getElementValue(issueDetailsPage.JournalSeq.asWebElement()),
+                "Verify that Journal Seq. # is " + journalNumberForIssueLogin);
+
+        //˚dfIssueNo = issueDetailsPage.getElementValue(issueDetailsPage.DFIssueno.asWebElement());
     }
 }

@@ -155,9 +155,9 @@ public class WebDriverFactory {
         if (webElement != null) {
             WebElement eParent = WebDriverFactory.getParentUntilTagName(webElement, "tr");
             if (eParent != null) {
-                WebElement eChild = WebDriverFactory.getChildElement(eParent, By.cssSelector("span.DataValue"));
+                WebElement eChild = WebDriverFactory.getChildElement(eParent, By.cssSelector(".DataValue"));
                 if (eChild != null) {
-                    return WebDriverFactory.getWebElementText(eChild);
+                    return WebDriverFactory.getWebElementText(eChild).trim();
                 }
             }
         }

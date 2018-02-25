@@ -41,5 +41,4 @@ public class EditSeriesPage extends MainJournalPage {
                 ? new JournalInquiryPage(false)
                 : null;
     }
-
 }

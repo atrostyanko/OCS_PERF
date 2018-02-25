@@ -177,10 +177,13 @@ public class OCS_Test {
 
         //=== Journal Changes
         journalTest.journalChangesTest();
-*/
+
         //=== Edit XRef Notes
         journalTest.journalEditXRefNotesTest();
+*/
         //=== Issue Login
+        journalTest.journalIssueLoginTest();
+
         //=== Transform a Sample Book
         //=== Transform a Sample Journal
 

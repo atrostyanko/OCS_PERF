@@ -25,7 +25,11 @@ public class IssueDetailsPage extends MainPage {
 
     @FindBy (xpath = ".//b[.='DF Issueno']")
     @CacheLookup
-    private Label DFIssueno;
+    public Label DFIssueno;
+
+    @FindBy (xpath = ".//b[contains(text(), 'Journal Seq.')]")
+    @CacheLookup
+    public Label JournalSeq;
 
     @FindBy (name = "authorCheck")
     @CacheLookup
@@ -79,6 +83,11 @@ public class IssueDetailsPage extends MainPage {
     }
     public boolean setIssueNo(String sValue) {
         return issueNo.setText(sValue);
+    }
+
+    //===== Get methods ================================================================================================
+    public String getElementValue(WebElement webElement) {
+        return WebDriverFactory.getElementValue(webElement);
     }
 
     //===== Click methods ==============================================================================================
