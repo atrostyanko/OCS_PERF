@@ -24,7 +24,12 @@ public class PublisherInquiryPage extends BaseInquiryPage {
     }
 
     //===== Get methods ================================================================================================
+
     public String getElementValue(WebElement webElement) {
+        return WebDriverFactory.getElementValue(webElement);
+    }
+    /*
+    public static String getElementValue(WebElement webElement) {
         String sReturn = "";
         if (webElement != null) {
             WebElement eParent = WebDriverFactory.getParentUntilTagName(webElement, "tr");
@@ -37,4 +42,5 @@ public class PublisherInquiryPage extends BaseInquiryPage {
         }
         return sReturn;
     }
+    */
 }

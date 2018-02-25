@@ -150,6 +150,20 @@ public class WebDriverFactory {
         }
     }
 
+    public static String getElementValue(WebElement webElement) {
+        String sReturn = "";
+        if (webElement != null) {
+            WebElement eParent = WebDriverFactory.getParentUntilTagName(webElement, "tr");
+            if (eParent != null) {
+                WebElement eChild = WebDriverFactory.getChildElement(eParent, By.cssSelector("span.DataValue"));
+                if (eChild != null) {
+                    return WebDriverFactory.getWebElementText(eChild);
+                }
+            }
+        }
+        return sReturn;
+    }
+
     //===== CheckBox Methods ===========================================================================================
     public static boolean setCheckBox(WebElement el, boolean flag) {
         boolean bResult = false;
@@ -313,8 +327,28 @@ public class WebDriverFactory {
         //return waitForPageNotBusy(standartPage_PageLoadingIcon, 1);
     }
 
+    public static boolean waitForElementInvisible(WebElement element, int timeout, boolean expectedClickable) {
+        boolean bReturn = false;
+        if (element != null) {
+            try {
+                WebDriverWait wait = new WebDriverWait(getDriver(), timeout);
+                wait.until(ExpectedConditions.invisibilityOf(element));
+                bReturn = true;
+            } catch (TimeoutException e) {
+                if (!expectedClickable) {
+                    bReturn = true;
+                }
+            }
+        }
+        return bReturn;
+    }
 
-    /*
+    public static boolean waitForElementInvisible(WebElement element) {
+        return waitForElementInvisible(element, MEDIUM_TIME_OUT, true);
+    }
+
+/*
+
     public static List<WebElement> getChildElements(WebElement parent, By child) {
         List<WebElement> list = null;
         if (parent == null) {
@@ -588,15 +622,6 @@ public class WebDriverFactory {
 
 
     //===== Find methods ===============================================================================================
-    public static WebElement findElement(By locator) {
-        try {
-            return driver.findElement(locator);
-        } catch (org.openqa.selenium.NoSuchElementException e) {
-            ExtentManager.getCurrentTest().debug("Element with Locator " + locator + " not found");
-            return null;
-        }
-    }
-
     public static List<WebElement> findElements(By locator) {
 
         try {
@@ -691,8 +716,6 @@ public class WebDriverFactory {
         return bResult;
     }
 
-
-
     public static boolean waitElementAttributeContains(WebElement webElement, String attributeName, String value) {
         WebDriverWait wait = new WebDriverWait(driver, LONG_TIME_OUT);
         try {
@@ -701,26 +724,6 @@ public class WebDriverFactory {
         } catch (TimeoutException e) {
             return false;
         }
-    }
-
-    public static boolean waitForElementInvisible(WebElement element) {
-        return waitForElementInvisible(element, MEDIUM_TIME_OUT, true);
-    }
-
-    public static boolean waitForElementInvisible(WebElement element, int timeout, boolean expectedClickable) {
-        boolean bReturn = false;
-        if (element != null) {
-            try {
-                WebDriverWait wait = new WebDriverWait(getDriver(), timeout);
-                wait.until(ExpectedConditions.invisibilityOf(element));
-                bReturn = true;
-            } catch (TimeoutException e) {
-                if (!expectedClickable) {
-                    bReturn = true;
-                }
-            }
-        }
-        return bReturn;
     }
 
     public static boolean waitForTextToBePresentInElement(WebElement element, String sText) {
@@ -794,5 +797,5 @@ public class WebDriverFactory {
 
         }
     }
-    */
+   */
 }

@@ -758,4 +758,49 @@ public class JournalTest {
         ExtentManager.compareTrue(journalChangesPage.clickJrnlInqTab(),
                 "Open 'Journal Inquiry' tab.");
     }
+
+    public void journalEditXRefNotesTest() {
+        String journalNumberForXRefNotes = prop.getProperty("journalNumberForXRefNotes");
+        String updateNotes = prop.getProperty("updateNotes");
+
+        ExtentManager.createNode("JOURNAL -> Edit XRef Notes.",
+                "Verify Edit XRef Notes Page.");
+
+        EditXRefNotesPage editXRefNotesPage = new EditXRefNotesPage();
+        ExtentManager.compareNotNULL(editXRefNotesPage,
+                "Open 'JOURNAL -> Edit XRef Notes page.");
+
+        ExtentManager.compareTrue(editXRefNotesPage.setJournalSequence(journalNumberForXRefNotes),
+                "Set Journal Sequence number to " + journalNumberForXRefNotes);
+        ExtentManager.compareTrue(editXRefNotesPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(editXRefNotesPage.notes.setText(updateNotes),
+                "Set '" + updateNotes + "' to notes field.");
+
+        JournalChangesPage journalChangesPage = editXRefNotesPage.clickUpdateButton();
+        ExtentManager.compareNotNULL(journalChangesPage,
+                "Click 'Update' button.");
+        ExtentManager.compare(updateNotes, journalChangesPage.getElementValue(journalChangesPage.actionPerformedNotes.asWebElement()),
+                "Verify the notes field was updated.");
+
+        ExtentManager.compareTrue(journalChangesPage.clickCDRXTab(),
+                "Open 'Journal Issues List' tab.");
+        ExtentManager.compareTrue(journalChangesPage.clickJrnlXRefTab(),
+                "Open 'Journal Changes' tab.");
+        ExtentManager.compareTrue(journalChangesPage.clickPCSCTab(),
+                "Open 'Journal Product Codes Inquiry' tab.");
+        ExtentManager.compareTrue(journalChangesPage.clickPCHistTab(),
+                "Open 'Journal Product Code History' tab.");
+        ExtentManager.compareTrue(journalChangesPage.clickSCHistTab(),
+                "Open 'Journal Subject Catagory History' tab.");
+        ExtentManager.compareTrue(journalChangesPage.clickRoyInqTab(),
+                "Open 'Journal Royalty Inquiry' tab.");
+        ExtentManager.compareTrue(journalChangesPage.clickSubsHistTab(),
+                "Open 'Journal Subscription History' tab.");
+        ExtentManager.compareTrue(journalChangesPage.clickIssueLoginTab(),
+                "Open 'Issue Login for a Journal' tab.");
+        ExtentManager.compareTrue(journalChangesPage.clickJrnlInqTab(),
+                "Open 'Journal Inquiry' tab.");
+    }
 }

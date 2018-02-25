@@ -174,10 +174,12 @@ public class OCS_Test {
         journalTest.journalSubscriptionHistoryTest();
         //===== View / Edit History
         journalTest.journalSubscriptionViewEditHistoryTest();
-*/
+
         //=== Journal Changes
         journalTest.journalChangesTest();
+*/
         //=== Edit XRef Notes
+        journalTest.journalEditXRefNotesTest();
         //=== Issue Login
         //=== Transform a Sample Book
         //=== Transform a Sample Journal
