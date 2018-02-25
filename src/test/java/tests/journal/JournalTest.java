@@ -840,6 +840,25 @@ public class JournalTest {
                 issueDetailsPage.getElementValue(issueDetailsPage.JournalSeq.asWebElement()),
                 "Verify that Journal Seq. # is " + journalNumberForIssueLogin);
 
-        //˚dfIssueNo = issueDetailsPage.getElementValue(issueDetailsPage.DFIssueno.asWebElement());
+        //dfIssueNo = issueDetailsPage.getElementValue(issueDetailsPage.DFIssueno.asWebElement());
     }
+
+    public void journalTransformingBookTest() {
+        String sampleBookNumber = prop.getProperty("sampleBookNumber");
+
+        ExtentManager.createNode("JOURNAL -> Transform a Sample Book.", "Verify Transforming a Book Page.");
+
+        TransformingBookPage transformingBookPage = new TransformingBookPage();
+        ExtentManager.compareNotNULL(transformingBookPage,
+                "Open 'JOURNAL -> Transforming a Book page.");
+
+        ExtentManager.compareTrue(transformingBookPage.setJournalSequence(sampleBookNumber),
+                "Set Journal Sequence number to " + sampleBookNumber);
+        ExtentManager.compareTrue(transformingBookPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(transformingBookPage.transformBookButton.isDisplayed(),
+                "Verify that 'Transform Book' button is displayed.");
+    }
+
 }

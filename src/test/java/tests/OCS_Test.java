@@ -180,11 +180,12 @@ public class OCS_Test {
 
         //=== Edit XRef Notes
         journalTest.journalEditXRefNotesTest();
-*/
+
         //=== Issue Login
         journalTest.journalIssueLoginTest();
-
+*/
         //=== Transform a Sample Book
+        journalTest.journalTransformingBookTest();
         //=== Transform a Sample Journal
 
         //=== Journal XRef
