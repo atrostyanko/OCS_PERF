@@ -2,19 +2,20 @@ package pages.journal;
 
 import com.webtestsbase.WebDriverFactory;
 
-public class JournalInquiryPage extends BaseJournalInquiryPage {
+public class JournalRoyaltyInquiryPage extends BaseJournalInquiryPage {
     //====== Constructor ==============================
-    public JournalInquiryPage() {
+    public JournalRoyaltyInquiryPage() {
         super(true);
     }
-    public JournalInquiryPage(boolean openFromMenu) {
+    public JournalRoyaltyInquiryPage(boolean openFromMenu) {
         super(openFromMenu);
     }
 
     @Override
     public void openPage() {
         clickJournal();
-        clickSubMenu("Journal Inquiry");
+        clickSubMenu("Royalty");
+        clickSubMenu("Royalty Inquiry§");
     }
 
     @Override
@@ -25,7 +26,7 @@ public class JournalInquiryPage extends BaseJournalInquiryPage {
     @Override
     public boolean clickSubmit() {
         if (submitBtn.click()) {
-            return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Journal Inquiry");
+            return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Journal Royalty Inquiry");
         }
         return false;
     }

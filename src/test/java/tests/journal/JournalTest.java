@@ -595,7 +595,7 @@ public class JournalTest {
         ExtentManager.createNode("JOURNAL -> Royalty -> Royalty Inquiry.",
                 "Verify Journal Royalty Inquiry Page.");
 
-        RoyaltyInquiryPage royaltyInquiryPage = new RoyaltyInquiryPage();
+        JournalRoyaltyInquiryPage royaltyInquiryPage = new JournalRoyaltyInquiryPage();
         ExtentManager.compareNotNULL(royaltyInquiryPage,
                 "Open 'JOURNAL -> Journal Royalty Inquiry page.");
 
@@ -642,5 +642,18 @@ public class JournalTest {
         JournalInquiryPage journalInquiryPage = editingJournalRoyaltyPage.clickConfirmButton();
         ExtentManager.compareNotNULL(journalInquiryPage,
                 "Click 'Confirm' button and verify Journal Inquiry page is opened.");
+    }
+
+    public void journalSubscriptionDetailsTest() {
+        ExtentManager.createNode("JOURNAL -> Subscriptions -> Subscription Details.",
+                "Journal Subscription Details Page.");
+
+        JournalSubscriptionDetailsPage journalSubscriptionDetailsPage = new JournalSubscriptionDetailsPage();
+        ExtentManager.compareNotNULL(journalSubscriptionDetailsPage, "JOURNAL -> Subscriptions -> Subscription Details page.");
+
+        ExtentManager.compareTrue(journalSubscriptionDetailsPage.setJournalSequence(journalSequenceNumber),
+                "Set Journal Sequence number to " + journalSequenceNumber);
+        ExtentManager.compareTrue(journalSubscriptionDetailsPage.clickSubmit(),
+                "Click 'Submit' button.");
     }
 }

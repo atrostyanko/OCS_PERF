@@ -1,12 +1,10 @@
 package pages.publisher;
 
 import com.webtestsbase.WebDriverFactory;
-import com.webtestsbase.commonElements.elements.CheckBox;
 import com.webtestsbase.commonElements.elements.Label;
 import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
 import pages.journal.JournalInquiryPage;
 
 public class AddNewSeriePage extends MainPublisherPage {
