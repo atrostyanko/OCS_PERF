@@ -149,13 +149,18 @@ public class OCS_Test {
         journalTest.journalEditSubjectCategoriesForSampleBooksTest();
         //===== For Series
         journalTest.journalEditSubjectCategoriesForSeriesTest();
-*/
+
         //=== Prod. Codes History
         journalTest.journalJournalProductCodeHistoryTest();
 
         //=== Sophia Journals Maintenance
+        //ToDo: Не понятно пока как сделать
+
         //=== Subject Category History
+        journalTest.journalJournalSubjectCatagoryHistoryTest();
+*/
         //=== View Issues (CRDX)
+        journalTest.journalViewIssuesTest();
 
         //=== Royalty
         //===== Royalty Inquiry

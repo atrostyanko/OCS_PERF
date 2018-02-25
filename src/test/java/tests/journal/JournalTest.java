@@ -524,4 +524,70 @@ public class JournalTest {
         ExtentManager.compareTrue(journalProductCodeHistoryPage.clickJrnlInqTab(),
                 "Open 'Journal Inquiry' tab.");
     }
+
+    public void journalJournalSubjectCatagoryHistoryTest() {
+        ExtentManager.createNode("JOURNAL -> Subject Category History.",
+                "Verify Journal Subject Catagory History Page.");
+
+        JournalSubjectCatagoryHistoryPage journalSubjectCatagoryHistoryPage = new JournalSubjectCatagoryHistoryPage();
+        ExtentManager.compareNotNULL(journalSubjectCatagoryHistoryPage,
+                "Open 'JOURNAL -> Journal Subject Catagory History page.");
+
+        ExtentManager.compareTrue(journalSubjectCatagoryHistoryPage.setJournalSequence(journalSequenceNumber),
+                "Set Journal Sequence number to " + journalSequenceNumber);
+        ExtentManager.compareTrue(journalSubjectCatagoryHistoryPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(journalSubjectCatagoryHistoryPage.clickCDRXTab(),
+                "Open 'Journal Issues List' tab.");
+        ExtentManager.compareTrue(journalSubjectCatagoryHistoryPage.clickJrnlXRefTab(),
+                "Open 'Journal Changes' tab.");
+        ExtentManager.compareTrue(journalSubjectCatagoryHistoryPage.clickPCSCTab(),
+                "Open 'Journal Product Codes Inquiry' tab.");
+        ExtentManager.compareTrue(journalSubjectCatagoryHistoryPage.clickPCHistTab(),
+                "Open 'Journal Product Code History' tab.");
+        ExtentManager.compareTrue(journalSubjectCatagoryHistoryPage.clickSCHistTab(),
+                "Open 'Journal Subject Catagory History' tab.");
+        ExtentManager.compareTrue(journalSubjectCatagoryHistoryPage.clickRoyInqTab(),
+                "Open 'Journal Royalty Inquiry' tab.");
+        ExtentManager.compareTrue(journalSubjectCatagoryHistoryPage.clickSubsHistTab(),
+                "Open 'Journal Subscription History' tab.");
+        ExtentManager.compareTrue(journalSubjectCatagoryHistoryPage.clickIssueLoginTab(),
+                "Open 'Issue Login for a Journal' tab.");
+        ExtentManager.compareTrue(journalSubjectCatagoryHistoryPage.clickJrnlInqTab(),
+                "Open 'Journal Inquiry' tab.");
+    }
+
+    public void journalViewIssuesTest() {
+        ExtentManager.createNode("JOURNAL -> View Issues (CRDX).",
+                "Verify Journal Issues List Page.");
+
+        JournalIssuesListPage journalIssuesListPage = new JournalIssuesListPage();
+        ExtentManager.compareNotNULL(journalIssuesListPage,
+                "Open 'JOURNAL -> Journal Issues List page.");
+
+        ExtentManager.compareTrue(journalIssuesListPage.setJournalSequence(journalSequenceNumber),
+                "Set Journal Sequence number to " + journalSequenceNumber);
+        ExtentManager.compareTrue(journalIssuesListPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(journalIssuesListPage.clickCDRXTab(),
+                "Open 'Journal Issues List' tab.");
+        ExtentManager.compareTrue(journalIssuesListPage.clickJrnlXRefTab(),
+                "Open 'Journal Changes' tab.");
+        ExtentManager.compareTrue(journalIssuesListPage.clickPCSCTab(),
+                "Open 'Journal Product Codes Inquiry' tab.");
+        ExtentManager.compareTrue(journalIssuesListPage.clickPCHistTab(),
+                "Open 'Journal Product Code History' tab.");
+        ExtentManager.compareTrue(journalIssuesListPage.clickSCHistTab(),
+                "Open 'Journal Subject Catagory History' tab.");
+        ExtentManager.compareTrue(journalIssuesListPage.clickRoyInqTab(),
+                "Open 'Journal Royalty Inquiry' tab.");
+        ExtentManager.compareTrue(journalIssuesListPage.clickSubsHistTab(),
+                "Open 'Journal Subscription History' tab.");
+        ExtentManager.compareTrue(journalIssuesListPage.clickIssueLoginTab(),
+                "Open 'Issue Login for a Journal' tab.");
+        ExtentManager.compareTrue(journalIssuesListPage.clickJrnlInqTab(),
+                "Open 'Journal Inquiry' tab.");
+    }
 }
