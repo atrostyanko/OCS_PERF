@@ -592,12 +592,12 @@ public class JournalTest {
     }
 
     public void journalRoyaltyInquiryTest() {
-        ExtentManager.createNode("JOURNAL -> View Issues (CRDX).",
-                "Verify Journal Issues List Page.");
+        ExtentManager.createNode("JOURNAL -> Royalty -> Royalty Inquiry.",
+                "Verify Journal Royalty Inquiry Page.");
 
         RoyaltyInquiryPage royaltyInquiryPage = new RoyaltyInquiryPage();
         ExtentManager.compareNotNULL(royaltyInquiryPage,
-                "Open 'JOURNAL -> Journal Issues List page.");
+                "Open 'JOURNAL -> Journal Royalty Inquiry page.");
 
         ExtentManager.compareTrue(royaltyInquiryPage.setJournalSequence(journalSequenceNumber),
                 "Set Journal Sequence number to " + journalSequenceNumber);
@@ -622,5 +622,25 @@ public class JournalTest {
                 "Open 'Issue Login for a Journal' tab.");
         ExtentManager.compareTrue(royaltyInquiryPage.clickJrnlInqTab(),
                 "Open 'Journal Inquiry' tab.");
+    }
+
+    public void journalEditRoyaltyTest() {
+        ExtentManager.createNode("JOURNAL -> Royalty -> Edit Royalty.",
+                "Verify Edit Royalty Page.");
+
+        EditingJournalRoyaltyPage editingJournalRoyaltyPage = new EditingJournalRoyaltyPage();
+        ExtentManager.compareNotNULL(editingJournalRoyaltyPage, "JOURNAL -> Royalty -> Edit Royalty page.");
+
+        ExtentManager.compareTrue(editingJournalRoyaltyPage.setJournalSequence(journalSequenceNumber),
+                "Set Journal Sequence number to " + journalSequenceNumber);
+        ExtentManager.compareTrue(editingJournalRoyaltyPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(editingJournalRoyaltyPage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        JournalInquiryPage journalInquiryPage = editingJournalRoyaltyPage.clickConfirmButton();
+        ExtentManager.compareNotNULL(journalInquiryPage,
+                "Click 'Confirm' button and verify Journal Inquiry page is opened.");
     }
 }

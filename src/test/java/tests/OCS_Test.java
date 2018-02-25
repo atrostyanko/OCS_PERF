@@ -161,12 +161,13 @@ public class OCS_Test {
 
         //=== View Issues (CRDX)
         journalTest.journalViewIssuesTest();
-*/
+
         //=== Royalty
         //===== Royalty Inquiry
         journalTest.journalRoyaltyInquiryTest();
-
+*/
         //===== Edit Royalty
+        journalTest.journalEditRoyaltyTest();
 
         //=== Subscriptions
         //===== Subscription Details

@@ -30,5 +30,4 @@ public class RoyaltyInquiryPage extends BaseJournalInquiryPage {
         }
         return false;
     }
-
 }
