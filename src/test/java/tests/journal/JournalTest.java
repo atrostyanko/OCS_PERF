@@ -871,7 +871,7 @@ public class JournalTest {
 
         TransformingSampleJournalPage transformingSampleJournalPage = new TransformingSampleJournalPage();
         ExtentManager.compareNotNULL(transformingSampleJournalPage,
-                "Open 'JOURNAL -> Transforming a Sample Journalpage.");
+                "Open 'JOURNAL -> Transforming a Sample Journal page.");
 
         ExtentManager.compareTrue(transformingSampleJournalPage.setJournalSequence(sampleJournalNumber),
                 "Set Journal Sequence number to " + sampleJournalNumber);
@@ -884,4 +884,27 @@ public class JournalTest {
         //ToDo: Закончить, когда пойму как выставить разрешение на трансформацию журнала
     }
 
+    public void journalAlterTitlesTest() {
+        String journalSequenceAlterTitles = prop.getProperty("journalSequenceAlterTitles");
+
+        ExtentManager.createNode("JOURNAL -> Alter Titles.",
+                "Verify Alter Titles Page.");
+
+        AlterTitlesPage alterTitlesPage = new AlterTitlesPage();
+        ExtentManager.compareNotNULL(alterTitlesPage,
+                "Open 'JOURNAL -> Alter Titles page.");
+
+        ExtentManager.compareTrue(alterTitlesPage.setJournalSequence(journalSequenceAlterTitles),
+                "Set Journal Sequence number to " + journalSequenceAlterTitles);
+        ExtentManager.compareTrue(alterTitlesPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(alterTitlesPage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        JournalChangesPage journalChangesPage = alterTitlesPage.clickConfirmButton();
+        ExtentManager.compareNotNULL(journalChangesPage,
+                "Click 'Confirm' button and verify Journal Changes page is opened.");
+
+    }
 }
