@@ -165,12 +165,13 @@ public class OCS_Test {
         //=== Royalty
         //===== Royalty Inquiry
         journalTest.journalRoyaltyInquiryTest();
-*/
+
         //===== Edit Royalty
         journalTest.journalEditRoyaltyTest();
-
+*/
         //=== Subscriptions
         //===== Subscription Details
+        journalTest.journalSubscriptionDetailsTest();
         //===== View History
         //===== View / Edit History
 
