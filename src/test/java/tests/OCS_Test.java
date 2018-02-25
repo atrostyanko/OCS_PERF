@@ -12,7 +12,6 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import pages.MainPage;
-import tests.issue.IssueDetailsTest;
 import tests.journal.JournalTest;
 import tests.loginPage.LoginPage_Tests;
 import tests.publisher.PublisherTest;
@@ -151,13 +150,13 @@ public class OCS_Test {
         journalTest.journalEditSubjectCategoriesForSeriesTest();
 
         //=== Prod. Codes History
-        journalTest.journalJournalProductCodeHistoryTest();
+        journalTest.journalProductCodeHistoryTest();
 
         //=== Sophia Journals Maintenance
         //ToDo: Не понятно пока как сделать
 
         //=== Subject Category History
-        journalTest.journalJournalSubjectCatagoryHistoryTest();
+        journalTest.journalSubjectCatagoryHistoryTest();
 
         //=== View Issues (CRDX)
         journalTest.journalViewIssuesTest();
@@ -165,18 +164,19 @@ public class OCS_Test {
         //=== Royalty
         //===== Royalty Inquiry
         journalTest.journalRoyaltyInquiryTest();
-
         //===== Edit Royalty
         journalTest.journalEditRoyaltyTest();
 
         //=== Subscriptions
         //===== Subscription Details
         journalTest.journalSubscriptionDetailsTest();
-*/        //===== View History
-        journalTest.journalJournalSubscriptionHistoryTest();
+        //===== View History
+        journalTest.journalSubscriptionHistoryTest();
         //===== View / Edit History
-
+        journalTest.journalSubscriptionViewEditHistoryTest();
+*/
         //=== Journal Changes
+        journalTest.journalChangesTest();
         //=== Edit XRef Notes
         //=== Issue Login
         //=== Transform a Sample Book
