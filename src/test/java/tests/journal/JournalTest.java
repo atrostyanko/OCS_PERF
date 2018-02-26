@@ -887,12 +887,12 @@ public class JournalTest {
     public void journalAlterTitlesTest() {
         String journalSequenceAlterTitles = prop.getProperty("journalSequenceAlterTitles");
 
-        ExtentManager.createNode("JOURNAL -> Alter Titles.",
+        ExtentManager.createNode("JOURNAL -> Journal XRef -> Alter Titles.",
                 "Verify Alter Titles Page.");
 
         AlterTitlesPage alterTitlesPage = new AlterTitlesPage();
         ExtentManager.compareNotNULL(alterTitlesPage,
-                "Open 'JOURNAL -> Alter Titles page.");
+                "Open 'JOURNAL -> Journal XRef -> Alter Titles page.");
 
         ExtentManager.compareTrue(alterTitlesPage.setJournalSequence(journalSequenceAlterTitles),
                 "Set Journal Sequence number to " + journalSequenceAlterTitles);
@@ -906,5 +906,80 @@ public class JournalTest {
         ExtentManager.compareNotNULL(journalChangesPage,
                 "Click 'Confirm' button and verify Journal Changes page is opened.");
 
+    }
+
+    public void dropSuspendCeaseTest() {
+        String journalSequenceDropSuspendCease = prop.getProperty("journalSequenceDropSuspendCease");
+
+        ExtentManager.createNode("JOURNAL -> Journal XRef -> Drop Suspend Cease.",
+                "Verify Drop Suspend Cease Page.");
+
+        DropSuspendCeasePage dropSuspendCeasePage = new DropSuspendCeasePage();
+        ExtentManager.compareNotNULL(dropSuspendCeasePage,
+                "Open 'JOURNAL -> Journal XRef -> Drop Suspend Cease page.");
+
+        ExtentManager.compareTrue(dropSuspendCeasePage.setJournalSequence(journalSequenceDropSuspendCease),
+                "Set Journal Sequence number to " + journalSequenceDropSuspendCease);
+        ExtentManager.compareTrue(dropSuspendCeasePage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(dropSuspendCeasePage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        ExtentManager.compareTrue(dropSuspendCeasePage.suspendOption.set(),
+                "Select 'Suspend' option.");
+
+        JournalChangesPage journalChangesPage = dropSuspendCeasePage.clickConfirmButton();
+        ExtentManager.compareNotNULL(journalChangesPage,
+                "Click 'Confirm' button and verify Journal Changes page is opened.");
+    }
+
+    public void reactivateTest() {
+        String journalSequenceDropSuspendCease = prop.getProperty("journalSequenceDropSuspendCease");
+
+        ExtentManager.createNode("JOURNAL -> Journal XRef -> Drop Suspend Cease.",
+                "Verify Drop Suspend Cease Page.");
+
+        DropSuspendCeasePage dropSuspendCeasePage = new DropSuspendCeasePage();
+        ExtentManager.compareNotNULL(dropSuspendCeasePage,
+                "Open 'JOURNAL -> Journal XRef -> Drop Suspend Cease page.");
+
+        ExtentManager.compareTrue(dropSuspendCeasePage.setJournalSequence(journalSequenceDropSuspendCease),
+                "Set Journal Sequence number to " + journalSequenceDropSuspendCease);
+        ExtentManager.compareTrue(dropSuspendCeasePage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(dropSuspendCeasePage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        ExtentManager.compareTrue(dropSuspendCeasePage.reactivateOption.set(),
+                "Select 'Suspend' option.");
+
+        JournalChangesPage journalChangesPage = dropSuspendCeasePage.clickConfirmButton();
+        ExtentManager.compareNotNULL(journalChangesPage,
+                "Click 'Confirm' button and verify Journal Changes page is opened.");
+    }
+
+    public void absorbTest() {
+        String journalSequenceDropSuspendCease = prop.getProperty("journalSequenceDropSuspendCease");
+
+        ExtentManager.createNode("JOURNAL -> Journal XRef -> Absorb.",
+                "Verify Absorb Page.");
+
+        AbsorbPage absorbPage = new AbsorbPage();
+        ExtentManager.compareNotNULL(absorbPage,
+                "Open 'JOURNAL -> Journal XRef -> Absorb page.");
+
+        ExtentManager.compareTrue(absorbPage.setJournalSequence(journalSequenceDropSuspendCease),
+                "Set Journal Sequence number to " + journalSequenceDropSuspendCease);
+        ExtentManager.compareTrue(absorbPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(absorbPage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        JournalChangesPage journalChangesPage = absorbPage.clickConfirmButton();
+        ExtentManager.compareNotNULL(journalChangesPage,
+                "Click 'Confirm' button and verify Journal Changes page is opened.");
     }
 }

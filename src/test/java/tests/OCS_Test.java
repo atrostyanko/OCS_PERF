@@ -188,12 +188,18 @@ public class OCS_Test {
         journalTest.journalTransformingBookTest();
         //=== Transform a Sample Journal
         journalTest.journalTransformingSampleJournalTest();
-*/
+
         //=== Journal XRef
         //===== Alter Titles
         journalTest.journalAlterTitlesTest();
+
         //===== Drop/Cease/Suspend
+        journalTest.dropSuspendCeaseTest();
+        journalTest.reactivateTest();
+*/
         //===== Absorb
+        journalTest.absorbTest();
+
         //===== Merge
         //===== Split
         //===== Split
