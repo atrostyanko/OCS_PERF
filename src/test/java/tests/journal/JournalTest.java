@@ -982,4 +982,92 @@ public class JournalTest {
         ExtentManager.compareNotNULL(journalChangesPage,
                 "Click 'Confirm' button and verify Journal Changes page is opened.");
     }
+
+    public void mergeTest() {
+        String journalSequenceDropSuspendCease = prop.getProperty("journalSequenceDropSuspendCease");
+
+        ExtentManager.createNode("JOURNAL -> Journal XRef -> Merge.",
+                "Verify Merge Page.");
+
+        MergePage mergePage = new MergePage();
+        ExtentManager.compareNotNULL(mergePage,
+                "Open 'JOURNAL -> Journal XRef -> Merge page.");
+
+        ExtentManager.compareTrue(mergePage.setJournalSequence(journalSequenceDropSuspendCease),
+                "Set Journal Sequence number to " + journalSequenceDropSuspendCease);
+        ExtentManager.compareTrue(mergePage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(mergePage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        JournalChangesPage journalChangesPage = mergePage.clickConfirmButton();
+        ExtentManager.compareNotNULL(journalChangesPage,
+                "Click 'Confirm' button and verify Journal Changes page is opened.");
+    }
+
+    public void splitTest() {
+        String journalSplitNumber = prop.getProperty("journalSplitNumber");
+
+        ExtentManager.createNode("JOURNAL -> Journal XRef -> Split.",
+                "Verify Split Page.");
+
+        SplitPage splitPage = new SplitPage();
+        ExtentManager.compareNotNULL(splitPage,
+                "Open 'JOURNAL -> Journal XRef -> Split page.");
+
+        ExtentManager.compareTrue(splitPage.setJournalSequence(journalSplitNumber),
+                "Set Journal Sequence number to " + journalSplitNumber);
+        ExtentManager.compareTrue(splitPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(splitPage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        JournalChangesPage journalChangesPage = splitPage.clickConfirmButton();
+        ExtentManager.compareNotNULL(journalChangesPage,
+                "Click 'Confirm' button and verify Journal Changes page is opened.");
+    }
+
+    public void titleChangesTest() {
+        String journalTitleChangesSequenceNumber = prop.getProperty("journalTitleChangesSequenceNumber");
+
+        ExtentManager.createNode("JOURNAL -> Journal XRef -> Title Changes.",
+                "Verify Title Changes Page.");
+
+        TitleChangesPage titleChangesPage = new TitleChangesPage();
+        ExtentManager.compareNotNULL(titleChangesPage,
+                "Open 'JOURNAL -> Journal XRef -> Title Changes page.");
+
+        ExtentManager.compareTrue(titleChangesPage.setJournalSequence(journalTitleChangesSequenceNumber),
+                "Set Journal Sequence number to " + journalTitleChangesSequenceNumber);
+        ExtentManager.compareTrue(titleChangesPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(titleChangesPage.submitChanges.isDisplayed(),
+                "Verify that 'Submit Changes' button is displayed.");
+    }
+
+    public void addVariantsTest() {
+        String journalAddVariantsSequenceNumber = prop.getProperty("journalAddVariantsSequenceNumber");
+
+        ExtentManager.createNode("JOURNAL -> Journal XRef -> Add Variants.",
+                "Verify Add Variants Page.");
+
+        VariantsPage variantsPage = new VariantsPage();
+        ExtentManager.compareNotNULL(variantsPage,
+                "Open 'JOURNAL -> Journal XRef -> Add Variants page.");
+
+        ExtentManager.compareTrue(variantsPage.setJournalSequence(journalAddVariantsSequenceNumber),
+                "Set Journal Sequence number to " + journalAddVariantsSequenceNumber);
+        ExtentManager.compareTrue(variantsPage.clickSubmit(),
+                "Click 'Submit' button.");
+
+        ExtentManager.compareTrue(variantsPage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        JournalChangesPage journalChangesPage = variantsPage.clickConfirmButton();
+        ExtentManager.compareNotNULL(journalChangesPage,
+                "Click 'Confirm' button and verify Journal Changes page is opened.");
+    }
 }

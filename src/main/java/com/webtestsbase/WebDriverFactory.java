@@ -181,19 +181,23 @@ public class WebDriverFactory {
 
     //===== Select methods =============================================================================================
     public static boolean selectByText(WebElement webDropDown, String sText) {
-        Select dropdown = new Select(webDropDown);
-        if (dropdown != null) {
-            dropdown.selectByVisibleText(sText);
-            return dropdown.getFirstSelectedOption().getText().equals(sText);
+        if (webDropDown != null) {
+            Select dropdown = new Select(webDropDown);
+            if (dropdown != null) {
+                dropdown.selectByVisibleText(sText);
+                return dropdown.getFirstSelectedOption().getText().equals(sText);
+            }
         }
         return false;
     }
 
     public static boolean selectByValue(WebElement webDropDown, String sText) {
-        Select dropdown = new Select(webDropDown);
-        if (dropdown != null) {
-            dropdown.selectByValue(sText);
-            return dropdown.getFirstSelectedOption().getText().equals(sText);
+        if (webDropDown != null) {
+            Select dropdown = new Select(webDropDown);
+            if (dropdown != null) {
+                dropdown.selectByValue(sText);
+                return dropdown.getFirstSelectedOption().getText().equals(sText);
+            }
         }
         return false;
     }

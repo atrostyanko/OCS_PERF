@@ -100,7 +100,7 @@ public class OCS_Test {
 
         MainPage mainPage = new LoginPage_Tests().login();
         JournalTest journalTest = new JournalTest();
-/*
+
         //=== Journal Inquiry
         journalTest.journalInquiryTest();
 
@@ -196,15 +196,21 @@ public class OCS_Test {
         //===== Drop/Cease/Suspend
         journalTest.dropSuspendCeaseTest();
         journalTest.reactivateTest();
-*/
+
         //===== Absorb
         journalTest.absorbTest();
 
         //===== Merge
+        journalTest.mergeTest();
+
         //===== Split
-        //===== Split
+        journalTest.splitTest();
+
         //===== Title Changes
+        journalTest.titleChangesTest();
+
         //===== Add Variants
+        journalTest.addVariantsTest();
 
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
