@@ -238,14 +238,22 @@ public class OCS_Test {
         //=== Article
         //===== View Biblio
         issueTests.viewBiblioTest();
-*/
+
         //=== Label Reprint
         issueTests.labelReprintTest();
 
         //=== Re-Print Journal Labels
+        issueTests.printJournalLabelsTest();
+
         //=== Send Issue to Image Capture
+        issueTests.sendIssueToImageCaptureTest();
+
         //=== Issue Hold
+        issueTests.issueHoldTest();
+*/
         //=== Issue Tracking
+        issueTests.issueTrackingPageTest();
+
         //=== Multiple Issues Tracking
         //=== Claiming
         //===== Candidates

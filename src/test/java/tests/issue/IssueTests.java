@@ -108,4 +108,46 @@ public class IssueTests {
         LabelReprintPage labelReprintPage = new LabelReprintPage();
         ExtentManager.compareNotNULL(labelReprintPage, "Open 'ISSUE -> Label Reprint' page.");
     }
+
+    public void printJournalLabelsTest() {
+        ExtentManager.createNode("ISSUE -> Print Journal Labels Page.", "Verify Print Journal Labels Page.");
+
+        PrintJournalLabelsPage printJournalLabelsPage = new PrintJournalLabelsPage();
+        ExtentManager.compareNotNULL(printJournalLabelsPage, "Open 'ISSUE -> Print Journal Labels' page.");
+    }
+
+    public void sendIssueToImageCaptureTest() {
+        ExtentManager.createNode("ISSUE -> Send Issue to Image Capture Page.", "Verify Send Issue to Image Capture Page.");
+
+        ImageCapturePage imageCapturePage = new ImageCapturePage();
+        ExtentManager.compareNotNULL(imageCapturePage, "Open 'ISSUE -> Send Issue to Image Capture' page.");
+    }
+
+    public void issueHoldTest() {
+        String issueHoldProduct = prop.getProperty("issueHoldProduct");
+
+        ExtentManager.createNode("ISSUE -> Issue Hold Page.", "Verify Edition Issues List Page.");
+
+        EditionIssuesListPage editionIssuesListPage = new EditionIssuesListPage();
+        ExtentManager.compareNotNULL(editionIssuesListPage, "Open 'ISSUE -> Issue Hold' page.");
+
+        ExtentManager.compareTrue(editionIssuesListPage.selectProduct(issueHoldProduct),
+                "Set Accession to " + issueHoldProduct);
+        ExtentManager.compareTrue(editionIssuesListPage.clickSubmit(),
+                "Click 'Submit' button.");
+    }
+
+    public void issueTrackingPageTest() {
+        String issueTrackingAccession = prop.getProperty("issueTrackingAccession");
+
+        ExtentManager.createNode("ISSUE -> Issue Tracking Page.", "Verify Issue Tracking Page.");
+
+        IssueTrackingPage issueTrackingPage = new IssueTrackingPage();
+        ExtentManager.compareNotNULL(issueTrackingPage, "Open 'ISSUE -> Issue Tracking' page.");
+
+        ExtentManager.compareTrue(issueTrackingPage.setAccession(issueTrackingAccession),
+                "Set Accession to " + issueTrackingAccession);
+        ExtentManager.compareTrue(issueTrackingPage.clickSubmit(),
+                "Click 'Submit' button.");
+    }
 }
