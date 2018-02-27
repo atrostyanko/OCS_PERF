@@ -260,11 +260,13 @@ public class OCS_Test {
         //=== Claiming
         //===== Candidates
         issueTests.candidatesTest();
-*/
+
         //===== Active Claim
         issueTests.activeClaimTest();
-
+*/
         //===== History
+        issueTests.claimingHistoryTest();
+
         //===== Claim Request
 
 

@@ -177,4 +177,14 @@ public class IssueTests {
         ExtentManager.compareTrue(claimingActivePage.clickSubmit(),
                 "Click 'Submit' button.");
     }
+
+    public void claimingHistoryTest() {
+        ExtentManager.createNode("ISSUE -> Claiming -> History Page.", "Verify Claiming History Page.");
+
+        ClaimingHistoryPage claimingHistoryPage = new ClaimingHistoryPage();
+        ExtentManager.compareNotNULL(claimingHistoryPage, "Open 'ISSUE -> Claiming -> History' page.");
+
+        ExtentManager.compareTrue(claimingHistoryPage.clickSubmit(),
+                "Click 'Submit' button.");
+    }
 }
