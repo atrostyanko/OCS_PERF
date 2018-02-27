@@ -70,7 +70,8 @@ public abstract class MenuPage extends BasePage {
     }
 
     public void clickSubMenu(String sMenu) {
-        WebElement webElement = WebDriverFactory.getItemContainsText(subMenuList, sMenu);
+        //WebElement webElement = WebDriverFactory.getItemContainsText(subMenuList, sMenu);
+        WebElement webElement = WebDriverFactory.getElementWithMatchingText(subMenuList, sMenu);
         if (webElement != null) {
             WebDriverFactory.clickElement(webElement);
         }

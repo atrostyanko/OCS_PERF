@@ -222,7 +222,7 @@ public class OCS_Test {
 
         MainPage mainPage = new LoginPage_Tests().login();
         IssueTests issueTests = new IssueTests();
-
+/*
         //=== Issue Details
         issueTests.issueDetailsTest();
 
@@ -230,10 +230,18 @@ public class OCS_Test {
         issueTests.editIssueTest();
 
         //=== List All Articles
+        issueTests.listAllArticlesTest();
+
         //=== Extraction Details
+        issueTests.extractionDetailsTest();
+
         //=== Article
         //===== View Biblio
+        issueTests.viewBiblioTest();
+*/
         //=== Label Reprint
+        issueTests.labelReprintTest();
+
         //=== Re-Print Journal Labels
         //=== Send Issue to Image Capture
         //=== Issue Hold

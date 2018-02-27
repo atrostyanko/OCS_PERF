@@ -134,6 +134,13 @@ public class WebDriverFactory {
         return null;
     }
 
+    public static WebElement getElementWithMatchingText(List<WebElement> list, String text) {
+        for (WebElement el : list) {
+            if (text.trim().equals(getWebElementText(el).trim())) return el;
+        }
+        return null;
+    }
+
     public static WebElement getChildElement(WebElement parent, By child) {
         try {
             return parent.findElement(child);
@@ -368,26 +375,6 @@ public class WebDriverFactory {
             }
         }
         return list;
-    }
-
-    public static WebElement getElementWithMatchingText(List<WebElement> list, String text, boolean caseSensitive) {
-        for (WebElement el : list) {
-            try {
-                String elementText = el.getText().trim();
-                if (caseSensitive) {
-                    if (text.equals(elementText)) {
-                        return el;
-                    }
-                } else {
-                    if (text.equalsIgnoreCase(elementText)) {
-                        return el;
-                    }
-                }
-            } catch (StaleElementReferenceException ser) {
-
-            }
-        }
-        return null;
     }
 
     private static List<WebElement> getKendoDropDownItems() {

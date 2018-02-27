@@ -1,9 +1,9 @@
 package pages.issue;
 
 import com.webtestsbase.WebDriverFactory;
-import pages.journal.BaseJournalInquiryPage;
 
 public class ListAllArticlesPage extends BaseIssuePage {
+
     //====== Constructor ==============================
     public ListAllArticlesPage() {
         super(true);

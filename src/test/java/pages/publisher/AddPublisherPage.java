@@ -67,5 +67,4 @@ public class AddPublisherPage extends MainPublisherPage {
     public boolean selectCountry(String sCountryName) {
         return WebDriverFactory.selectByValue(publisherAddressCountry, sCountryName);
     }
-
 }

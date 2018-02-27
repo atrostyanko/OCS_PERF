@@ -2,8 +2,7 @@ package tests.issue;
 
 import com.reporting.ExtentManager;
 import pages.MainPage;
-import pages.issue.EditIssuePage;
-import pages.issue.IssueDetailsPage;
+import pages.issue.*;
 import tests.OCS_Test;
 
 import java.util.Properties;
@@ -54,5 +53,59 @@ public class IssueTests {
         IssueDetailsPage issueDetailsPage = editIssuePage.clickConfirmButton();
         ExtentManager.compareNotNULL(issueDetailsPage,
                 "Click 'Confirm' button and verify Issue Details page is opened.");
+    }
+
+    public void listAllArticlesTest() {
+        String listAllArticlesAccession = prop.getProperty("listAllArticlesAccession");
+
+        ExtentManager.createNode("ISSUE -> List All Articles Page.", "Verify List All Articles Page.");
+
+        ListAllArticlesPage listAllArticlesPage = new ListAllArticlesPage();
+        ExtentManager.compareNotNULL(listAllArticlesPage, "Open 'ISSUE -> List All Articles' page.");
+
+        ExtentManager.compareTrue(listAllArticlesPage.setAccession(listAllArticlesAccession),
+                "Set Accession to " + listAllArticlesAccession);
+        ExtentManager.compareTrue(listAllArticlesPage.clickSubmit(),
+                "Click 'Submit' button.");
+    }
+
+    public void extractionDetailsTest() {
+        String extractionDetailsAccession = prop.getProperty("extractionDetailsAccession");
+        String ISIProdCode = prop.getProperty("ISIProdCode");
+
+        ExtentManager.createNode("ISSUE -> Extraction Details Page.", "Verify Extraction Details Page.");
+
+        IssueProductExtractionDetailsPage issueProductExtractionDetailsPage = new IssueProductExtractionDetailsPage();
+        ExtentManager.compareNotNULL(issueProductExtractionDetailsPage, "Open 'ISSUE -> Extraction Details' page.");
+
+        ExtentManager.compareTrue(issueProductExtractionDetailsPage.setAccession(extractionDetailsAccession),
+                "Set Accession to " + extractionDetailsAccession);
+        ExtentManager.compareTrue(issueProductExtractionDetailsPage.selectISIProdCode(ISIProdCode),
+                "Set ISI Prod Code to " + ISIProdCode);
+
+        ExtentManager.compareTrue(issueProductExtractionDetailsPage.clickSubmit(),
+                "Click 'Submit' button.");
+    }
+
+    public void viewBiblioTest() {
+        String extractionDetailsAccession = prop.getProperty("extractionDetailsAccession");
+
+        ExtentManager.createNode("ISSUE -> Article -> View Biblio Page.", "Verify View Biblio Page.");
+
+        ViewBiblioPage viewBiblioPage = new ViewBiblioPage();
+        ExtentManager.compareNotNULL(viewBiblioPage, "Open 'ISSUE -> Article -> View Biblio' page.");
+
+        ExtentManager.compareTrue(viewBiblioPage.setAccession(extractionDetailsAccession),
+                "Set Accession to " + extractionDetailsAccession);
+
+        ExtentManager.compareTrue(viewBiblioPage.clickSubmit(),
+                "Click 'Submit' button.");
+    }
+
+    public void labelReprintTest() {
+        ExtentManager.createNode("ISSUE -> Label Reprint Page.", "Verify Label Reprint Page.");
+
+        LabelReprintPage labelReprintPage = new LabelReprintPage();
+        ExtentManager.compareNotNULL(labelReprintPage, "Open 'ISSUE -> Label Reprint' page.");
     }
 }
