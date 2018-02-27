@@ -253,12 +253,14 @@ public class OCS_Test {
 
         //=== Issue Tracking
         issueTests.issueTrackingPageTest();
-*/
+
         //=== Multiple Issues Tracking
         issueTests.multipleIssuesTrackingTest();
-
+*/
         //=== Claiming
         //===== Candidates
+        issueTests.candidatesTest();
+
         //===== Active Claim
         //===== History
         //===== Claim Request

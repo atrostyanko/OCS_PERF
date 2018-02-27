@@ -157,4 +157,14 @@ public class IssueTests {
         MultipleIssueTrackingPage multipleIssueTrackingPage = new MultipleIssueTrackingPage();
         ExtentManager.compareNotNULL(multipleIssueTrackingPage, "Open 'ISSUE -> Multiple Issues Tracking' page.");
     }
+
+    public void candidatesTest() {
+        ExtentManager.createNode("ISSUE -> Claiming -> Candidates Page.", "Verify Candidates Page.");
+
+        ClaimingCandidatesPage claimingCandidatesPage = new ClaimingCandidatesPage();
+        ExtentManager.compareNotNULL(claimingCandidatesPage, "Open 'ISSUE -> Claiming -> Candidates' page.");
+
+        ExtentManager.compareTrue(claimingCandidatesPage.clickSubmit(),
+                "Click 'Submit' button.");
+    }
 }
