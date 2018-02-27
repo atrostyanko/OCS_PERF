@@ -187,4 +187,18 @@ public class IssueTests {
         ExtentManager.compareTrue(claimingHistoryPage.clickSubmit(),
                 "Click 'Submit' button.");
     }
+
+    public void ClaimRequestTest() {
+        String claimingAccession = prop.getProperty("claimingAccession");
+
+        ExtentManager.createNode("ISSUE -> Claiming -> Claim Request Page.", "Verify Claiming History Page.");
+
+        ClaimRequestPage claimRequestPage = new ClaimRequestPage();
+        ExtentManager.compareNotNULL(claimRequestPage, "Open 'ISSUE -> Claiming -> Claim Request' page.");
+
+        ExtentManager.compareTrue(claimRequestPage.journalSequence.setText(claimingAccession),
+                "Set Journal Sequence to " + claimingAccession);
+        ExtentManager.compareTrue(claimRequestPage.clickSubmit(),
+                "Click 'Submit' button.");
+    }
 }
