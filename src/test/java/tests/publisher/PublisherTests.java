@@ -6,13 +6,13 @@ import tests.OCS_Test;
 
 import java.util.Properties;
 
-public class PublisherTest {
+public class PublisherTests {
     public static ExtentManager eReports = OCS_Test.eReports;
     public static Properties prop = OCS_Test.prop;
 
     String publisherKey = prop.getProperty("PublisherKey");
 
-    public PublisherTest() {
+    public PublisherTests() {
         //ToDo: REMOVE
         //publisherKey = "SAQEF";
     }
@@ -56,6 +56,7 @@ public class PublisherTest {
         ExtentManager.compareNotNULL(publisherInquiryPage,
                 "Click 'Confirm' button and verify Publisher Inquiry page is opened.");
     }
+
     public void publisherAddPublisherTest() {
         String publisherName = prop.getProperty("publisherName");
         String publisherAddressStreet = prop.getProperty("publisherAddressStreet");
@@ -89,6 +90,7 @@ public class PublisherTest {
                 "Click 'Confirm' button and verify Publisher Inquiry page is opened.");
 
     }
+
     public void publisherAddSamplePublisherTest() {
         String publisherName = prop.getProperty("samplePublisherName");
         String publisherAddressStreet = prop.getProperty("samplePublisherAddressStreet");
@@ -123,6 +125,7 @@ public class PublisherTest {
 
         publisherKey = publisherInquiryPage.getElementValue(publisherInquiryPage.publisherNumber);
     }
+
     public void publisherEditSamplePublisherTest() {
         String publisherName = prop.getProperty("samplePublisherName_UPD");
         String publisherAddressStreet = prop.getProperty("samplePublisherAddressStreet_UPD");
@@ -206,6 +209,7 @@ public class PublisherTest {
                 "Open 'Publisher Inquiry Tab' tab.");
 
     }
+
     public void publisherEditRoyaltyTest() {
         ExtentManager.createNode("PUBLISHER -> Royalty -> Edit Royalty.", "Verify Edit Royalty Page.");
 
@@ -226,6 +230,7 @@ public class PublisherTest {
         ExtentManager.compareNotNULL(royaltyInquiryPage,
                 "Click 'Confirm' button and verify Royalty Inquiry page is opened.");
     }
+
     public void publisherListJournalRoyaltiesTest() {
         ExtentManager.createNode("PUBLISHER -> Royalty -> List Journal Royalties.", "Verify List Journal Royalties Page.");
 
@@ -295,6 +300,7 @@ public class PublisherTest {
                 "Click 'Confirm' button and verify that entity was created.");
 
     }
+
     public void publisherAddSampleJournalTest() {
         int randomNum = (int) (Math.random() * 10000);
 
@@ -333,6 +339,7 @@ public class PublisherTest {
         ExtentManager.compareNotNULL(addSampleJournalPage.clickConfirmButton(),
                 "Click 'Confirm' button and verify that entity was created.");
     }
+
     public void publisherAddNewSerieTest() {
         int randomNum = (int) (Math.random() * 10000);
 

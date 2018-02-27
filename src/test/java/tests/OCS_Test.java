@@ -12,9 +12,10 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import pages.MainPage;
-import tests.journal.JournalTest;
+import tests.issue.IssueTests;
+import tests.journal.JournalTests;
 import tests.loginPage.LoginPage_Tests;
-import tests.publisher.PublisherTest;
+import tests.publisher.PublisherTests;
 
 import java.util.Properties;
 
@@ -49,7 +50,7 @@ public class OCS_Test {
         ExtentManager.createTest("PUBLISHER Tests.", "Verify all items from PUBLISHER menu.");
 
         MainPage mainPage = new LoginPage_Tests().login();
-        PublisherTest publisherTest = new PublisherTest();
+        PublisherTests publisherTest = new PublisherTests();
 
         //=== Publisher Inquiry
         publisherTest.publisherInquiryTest();
@@ -99,7 +100,7 @@ public class OCS_Test {
         ExtentManager.createTest("PUBLISHER Tests.", "Verify all items from PUBLISHER menu.");
 
         MainPage mainPage = new LoginPage_Tests().login();
-        JournalTest journalTest = new JournalTest();
+        JournalTests journalTest = new JournalTests();
 
         //=== Journal Inquiry
         journalTest.journalInquiryTest();
@@ -215,16 +216,36 @@ public class OCS_Test {
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
 
-    /*
     @Test
     public void issueTests() {
         ExtentManager.createTest("ISSUE Tests.", "Verify all items from ISSUE menu.");
 
         MainPage mainPage = new LoginPage_Tests().login();
+        IssueTests issueTests = new IssueTests();
 
-        new IssueDetailsTest().issueDetailsTest();
+        //=== Issue Details
+        issueTests.issueDetailsTest();
+
+        //=== Edit Issue
+        issueTests.editIssueTest();
+
+        //=== List All Articles
+        //=== Extraction Details
+        //=== Article
+        //===== View Biblio
+        //=== Label Reprint
+        //=== Re-Print Journal Labels
+        //=== Send Issue to Image Capture
+        //=== Issue Hold
+        //=== Issue Tracking
+        //=== Multiple Issues Tracking
+        //=== Claiming
+        //===== Candidates
+        //===== Active Claim
+        //===== History
+        //===== Claim Request
+
 
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
-    */
 }

@@ -181,7 +181,7 @@ public class WebDriverFactory {
 
     //===== Select methods =============================================================================================
     public static boolean selectByText(WebElement webDropDown, String sText) {
-        if (webDropDown != null) {
+        if (WebDriverFactory.isElementDisplayed(webDropDown)) {
             Select dropdown = new Select(webDropDown);
             if (dropdown != null) {
                 dropdown.selectByVisibleText(sText);
@@ -192,7 +192,7 @@ public class WebDriverFactory {
     }
 
     public static boolean selectByValue(WebElement webDropDown, String sText) {
-        if (webDropDown != null) {
+        if (WebDriverFactory.isElementDisplayed(webDropDown)) {
             Select dropdown = new Select(webDropDown);
             if (dropdown != null) {
                 dropdown.selectByValue(sText);

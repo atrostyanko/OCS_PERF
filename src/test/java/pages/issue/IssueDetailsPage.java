@@ -10,19 +10,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import pages.MainPage;
 
-public class IssueDetailsPage extends MainPage {
-    @FindBy (name = "accession")
-    @CacheLookup
-    private TextInput accession;
-
-    @FindBy (name = "pubYear")
-    @CacheLookup
-    private TextInput pubYear;
-
-    @FindBy (name = "issueNo")
-    @CacheLookup
-    private TextInput issueNo;
-
+public class IssueDetailsPage extends BaseIssuePage {
     @FindBy (xpath = ".//b[.='DF Issueno']")
     @CacheLookup
     public Label DFIssueno;
@@ -67,22 +55,6 @@ public class IssueDetailsPage extends MainPage {
     public void openPage() {
         clickIssue();
         clickSubMenu("Issue Details");
-    }
-
-    @Override
-    public boolean isPageOpened() {
-        return accession.isDisplayed() && pubYear.isDisplayed() && issueNo.isDisplayed();
-    }
-
-    //===== Set methods ================================================================================================
-    public boolean setAccession(String sValue) {
-        return accession.setText(sValue);
-    }
-    public boolean setPubYear(String sValue) {
-        return pubYear.setText(sValue);
-    }
-    public boolean setIssueNo(String sValue) {
-        return issueNo.setText(sValue);
     }
 
     //===== Get methods ================================================================================================

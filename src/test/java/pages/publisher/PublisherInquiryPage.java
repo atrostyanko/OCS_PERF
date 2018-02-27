@@ -28,19 +28,4 @@ public class PublisherInquiryPage extends BaseInquiryPage {
     public String getElementValue(WebElement webElement) {
         return WebDriverFactory.getElementValue(webElement);
     }
-    /*
-    public static String getElementValue(WebElement webElement) {
-        String sReturn = "";
-        if (webElement != null) {
-            WebElement eParent = WebDriverFactory.getParentUntilTagName(webElement, "tr");
-            if (eParent != null) {
-                WebElement eChild = WebDriverFactory.getChildElement(eParent, By.cssSelector("span > span.DataValue"));
-                if (eChild != null) {
-                    return WebDriverFactory.getWebElementText(eChild);
-                }
-            }
-        }
-        return sReturn;
-    }
-    */
 }

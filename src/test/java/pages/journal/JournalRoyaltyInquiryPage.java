@@ -15,7 +15,7 @@ public class JournalRoyaltyInquiryPage extends BaseJournalInquiryPage {
     public void openPage() {
         clickJournal();
         clickSubMenu("Royalty");
-        clickSubMenu("Royalty Inquiry§");
+        clickSubMenu("Royalty Inquiry");
     }
 
     @Override

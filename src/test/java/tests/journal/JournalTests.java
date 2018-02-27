@@ -9,14 +9,14 @@ import tests.OCS_Test;
 
 import java.util.Properties;
 
-public class JournalTest {
+public class JournalTests {
     public static ExtentManager eReports = OCS_Test.eReports;
     public static Properties prop = OCS_Test.prop;
 
     String journalSequenceNumber = prop.getProperty("journalSequenceNumber");
     String dfIssueNo = "";
 
-    public JournalTest() {
+    public JournalTests() {
     }
 
     public void journalInquiryTest() {
@@ -833,13 +833,13 @@ public class JournalTest {
                 "Click 'Submit Changes' button.");
 
         IssueDetailsPage issueDetailsPage = journalIssueLoginPage.clickConfirmButton();
-        ExtentManager.compareNotNULL(issueDetailsPage,
-                "Click 'Confirm' button and verify Issue Details page is opened.");
+        if (ExtentManager.compareNotNULL(issueDetailsPage,
+                "Click 'Confirm' button and verify Issue Details page is opened.")) {
 
-        ExtentManager.compare(journalNumberForIssueLogin,
-                issueDetailsPage.getElementValue(issueDetailsPage.JournalSeq.asWebElement()),
-                "Verify that Journal Seq. # is " + journalNumberForIssueLogin);
-
+            ExtentManager.compare(journalNumberForIssueLogin,
+                    issueDetailsPage.getElementValue(issueDetailsPage.JournalSeq.asWebElement()),
+                    "Verify that Journal Seq. # is " + journalNumberForIssueLogin);
+        }
         //dfIssueNo = issueDetailsPage.getElementValue(issueDetailsPage.DFIssueno.asWebElement());
     }
 
