@@ -167,4 +167,14 @@ public class IssueTests {
         ExtentManager.compareTrue(claimingCandidatesPage.clickSubmit(),
                 "Click 'Submit' button.");
     }
+
+    public void activeClaimTest() {
+        ExtentManager.createNode("ISSUE -> Claiming -> Active Claim Page.", "Verify Active Claim Page.");
+
+        ClaimingActivePage claimingActivePage = new ClaimingActivePage();
+        ExtentManager.compareNotNULL(claimingActivePage, "Open 'ISSUE -> Claiming -> Active Claim' page.");
+
+        ExtentManager.compareTrue(claimingActivePage.clickSubmit(),
+                "Click 'Submit' button.");
+    }
 }

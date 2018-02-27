@@ -256,12 +256,14 @@ public class OCS_Test {
 
         //=== Multiple Issues Tracking
         issueTests.multipleIssuesTrackingTest();
-*/
+
         //=== Claiming
         //===== Candidates
         issueTests.candidatesTest();
-
+*/
         //===== Active Claim
+        issueTests.activeClaimTest();
+
         //===== History
         //===== Claim Request
 
