@@ -150,4 +150,11 @@ public class IssueTests {
         ExtentManager.compareTrue(issueTrackingPage.clickSubmit(),
                 "Click 'Submit' button.");
     }
+
+    public void multipleIssuesTrackingTest() {
+        ExtentManager.createNode("ISSUE -> Multiple Issues Tracking Page.", "Verify Multiple Issues Tracking Page.");
+
+        MultipleIssueTrackingPage multipleIssueTrackingPage = new MultipleIssueTrackingPage();
+        ExtentManager.compareNotNULL(multipleIssueTrackingPage, "Open 'ISSUE -> Multiple Issues Tracking' page.");
+    }
 }

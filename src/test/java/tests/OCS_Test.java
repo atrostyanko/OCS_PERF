@@ -250,11 +250,13 @@ public class OCS_Test {
 
         //=== Issue Hold
         issueTests.issueHoldTest();
-*/
+
         //=== Issue Tracking
         issueTests.issueTrackingPageTest();
-
+*/
         //=== Multiple Issues Tracking
+        issueTests.multipleIssuesTrackingTest();
+
         //=== Claiming
         //===== Candidates
         //===== Active Claim

@@ -1,8 +1,6 @@
 package pages.issue;
 
 import com.webtestsbase.WebDriverFactory;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 public class ViewBiblioPage extends BaseIssuePage {
     //====== Constructor ==============================

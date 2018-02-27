@@ -1,8 +1,5 @@
 package pages.issue;
 
-import com.webtestsbase.commonElements.elements.Button;
-import org.openqa.selenium.support.FindBy;
-
 public class ImageCapturePage extends BaseIssuePage {
     //====== Constructor ==============================
     public ImageCapturePage() {
