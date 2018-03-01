@@ -1,6 +1,7 @@
 package pages.search;
 
 import com.webtestsbase.commonElements.elements.TextInput;
+import enums.SearchOptions;
 import org.openqa.selenium.support.FindBy;
 import pages.journal.JournalInquiryPage;
 import pages.publisher.BookInquiryPage;
@@ -42,11 +43,10 @@ public class PublicationsSearchPage extends BaseSearchPage {
     }
 
     //===== Click methods ==============================================================================================
-    public Object clickSearchButton() {
+    public Object clickSearchButton(SearchOptions option) {
         Object oReturn = null;
-        String selectedOption = getSelectedOption();
         if (searchButton.click()) {
-            switch (selectedOption) {
+            switch (option.value()) {
                 case "all":
                     break;
                 case "allJournals":

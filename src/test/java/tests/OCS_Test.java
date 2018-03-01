@@ -284,7 +284,11 @@ public class OCS_Test {
         SearchTests searchTests = new SearchTests();
 
         //=== Publications
-        searchTests.publicationsTest();
+        searchTests.searchJournalBySequenceNoTest();
+        searchTests.searchJournalByFullTitleTest();
+        searchTests.searchJournalByTitle29Test();
+        searchTests.searchJournalByTitle20Test();
+        searchTests.searchJournalByTitle11Test();
 /*
         //=== Publishers
         searchTests.publishersTest();
@@ -298,6 +302,7 @@ public class OCS_Test {
         //=== Product Codes
         searchTests.productCodesTest();
 */
+
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
 }
