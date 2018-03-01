@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import pages.issue.IssueDetailsPage;
+import pages.journal.JournalInquiryPage;
 import pages.publisher.PublisherInquiryPage;
 
 import java.util.List;
@@ -50,6 +51,8 @@ public abstract class MenuPage extends BasePage {
     public boolean clickPublisher() {
         return publisherMainMenu.click();
     }
+    public static JournalInquiryPage clickJournalInquiry() { return new JournalInquiryPage(); }
+
     public boolean clickJournal() {
         return journalMainMenu.click();
     }
@@ -70,7 +73,6 @@ public abstract class MenuPage extends BasePage {
     }
 
     public void clickSubMenu(String sMenu) {
-        //WebElement webElement = WebDriverFactory.getItemContainsText(subMenuList, sMenu);
         WebElement webElement = WebDriverFactory.getElementWithMatchingText(subMenuList, sMenu);
         if (webElement != null) {
             WebDriverFactory.clickElement(webElement);

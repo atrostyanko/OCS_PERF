@@ -44,7 +44,7 @@ public class AddSampleJournalPage extends MainPublisherPage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return publisherKey.isDisplayed() && submitBtn.isDisplayed();
     }
 

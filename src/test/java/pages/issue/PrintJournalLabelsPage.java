@@ -22,7 +22,7 @@ public class PrintJournalLabelsPage extends BaseIssuePage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return submitPrintButton.isDisplayed() && pageTitle.getText().equals("Print Journal Labels");
     }
 }

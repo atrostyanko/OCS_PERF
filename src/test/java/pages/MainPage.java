@@ -29,8 +29,13 @@ public class MainPage extends MenuPage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return openIndicator.isDisplayed() && menuOpenIndicator.isDisplayed();
+    }
+
+    @Override
+    public boolean isPageOpened() {
+        return true;
     }
 
     //===== Click methods ==============================================================================================

@@ -18,8 +18,13 @@ public class JournalInquiryPage extends BaseJournalInquiryPage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
+    }
+
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Journal Inquiry");
     }
 
     @Override

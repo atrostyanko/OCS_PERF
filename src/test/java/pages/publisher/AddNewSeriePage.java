@@ -47,7 +47,7 @@ public class AddNewSeriePage extends MainPublisherPage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return addNewSampleBookLabel.isDisplayed() && submitBtn.isDisplayed();
     }
 

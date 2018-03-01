@@ -28,8 +28,13 @@ public class LoginPage extends BasePage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return userID.isDisplayed();
+    }
+
+    @Override
+    public boolean isPageOpened() {
+        return true;
     }
 
     //===== Set methods ================================================================================================

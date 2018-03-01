@@ -16,7 +16,7 @@ public class ImageCapturePage extends BaseIssuePage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return submitChanges.isDisplayed() && pageTitle.getText().equals("Send Issue to Image Capture");
     }
 }

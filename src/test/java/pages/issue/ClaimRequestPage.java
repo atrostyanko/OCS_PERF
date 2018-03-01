@@ -25,7 +25,7 @@ public class ClaimRequestPage extends BaseIssuePage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return submitBtn.isDisplayed()
                 && journalSequence.isDisplayed();
     }

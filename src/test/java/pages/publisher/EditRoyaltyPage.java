@@ -23,7 +23,7 @@ public class EditRoyaltyPage extends MainPublisherPage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return publisherKey.isDisplayed() && journal.isDisplayed() && book.isDisplayed();
     }
 

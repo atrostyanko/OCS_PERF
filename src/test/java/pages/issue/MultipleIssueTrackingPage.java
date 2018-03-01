@@ -26,7 +26,7 @@ public class MultipleIssueTrackingPage extends BaseIssuePage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return loginButton.isDisplayed()
                 && logoutButton.isDisplayed()
                 && pageTitle.getText().equals("Multiple Issue Tracking");

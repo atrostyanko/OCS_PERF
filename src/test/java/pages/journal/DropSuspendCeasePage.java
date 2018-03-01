@@ -27,7 +27,7 @@ public class DropSuspendCeasePage extends BaseJournalInquiryPage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
     }
 

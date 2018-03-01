@@ -27,7 +27,7 @@ public class EditionIssuesListPage extends BaseIssuePage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return WebDriverFactory.isElementDisplayed(product) && submitBtn.isDisplayed();
     }
 

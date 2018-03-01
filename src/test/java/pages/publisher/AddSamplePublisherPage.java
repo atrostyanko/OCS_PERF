@@ -17,7 +17,7 @@ public class AddSamplePublisherPage extends AddPublisherPage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return submitChanges.isDisplayed();
     }
 

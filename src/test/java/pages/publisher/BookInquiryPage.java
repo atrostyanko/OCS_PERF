@@ -14,7 +14,11 @@ public class BookInquiryPage extends BasePage {
 
     @Override
     protected void openPage() {
+    }
 
+    @Override
+    public boolean isSearchPageOpened() {
+        return true;
     }
 
     @Override

@@ -43,7 +43,7 @@ public class BaseIssuePage extends MainPage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return accession.isDisplayed() && pubYear.isDisplayed() && issueNo.isDisplayed();
     }
 

@@ -2,20 +2,20 @@ package pages.journal;
 
 import com.webtestsbase.WebDriverFactory;
 
-public class JournalSubscriptionHistoryEditViewPage extends BaseJournalInquiryPage {
+public class JournalInquirySearchPage extends BaseJournalInquiryPage {
+
     //====== Constructor ==============================
-    public JournalSubscriptionHistoryEditViewPage() {
+    public JournalInquirySearchPage() {
         super(true);
     }
-    public JournalSubscriptionHistoryEditViewPage(boolean openFromMenu) {
+    public JournalInquirySearchPage(boolean openFromMenu) {
         super(openFromMenu);
     }
 
     @Override
     public void openPage() {
         clickJournal();
-        clickSubMenu("Subscriptions");
-        clickSubMenu("View / Edit History");
+        clickSubMenu("Journal Inquiry");
     }
 
     @Override
@@ -26,7 +26,7 @@ public class JournalSubscriptionHistoryEditViewPage extends BaseJournalInquiryPa
     @Override
     public boolean clickSubmit() {
         if (submitBtn.click()) {
-            return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Journal Subscription History");
+            return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Journal Inquiry");
         }
         return false;
     }

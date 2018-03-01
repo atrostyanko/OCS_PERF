@@ -19,7 +19,7 @@ public class EditingJournalRoyaltyPage extends MainJournalPage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
     }
 

@@ -30,7 +30,7 @@ public class ClaimingCandidatesPage extends BaseIssuePage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return submitBtn.isDisplayed()
                 && publisherCode.isDisplayed();
     }

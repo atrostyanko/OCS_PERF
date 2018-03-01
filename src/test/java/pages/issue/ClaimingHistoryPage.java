@@ -34,7 +34,7 @@ public class ClaimingHistoryPage extends BaseIssuePage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return submitBtn.isDisplayed()
                 && publNo.isDisplayed()
                 && publSequenceNumber.isDisplayed();

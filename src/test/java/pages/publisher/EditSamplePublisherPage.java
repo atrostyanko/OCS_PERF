@@ -18,7 +18,7 @@ public class EditSamplePublisherPage extends AddPublisherPage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return publisherKey.isDisplayed() && Journal.isDisplayed() && Book.isDisplayed();
     }
 

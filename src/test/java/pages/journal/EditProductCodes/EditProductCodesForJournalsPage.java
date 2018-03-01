@@ -26,7 +26,7 @@ public class EditProductCodesForJournalsPage extends MainJournalPage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
     }
 

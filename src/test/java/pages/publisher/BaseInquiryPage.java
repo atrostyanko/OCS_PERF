@@ -48,7 +48,7 @@ public class BaseInquiryPage extends MainPublisherPage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isSearchPageOpened() {
         return publisherKey.isDisplayed() && journal.isDisplayed() && book.isDisplayed();
     }
 
