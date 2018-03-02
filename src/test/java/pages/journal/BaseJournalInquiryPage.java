@@ -1,8 +1,6 @@
 package pages.journal;
 
-import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
@@ -52,58 +50,49 @@ public class BaseJournalInquiryPage extends MainJournalPage {
     }
 
     //===== Click methods ==============================================================================================
-    public boolean clickJrnlInqTab() {
-        if (JournalInquiryTab.click()) {
-            return WebDriverFactory.waitElementIsVisible(jrnlBookSeq);
-        }
-        return false;
+    public JournalInquiryPage clickJrnlInqTab() {
+        return JournalInquiryTab.click()
+                ? new JournalInquiryPage(false)
+                : null;
     }
-    public boolean clickCDRXTab() {
-        if (JournalIssuesListTab.click()) {
-            return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Journal Issues List");
-        }
-        return false;
+    public JournalIssuesListPage clickCDRXTab() {
+        return JournalIssuesListTab.click()
+                ? new JournalIssuesListPage(false)
+                : null;
     }
-    public boolean clickJrnlXRefTab() {
-        if (JournalChangesTab.click()) {
-            return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Journal Changes");
-        }
-        return false;
+    public JournalChangesPage clickJrnlXRefTab() {
+        return JournalChangesTab.click()
+                ? new JournalChangesPage(false)
+                : null;
     }
-    public boolean clickPCSCTab() {
-        if (JournalProductCodesTab.click()) {
-            return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Journal Product Codes Inquiry");
-        }
-        return false;
+    public JournalProductCodesInquiryPage clickPCSCTab() {
+        return JournalProductCodesTab.click()
+                ? new JournalProductCodesInquiryPage(false)
+                : null;
     }
-    public boolean clickPCHistTab() {
-        if (JournalProductCodeHistoryTab.click()) {
-            return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Journal Product Code History");
-        }
-        return false;
+    public JournalProductCodeHistoryPage clickPCHistTab() {
+        return JournalProductCodeHistoryTab.click()
+                ? new JournalProductCodeHistoryPage(false)
+                : null;
     }
-    public boolean clickSCHistTab() {
-        if (JournalSubjectCatagoryHistoryTab.click()) {
-            return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Journal Subject Catagory History");
-        }
-        return false;
+    public JournalSubjectCategoryHistoryPage clickSCHistTab() {
+        return JournalSubjectCatagoryHistoryTab.click()
+                ? new JournalSubjectCategoryHistoryPage(false)
+                : null;
     }
-    public boolean clickRoyInqTab() {
-        if (JournalRoyaltyInquiryTab.click()) {
-            return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Journal Royalty Inquiry");
-        }
-        return false;
+    public JournalRoyaltyInquiryPage clickRoyInqTab() {
+        return JournalRoyaltyInquiryTab.click()
+                ? new JournalRoyaltyInquiryPage(false)
+                : null;
     }
-    public boolean clickSubsHistTab() {
-        if (JournalSubscriptionHistoryTab.click()) {
-            return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Journal Subscription History");
-        }
-        return false;
+    public JournalSubscriptionHistoryPage clickSubsHistTab() {
+        return JournalSubscriptionHistoryTab.click()
+                ? new JournalSubscriptionHistoryPage(false)
+                : null;
     }
-    public boolean clickIssueLoginTab() {
-        if (RetrieveJournalForAddingIssueActionTab.click()) {
-            return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Issue Login for a Journal");
-        }
-        return false;
+    public JournalIssueLoginPage clickIssueLoginTab() {
+        return RetrieveJournalForAddingIssueActionTab.click()
+                ? new JournalIssueLoginPage(false)
+                : null;
     }
 }

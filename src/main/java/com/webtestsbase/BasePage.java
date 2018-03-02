@@ -1,5 +1,6 @@
 package com.webtestsbase;
 
+import com.reporting.ExtentManager;
 import com.utils.TimeUtils;
 
 import com.webtestsbase.commonElements.ExtendedFieldDecorator;
@@ -57,7 +58,8 @@ public abstract class BasePage {
             isPageOpenedIndicator = isSearchPageOpened();
         }
         if(!isPageOpenedIndicator) {
-            throw new AssertionError("Page was not opened");
+            //throw new AssertionError("Page was not opened");
+            ExtentManager.compareTrue(false, "Page was not opened");
         }
     }
 
@@ -73,7 +75,8 @@ public abstract class BasePage {
             isPageOpenedIndicator = isPageOpened();
         }
         if(!isPageOpenedIndicator) {
-            throw new AssertionError("Page was not opened");
+            //throw new AssertionError("Page was not opened");
+            ExtentManager.compareTrue(false, "Page was not opened");
         }
     }
 }

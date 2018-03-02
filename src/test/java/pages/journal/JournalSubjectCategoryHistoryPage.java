@@ -2,20 +2,19 @@ package pages.journal;
 
 import com.webtestsbase.WebDriverFactory;
 
-public class EditingJournalRoyaltyPage extends MainJournalPage {
+public class JournalSubjectCategoryHistoryPage extends BaseJournalInquiryPage {
     //====== Constructor ==============================
-    public EditingJournalRoyaltyPage() {
+    public JournalSubjectCategoryHistoryPage() {
         super(true);
     }
-    public EditingJournalRoyaltyPage(boolean openFromMenu) {
+    public JournalSubjectCategoryHistoryPage(boolean openFromMenu) {
         super(openFromMenu);
     }
 
     @Override
     public void openPage() {
         clickJournal();
-        clickSubMenu("Royalty");
-        clickSubMenu("Edit Royalty");
+        clickSubMenu("Subject Category History");
     }
 
     @Override
@@ -23,11 +22,16 @@ public class EditingJournalRoyaltyPage extends MainJournalPage {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Journal Subject Catagory History");
+    }
+
     //===== Click methods ==============================================================================================
     @Override
     public boolean clickSubmit() {
         if (submitBtn.click()) {
-            return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Editing Journal Royalty");
+            return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Journal Subject Catagory History");
         }
         return false;
     }
@@ -37,4 +41,5 @@ public class EditingJournalRoyaltyPage extends MainJournalPage {
                 ? new JournalInquiryPage(false)
                 : null;
     }
+
 }

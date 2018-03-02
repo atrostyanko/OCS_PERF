@@ -1,5 +1,7 @@
 package pages.journal;
 
+import pages.publisher.BookInquiryPage;
+
 public class EditBookPage extends MainJournalPage {
     //====== Constructor ==============================
     public EditBookPage() {
@@ -22,9 +24,9 @@ public class EditBookPage extends MainJournalPage {
     }
 
     //===== Click methods ==============================================================================================
-    public JournalInquiryPage clickConfirmButton() {
+    public BookInquiryPage clickConfirmButton() {
         return confirmButton.click()
-                ? new JournalInquiryPage(false)
+                ? new BookInquiryPage(false)
                 : null;
     }
 

@@ -30,10 +30,15 @@ public class EditProductCodesForSeriesPage extends MainJournalPage {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Editing Product Codes");
+    }
+
     //===== Click methods ==============================================================================================
-    public JournalInquiryPage clickConfirmButton() {
+    public EditProductCodesForSeriesPage clickConfirmButton() {
         return confirmButton.click()
-                ? new JournalInquiryPage(false)
+                ? new EditProductCodesForSeriesPage(false)
                 : null;
     }
 

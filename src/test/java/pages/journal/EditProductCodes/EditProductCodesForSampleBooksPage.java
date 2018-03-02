@@ -5,6 +5,7 @@ import com.webtestsbase.commonElements.elements.Button;
 import org.openqa.selenium.support.FindBy;
 import pages.journal.JournalInquiryPage;
 import pages.journal.MainJournalPage;
+import pages.publisher.BookInquiryPage;
 
 public class EditProductCodesForSampleBooksPage extends MainJournalPage {
     @FindBy (name = "addButton")
@@ -30,10 +31,15 @@ public class EditProductCodesForSampleBooksPage extends MainJournalPage {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Editing Product Codes");
+    }
+
     //===== Click methods ==============================================================================================
-    public JournalInquiryPage clickConfirmButton() {
+    public EditProductCodesForSampleBooksPage clickConfirmButton() {
         return confirmButton.click()
-                ? new JournalInquiryPage(false)
+                ? new EditProductCodesForSampleBooksPage(false)
                 : null;
     }
 

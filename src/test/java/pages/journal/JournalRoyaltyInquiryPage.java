@@ -24,6 +24,11 @@ public class JournalRoyaltyInquiryPage extends BaseJournalInquiryPage {
     }
 
     @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Journal Royalty Inquiry");
+    }
+
+    @Override
     public boolean clickSubmit() {
         if (submitBtn.click()) {
             return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Journal Royalty Inquiry");

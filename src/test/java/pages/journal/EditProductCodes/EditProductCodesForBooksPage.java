@@ -3,8 +3,10 @@ package pages.journal.EditProductCodes;
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
 import org.openqa.selenium.support.FindBy;
+import pages.journal.EditSubjectCategories.EditSubjectCategoriesForBooksPage;
 import pages.journal.JournalInquiryPage;
 import pages.journal.MainJournalPage;
+import pages.publisher.BookInquiryPage;
 
 public class EditProductCodesForBooksPage extends MainJournalPage {
     @FindBy (name = "addButton")
@@ -31,9 +33,9 @@ public class EditProductCodesForBooksPage extends MainJournalPage {
     }
 
     //===== Click methods ==============================================================================================
-    public JournalInquiryPage clickConfirmButton() {
+    public EditSubjectCategoriesForBooksPage clickConfirmButton() {
         return confirmButton.click()
-                ? new JournalInquiryPage(false)
+                ? new EditSubjectCategoriesForBooksPage(false)
                 : null;
     }
 

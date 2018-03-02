@@ -19,4 +19,9 @@ public class JournalProductCodesInquiryPage extends BaseJournalInquiryPage {
     public boolean isSearchPageOpened() {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
     }
+
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Journal Product Codes Inquiry");
+    }
 }

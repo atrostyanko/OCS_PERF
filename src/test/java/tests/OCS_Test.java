@@ -102,7 +102,7 @@ public class OCS_Test {
 
         MainPage mainPage = new LoginPage_Tests().login();
         JournalTests journalTest = new JournalTests();
-
+/*
         //=== Journal Inquiry
         journalTest.journalInquiryTest();
 
@@ -123,7 +123,7 @@ public class OCS_Test {
         //====== Delete Sample Journal
         //====== Delete Sample Book
         //====== Delete Series
-
+*/
         //=== Prod. Codes - Subj. Categories
         journalTest.JournalProductCodesInquiryTest();
 
@@ -138,7 +138,7 @@ public class OCS_Test {
         journalTest.journalEditProductCodesForSampleBooksTest();
         //===== For Series
         journalTest.journalEditProductCodesForSeriesTest();
-
+/*
         //=== Edit Subject Categories
         //===== For Journals
         journalTest.journalEditSubjectCategoriesForJournalsTest();
@@ -213,7 +213,7 @@ public class OCS_Test {
 
         //===== Add Variants
         journalTest.addVariantsTest();
-
+*/
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
 

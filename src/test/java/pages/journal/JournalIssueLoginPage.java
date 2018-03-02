@@ -34,6 +34,11 @@ public class JournalIssueLoginPage extends BaseJournalInquiryPage {
     }
 
     @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Issue Login for a Journal");
+    }
+
+    @Override
     public boolean clickSubmit() {
         if (submitBtn.click()) {
             return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Issue Login for a Journal");

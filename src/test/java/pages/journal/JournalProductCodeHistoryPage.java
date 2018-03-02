@@ -22,6 +22,11 @@ public class JournalProductCodeHistoryPage extends BaseJournalInquiryPage {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Journal Product Code History");
+    }
+
     //===== Click methods ==============================================================================================
     @Override
     public boolean clickSubmit() {

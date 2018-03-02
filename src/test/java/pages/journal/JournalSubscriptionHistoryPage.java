@@ -24,6 +24,11 @@ public class JournalSubscriptionHistoryPage extends BaseJournalInquiryPage {
     }
 
     @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Journal Subscription History");
+    }
+
+    @Override
     public boolean clickSubmit() {
         if (submitBtn.click()) {
             return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Journal Subscription History");

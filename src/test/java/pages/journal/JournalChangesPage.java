@@ -29,6 +29,11 @@ public class JournalChangesPage extends BaseJournalInquiryPage {
     }
 
     @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Journal Changes");
+    }
+
+    @Override
     public boolean clickSubmit() {
         if (submitBtn.click()) {
             return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Journal Changes");
