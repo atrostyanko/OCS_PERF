@@ -188,18 +188,19 @@ public class OCS_Test {
         journalTest.journalAlterTitlesTest();
 */
         //===== Drop/Cease/Suspend
-        journalTest.dropSuspendCeaseTest();
-        journalTest.reactivateTest();
-/*
+        journalTest.dropSuspendCeaseTest(prop.getProperty("dropSuspendCease_JournalSequence"));
+        journalTest.reactivateTest(prop.getProperty("dropSuspendCease_JournalSequence"));
+
         //===== Absorb
-        journalTest.absorbTest();
+        journalTest.absorbTest(prop.getProperty("absorb_JournalSequence"));
 
         //===== Merge
-        journalTest.mergeTest();
+        journalTest.mergeTest(prop.getProperty("merge_JournalSequence"));
 
         //===== Split
-        journalTest.splitTest();
-
+        journalTest.splitTest(prop.getProperty("split_JournalSequence"));
+        journalTest.reactivateTest(prop.getProperty("split_JournalSequence"));
+/*
         //===== Title Changes
         journalTest.titleChangesTest();
 

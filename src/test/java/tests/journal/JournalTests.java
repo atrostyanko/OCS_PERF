@@ -905,9 +905,7 @@ public class JournalTests {
                 "Verify that '" + message +"' message is displayed.");
     }
 
-    public void dropSuspendCeaseTest() {
-        String journalSequenceDropSuspendCease = prop.getProperty("dropSuspendCease_JournalSequence");
-
+    public void dropSuspendCeaseTest(String journalSequence) {
         ExtentManager.createNode("JOURNAL -> Journal XRef -> Drop Suspend Cease.",
                 "Verify Drop Suspend Cease Page.");
 
@@ -915,8 +913,8 @@ public class JournalTests {
         ExtentManager.compareNotNULL(dropSuspendCeasePage,
                 "Open 'JOURNAL -> Journal XRef -> Drop Suspend Cease page.");
 
-        ExtentManager.compareTrue(dropSuspendCeasePage.setJournalSequence(journalSequenceDropSuspendCease),
-                "Set Journal Sequence number to " + journalSequenceDropSuspendCease);
+        ExtentManager.compareTrue(dropSuspendCeasePage.setJournalSequence(journalSequence),
+                "Set Journal Sequence number to " + journalSequence);
         ExtentManager.compareTrue(dropSuspendCeasePage.clickSubmit(),
                 "Click 'Submit' button.");
 
@@ -931,9 +929,7 @@ public class JournalTests {
                 "Click 'Confirm' button and verify Journal Changes page is opened.");
     }
 
-    public void reactivateTest() {
-        String journalSequenceDropSuspendCease = prop.getProperty("dropSuspendCease_JournalSequence");
-
+    public void reactivateTest(String journalSequence) {
         ExtentManager.createNode("JOURNAL -> Journal XRef -> Drop Suspend Cease.",
                 "Verify Drop Suspend Cease Page.");
 
@@ -941,8 +937,8 @@ public class JournalTests {
         ExtentManager.compareNotNULL(dropSuspendCeasePage,
                 "Open 'JOURNAL -> Journal XRef -> Drop Suspend Cease page.");
 
-        ExtentManager.compareTrue(dropSuspendCeasePage.setJournalSequence(journalSequenceDropSuspendCease),
-                "Set Journal Sequence number to " + journalSequenceDropSuspendCease);
+        ExtentManager.compareTrue(dropSuspendCeasePage.setJournalSequence(journalSequence),
+                "Set Journal Sequence number to " + journalSequence);
         ExtentManager.compareTrue(dropSuspendCeasePage.clickSubmit(),
                 "Click 'Submit' button.");
 
@@ -957,9 +953,7 @@ public class JournalTests {
                 "Click 'Confirm' button and verify Journal Changes page is opened.");
     }
 
-    public void absorbTest() {
-        String journalSequenceDropSuspendCease = prop.getProperty("journalSequenceDropSuspendCease");
-
+    public void absorbTest(String journalSequence) {
         ExtentManager.createNode("JOURNAL -> Journal XRef -> Absorb.",
                 "Verify Absorb Page.");
 
@@ -967,8 +961,8 @@ public class JournalTests {
         ExtentManager.compareNotNULL(absorbPage,
                 "Open 'JOURNAL -> Journal XRef -> Absorb page.");
 
-        ExtentManager.compareTrue(absorbPage.setJournalSequence(journalSequenceDropSuspendCease),
-                "Set Journal Sequence number to " + journalSequenceDropSuspendCease);
+        ExtentManager.compareTrue(absorbPage.setJournalSequence(journalSequence),
+                "Set Journal Sequence number to " + journalSequence);
         ExtentManager.compareTrue(absorbPage.clickSubmit(),
                 "Click 'Submit' button.");
 
@@ -978,11 +972,11 @@ public class JournalTests {
         JournalChangesPage journalChangesPage = absorbPage.clickConfirmButton();
         ExtentManager.compareNotNULL(journalChangesPage,
                 "Click 'Confirm' button and verify Journal Changes page is opened.");
+
+        //ToDo: Доделать когда будет понятна вся функциональность
     }
 
-    public void mergeTest() {
-        String journalSequenceDropSuspendCease = prop.getProperty("journalSequenceDropSuspendCease");
-
+    public void mergeTest(String journalSequence) {
         ExtentManager.createNode("JOURNAL -> Journal XRef -> Merge.",
                 "Verify Merge Page.");
 
@@ -990,8 +984,8 @@ public class JournalTests {
         ExtentManager.compareNotNULL(mergePage,
                 "Open 'JOURNAL -> Journal XRef -> Merge page.");
 
-        ExtentManager.compareTrue(mergePage.setJournalSequence(journalSequenceDropSuspendCease),
-                "Set Journal Sequence number to " + journalSequenceDropSuspendCease);
+        ExtentManager.compareTrue(mergePage.setJournalSequence(journalSequence),
+                "Set Journal Sequence number to " + journalSequence);
         ExtentManager.compareTrue(mergePage.clickSubmit(),
                 "Click 'Submit' button.");
 
@@ -1001,11 +995,11 @@ public class JournalTests {
         JournalChangesPage journalChangesPage = mergePage.clickConfirmButton();
         ExtentManager.compareNotNULL(journalChangesPage,
                 "Click 'Confirm' button and verify Journal Changes page is opened.");
+
+        //ToDo: Доделать когда будет понятна вся функциональность
     }
 
-    public void splitTest() {
-        String journalSplitNumber = prop.getProperty("journalSplitNumber");
-
+    public void splitTest(String journalSequence) {
         ExtentManager.createNode("JOURNAL -> Journal XRef -> Split.",
                 "Verify Split Page.");
 
@@ -1013,8 +1007,8 @@ public class JournalTests {
         ExtentManager.compareNotNULL(splitPage,
                 "Open 'JOURNAL -> Journal XRef -> Split page.");
 
-        ExtentManager.compareTrue(splitPage.setJournalSequence(journalSplitNumber),
-                "Set Journal Sequence number to " + journalSplitNumber);
+        ExtentManager.compareTrue(splitPage.setJournalSequence(journalSequence),
+                "Set Journal Sequence number to " + journalSequence);
         ExtentManager.compareTrue(splitPage.clickSubmit(),
                 "Click 'Submit' button.");
 
@@ -1024,6 +1018,8 @@ public class JournalTests {
         JournalChangesPage journalChangesPage = splitPage.clickConfirmButton();
         ExtentManager.compareNotNULL(journalChangesPage,
                 "Click 'Confirm' button and verify Journal Changes page is opened.");
+
+        //ToDo: Доделать когда будет понятна вся функциональность
     }
 
     public void titleChangesTest() {
