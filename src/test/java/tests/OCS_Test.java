@@ -185,8 +185,8 @@ public class OCS_Test {
 
         //=== Journal XRef
         //===== Alter Titles
-        journalTest.journalAlterTitlesTest();
-*/
+        journalTest.journalAlterTitlesTest(prop.getProperty("alterTitles_JournalSequence"));
+
         //===== Drop/Cease/Suspend
         journalTest.dropSuspendCeaseTest(prop.getProperty("dropSuspendCease_JournalSequence"));
         journalTest.reactivateTest(prop.getProperty("dropSuspendCease_JournalSequence"));
@@ -200,10 +200,12 @@ public class OCS_Test {
         //===== Split
         journalTest.splitTest(prop.getProperty("split_JournalSequence"));
         journalTest.reactivateTest(prop.getProperty("split_JournalSequence"));
-/*
+*/
         //===== Title Changes
-        journalTest.titleChangesTest();
-
+        journalTest.titleChangesTest(prop.getProperty("titleChanges_JournalSequence1"),
+                prop.getProperty("titleChanges_JournalSequence2"));
+        journalTest.reactivateTest(prop.getProperty("titleChanges_JournalSequence1"));
+/*
         //===== Add Variants
         journalTest.addVariantsTest();
 

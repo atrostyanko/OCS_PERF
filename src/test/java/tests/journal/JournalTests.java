@@ -878,9 +878,7 @@ public class JournalTests {
         //ToDo: Закончить, когда пойму как выставить разрешение на трансформацию журнала
     }
 
-    public void journalAlterTitlesTest() {
-        String journalSequence = prop.getProperty("alterTitles_JournalSequence");
-
+    public void journalAlterTitlesTest(String journalSequence) {
         ExtentManager.createNode("JOURNAL -> Journal XRef -> Alter Titles.",
                 "Verify Alter Titles Page.");
 
@@ -935,7 +933,7 @@ public class JournalTests {
 
         DropSuspendCeasePage dropSuspendCeasePage = new DropSuspendCeasePage();
         ExtentManager.compareNotNULL(dropSuspendCeasePage,
-                "Open 'JOURNAL -> Journal XRef -> Drop Suspend Cease page.");
+                "Open 'JOURNAL -> Journal XRef -> Drop Suspend Cease' page.");
 
         ExtentManager.compareTrue(dropSuspendCeasePage.setJournalSequence(journalSequence),
                 "Set Journal Sequence number to " + journalSequence);
@@ -951,6 +949,10 @@ public class JournalTests {
         JournalChangesPage journalChangesPage = dropSuspendCeasePage.clickConfirmButton();
         ExtentManager.compareNotNULL(journalChangesPage,
                 "Click 'Confirm' button and verify Journal Changes page is opened.");
+
+        String message = "Record for Journal Seq No. " + journalSequence + " has been reactivateed. successfully updated. Please review below.";
+        ExtentManager.compareTrue(journalChangesPage.isMessageDisplayed(message),
+                "Verify that '" + message +"' message is displayed.");
     }
 
     public void absorbTest(String journalSequence) {
@@ -1022,9 +1024,7 @@ public class JournalTests {
         //ToDo: Доделать когда будет понятна вся функциональность
     }
 
-    public void titleChangesTest() {
-        String journalTitleChangesSequenceNumber = prop.getProperty("journalTitleChangesSequenceNumber");
-
+    public void titleChangesTest(String journalSequenceFirst, String journalSequenceSecond) {
         ExtentManager.createNode("JOURNAL -> Journal XRef -> Title Changes.",
                 "Verify Title Changes Page.");
 
@@ -1032,13 +1032,20 @@ public class JournalTests {
         ExtentManager.compareNotNULL(titleChangesPage,
                 "Open 'JOURNAL -> Journal XRef -> Title Changes page.");
 
-        ExtentManager.compareTrue(titleChangesPage.setJournalSequence(journalTitleChangesSequenceNumber),
-                "Set Journal Sequence number to " + journalTitleChangesSequenceNumber);
+        ExtentManager.compareTrue(titleChangesPage.setJournalSequence(journalSequenceFirst),
+                "Set Journal Sequence number to " + journalSequenceFirst);
         ExtentManager.compareTrue(titleChangesPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(titleChangesPage.submitChanges.isDisplayed(),
-                "Verify that 'Submit Changes' button is displayed.");
+        ExtentManager.compareTrue(titleChangesPage.acusitionUser.setText(journalSequenceSecond),
+                "Set '" + journalSequenceSecond + "' to the 'Change to Jrnl Seq #' field.");
+
+        ExtentManager.compareTrue(titleChangesPage.clickSubmitChanges(),
+                "Click 'Submit Changes' button.");
+
+        JournalChangesPage journalChangesPage = titleChangesPage.clickConfirmButton();
+        ExtentManager.compareNotNULL(journalChangesPage,
+                "Click 'Confirm' button and verify Journal Changes page is opened.");
     }
 
     public void addVariantsTest() {

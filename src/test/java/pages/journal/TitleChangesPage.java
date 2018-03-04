@@ -1,8 +1,13 @@
 package pages.journal;
 
 import com.webtestsbase.WebDriverFactory;
+import com.webtestsbase.commonElements.elements.TextInput;
+import org.openqa.selenium.support.FindBy;
 
 public class TitleChangesPage extends BaseJournalInquiryPage {
+    @FindBy(name = "acusitionUser")
+    public TextInput acusitionUser;
+
     //====== Constructor ==============================
     public TitleChangesPage() {
         super(true);
