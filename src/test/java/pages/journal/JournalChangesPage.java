@@ -11,6 +11,12 @@ public class JournalChangesPage extends BaseJournalInquiryPage {
     @FindBy(css = "div.IndentLevel1")
     public List<WebElement> actionsList;
 
+    @FindBy(xpath = ".//span[contains(text(), 'Notes')]")
+    public Label actionPerformedNotes;
+
+    @FindBy(xpath = ".//li[contains(text(), 'Notes information has been sucessfully updated.')]")
+    public Label updateMessage;
+
     //====== Constructor ==============================
     public JournalChangesPage() {
         super(true);
@@ -44,4 +50,7 @@ public class JournalChangesPage extends BaseJournalInquiryPage {
     }
 
     //===== Get methods ================================================================================================
+    public String getElementValue(WebElement webElement) {
+        return WebDriverFactory.getElementValue(webElement);
+    }
 }
