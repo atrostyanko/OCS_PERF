@@ -1,4 +1,4 @@
-package pages.journal;
+package pages.journal.Transforming;
 
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
@@ -6,6 +6,8 @@ import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.issue.IssueDetailsPage;
+import pages.journal.BaseJournalInquiryPage;
+import pages.publisher.BookInquiryPage;
 
 public class TransformingBookPage extends BaseJournalInquiryPage {
     @FindBy(name = "transformBook")
@@ -42,9 +44,9 @@ public class TransformingBookPage extends BaseJournalInquiryPage {
     }
 
     //===== Click methods ==============================================================================================
-    public IssueDetailsPage clickTransformButton() {
+    public BookInquiryPage clickTransformButton() {
         return confirmButton.click()
-                ? new IssueDetailsPage(false)
+                ? new BookInquiryPage(false)
                 : null;
     }
 }

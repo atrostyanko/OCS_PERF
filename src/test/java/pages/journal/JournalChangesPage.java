@@ -2,6 +2,7 @@ package pages.journal;
 
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Label;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -52,5 +53,10 @@ public class JournalChangesPage extends BaseJournalInquiryPage {
     //===== Get methods ================================================================================================
     public String getElementValue(WebElement webElement) {
         return WebDriverFactory.getElementValue(webElement);
+    }
+
+    //===== Get methods ================================================================================================
+    public boolean isMessageDisplayed(String message) {
+        return WebDriverFactory.waitAndFindDisplayedElement(By.xpath(".//li[contains(text(), '" + message + "')]")) != null;
     }
 }

@@ -1,6 +1,7 @@
 package tests.journal;
 
 import com.reporting.ExtentManager;
+import pages.issue.IssueDetailsPage;
 import pages.journal.*;
 import pages.journal.EditProductCodes.*;
 import pages.journal.EditSubjectCategories.*;
@@ -8,6 +9,8 @@ import pages.journal.Subscriptions.JournalSubscriptionDetailsPage;
 import pages.journal.Subscriptions.JournalSubscriptionHistoryEditPage;
 import pages.journal.Subscriptions.JournalSubscriptionHistoryEditViewPage;
 import pages.journal.Subscriptions.JournalSubscriptionHistoryPage;
+import pages.journal.Transforming.TransformingBookPage;
+import pages.journal.Transforming.TransformingSampleJournalPage;
 import pages.publisher.BookInquiryPage;
 import tests.OCS_Test;
 
@@ -788,10 +791,9 @@ public class JournalTests {
 
             ExtentManager.compareTrue(journalChangesPage.updateMessage.isDisplayed(),
                     "Verify the 'Notes information has been successfully updated'.");
-
         }
     }
-/*
+
     public void journalIssueLoginTest() {
         String journalNumberForIssueLogin = prop.getProperty("journalNumberForIssueLogin");
         String media = prop.getProperty("media");
@@ -826,13 +828,14 @@ public class JournalTests {
                     issueDetailsPage.getElementValue(issueDetailsPage.JournalSeq.asWebElement()),
                     "Verify that Journal Seq. # is " + journalNumberForIssueLogin);
         }
-        //dfIssueNo = issueDetailsPage.getElementValue(issueDetailsPage.DFIssueno.asWebElement());
+        dfIssueNo = issueDetailsPage.getElementValue(issueDetailsPage.DFIssueno.asWebElement());
     }
 
     public void journalTransformingBookTest() {
         String sampleBookNumber = prop.getProperty("sampleBookNumber");
 
-        ExtentManager.createNode("JOURNAL -> Transform a Sample Book.", "Verify Transforming a Book Page.");
+        ExtentManager.createNode("JOURNAL -> Transform a Sample Book.",
+                "Verify Transforming a Book Page.");
 
         TransformingBookPage transformingBookPage = new TransformingBookPage();
         ExtentManager.compareNotNULL(transformingBookPage,
@@ -846,7 +849,12 @@ public class JournalTests {
         ExtentManager.compareTrue(transformingBookPage.transformBookButton.isDisplayed(),
                 "Verify that 'Transform Book' button is displayed.");
 
-        //ToDo: Закончить, когда пойму как выставить разрешение на трансформацию книги
+        ExtentManager.compareTrue(transformingBookPage.transformBookButton.isDisplayed(),
+                "Verify that 'Transform Book' button is displayed.");
+
+        BookInquiryPage bookInquiryPage = transformingBookPage.clickTransformButton();
+        ExtentManager.compareNotNULL(bookInquiryPage,
+                "Click 'Transform' button and verify that the book was transformed.");
     }
 
     public void journalTransformingSampleJournalTest() {
@@ -871,7 +879,7 @@ public class JournalTests {
     }
 
     public void journalAlterTitlesTest() {
-        String journalSequenceAlterTitles = prop.getProperty("journalSequenceAlterTitles");
+        String journalSequence = prop.getProperty("alterTitles_JournalSequence");
 
         ExtentManager.createNode("JOURNAL -> Journal XRef -> Alter Titles.",
                 "Verify Alter Titles Page.");
@@ -880,8 +888,8 @@ public class JournalTests {
         ExtentManager.compareNotNULL(alterTitlesPage,
                 "Open 'JOURNAL -> Journal XRef -> Alter Titles page.");
 
-        ExtentManager.compareTrue(alterTitlesPage.setJournalSequence(journalSequenceAlterTitles),
-                "Set Journal Sequence number to " + journalSequenceAlterTitles);
+        ExtentManager.compareTrue(alterTitlesPage.setJournalSequence(journalSequence),
+                "Set Journal Sequence number to " + journalSequence);
         ExtentManager.compareTrue(alterTitlesPage.clickSubmit(),
                 "Click 'Submit' button.");
 
@@ -892,10 +900,13 @@ public class JournalTests {
         ExtentManager.compareNotNULL(journalChangesPage,
                 "Click 'Confirm' button and verify Journal Changes page is opened.");
 
+        String message = "Record for Publication Titles for Journal Seq No. " + journalSequence + " successfully updated. Please review below.";
+        ExtentManager.compareTrue(journalChangesPage.isMessageDisplayed(message),
+                "Verify that '" + message +"' message is displayed.");
     }
 
     public void dropSuspendCeaseTest() {
-        String journalSequenceDropSuspendCease = prop.getProperty("journalSequenceDropSuspendCease");
+        String journalSequenceDropSuspendCease = prop.getProperty("dropSuspendCease_JournalSequence");
 
         ExtentManager.createNode("JOURNAL -> Journal XRef -> Drop Suspend Cease.",
                 "Verify Drop Suspend Cease Page.");
@@ -921,7 +932,7 @@ public class JournalTests {
     }
 
     public void reactivateTest() {
-        String journalSequenceDropSuspendCease = prop.getProperty("journalSequenceDropSuspendCease");
+        String journalSequenceDropSuspendCease = prop.getProperty("dropSuspendCease_JournalSequence");
 
         ExtentManager.createNode("JOURNAL -> Journal XRef -> Drop Suspend Cease.",
                 "Verify Drop Suspend Cease Page.");
@@ -1056,5 +1067,4 @@ public class JournalTests {
         ExtentManager.compareNotNULL(journalChangesPage,
                 "Click 'Confirm' button and verify Journal Changes page is opened.");
     }
-*/
 }

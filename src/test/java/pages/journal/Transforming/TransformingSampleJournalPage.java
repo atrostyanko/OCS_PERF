@@ -1,10 +1,11 @@
-package pages.journal;
+package pages.journal.Transforming;
 
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
 import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.support.FindBy;
 import pages.issue.IssueDetailsPage;
+import pages.journal.BaseJournalInquiryPage;
 
 public class TransformingSampleJournalPage extends BaseJournalInquiryPage {
     @FindBy(name = "title11")

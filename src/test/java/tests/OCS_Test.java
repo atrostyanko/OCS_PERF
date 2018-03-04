@@ -179,26 +179,18 @@ public class OCS_Test {
 
         //=== Journal Changes
         journalTest.journalChangesTest();
-*/
+
         //=== Edit XRef Notes
         journalTest.journalEditXRefNotesTest();
-/*
-        //=== Issue Login
-        journalTest.journalIssueLoginTest();
-
-        //=== Transform a Sample Book
-        journalTest.journalTransformingBookTest();
-        //=== Transform a Sample Journal
-        journalTest.journalTransformingSampleJournalTest();
 
         //=== Journal XRef
         //===== Alter Titles
         journalTest.journalAlterTitlesTest();
-
+*/
         //===== Drop/Cease/Suspend
         journalTest.dropSuspendCeaseTest();
         journalTest.reactivateTest();
-
+/*
         //===== Absorb
         journalTest.absorbTest();
 
@@ -213,6 +205,22 @@ public class OCS_Test {
 
         //===== Add Variants
         journalTest.addVariantsTest();
+
+        //=== Issue Login
+        journalTest.journalIssueLoginTest();
+
+        //=== Transformation Test
+        //=== Create a Sample Book
+        //ToDo: Creation
+        //=== Transform a Sample Book
+        journalTest.journalTransformingBookTest();
+
+        //=== Create a Sample Jouranl
+        //ToDo: Creation
+        //=== Transform a Sample Journal
+        journalTest.journalTransformingSampleJournalTest();
+
+
 */
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
