@@ -740,7 +740,7 @@ public class JournalTests {
             }
         }
     }
-/*
+
     public void journalChangesTest() {
         String journalChangesNumber = prop.getProperty("journalChangesNumber");
 
@@ -756,26 +756,10 @@ public class JournalTests {
         ExtentManager.compareTrue(journalChangesPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareNotNULL(journalChangesPage.clickCDRXTab(),
-                "Open 'Journal Issues List' tab.");
-        ExtentManager.compareNotNULL(journalChangesPage.clickJrnlXRefTab(),
-                "Open 'Journal Changes' tab.");
-        ExtentManager.compareNotNULL(journalChangesPage.clickPCSCTab(),
-                "Open 'Journal Product Codes Inquiry' tab.");
-        ExtentManager.compareNotNULL(journalChangesPage.clickPCHistTab(),
-                "Open 'Journal Product Code History' tab.");
-        ExtentManager.compareNotNULL(journalChangesPage.clickSCHistTab(),
-                "Open 'Journal Subject Catagory History' tab.");
-        ExtentManager.compareNotNULL(journalChangesPage.clickRoyInqTab(),
-                "Open 'Journal Royalty Inquiry' tab.");
-        ExtentManager.compareNotNULL(journalChangesPage.clickSubsHistTab(),
-                "Open 'Journal Subscription History' tab.");
-        ExtentManager.compareNotNULL(journalChangesPage.clickIssueLoginTab(),
-                "Open 'Issue Login for a Journal' tab.");
-        ExtentManager.compareNotNULL(journalChangesPage.clickJrnlInqTab(),
-                "Open 'Journal Inquiry' tab.");
+        ExtentManager.compareTrue(journalChangesPage.actionsList.size() > 0,
+                "Verify that Journal Changes are displayed on the page.");
     }
-
+/*
     public void journalEditXRefNotesTest() {
         String journalNumberForXRefNotes = prop.getProperty("journalNumberForXRefNotes");
         String updateNotes = prop.getProperty("updateNotes");

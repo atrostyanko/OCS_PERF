@@ -5,9 +5,11 @@ import com.webtestsbase.commonElements.elements.Label;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class JournalChangesPage extends BaseJournalInquiryPage {
-    @FindBy(xpath = ".//span[contains(text(), 'Notes')]")
-    public Label actionPerformedNotes;
+    @FindBy(css = "div.IndentLevel1")
+    public List<WebElement> actionsList;
 
     //====== Constructor ==============================
     public JournalChangesPage() {
@@ -42,7 +44,4 @@ public class JournalChangesPage extends BaseJournalInquiryPage {
     }
 
     //===== Get methods ================================================================================================
-    public String getElementValue(WebElement webElement) {
-        return WebDriverFactory.getElementValue(webElement);
-    }
 }
