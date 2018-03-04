@@ -1,6 +1,12 @@
-package pages.journal;
+package pages.journal.Subscriptions;
 
 import com.webtestsbase.WebDriverFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import pages.journal.BaseJournalInquiryPage;
+
+import java.util.List;
 
 public class JournalSubscriptionHistoryPage extends BaseJournalInquiryPage {
     //====== Constructor ==============================
@@ -28,6 +34,7 @@ public class JournalSubscriptionHistoryPage extends BaseJournalInquiryPage {
         return pageTitle.getText().equals("Journal Subscription History");
     }
 
+    //===== Click methods ==============================================================================================
     @Override
     public boolean clickSubmit() {
         if (submitBtn.click()) {

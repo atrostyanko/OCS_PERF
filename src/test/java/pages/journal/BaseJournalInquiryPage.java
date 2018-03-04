@@ -3,6 +3,7 @@ package pages.journal;
 import com.webtestsbase.commonElements.elements.Button;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import pages.journal.Subscriptions.JournalSubscriptionHistoryPage;
 
 public class BaseJournalInquiryPage extends MainJournalPage {
     @FindBy (css = "a.NavBarLinks[href *= 'JournalInquiry.do?']")

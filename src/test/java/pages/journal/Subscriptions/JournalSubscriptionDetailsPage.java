@@ -1,6 +1,8 @@
-package pages.journal;
+package pages.journal.Subscriptions;
 
 import com.webtestsbase.WebDriverFactory;
+import org.openqa.selenium.By;
+import pages.journal.BaseJournalInquiryPage;
 
 public class JournalSubscriptionDetailsPage extends BaseJournalInquiryPage {
     //====== Constructor ==============================
@@ -23,6 +25,7 @@ public class JournalSubscriptionDetailsPage extends BaseJournalInquiryPage {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
     }
 
+    //===== Click methods ================================================================================================
     @Override
     public boolean clickSubmit() {
         if (submitBtn.click()) {
@@ -31,4 +34,8 @@ public class JournalSubscriptionDetailsPage extends BaseJournalInquiryPage {
         return false;
     }
 
+    //===== Get methods ================================================================================================
+    public boolean isMessageDisplayed(String message) {
+        return WebDriverFactory.waitAndFindDisplayedElement(By.xpath(".//li[contains(text(), '" + message + "')]")) != null;
+    }
 }

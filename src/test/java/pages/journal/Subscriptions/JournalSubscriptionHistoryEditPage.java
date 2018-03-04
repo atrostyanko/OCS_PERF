@@ -1,13 +1,14 @@
-package pages.journal;
+package pages.journal.Subscriptions;
 
 import com.webtestsbase.WebDriverFactory;
+import pages.journal.BaseJournalInquiryPage;
 
-public class JournalSubscriptionHistoryEditViewPage extends BaseJournalInquiryPage {
+public class JournalSubscriptionHistoryEditPage extends BaseJournalInquiryPage {
     //====== Constructor ==============================
-    public JournalSubscriptionHistoryEditViewPage() {
+    public JournalSubscriptionHistoryEditPage() {
         super(true);
     }
-    public JournalSubscriptionHistoryEditViewPage(boolean openFromMenu) {
+    public JournalSubscriptionHistoryEditPage(boolean openFromMenu) {
         super(openFromMenu);
     }
 
@@ -23,11 +24,18 @@ public class JournalSubscriptionHistoryEditViewPage extends BaseJournalInquiryPa
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
     }
 
+    //===== Click methods ==============================================================================================
     @Override
     public boolean clickSubmit() {
         if (submitBtn.click()) {
             return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Journal Subscription History");
         }
         return false;
+    }
+
+    public JournalSubscriptionDetailsPage clickConfirmButton() {
+        return confirmButton.click()
+                ? new JournalSubscriptionDetailsPage(false)
+                : null;
     }
 }
