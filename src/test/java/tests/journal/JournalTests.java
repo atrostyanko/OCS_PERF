@@ -260,19 +260,9 @@ public class JournalTests {
             ExtentManager.compareTrue(editProductCodesForSampleJournalsPage.clickConfirmAddingProductCodesButton(),
                     "Click 'Confirm' button to complete adding product codes.");
 
-            ExtentManager.compareTrue(editProductCodesForSampleJournalsPage.clickAddSubjectCategoriesButton(),
-                    "Click 'Add' button to add Subject Categories.");
-
-            ExtentManager.compareTrue(editProductCodesForSampleJournalsPage.clickConfirmAddingButton(),
-                    "Click 'Confirm' button to add Subject Categories.");
-
-            ExtentManager.compareTrue(editProductCodesForSampleJournalsPage.clickSubmitChanges(),
-                    "Click 'Submit Changes' button.");
-
-            JournalInquiryPage journalInquiryPage = editProductCodesForSampleJournalsPage.clickConfirmButton();
-            ExtentManager.compareNotNULL(journalInquiryPage,
-                    "Click 'Confirm' button and verify Journal Inquiry page is opened.");
-        }
+            ExtentManager.compareTrue(editProductCodesForSampleJournalsPage.updateMessage.isDisplayed(),
+                    "Verify that 'Product code(s) :  has/have been successfully added.' message is displayed.");
+}
     }
 
     public void journalEditProductCodesForBooksTest() {
@@ -290,25 +280,14 @@ public class JournalTests {
             ExtentManager.compareTrue(editProductCodesForBooksPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-
             ExtentManager.compareTrue(editProductCodesForBooksPage.clickAddProductCodesButton(),
                     "Click 'Add' button.");
 
             ExtentManager.compareTrue(editProductCodesForBooksPage.clickConfirmAddingProductCodesButton(),
                     "Click 'Confirm' button to complete adding product codes.");
 
-            ExtentManager.compareTrue(editProductCodesForBooksPage.clickAddSubjectCategoriesButton(),
-                    "Click 'Add' button to add Subject Categories.");
-
-            ExtentManager.compareTrue(editProductCodesForBooksPage.clickConfirmAddingButton(),
-                    "Click 'Confirm' button to add Subject Categories.");
-
-            ExtentManager.compareTrue(editProductCodesForBooksPage.clickSubmitChanges(),
-                    "Click 'Submit Changes' button.");
-
-            EditSubjectCategoriesForBooksPage editSubjectCategoriesForBooksPage = editProductCodesForBooksPage.clickConfirmButton();
-            ExtentManager.compareNotNULL(editSubjectCategoriesForBooksPage,
-                    "Click 'Confirm' button and verify Editing Subject Categories page is opened.");
+            ExtentManager.compareTrue(editProductCodesForBooksPage.updateMessage.isDisplayed(),
+                    "Verify that 'Product code(s) :  has/have been successfully added.' message is displayed.");
         }
     }
 
@@ -334,18 +313,8 @@ public class JournalTests {
             ExtentManager.compareTrue(editProductCodesForSampleBooksPage.clickConfirmAddingProductCodesButton(),
                     "Click 'Confirm' button to complete adding product codes.");
 
-            ExtentManager.compareTrue(editProductCodesForSampleBooksPage.clickAddSubjectCategoriesButton(),
-                    "Click 'Add' button to add Subject Categories.");
-
-            ExtentManager.compareTrue(editProductCodesForSampleBooksPage.clickConfirmAddingButton(),
-                    "Click 'Confirm' button to add Subject Categories.");
-
-            ExtentManager.compareTrue(editProductCodesForSampleBooksPage.clickSubmitChanges(),
-                    "Click 'Submit Changes' button.");
-
-            editProductCodesForSampleBooksPage = editProductCodesForSampleBooksPage.clickConfirmButton();
-            ExtentManager.compareNotNULL(editProductCodesForSampleBooksPage,
-                    "Click 'Confirm' button and verify Editing Product Codes page is opened.");
+            ExtentManager.compareTrue(editProductCodesForSampleBooksPage.updateMessage.isDisplayed(),
+                    "Verify that 'Product code(s) :  has/have been successfully added.' message is displayed.");
         }
     }
 
@@ -371,18 +340,8 @@ public class JournalTests {
             ExtentManager.compareTrue(editProductCodesForSeriesPage.clickConfirmAddingProductCodesButton(),
                     "Click 'Confirm' button to complete adding product codes.");
 
-            ExtentManager.compareTrue(editProductCodesForSeriesPage.clickAddSubjectCategoriesButton(),
-                    "Click 'Add' button to add Subject Categories.");
-
-            ExtentManager.compareTrue(editProductCodesForSeriesPage.clickConfirmAddingButton(),
-                    "Click 'Confirm' button to add Subject Categories.");
-
-            ExtentManager.compareTrue(editProductCodesForSeriesPage.clickSubmitChanges(),
-                    "Click 'Submit Changes' button.");
-
-            editProductCodesForSeriesPage = editProductCodesForSeriesPage.clickConfirmButton();
-            ExtentManager.compareNotNULL(editProductCodesForSeriesPage,
-                    "Click 'Confirm' button and verify Journal Inquiry page is opened.");
+            ExtentManager.compareTrue(editProductCodesForSeriesPage.updateMessage.isDisplayed(),
+                    "Verify that 'Product code(s) :  has/have been successfully added.' message is displayed.");
         }
     }
 /*

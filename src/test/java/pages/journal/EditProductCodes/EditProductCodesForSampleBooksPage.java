@@ -2,6 +2,7 @@ package pages.journal.EditProductCodes;
 
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
+import com.webtestsbase.commonElements.elements.Label;
 import org.openqa.selenium.support.FindBy;
 import pages.journal.JournalInquiryPage;
 import pages.journal.MainJournalPage;
@@ -10,6 +11,9 @@ import pages.publisher.BookInquiryPage;
 public class EditProductCodesForSampleBooksPage extends MainJournalPage {
     @FindBy (name = "addButton")
     public Button addButton;
+
+    @FindBy (xpath = ".//li[contains(text(), 'Product code(s) :  has/have been successfully added.')]")
+    public Label updateMessage;
 
     //====== Constructor ==============================
     public EditProductCodesForSampleBooksPage() {
@@ -47,15 +51,7 @@ public class EditProductCodesForSampleBooksPage extends MainJournalPage {
         return confirmButton.click() && WebDriverFactory.waitElementIsVisible(addButton.asWebElement());
     }
 
-    public boolean clickConfirmAddingButton() {
-        return confirmButton.click() && WebDriverFactory.waitElementIsVisible(submitChanges.asWebElement());
-    }
-
     public boolean clickAddProductCodesButton() {
-        return addButton.click() && WebDriverFactory.waitElementIsVisible(confirmButton.asWebElement());
-    }
-
-    public boolean clickAddSubjectCategoriesButton() {
         return addButton.click() && WebDriverFactory.waitElementIsVisible(confirmButton.asWebElement());
     }
 }

@@ -123,14 +123,14 @@ public class OCS_Test {
         //====== Delete Sample Journal
         //====== Delete Sample Book
         //====== Delete Series
-*/
+
         //=== Prod. Codes - Subj. Categories
         journalTest.JournalProductCodesInquiryTest();
 
         //=== Edit Product Codes
         //===== For Journals
         journalTest.journalEditProductCodesForJournalsTest();
-        //===== For Sample Journals
+*/        //===== For Sample Journals
         journalTest.journalEditProductCodesForSampleJournalsTest();
         //===== For Books
         journalTest.journalEditProductCodesForBooksTest();

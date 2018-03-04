@@ -45,14 +45,6 @@ public abstract class MainJournalPage extends MainPage {
     }
 
     //===== Click methods ==============================================================================================
-    /*
-    public boolean clickSubmit() {
-        if (submitBtn.click()) {
-            return WebDriverFactory.waitElementIsVisible(jrnlBookSeq);
-        }
-        return false;
-    }
-    */
     public boolean clickSubmitChanges() {
         return submitChanges.click();
     }
