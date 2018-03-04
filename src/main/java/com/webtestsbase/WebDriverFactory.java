@@ -358,6 +358,21 @@ public class WebDriverFactory {
         return waitForElementInvisible(element, MEDIUM_TIME_OUT, true);
     }
 
+    public static WebElement waitAndFindDisplayedElement(By locator) {
+        return waitAndFindDisplayedElement(locator, SHORT_TIME_OUT);
+    }
+
+    public static WebElement waitAndFindDisplayedElement(By locator, int TIMEOUT) {
+        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
+        try {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        } catch (TimeoutException e) {
+            ExtentManager.getCurrentTest().warning("waitAndFindDisplayedElement: Element " + locator.toString() +
+                    " never displayed with in timeout of " + TIMEOUT);
+        }
+        return null;
+    }
+
 /*
 
     public static List<WebElement> getChildElements(WebElement parent, By child) {

@@ -32,9 +32,9 @@ public class EditJournalRoyaltyPage extends MainJournalPage {
         return false;
     }
 
-    public JournalInquiryPage clickConfirmButton() {
+    public JournalRoyaltyInquiryPage clickConfirmButton() {
         return confirmButton.click()
-                ? new JournalInquiryPage(false)
+                ? new JournalRoyaltyInquiryPage(false)
                 : null;
     }
 }

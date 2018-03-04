@@ -130,7 +130,7 @@ public class OCS_Test {
         //=== Edit Product Codes
         //===== For Journals
         journalTest.journalEditProductCodesForJournalsTest();
-*/        //===== For Sample Journals
+        //===== For Sample Journals
         journalTest.journalEditProductCodesForSampleJournalsTest();
         //===== For Books
         journalTest.journalEditProductCodesForBooksTest();
@@ -138,7 +138,7 @@ public class OCS_Test {
         journalTest.journalEditProductCodesForSampleBooksTest();
         //===== For Series
         journalTest.journalEditProductCodesForSeriesTest();
-/*
+
         //=== Edit Subject Categories
         //===== For Journals
         journalTest.journalEditSubjectCategoriesForJournalsTest();
@@ -158,7 +158,7 @@ public class OCS_Test {
         //ToDo: Не понятно пока как сделать
 
         //=== Subject Category History
-        journalTest.journalSubjectCatagoryHistoryTest();
+        journalTest.journalSubjectCategoryHistoryTest();
 
         //=== View Issues (CRDX)
         journalTest.journalViewIssuesTest();
@@ -168,13 +168,13 @@ public class OCS_Test {
         journalTest.journalRoyaltyInquiryTest();
         //===== Edit Royalty
         journalTest.journalEditRoyaltyTest();
-
+*/
         //=== Subscriptions
         //===== Subscription Details
         journalTest.journalSubscriptionDetailsTest();
         //===== View History
         journalTest.journalSubscriptionHistoryTest();
-        //===== View / Edit History
+/*        //===== View / Edit History
         journalTest.journalSubscriptionViewEditHistoryTest();
 
         //=== Journal Changes

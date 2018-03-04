@@ -1,6 +1,7 @@
 package pages.journal;
 
 import com.webtestsbase.WebDriverFactory;
+import org.openqa.selenium.By;
 
 public class JournalRoyaltyInquiryPage extends BaseJournalInquiryPage {
     //====== Constructor ==============================
@@ -35,4 +36,10 @@ public class JournalRoyaltyInquiryPage extends BaseJournalInquiryPage {
         }
         return false;
     }
+
+    //===== Get methods ================================================================================================
+    public boolean isMessageDisplayed(String message) {
+        return WebDriverFactory.waitAndFindDisplayedElement(By.xpath(".//li[contains(text(), '" + message + "')]")) != null;
+    }
+
 }
