@@ -54,9 +54,4 @@ public class JournalChangesPage extends BaseJournalInquiryPage {
     public String getElementValue(WebElement webElement) {
         return WebDriverFactory.getElementValue(webElement);
     }
-
-    //===== Get methods ================================================================================================
-    public boolean isMessageDisplayed(String message) {
-        return WebDriverFactory.waitAndFindDisplayedElement(By.xpath(".//li[contains(text(), '" + message + "')]")) != null;
-    }
 }

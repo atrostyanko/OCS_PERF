@@ -1,7 +1,9 @@
 package tests.search;
 
 import com.reporting.ExtentManager;
-import enums.SearchOptions;
+import pages.publisher.BookInquiryPage;
+import pages.search.BaseSearchPage.SearchFields;
+import pages.search.BaseSearchPage.SearchOptions;
 import pages.journal.JournalInquiryPage;
 import pages.search.PublicationsSearchPage;
 import tests.OCS_Test;
@@ -15,124 +17,84 @@ public class SearchTests {
     public SearchTests() {
     }
 
-    public void searchJournalBySequenceNoTest() {
-        String journalSearchSequence = prop.getProperty("journalSearchSequence");
+    public void PublicationsTests() {
+        searchJournalTest(SearchOptions.ALL,
+                SearchFields.Title11,
+                prop.getProperty("journalSearchTitle11"));
 
-        ExtentManager.createNode("Search -> Publications -> Journal by Sequence No.",
-                "Verify Search Journal Publication by Sequence No.");
+        searchJournalTest(SearchOptions.JOURNALS,
+                SearchFields.Title29,
+                prop.getProperty("journalSearchTitle29"));
+
+        searchJournalTest(SearchOptions.ACTIVEJOURNALS,
+                SearchFields.Title20,
+                prop.getProperty("journalSearchTitle20"));
+
+        searchJournalTest(SearchOptions.SERIES,
+                SearchFields.FullTitle,
+                prop.getProperty("journalSearchFullTitle"));
+
+        searchJournalTest(SearchOptions.SAMPLEJOURNALS,
+                SearchFields.JournalSequence,
+                prop.getProperty("journalSearchSequence"));
+
+        searchJournalTest(SearchOptions.ALLJOURNALS,
+                SearchFields.ISOTitle,
+                prop.getProperty("journalSearchISOTitle"));
+
+        searchJournalTest(SearchOptions.ALLJOURNALS,
+                SearchFields.ISSN,
+                prop.getProperty("journalSearchISSN"));
+
+
+        searchBookTest(SearchOptions.SAMPLEBOOKS,
+                SearchFields.JournalSequence,
+                prop.getProperty("bookSearchSequence"));
+
+        searchBookTest(SearchOptions.ALLBOOKS,
+                SearchFields.FullTitle,
+                prop.getProperty("bookSearchFullTitle"));
+    }
+    public void searchJournalTest(SearchOptions option, SearchFields field, String value) {
+
+        ExtentManager.createNode("Search -> Publications -> " + option + " by " + field + ".",
+                "Verify Search " + option + " Publication by " + field + ".");
 
         //=== Journal Sequence No.
         PublicationsSearchPage publicationsSearchPage = new PublicationsSearchPage();
         ExtentManager.compareNotNULL(publicationsSearchPage,
                 "Open 'Search -> Publications' search page.");
 
-        ExtentManager.compareTrue(publicationsSearchPage.allJournalsOption.set(),
-                "Set 'Journals' search option.");
+        ExtentManager.compareTrue(publicationsSearchPage.selectSearchOption(option),
+                "Set '" + option + "' search option.");
 
-        ExtentManager.compareTrue(publicationsSearchPage.journalSequenceNo.setText(journalSearchSequence),
-                "Set " + journalSearchSequence + " to the 'Journal Sequence No.' field.");
+        ExtentManager.compareTrue(publicationsSearchPage.setValue(field, value),
+                "Set " + value + " to the '" + field + "' field.");
 
-        JournalInquiryPage journalInquiryPage = (JournalInquiryPage) publicationsSearchPage.clickSearchButton(SearchOptions.JOURNALS);
+        JournalInquiryPage journalInquiryPage = (JournalInquiryPage) publicationsSearchPage.clickSearchButton(option);
         ExtentManager.compareNotNULL(journalInquiryPage,
                 "Click 'Search' button and verify that Journal Inquiry page was opened.");
     }
-    public void searchJournalByFullTitleTest() {
-        String journalSearchFullTitle = prop.getProperty("journalSearchFullTitle");
+    public void searchBookTest(SearchOptions option, SearchFields field, String value) {
 
-        ExtentManager.createNode("Search -> Publications -> Journal by Full Title.",
-                "Verify Search Journal Publication by Full Title.");
+        ExtentManager.createNode("Search -> Publications -> " + option + " by " + field + ".",
+                "Verify Search " + option + " Publication by " + field + ".");
 
-        //=== Full Title
+        //=== Journal Sequence No.
         PublicationsSearchPage publicationsSearchPage = new PublicationsSearchPage();
         ExtentManager.compareNotNULL(publicationsSearchPage,
                 "Open 'Search -> Publications' search page.");
 
-        ExtentManager.compareTrue(publicationsSearchPage.allJournalsOption.set(),
-                "Set 'Journals' search option.");
+        ExtentManager.compareTrue(publicationsSearchPage.selectSearchOption(option),
+                "Set '" + option + "' search option.");
 
-        ExtentManager.compareTrue(publicationsSearchPage.fullTitle.setText(journalSearchFullTitle),
-                "Set " + journalSearchFullTitle + " to the 'Full Title' field.");
+        ExtentManager.compareTrue(publicationsSearchPage.setValue(field, value),
+                "Set " + value + " to the '" + field + "' field.");
 
-        JournalInquiryPage journalInquiryPage = (JournalInquiryPage) publicationsSearchPage.clickSearchButton(SearchOptions.JOURNALS);
-        ExtentManager.compareNotNULL(journalInquiryPage,
-                "Click 'Search' button and verify that Journal Inquiry page was opened.");
-
+        BookInquiryPage bookInquiryPage = (BookInquiryPage) publicationsSearchPage.clickSearchButton(option);
+        ExtentManager.compareNotNULL(bookInquiryPage,
+                "Click 'Search' button and verify that Book Inquiry page was opened.");
     }
-    public void searchJournalByTitle29Test() {
-        String journalSearchTitle29 = prop.getProperty("journalSearchTitle29");
-
-        ExtentManager.createNode("Search -> Publications -> Journal by Title 29.",
-                "Verify Search Journal Publication by Title 29.");
-
-        //=== Title 29
-        PublicationsSearchPage publicationsSearchPage = new PublicationsSearchPage();
-        ExtentManager.compareNotNULL(publicationsSearchPage,
-                "Open 'Search -> Publications' search page.");
-
-        ExtentManager.compareTrue(publicationsSearchPage.allJournalsOption.set(),
-                "Set 'Journals' search option.");
-
-        ExtentManager.compareTrue(publicationsSearchPage.title29.setText(journalSearchTitle29),
-                "Set " + journalSearchTitle29 + " to the 'Title 29' field.");
-
-        JournalInquiryPage journalInquiryPage = (JournalInquiryPage) publicationsSearchPage.clickSearchButton(SearchOptions.JOURNALS);
-        ExtentManager.compareNotNULL(journalInquiryPage,
-                "Click 'Search' button and verify that Journal Inquiry page was opened.");
-    }
-    public void searchJournalByTitle20Test() {
-        String journalSearchTitle20 = prop.getProperty("journalSearchTitle20");
-
-        ExtentManager.createNode("Search -> Publications -> Journal by Title 20.",
-                "Verify Search Journal Publication by Title 20.");
-
-        //=== Title 20
-        PublicationsSearchPage publicationsSearchPage = new PublicationsSearchPage();
-        ExtentManager.compareNotNULL(publicationsSearchPage,
-                "Open 'Search -> Publications' search page.");
-
-        ExtentManager.compareTrue(publicationsSearchPage.allJournalsOption.set(),
-                "Set 'Journals' search option.");
-
-        ExtentManager.compareTrue(publicationsSearchPage.title20.setText(journalSearchTitle20),
-                "Set " + journalSearchTitle20 + " to the 'Title 20' field.");
-
-        JournalInquiryPage journalInquiryPage = (JournalInquiryPage) publicationsSearchPage.clickSearchButton(SearchOptions.JOURNALS);
-        ExtentManager.compareNotNULL(journalInquiryPage,
-                "Click 'Search' button and verify that Journal Inquiry page was opened.");
-    }
-    public void searchJournalByTitle11Test() {
-        String journalSearchTitle11 = prop.getProperty("journalSearchTitle11");
-
-        ExtentManager.createNode("Search -> Publications -> Journal by Title 11.",
-                "Verify Search Journal Publication by Title 11.");
-
-        //=== Title 11
-        PublicationsSearchPage publicationsSearchPage = new PublicationsSearchPage();
-        ExtentManager.compareNotNULL(publicationsSearchPage,
-                "Open 'Search -> Publications' search page.");
-
-        ExtentManager.compareTrue(publicationsSearchPage.allJournalsOption.set(),
-                "Set 'Journals' search option.");
-
-        ExtentManager.compareTrue(publicationsSearchPage.title11.setText(journalSearchTitle11),
-                "Set " + journalSearchTitle11 + " to the 'Title 11' field.");
-
-        JournalInquiryPage journalInquiryPage = (JournalInquiryPage) publicationsSearchPage.clickSearchButton(SearchOptions.JOURNALS);
-        ExtentManager.compareNotNULL(journalInquiryPage,
-                "Click 'Search' button and verify that Journal Inquiry page was opened.");
-    }
-    public void searchJournalByISOTitleTest() {
-        String journalSearchISOTitle = prop.getProperty("journalSearchISOTitle");
-
-        ExtentManager.createNode("Search -> Publications Page.", "Verify Search Journal Publication by ISO Title.");
-
-    }
-    public void searchJournalByISSNTest() {
-        String journalSearchISSN = prop.getProperty("journalSearchISSN");
-
-        ExtentManager.createNode("Search -> Publications Page.", "Verify Search Journal Publication by ISSN.");
-    }
-
 
     public void publishersTest() {
         ExtentManager.createNode("Search -> Publishers Page.", "Verify Search Publishers Page.");

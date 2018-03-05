@@ -15,7 +15,7 @@ public class VariantsPage extends BaseJournalInquiryPage {
     public void openPage() {
         clickJournal();
         clickSubMenu("Journal XRef");
-        clickSubMenu("Variants");
+        clickSubMenu("Add Variants");
     }
 
     @Override
@@ -32,9 +32,9 @@ public class VariantsPage extends BaseJournalInquiryPage {
     }
 
     //===== Click methods ==============================================================================================
-    public JournalChangesPage clickConfirmButton() {
+    public JournalInquiryPage clickConfirmButton() {
         return confirmButton.click()
-                ? new JournalChangesPage(false)
+                ? new JournalInquiryPage(false)
                 : null;
     }
 }

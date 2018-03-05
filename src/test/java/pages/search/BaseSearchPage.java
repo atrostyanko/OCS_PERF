@@ -42,7 +42,7 @@ public class BaseSearchPage extends MainPage {
     @FindBy(css = "input[src *= 'search_button.gif']")
     public Button searchButton;
 
-    //====== Constructor ==============================
+    //====== Constructor ===============================================================================================
     public BaseSearchPage() {
         super(true);
     }
@@ -50,12 +50,63 @@ public class BaseSearchPage extends MainPage {
         super(openFromMenu);
     }
 
-    //====== Get Methods ===============
+    //====== Get Methods ===============================================================================================
     public String getSelectedOption() {
         WebElement webElement = WebDriverFactory.findElement(By.cssSelector("input[name='section'][checked='checked']"));
         if (webElement != null) {
             return webElement.getAttribute("value");
         }
         return "";
+    }
+
+    //====== Set Methods ===============================================================================================
+    public boolean selectSearchOption(SearchOptions option) {
+        WebElement webElement = WebDriverFactory.waitAndFindDisplayedElement(By.cssSelector("input[name = 'section'][value='" + option.value() + "']"));
+        return webElement != null
+                && WebDriverFactory.clickElement(webElement);
+    }
+
+    //===== Enums ======================================================================================================
+    public enum SearchOptions {
+        ALL("all"),
+        JOURNALS("allJournals"),
+        ACTIVEJOURNALS("journalsActive"),
+        INACTIVEJOURNALS("journalsInActive"),
+        SAMPLEJOURNALS("sampleJournals"),
+        BOOKS("books"),
+        SAMPLEBOOKS("sampleBooks"),
+        SERIES("series"),
+        ALLJOURNALS("seriesAllJournals"),
+        ALLBOOKS("allBooks");
+
+        private String value;
+
+        SearchOptions(String value) {
+            this.value = value;
+        }
+
+        public String value() {
+            return value;
+        }
+    }
+    public enum SearchFields {
+        JournalSequence("jrnlSeqNo"),
+        ISSN("issnNo"),
+        ISBN("isbnNo"),
+        FullTitle("fullTitle"),
+        Title29("title29"),
+        Title20("title20"),
+        Title11("title11"),
+        ISOTitle("isoTitle");
+
+        private String value;
+
+        SearchFields(String value) {
+            this.value = value;
+        }
+
+        public String value() {
+            return value;
+        }
     }
 }

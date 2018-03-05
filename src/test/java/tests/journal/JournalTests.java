@@ -188,7 +188,7 @@ public class JournalTests {
                     "Set Journal Sequence number to " + journalSequenceNumber);
             ExtentManager.compareTrue(journalProductCodesInquiryPage.clickSubmit(),
                     "Click 'Submit' button.");
-
+            /*
             ExtentManager.compareNotNULL(journalProductCodesInquiryPage.clickCDRXTab(),
                     "Open 'Journal Issues List' tab.");
             ExtentManager.compareNotNULL(journalProductCodesInquiryPage.clickJrnlXRefTab(),
@@ -207,11 +207,14 @@ public class JournalTests {
                     "Open 'Issue Login for a Journal' tab.");
             ExtentManager.compareNotNULL(journalProductCodesInquiryPage.clickJrnlInqTab(),
                     "Open 'Journal Inquiry' tab.");
+                   */
         }
     }
 
     public void journalEditProductCodesForJournalsTest() {
         String journalSequenceNumber = prop.getProperty("editingProductCodesForJournals_JournalSequence");
+        String productCode = prop.getProperty("editingProductCodesForJournals_ProductCode");
+        String subjectCode = prop.getProperty("editingProductCodesForJournals_SubjectCode");
 
         ExtentManager.createNode("JOURNAL -> Edit Product Codes -> For Journals.", "Verify Edit Product Codes For Journals Page.");
 
@@ -224,24 +227,37 @@ public class JournalTests {
             ExtentManager.compareTrue(editProductCodesForJournalsPage.clickSubmit(),
                     "Click 'Submit' button.");
 
+            ExtentManager.compareTrue(editProductCodesForJournalsPage.addProductionCode(productCode),
+                    "Set '" + productCode + "' production code option.");
+
             ExtentManager.compareTrue(editProductCodesForJournalsPage.clickAddProductCodesButton(),
                     "Click 'Add' button.");
 
-            ExtentManager.compareTrue(editProductCodesForJournalsPage.clickConfirmAddingProductCodesButton(),
-                    "Click 'Confirm' button to complete adding product codes.");
+            EditSubjectCategoriesForJournalsPage editSubjectCategoriesForJournalsPage =
+                    editProductCodesForJournalsPage.clickConfirmAddingProductCodesButton();
+            if (ExtentManager.compareNotNULL(editSubjectCategoriesForJournalsPage,
+                    "Click 'Confirm' button to complete adding product codes.")) {
 
-            ExtentManager.compareTrue(editProductCodesForJournalsPage.clickAddSubjectCategoriesButton(),
-                    "Click 'Add' button to add Subject Categories.");
+                ExtentManager.compareTrue(editSubjectCategoriesForJournalsPage.selectSubjectCategory(productCode, subjectCode),
+                        "Set '" + subjectCode + "' subject code for '" + productCode + "' the production code.");
 
-            ExtentManager.compareTrue(editProductCodesForJournalsPage.clickConfirmAddingButton(),
-                    "Click 'Confirm' button to add Subject Categories.");
+                ExtentManager.compareTrue(editSubjectCategoriesForJournalsPage.clickAddSubjectCodesButton(),
+                        "Click 'Confirm' button to add Subject Categories.");
 
-            ExtentManager.compareTrue(editProductCodesForJournalsPage.clickSubmitChanges(),
-                    "Click 'Submit Changes' button.");
+                EditCoveredJournalPage editCoveredJournalPage = editSubjectCategoriesForJournalsPage.clickConfirmAddingSubjectCategoriesButton();
+                if (ExtentManager.compareNotNULL(editCoveredJournalPage,
+                        "Click 'Confirm' button to add Subject Categories.")) {
 
-            JournalInquiryPage journalInquiryPage = editProductCodesForJournalsPage.clickConfirmButton();
-            ExtentManager.compareNotNULL(journalInquiryPage,
-                    "Click 'Confirm' button and verify Journal Inquiry page is opened.");
+                    ExtentManager.compareTrue(editCoveredJournalPage.clickSubmitChanges(),
+                            "Click 'Submit Changes' button.");
+
+                    JournalInquiryPage journalInquiryPage = editCoveredJournalPage.clickConfirmButton();
+                    if (ExtentManager.compareNotNULL(journalInquiryPage,
+                            "Click 'Confirm' button and verify Journal Inquiry page is opened.")) {
+
+                    }
+                }
+            }
         }
     }
 
@@ -367,18 +383,20 @@ public class JournalTests {
         ExtentManager.compareTrue(editSubjectCategoriesForJournalsPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(editSubjectCategoriesForJournalsPage.clickAddProductCodesButton(),
+        ExtentManager.compareTrue(editSubjectCategoriesForJournalsPage.clickAddSubjectCodesButton(),
                 "Click 'Add' button.");
 
-        ExtentManager.compareTrue(editSubjectCategoriesForJournalsPage.clickConfirmAddingSubjectCategoriesButton(),
-                "Click 'Confirm' button to complete adding product codes.");
+        EditCoveredJournalPage editCoveredJournalPage = editSubjectCategoriesForJournalsPage.clickConfirmAddingSubjectCategoriesButton();
+        if (ExtentManager.compareNotNULL(editCoveredJournalPage,
+                "Click 'Confirm' button to complete adding product codes.")) {
 
-        ExtentManager.compareTrue(editSubjectCategoriesForJournalsPage.clickSubmitChanges(),
-                "Click 'Submit Changes' button.");
+            ExtentManager.compareTrue(editCoveredJournalPage.clickSubmitChanges(),
+                    "Click 'Submit Changes' button.");
 
-        JournalInquiryPage journalInquiryPage = editSubjectCategoriesForJournalsPage.clickConfirmButton();
-        ExtentManager.compareNotNULL(journalInquiryPage,
-                "Click 'Confirm' button and verify Journal Inquiry page is opened.");
+            JournalInquiryPage journalInquiryPage = editCoveredJournalPage.clickConfirmButton();
+            ExtentManager.compareNotNULL(journalInquiryPage,
+                    "Click 'Confirm' button and verify Journal Inquiry page is opened.");
+        }
     }
 
     public void journalEditSubjectCategoriesForSampleJournalsTest() {
@@ -506,6 +524,7 @@ public class JournalTests {
         ExtentManager.compareTrue(journalProductCodeHistoryPage.clickSubmit(),
                 "Click 'Submit' button.");
 
+        /*
         ExtentManager.compareNotNULL(journalProductCodeHistoryPage.clickCDRXTab(),
                 "Open 'Journal Issues List' tab.");
         ExtentManager.compareNotNULL(journalProductCodeHistoryPage.clickJrnlXRefTab(),
@@ -524,6 +543,7 @@ public class JournalTests {
                 "Open 'Issue Login for a Journal' tab.");
         ExtentManager.compareNotNULL(journalProductCodeHistoryPage.clickJrnlInqTab(),
                 "Open 'Journal Inquiry' tab.");
+        */
     }
 
     public void journalSubjectCategoryHistoryTest() {
@@ -540,7 +560,7 @@ public class JournalTests {
                 "Set Journal Sequence number to " + journalSequenceNumber);
         ExtentManager.compareTrue(journalSubjectCatagoryHistoryPage.clickSubmit(),
                 "Click 'Submit' button.");
-
+/*
         ExtentManager.compareNotNULL(journalSubjectCatagoryHistoryPage.clickCDRXTab(),
                 "Open 'Journal Issues List' tab.");
         ExtentManager.compareNotNULL(journalSubjectCatagoryHistoryPage.clickJrnlXRefTab(),
@@ -559,6 +579,7 @@ public class JournalTests {
                 "Open 'Issue Login for a Journal' tab.");
         ExtentManager.compareNotNULL(journalSubjectCatagoryHistoryPage.clickJrnlInqTab(),
                 "Open 'Journal Inquiry' tab.");
+*/
     }
 
     public void journalViewIssuesTest() {
@@ -575,7 +596,7 @@ public class JournalTests {
                 "Set Journal Sequence number to " + journalSequenceNumber);
         ExtentManager.compareTrue(journalIssuesListPage.clickSubmit(),
                 "Click 'Submit' button.");
-
+/*
         ExtentManager.compareNotNULL(journalIssuesListPage.clickCDRXTab(),
                 "Open 'Journal Issues List' tab.");
         ExtentManager.compareNotNULL(journalIssuesListPage.clickJrnlXRefTab(),
@@ -594,6 +615,7 @@ public class JournalTests {
                 "Open 'Issue Login for a Journal' tab.");
         ExtentManager.compareNotNULL(journalIssuesListPage.clickJrnlInqTab(),
                 "Open 'Journal Inquiry' tab.");
+*/
     }
 
     public void journalRoyaltyInquiryTest() {
@@ -610,7 +632,7 @@ public class JournalTests {
                 "Set Journal Sequence number to " + journalSequenceNumber);
         ExtentManager.compareTrue(royaltyInquiryPage.clickSubmit(),
                 "Click 'Submit' button.");
-
+/*
         ExtentManager.compareNotNULL(royaltyInquiryPage.clickCDRXTab(),
                 "Open 'Journal Issues List' tab.");
         ExtentManager.compareNotNULL(royaltyInquiryPage.clickJrnlXRefTab(),
@@ -629,6 +651,7 @@ public class JournalTests {
                 "Open 'Issue Login for a Journal' tab.");
         ExtentManager.compareNotNULL(royaltyInquiryPage.clickJrnlInqTab(),
                 "Open 'Journal Inquiry' tab.");
+*/
     }
 
     public void journalEditRoyaltyTest() {
@@ -688,7 +711,7 @@ public class JournalTests {
                 "Set Journal Sequence number to " + journalSequenceNumber);
         ExtentManager.compareTrue(journalSubscriptionHistoryPage.clickSubmit(),
                 "Click 'Submit' button.");
-
+/*
         ExtentManager.compareNotNULL(journalSubscriptionHistoryPage.clickCDRXTab(),
                 "Open 'Journal Issues List' tab.");
         ExtentManager.compareNotNULL(journalSubscriptionHistoryPage.clickJrnlXRefTab(),
@@ -707,6 +730,7 @@ public class JournalTests {
                 "Open 'Issue Login for a Journal' tab.");
         ExtentManager.compareNotNULL(journalSubscriptionHistoryPage.clickJrnlInqTab(),
                 "Open 'Journal Inquiry' tab.");
+*/
     }
 
     public void journalSubscriptionViewEditHistoryTest() {
@@ -795,7 +819,7 @@ public class JournalTests {
     }
 
     public void journalIssueLoginTest() {
-        String journalNumberForIssueLogin = prop.getProperty("journalNumberForIssueLogin");
+        String journalSequence = prop.getProperty("journalNumberForIssueLogin");
         String media = prop.getProperty("media");
         String pubYearRange = prop.getProperty("pubYearRange");
 
@@ -806,8 +830,8 @@ public class JournalTests {
         ExtentManager.compareNotNULL(journalIssueLoginPage,
                 "Open 'JOURNAL -> Issue Login for a Journal page.");
 
-        ExtentManager.compareTrue(journalIssueLoginPage.setJournalSequence(journalNumberForIssueLogin),
-                "Set Journal Sequence number to " + journalNumberForIssueLogin);
+        ExtentManager.compareTrue(journalIssueLoginPage.setJournalSequence(journalSequence),
+                "Set Journal Sequence number to " + journalSequence);
         ExtentManager.compareTrue(journalIssueLoginPage.clickSubmit(),
                 "Click 'Submit' button.");
 
@@ -824,9 +848,9 @@ public class JournalTests {
         if (ExtentManager.compareNotNULL(issueDetailsPage,
                 "Click 'Confirm' button and verify Issue Details page is opened.")) {
 
-            ExtentManager.compare(journalNumberForIssueLogin,
+            ExtentManager.compare(journalSequence,
                     issueDetailsPage.getElementValue(issueDetailsPage.JournalSeq.asWebElement()),
-                    "Verify that Journal Seq. # is " + journalNumberForIssueLogin);
+                    "Verify that Journal Seq. # is " + journalSequence);
         }
         dfIssueNo = issueDetailsPage.getElementValue(issueDetailsPage.DFIssueno.asWebElement());
     }
@@ -1048,9 +1072,7 @@ public class JournalTests {
                 "Click 'Confirm' button and verify Journal Changes page is opened.");
     }
 
-    public void addVariantsTest() {
-        String journalAddVariantsSequenceNumber = prop.getProperty("journalAddVariantsSequenceNumber");
-
+    public void addVariantsTest(String journalSequence) {
         ExtentManager.createNode("JOURNAL -> Journal XRef -> Add Variants.",
                 "Verify Add Variants Page.");
 
@@ -1058,16 +1080,22 @@ public class JournalTests {
         ExtentManager.compareNotNULL(variantsPage,
                 "Open 'JOURNAL -> Journal XRef -> Add Variants page.");
 
-        ExtentManager.compareTrue(variantsPage.setJournalSequence(journalAddVariantsSequenceNumber),
-                "Set Journal Sequence number to " + journalAddVariantsSequenceNumber);
+        ExtentManager.compareTrue(variantsPage.setJournalSequence(journalSequence),
+                "Set Journal Sequence number to " + journalSequence);
         ExtentManager.compareTrue(variantsPage.clickSubmit(),
                 "Click 'Submit' button.");
 
         ExtentManager.compareTrue(variantsPage.clickSubmitChanges(),
                 "Click 'Submit Changes' button.");
 
-        JournalChangesPage journalChangesPage = variantsPage.clickConfirmButton();
-        ExtentManager.compareNotNULL(journalChangesPage,
-                "Click 'Confirm' button and verify Journal Changes page is opened.");
+        JournalInquiryPage journalInquiryPage = variantsPage.clickConfirmButton();
+        if (ExtentManager.compareNotNULL(journalInquiryPage,
+                "Click 'Confirm' button and verify Journal Inquiry page is opened.")) {
+
+            String message = "Record for Variants for Journal Seq No. "
+                    + journalSequence + " has been processed. successfully updated. Please review below.";
+            ExtentManager.compareTrue(journalInquiryPage.isMessageDisplayed(message),
+                    "Verify that '" + message + "' message is displayed.");
+        }
     }
 }

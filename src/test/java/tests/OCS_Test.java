@@ -15,8 +15,10 @@ import pages.MainPage;
 import tests.issue.IssueTests;
 import tests.journal.JournalTests;
 import tests.loginPage.LoginPage_Tests;
-import tests.publisher.PublisherTests;
 import tests.search.SearchTests;
+import pages.search.BaseSearchPage.SearchFields;
+import pages.search.BaseSearchPage.SearchOptions;
+
 
 import java.util.Properties;
 
@@ -48,6 +50,7 @@ public class OCS_Test {
 
     @Test
     public void publisherTests() {
+        /*
         ExtentManager.createTest("PUBLISHER Tests.", "Verify all items from PUBLISHER menu.");
 
         MainPage mainPage = new LoginPage_Tests().login();
@@ -94,6 +97,7 @@ public class OCS_Test {
         publisherTest.publisherAddNewSerieTest();
 
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
+        */
     }
 
     @Test
@@ -102,9 +106,21 @@ public class OCS_Test {
 
         MainPage mainPage = new LoginPage_Tests().login();
         JournalTests journalTest = new JournalTests();
-/*
+
         //=== Journal Inquiry
         journalTest.journalInquiryTest();
+
+        //=== Edit Product Codes
+        //===== For Journals
+        journalTest.journalEditProductCodesForJournalsTest();
+        //===== For Sample Journals
+        journalTest.journalEditProductCodesForSampleJournalsTest();
+        //===== For Books
+        journalTest.journalEditProductCodesForBooksTest();
+        //===== For Sample Books
+        journalTest.journalEditProductCodesForSampleBooksTest();
+        //===== For Series
+        journalTest.journalEditProductCodesForSeriesTest();
 
         //=== Edit
         //===== Edit Covered Journal
@@ -127,17 +143,6 @@ public class OCS_Test {
         //=== Prod. Codes - Subj. Categories
         journalTest.JournalProductCodesInquiryTest();
 
-        //=== Edit Product Codes
-        //===== For Journals
-        journalTest.journalEditProductCodesForJournalsTest();
-        //===== For Sample Journals
-        journalTest.journalEditProductCodesForSampleJournalsTest();
-        //===== For Books
-        journalTest.journalEditProductCodesForBooksTest();
-        //===== For Sample Books
-        journalTest.journalEditProductCodesForSampleBooksTest();
-        //===== For Series
-        journalTest.journalEditProductCodesForSeriesTest();
 
         //=== Edit Subject Categories
         //===== For Journals
@@ -183,6 +188,9 @@ public class OCS_Test {
         //=== Edit XRef Notes
         journalTest.journalEditXRefNotesTest();
 
+        //=== Issue Login
+        journalTest.journalIssueLoginTest();
+
         //=== Journal XRef
         //===== Alter Titles
         journalTest.journalAlterTitlesTest(prop.getProperty("alterTitles_JournalSequence"));
@@ -200,18 +208,15 @@ public class OCS_Test {
         //===== Split
         journalTest.splitTest(prop.getProperty("split_JournalSequence"));
         journalTest.reactivateTest(prop.getProperty("split_JournalSequence"));
-*/
+
         //===== Title Changes
         journalTest.titleChangesTest(prop.getProperty("titleChanges_JournalSequence1"),
                 prop.getProperty("titleChanges_JournalSequence2"));
         journalTest.reactivateTest(prop.getProperty("titleChanges_JournalSequence1"));
-/*
+
         //===== Add Variants
-        journalTest.addVariantsTest();
-
-        //=== Issue Login
-        journalTest.journalIssueLoginTest();
-
+        journalTest.addVariantsTest(prop.getProperty("addVariants_JournalSequence"));
+/*
         //=== Transformation Test
         //=== Create a Sample Book
         //ToDo: Creation
@@ -222,8 +227,6 @@ public class OCS_Test {
         //ToDo: Creation
         //=== Transform a Sample Journal
         journalTest.journalTransformingSampleJournalTest();
-
-
 */
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
@@ -295,15 +298,11 @@ public class OCS_Test {
         SearchTests searchTests = new SearchTests();
 
         //=== Publications
-        searchTests.searchJournalBySequenceNoTest();
-        searchTests.searchJournalByFullTitleTest();
-        searchTests.searchJournalByTitle29Test();
-        searchTests.searchJournalByTitle20Test();
-        searchTests.searchJournalByTitle11Test();
-/*
+        searchTests.PublicationsTests();
+
         //=== Publishers
         searchTests.publishersTest();
-
+/*
         //=== Issues
         searchTests.issuesTest();
 

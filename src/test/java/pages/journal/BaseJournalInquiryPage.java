@@ -1,6 +1,8 @@
 package pages.journal;
 
+import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import pages.journal.Subscriptions.JournalSubscriptionHistoryPage;
@@ -95,5 +97,10 @@ public class BaseJournalInquiryPage extends MainJournalPage {
         return RetrieveJournalForAddingIssueActionTab.click()
                 ? new JournalIssueLoginPage(false)
                 : null;
+    }
+
+    //===== Get methods ================================================================================================
+    public boolean isMessageDisplayed(String message) {
+        return WebDriverFactory.waitAndFindDisplayedElement(By.xpath(".//li[contains(text(), '" + message + "')]")) != null;
     }
 }

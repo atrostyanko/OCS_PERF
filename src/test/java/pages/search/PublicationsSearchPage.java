@@ -1,7 +1,6 @@
 package pages.search;
 
 import com.webtestsbase.commonElements.elements.TextInput;
-import enums.SearchOptions;
 import org.openqa.selenium.support.FindBy;
 import pages.journal.JournalInquiryPage;
 import pages.publisher.BookInquiryPage;
@@ -42,12 +41,46 @@ public class PublicationsSearchPage extends BaseSearchPage {
         return searchButton.isDisplayed() && allOption.isDisplayed();
     }
 
+    //===== Set methods ================================================================================================
+    public boolean setValue(SearchFields field, String value) {
+        TextInput textInput = null;
+        switch (field.value()) {
+            case "jrnlSeqNo":
+                textInput = journalSequenceNo;
+                break;
+            case "issnNo":
+                textInput = issnNo;
+                break;
+            case "isbnNo":
+                textInput = isbnNo;
+                break;
+            case "fullTitle":
+                textInput = fullTitle;
+                break;
+            case "title29":
+                textInput = title29;
+                break;
+            case "title20":
+                textInput = title20;
+                break;
+            case "title11":
+                textInput = title11;
+                break;
+            case "isoTitle":
+                textInput = isoTitle;
+                break;
+        }
+        return textInput != null
+                && textInput.setText(value);
+    }
+
     //===== Click methods ==============================================================================================
     public Object clickSearchButton(SearchOptions option) {
         Object oReturn = null;
         if (searchButton.click()) {
             switch (option.value()) {
                 case "all":
+                    oReturn = new JournalInquiryPage(false);
                     break;
                 case "allJournals":
                     oReturn = new JournalInquiryPage(false);
@@ -74,7 +107,7 @@ public class PublicationsSearchPage extends BaseSearchPage {
                     oReturn = new JournalInquiryPage(false);
                     break;
                 case "allBooks":
-                    oReturn = new BookInquiryPage(false);
+                        oReturn = new BookInquiryPage(false);
                     break;
             }
 
@@ -82,3 +115,4 @@ public class PublicationsSearchPage extends BaseSearchPage {
         return oReturn;
     }
 }
+

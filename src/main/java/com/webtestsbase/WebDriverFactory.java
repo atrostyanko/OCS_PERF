@@ -149,6 +149,23 @@ public class WebDriverFactory {
         }
     }
 
+    public static List<WebElement> getChildElements(WebElement parent, By child) {
+        List<WebElement> list = null;
+        if (parent == null) {
+            ExtentManager.getCurrentTest().warning("The parent element is null.");
+        } else {
+            try {
+                list = parent.findElements(child);
+            } catch (org.openqa.selenium.NoSuchElementException nsee) {
+                ExtentManager.getCurrentTest().warning("getChildElements: No child of the WebElement that matches " + child.toString());
+            } catch (NullPointerException npe) {
+                ExtentManager.getCurrentTest().warning("NPE was catched.");
+                return null;
+            }
+        }
+        return list;
+    }
+
     public static String getWebElementText(WebElement webElement) {
         try {
             return webElement.getText();
@@ -258,6 +275,15 @@ public class WebDriverFactory {
             ExtentManager.getCurrentTest().debug("Element with Locator " + locator + " not found");
             return null;
         }
+    }
+    public static List<WebElement> findElements(By locator) {
+        try {
+            return driver.findElements(locator);
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            ExtentManager.getCurrentTest().debug("Element with Locator " + locator + " not found");
+            return null;
+        }
+
     }
 
     //===== Send Keys methods ==========================================================================================
@@ -375,22 +401,6 @@ public class WebDriverFactory {
 
 /*
 
-    public static List<WebElement> getChildElements(WebElement parent, By child) {
-        List<WebElement> list = null;
-        if (parent == null) {
-            ExtentManager.getCurrentTest().warning("The parent element is null.");
-        } else {
-            try {
-                list = parent.findElements(child);
-            } catch (org.openqa.selenium.NoSuchElementException nsee) {
-                ExtentManager.getCurrentTest().warning("getChildElements: No child of the WebElement that matches " + child.toString());
-            } catch (NullPointerException npe) {
-                ExtentManager.getCurrentTest().warning("NPE was catched.");
-                return null;
-            }
-        }
-        return list;
-    }
 
     private static List<WebElement> getKendoDropDownItems() {
         List<WebElement> dropdown = new ArrayList<>();
@@ -628,17 +638,6 @@ public class WebDriverFactory {
 
 
     //===== Find methods ===============================================================================================
-    public static List<WebElement> findElements(By locator) {
-
-        try {
-            return driver.findElements(locator);
-        } catch (org.openqa.selenium.NoSuchElementException e) {
-            ExtentManager.getCurrentTest().debug("Element with Locator " + locator + " not found");
-            return null;
-        }
-
-    }
-
     public static WebElement findElementFromElement(WebElement element, By locator) {
         try {
             return element.findElement(locator);
