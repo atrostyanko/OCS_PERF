@@ -32,6 +32,12 @@ public class BaseInquiryPage extends MainPublisherPage {
     @FindBy (xpath = ".//span[contains(text(), 'Publisher Number')]")
     public WebElement publisherNumber;
 
+    @FindBy (xpath = ".//span[contains(text(), 'Publisher Name')]")
+    public WebElement publisherName;
+
+    @FindBy (xpath = ".//span[contains(text(), 'Street')]")
+    public WebElement street;
+
     @FindBy (xpath = ".//span[contains(text(), 'Publisher Notes')]")
     private WebElement publisherNotes;
 

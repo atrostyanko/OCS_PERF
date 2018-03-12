@@ -15,10 +15,8 @@ import pages.MainPage;
 import tests.issue.IssueTests;
 import tests.journal.JournalTests;
 import tests.loginPage.LoginPage_Tests;
+import tests.publisher.PublisherTests;
 import tests.search.SearchTests;
-import pages.search.BaseSearchPage.SearchFields;
-import pages.search.BaseSearchPage.SearchOptions;
-
 
 import java.util.Properties;
 
@@ -50,7 +48,6 @@ public class OCS_Test {
 
     @Test
     public void publisherTests() {
-        /*
         ExtentManager.createTest("PUBLISHER Tests.", "Verify all items from PUBLISHER menu.");
 
         MainPage mainPage = new LoginPage_Tests().login();
@@ -97,7 +94,6 @@ public class OCS_Test {
         publisherTest.publisherAddNewSerieTest();
 
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
-        */
     }
 
     @Test
@@ -295,14 +291,14 @@ public class OCS_Test {
         ExtentManager.createTest("SEARCH Tests.", "Verify all items from SEARCH menu.");
 
         MainPage mainPage = new LoginPage_Tests().login();
-        SearchTests searchTests = new SearchTests();
+        SearchTests searchTests = new SearchTests(eReports, prop);
 
         //=== Publications
-        searchTests.PublicationsTests();
+        searchTests.publicationsTest();
 
         //=== Publishers
         searchTests.publishersTest();
-/*
+
         //=== Issues
         searchTests.issuesTest();
 
@@ -311,7 +307,6 @@ public class OCS_Test {
 
         //=== Product Codes
         searchTests.productCodesTest();
-*/
 
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }

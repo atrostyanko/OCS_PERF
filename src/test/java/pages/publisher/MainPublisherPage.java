@@ -10,6 +10,9 @@ import org.openqa.selenium.support.FindBy;
 import pages.MainPage;
 
 public abstract class MainPublisherPage extends MainPage {
+    @FindBy (css = ".BackgroundBigHeader td[align='center'] b")
+    public WebElement pageTitle;
+
     @FindBy (xpath = ".//span[contains(text(), 'Publisher Number')]")
     private WebElement publisherNumber;
 
