@@ -4,20 +4,22 @@ import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
 import com.webtestsbase.commonElements.elements.CheckBox;
 import com.webtestsbase.commonElements.elements.Label;
-import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
-import pages.MainPage;
+import pages.search.IssueSearchPage;
 
 public class IssueDetailsPage extends BaseIssuePage {
     @FindBy (xpath = ".//b[.='DF Issueno']")
     @CacheLookup
-    public Label DFIssueno;
+    public Label issueno;
 
     @FindBy (xpath = ".//b[contains(text(), 'Journal Seq.')]")
     @CacheLookup
-    public Label JournalSeq;
+    public Label journalSeq;
+
+    @FindBy (xpath = ".//b[contains(text(), 'Accession')]")
+    public Label accession;
 
     @FindBy (name = "authorCheck")
     @CacheLookup
@@ -65,7 +67,7 @@ public class IssueDetailsPage extends BaseIssuePage {
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         if (submitBtn.click()) {
-            return WebDriverFactory.waitElementIsVisible(DFIssueno.asWebElement());
+            return WebDriverFactory.waitElementIsVisible(issueno.asWebElement());
         }
         return false;
     }
@@ -86,6 +88,23 @@ public class IssueDetailsPage extends BaseIssuePage {
             return WebDriverFactory.waitElementIsVisible(issueProductCodes);
         }
         return false;
+    }
+
+    //===== Check methods ==============================================================================================
+    public boolean checkValue(IssueSearchPage.SearchFields field, String value) {
+        String fieldValue = "";
+        switch (field.value()) {
+            case "issueNumber":
+                fieldValue = WebDriverFactory.getElementValue(issueno.asWebElement());
+                break;
+            case "accession":
+                fieldValue = WebDriverFactory.getElementValue(accession.asWebElement());
+                break;
+            default:
+                fieldValue = "";
+                break;
+        }
+        return fieldValue.equals(value);
     }
 
 }

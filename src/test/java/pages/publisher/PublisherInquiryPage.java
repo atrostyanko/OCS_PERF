@@ -34,7 +34,7 @@ public class PublisherInquiryPage extends BaseInquiryPage {
         return WebDriverFactory.getElementValue(webElement);
     }
 
-    //===== Set methods ================================================================================================
+    //===== Check methods ==============================================================================================
     public boolean checkValue(PublisherSearchPage.SearchFields field, String value) {
         String fieldValue = "";
         switch (field.value()) {
@@ -50,5 +50,4 @@ public class PublisherInquiryPage extends BaseInquiryPage {
         }
         return fieldValue.equals(value);
     }
-
 }

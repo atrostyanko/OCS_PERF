@@ -849,10 +849,10 @@ public class JournalTests {
                 "Click 'Confirm' button and verify Issue Details page is opened.")) {
 
             ExtentManager.compare(journalSequence,
-                    issueDetailsPage.getElementValue(issueDetailsPage.JournalSeq.asWebElement()),
+                    issueDetailsPage.getElementValue(issueDetailsPage.journalSeq.asWebElement()),
                     "Verify that Journal Seq. # is " + journalSequence);
         }
-        dfIssueNo = issueDetailsPage.getElementValue(issueDetailsPage.DFIssueno.asWebElement());
+        dfIssueNo = issueDetailsPage.getElementValue(issueDetailsPage.issueno.asWebElement());
     }
 
     public void journalTransformingBookTest() {

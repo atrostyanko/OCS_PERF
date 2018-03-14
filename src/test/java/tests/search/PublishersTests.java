@@ -1,7 +1,6 @@
 package tests.search;
 
 import com.reporting.ExtentManager;
-import pages.journal.JournalInquiryPage;
 import pages.publisher.PublisherInquiryPage;
 import pages.search.PublisherSearchPage;
 import pages.search.PublisherSearchPage.SearchOptions;

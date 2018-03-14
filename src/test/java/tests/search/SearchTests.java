@@ -20,14 +20,13 @@ public class SearchTests {
     }
 
     public void publishersTest() {
-        ExtentManager.createNode("Search -> Publishers Page.", "Verify Search Publishers Page.");
-
         PublishersTests publishersTests = new PublishersTests(eReports, prop);
         publishersTests.FullPublishersTests();
     }
 
     public void issuesTest() {
-        ExtentManager.createNode("Search -> Issues Page.", "Verify Search Issues Page.");
+        IssueTests issueTests = new IssueTests(eReports, prop);
+        issueTests.FullIssueTests();
     }
     public void conferencesTest() {
         ExtentManager.createNode("Search -> Conferences Page.", "Verify Search Conferences Page.");
