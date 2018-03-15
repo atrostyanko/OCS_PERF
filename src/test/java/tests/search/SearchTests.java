@@ -1,7 +1,6 @@
 package tests.search;
 
 import com.reporting.ExtentManager;
-import tests.OCS_Test;
 
 import java.util.Properties;
 
@@ -29,9 +28,10 @@ public class SearchTests {
         issueTests.FullIssueTests();
     }
     public void conferencesTest() {
-        ExtentManager.createNode("Search -> Conferences Page.", "Verify Search Conferences Page.");
+        ConferenceTests conferenceTests = new ConferenceTests(eReports, prop);
+        conferenceTests.FullConferenceTests();
     }
     public void productCodesTest() {
-        ExtentManager.createNode("Search -> Product Codes Page.", "Verify Search Product Codes Page.");
+
     }
 }

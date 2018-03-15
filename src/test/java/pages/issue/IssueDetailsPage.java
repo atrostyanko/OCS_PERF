@@ -7,7 +7,7 @@ import com.webtestsbase.commonElements.elements.Label;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
-import pages.search.IssueSearchPage;
+import pages.search.IssueSearchPage.SearchFields;
 
 public class IssueDetailsPage extends BaseIssuePage {
     @FindBy (xpath = ".//b[.='DF Issueno']")
@@ -91,7 +91,7 @@ public class IssueDetailsPage extends BaseIssuePage {
     }
 
     //===== Check methods ==============================================================================================
-    public boolean checkValue(IssueSearchPage.SearchFields field, String value) {
+    public boolean checkValue(SearchFields field, String value) {
         String fieldValue = "";
         switch (field.value()) {
             case "issueNumber":
@@ -106,5 +106,4 @@ public class IssueDetailsPage extends BaseIssuePage {
         }
         return fieldValue.equals(value);
     }
-
 }

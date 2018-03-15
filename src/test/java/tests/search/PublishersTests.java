@@ -17,7 +17,6 @@ public class PublishersTests {
         this.prop = prop;
     }
 
-
     //=== Tests
     private void searchPublisherTest(SearchOptions option, SearchFields field, String value) {
         ExtentManager.createNode("Search -> Publishers -> " + option + " by " + field + ".",

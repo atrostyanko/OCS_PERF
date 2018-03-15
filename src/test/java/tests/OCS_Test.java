@@ -298,10 +298,10 @@ public class OCS_Test {
 
         //=== Publishers
         searchTests.publishersTest();
-*/
+
         //=== Issues
         searchTests.issuesTest();
-
+*/
         //=== Conferences
         searchTests.conferencesTest();
 
