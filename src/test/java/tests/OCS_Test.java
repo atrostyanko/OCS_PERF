@@ -301,10 +301,10 @@ public class OCS_Test {
 
         //=== Issues
         searchTests.issuesTest();
-*/
+
         //=== Conferences
         searchTests.conferencesTest();
-
+*/
         //=== Product Codes
         searchTests.productCodesTest();
 

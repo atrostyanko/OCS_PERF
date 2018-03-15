@@ -27,11 +27,14 @@ public class SearchTests {
         IssueTests issueTests = new IssueTests(eReports, prop);
         issueTests.FullIssueTests();
     }
+
     public void conferencesTest() {
         ConferenceTests conferenceTests = new ConferenceTests(eReports, prop);
         conferenceTests.FullConferenceTests();
     }
-    public void productCodesTest() {
 
+    public void productCodesTest() {
+        ProductCodesTests productCodesTests = new ProductCodesTests(eReports, prop);
+        productCodesTests.FullProductCodesTests();
     }
 }
