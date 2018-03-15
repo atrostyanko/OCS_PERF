@@ -292,7 +292,7 @@ public class OCS_Test {
 
         MainPage mainPage = new LoginPage_Tests().login();
         SearchTests searchTests = new SearchTests(eReports, prop);
-/*
+
         //=== Publications
         searchTests.publicationsTest();
 
@@ -304,7 +304,7 @@ public class OCS_Test {
 
         //=== Conferences
         searchTests.conferencesTest();
-*/
+
         //=== Product Codes
         searchTests.productCodesTest();
 

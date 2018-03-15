@@ -22,7 +22,8 @@ public class ProductCodesTests {
 
     //=== Tests
     private void searchByCodeTest(SearchOptions option, SearchFields field, String value,
-                                  boolean expectedResultVerification, String expectedPubNo, String expectedSeqNo, String expectedFullTitle) {
+                                  boolean expectedResultVerification, String expectedPubNo, String expectedSeqNo,
+                                  String expectedFullTitle) {
 
         ExtentManager.createNode("Search -> Product Codes -> " + option + " by " + field + ".",
                 "Verify Search " + option + " Publication by " + field + ".");
@@ -54,7 +55,8 @@ public class ProductCodesTests {
         }
     }
     private void searchByCodeAndCategory(SearchOptions option, String productionCode, String subjectCategory,
-                                         boolean expectedResultVerification, String expectedPubNo, String expectedSeqNo, String expectedFullTitle) {
+                                         boolean expectedResultVerification, String expectedPubNo, String expectedSeqNo,
+                                         String expectedFullTitle) {
 
         ExtentManager.createNode("Search -> Product Codes -> " + option + " by Production Code and Subject Category.",
                 "Verify Search " + option + " Publication by Production Code and Subject Category.");
