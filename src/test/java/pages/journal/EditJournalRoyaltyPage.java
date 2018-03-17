@@ -1,8 +1,13 @@
 package pages.journal;
 
 import com.webtestsbase.WebDriverFactory;
+import com.webtestsbase.commonElements.elements.Label;
+import org.openqa.selenium.support.FindBy;
 
 public class EditJournalRoyaltyPage extends MainJournalPage {
+    @FindBy(xpath = ".//span[contains(text(), 'Publisher Number')]")
+    public Label publisherNumber;
+
     //====== Constructor ==============================
     public EditJournalRoyaltyPage() {
         super(true);
@@ -21,6 +26,11 @@ public class EditJournalRoyaltyPage extends MainJournalPage {
     @Override
     public boolean isSearchPageOpened() {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
+    }
+
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Editing Journal Royalty");
     }
 
     //===== Click methods ==============================================================================================

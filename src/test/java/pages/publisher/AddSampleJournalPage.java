@@ -48,6 +48,11 @@ public class AddSampleJournalPage extends MainPublisherPage {
         return publisherKey.isDisplayed() && submitBtn.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Adding Sample Journal");
+    }
+
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         if (submitBtn.click()) {

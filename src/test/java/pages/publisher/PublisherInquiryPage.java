@@ -42,7 +42,7 @@ public class PublisherInquiryPage extends BaseInquiryPage {
                 fieldValue = WebDriverFactory.getElementValue(publisherName);
                 break;
             case "publisherNo":
-                fieldValue = WebDriverFactory.getElementValue(publisherNumber);
+                fieldValue = WebDriverFactory.getElementValue(publisherNumber.asWebElement());
                 break;
             case "publisherAddress":
                 fieldValue = WebDriverFactory.getElementValue(street);

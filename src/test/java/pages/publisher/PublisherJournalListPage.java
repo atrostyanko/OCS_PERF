@@ -15,4 +15,14 @@ public class PublisherJournalListPage extends BaseInquiryPage {
         clickPublisher();
         clickSubMenu("List of Journals");
     }
+
+    @Override
+    public boolean isSearchPageOpened() {
+        return publisherKey.isDisplayed() && submitBtn.isDisplayed();
+    }
+
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Publisher Journal List");
+    }
 }

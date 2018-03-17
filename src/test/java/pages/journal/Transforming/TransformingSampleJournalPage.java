@@ -37,6 +37,11 @@ public class TransformingSampleJournalPage extends BaseJournalInquiryPage {
     }
 
     @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Transforming a Sample Journal");
+    }
+
+    @Override
     public boolean clickSubmit() {
         if (submitBtn.click()) {
             return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Transforming a Sample Journal");

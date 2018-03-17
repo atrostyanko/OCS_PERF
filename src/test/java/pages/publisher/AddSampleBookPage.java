@@ -41,7 +41,6 @@ public class AddSampleBookPage extends MainPublisherPage {
     public AddSampleBookPage() {
         super(true);
     }
-
     public AddSampleBookPage(boolean openFromMenu) {
         super(openFromMenu);
     }
@@ -55,6 +54,11 @@ public class AddSampleBookPage extends MainPublisherPage {
     @Override
     public boolean isSearchPageOpened() {
         return publisherKey.isDisplayed() && submitBtn.isDisplayed();
+    }
+
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Adding Sample Book");
     }
 
     //===== Click methods ==============================================================================================

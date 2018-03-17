@@ -38,6 +38,11 @@ public class EditProductCodesForJournalsPage extends MainJournalPage {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Editing Product Codes");
+    }
+
     //===== Click methods ==============================================================================================
     public JournalInquiryPage clickConfirmButton() {
         return confirmButton.click()

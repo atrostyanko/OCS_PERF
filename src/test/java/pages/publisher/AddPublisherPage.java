@@ -53,7 +53,12 @@ public class AddPublisherPage extends MainPublisherPage {
 
     @Override
     public boolean isSearchPageOpened() {
-        return submitChanges.isDisplayed();
+        return isPageOpened();
+    }
+
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Add Publisher");
     }
 
     //===== Click methods ==============================================================================================

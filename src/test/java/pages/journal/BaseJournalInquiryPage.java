@@ -2,6 +2,7 @@ package pages.journal;
 
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
+import com.webtestsbase.commonElements.elements.Label;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -43,6 +44,12 @@ public class BaseJournalInquiryPage extends MainJournalPage {
     @FindBy (css = "a.NavBarLinks[href *= 'RetrieveJournalForAddingIssueAction.do?']")
     @CacheLookup
     public Button RetrieveJournalForAddingIssueActionTab;
+
+    @FindBy(xpath = ".//span[contains(text(), 'Jrnl / Book Seq. #')]")
+    public Label jrnlBookSeq;
+
+    @FindBy(xpath = ".//span[contains(text(), 'Journal Seq. No')]")
+    public Label journalSeqNo;
 
     //====== Constructor ==============================
     public BaseJournalInquiryPage() {

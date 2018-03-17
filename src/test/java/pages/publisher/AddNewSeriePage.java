@@ -51,6 +51,11 @@ public class AddNewSeriePage extends MainPublisherPage {
         return addNewSampleBookLabel.isDisplayed() && submitBtn.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Adding a New Series");
+    }
+
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         if (submitBtn.click()) {

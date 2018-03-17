@@ -18,7 +18,11 @@ public class AddSamplePublisherPage extends AddPublisherPage {
 
     @Override
     public boolean isSearchPageOpened() {
-        return submitChanges.isDisplayed();
+        return isPageOpened();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Add Sample Publisher");
+    }
 }

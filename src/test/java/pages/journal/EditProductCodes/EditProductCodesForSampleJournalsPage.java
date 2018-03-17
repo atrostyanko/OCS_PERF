@@ -8,16 +8,17 @@ import pages.journal.JournalInquiryPage;
 import pages.journal.MainJournalPage;
 
 public class EditProductCodesForSampleJournalsPage extends MainJournalPage {
-    @FindBy (name = "addButton")
+    @FindBy(name = "addButton")
     public Button addButton;
 
-    @FindBy (xpath = ".//li[contains(text(), 'Product code(s) :  has/have been successfully added.')]")
+    @FindBy(xpath = ".//li[contains(text(), 'Product code(s) :  has/have been successfully added.')]")
     public Label updateMessage;
 
     //====== Constructor ==============================
     public EditProductCodesForSampleJournalsPage() {
         super(true);
     }
+
     public EditProductCodesForSampleJournalsPage(boolean openFromMenu) {
         super(openFromMenu);
     }
@@ -32,6 +33,11 @@ public class EditProductCodesForSampleJournalsPage extends MainJournalPage {
     @Override
     public boolean isSearchPageOpened() {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
+    }
+
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Editing Product Codes");
     }
 
     //===== Click methods ==============================================================================================

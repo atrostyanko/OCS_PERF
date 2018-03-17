@@ -21,6 +21,11 @@ public class EditSampleJournalPage extends MainJournalPage {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Editing Sample Journal");
+    }
+
     //===== Click methods ==============================================================================================
     public JournalInquiryPage clickConfirmButton() {
         return confirmButton.click()

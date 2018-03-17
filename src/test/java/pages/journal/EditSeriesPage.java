@@ -28,6 +28,11 @@ public class EditSeriesPage extends MainJournalPage {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Editing a Series");
+    }
+
     //===== Click methods ==============================================================================================
     @Override
     public boolean clickSubmit() {

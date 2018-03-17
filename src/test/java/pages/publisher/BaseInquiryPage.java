@@ -2,6 +2,7 @@ package pages.publisher;
 
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
+import com.webtestsbase.commonElements.elements.Label;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -30,7 +31,7 @@ public class BaseInquiryPage extends MainPublisherPage {
     private WebElement royaltyRemarks;
 
     @FindBy (xpath = ".//span[contains(text(), 'Publisher Number')]")
-    public WebElement publisherNumber;
+    public Label publisherNumber;
 
     @FindBy (xpath = ".//span[contains(text(), 'Publisher Name')]")
     public WebElement publisherName;

@@ -16,4 +16,9 @@ public class RoyaltyInquiryPage extends BaseInquiryPage {
         clickSubMenu("Royalty");
         clickSubMenu("Royalty Inquiry");
     }
+
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Publisher Royalty Inquiry");
+    }
 }

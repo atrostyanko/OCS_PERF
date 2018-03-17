@@ -22,4 +22,8 @@ public class EditSamplePublisherPage extends AddPublisherPage {
         return publisherKey.isDisplayed() && Journal.isDisplayed() && Book.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Edit Sample Publisher");
+    }
 }

@@ -36,6 +36,11 @@ public class EditProductCodesForBooksPage extends MainJournalPage {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Editing Product Codes");
+    }
+
     //===== Click methods ==============================================================================================
     public EditSubjectCategoriesForBooksPage clickConfirmButton() {
         return confirmButton.click()

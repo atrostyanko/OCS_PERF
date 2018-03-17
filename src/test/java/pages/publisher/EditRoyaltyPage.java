@@ -1,11 +1,5 @@
 package pages.publisher;
 
-import com.webtestsbase.WebDriverFactory;
-import com.webtestsbase.commonElements.elements.Button;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
-import org.openqa.selenium.support.FindBy;
-
 public class EditRoyaltyPage extends MainPublisherPage {
     //====== Constructor ==============================
     public EditRoyaltyPage() {
@@ -25,6 +19,11 @@ public class EditRoyaltyPage extends MainPublisherPage {
     @Override
     public boolean isSearchPageOpened() {
         return publisherKey.isDisplayed() && journal.isDisplayed() && book.isDisplayed();
+    }
+
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Editing Publisher Royalty");
     }
 
     //===== Click methods ==============================================================================================

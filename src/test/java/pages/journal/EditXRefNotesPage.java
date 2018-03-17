@@ -36,6 +36,11 @@ public class EditXRefNotesPage extends BaseJournalInquiryPage {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Edit XRef Notes");
+    }
+
     //===== Click methods ==============================================================================================
     @Override
     public boolean clickSubmit() {
@@ -51,5 +56,4 @@ public class EditXRefNotesPage extends BaseJournalInquiryPage {
                 ? new JournalChangesPage(false)
                 : null;
     }
-
 }

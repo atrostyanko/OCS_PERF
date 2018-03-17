@@ -50,8 +50,8 @@ public class OCS_Test {
     public void publisherTests() {
         ExtentManager.createTest("PUBLISHER Tests.", "Verify all items from PUBLISHER menu.");
 
-        MainPage mainPage = new LoginPage_Tests().login();
-        PublisherTests publisherTest = new PublisherTests();
+        MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
+        PublisherTests publisherTest = new PublisherTests(eReports, prop);
 
         //=== Publisher Inquiry
         publisherTest.publisherInquiryTest();
@@ -100,8 +100,8 @@ public class OCS_Test {
     public void journalTests() {
         ExtentManager.createTest("JOURNAL Tests.", "Verify all items from JOURNAL menu.");
 
-        MainPage mainPage = new LoginPage_Tests().login();
-        JournalTests journalTest = new JournalTests();
+        MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
+        JournalTests journalTest = new JournalTests(eReports, prop);
 
         //=== Journal Inquiry
         journalTest.journalInquiryTest();
@@ -231,7 +231,7 @@ public class OCS_Test {
     public void issueTests() {
         ExtentManager.createTest("ISSUE Tests.", "Verify all items from ISSUE menu.");
 
-        MainPage mainPage = new LoginPage_Tests().login();
+        MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
         IssueTests issueTests = new IssueTests();
 
         //=== Issue Details
@@ -290,7 +290,7 @@ public class OCS_Test {
     public void searchTest() {
         ExtentManager.createTest("SEARCH Tests.", "Verify all items from SEARCH menu.");
 
-        MainPage mainPage = new LoginPage_Tests().login();
+        MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
         SearchTests searchTests = new SearchTests(eReports, prop);
 
         //=== Publications

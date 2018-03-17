@@ -1,10 +1,13 @@
 package pages.journal.Subscriptions;
 
 import com.webtestsbase.WebDriverFactory;
+import com.webtestsbase.commonElements.elements.Label;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.FindBy;
 import pages.journal.BaseJournalInquiryPage;
 
 public class JournalSubscriptionDetailsPage extends BaseJournalInquiryPage {
+
     //====== Constructor ==============================
     public JournalSubscriptionDetailsPage() {
         super(true);
@@ -23,6 +26,11 @@ public class JournalSubscriptionDetailsPage extends BaseJournalInquiryPage {
     @Override
     public boolean isSearchPageOpened() {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
+    }
+
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Journal Subscription Details");
     }
 
     //===== Click methods ================================================================================================

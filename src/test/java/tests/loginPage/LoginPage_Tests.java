@@ -13,8 +13,13 @@ import java.util.Properties;
  * Build Verification Test based on AUT-143
  */
 public class LoginPage_Tests {
-    public static ExtentManager eReports = OCS_Test.eReports;
-    public static Properties prop = OCS_Test.prop;
+    private ExtentManager eReports;
+    private Properties prop;
+
+    public LoginPage_Tests(ExtentManager eReports, Properties prop) {
+        this.eReports = eReports;
+        this.prop = prop;
+    }
 
     public MainPage login() {
         String userID = prop.getProperty("userID");

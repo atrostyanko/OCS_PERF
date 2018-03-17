@@ -1,7 +1,6 @@
 package tests.search;
 
 import com.reporting.ExtentManager;
-
 import java.util.Properties;
 
 public class SearchTests {

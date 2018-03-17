@@ -23,6 +23,11 @@ public class EditBookPage extends MainJournalPage {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Editing Book");
+    }
+
     //===== Click methods ==============================================================================================
     public BookInquiryPage clickConfirmButton() {
         return confirmButton.click()

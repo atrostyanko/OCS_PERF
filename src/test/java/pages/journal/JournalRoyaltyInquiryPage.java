@@ -1,9 +1,14 @@
 package pages.journal;
 
 import com.webtestsbase.WebDriverFactory;
+import com.webtestsbase.commonElements.elements.Label;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.FindBy;
 
 public class JournalRoyaltyInquiryPage extends BaseJournalInquiryPage {
+    @FindBy(xpath = ".//span[contains(text(), 'Publisher Number')]")
+    public Label publisherNumber;
+
     //====== Constructor ==============================
     public JournalRoyaltyInquiryPage() {
         super(true);

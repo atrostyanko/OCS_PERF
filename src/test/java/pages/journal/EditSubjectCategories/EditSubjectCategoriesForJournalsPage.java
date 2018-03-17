@@ -38,6 +38,11 @@ public class EditSubjectCategoriesForJournalsPage extends MainJournalPage {
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Editing Subject Categories");
+    }
+
     //===== Click methods ==============================================================================================
     public JournalInquiryPage clickConfirmButton() {
         return confirmButton.click()

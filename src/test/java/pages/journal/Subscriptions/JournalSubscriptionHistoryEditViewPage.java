@@ -35,6 +35,11 @@ public class JournalSubscriptionHistoryEditViewPage extends BaseJournalInquiryPa
         return journalSequenceNumber.isDisplayed() && submitBtn.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Journal Subscription History");
+    }
+
     //===== Click methods ==============================================================================================
     @Override
     public boolean clickSubmit() {

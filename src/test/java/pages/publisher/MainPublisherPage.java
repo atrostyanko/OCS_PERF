@@ -17,15 +17,12 @@ public abstract class MainPublisherPage extends MainPage {
     private WebElement publisherNumber;
 
     @FindBy(name = "publisherKey")
-    @CacheLookup
     public TextInput publisherKey;
 
     @FindBy(css = "input[name='publisherKeyType'][value='J']")
-    @CacheLookup
     public CheckBox journal;
 
     @FindBy(css = "input[name='publisherKeyType'][value='B']")
-    @CacheLookup
     public CheckBox book;
 
     @FindBy(css = "[src *= 'Images/submit_changes.gif']")
