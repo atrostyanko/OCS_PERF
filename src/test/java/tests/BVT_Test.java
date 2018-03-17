@@ -121,7 +121,9 @@ public class BVT_Test {
         //=== Delete
         //====== Delete Journal
         //====== Delete Sample Journal
+        journalTest.deleteSampleJournalTest_BVT();
         //====== Delete Sample Book
+        journalTest.deleteSampleBookTest_BVT();
         //====== Delete Series
 
         //=== Prod. Codes - Subj. Categories

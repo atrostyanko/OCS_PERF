@@ -4,6 +4,8 @@ import com.reporting.ExtentManager;
 
 import pages.issue.IssueDetailsPage;
 import pages.journal.*;
+import pages.journal.Delete.DeleteSampleBookPage;
+import pages.journal.Delete.DeleteSampleJournalPage;
 import pages.journal.EditProductCodes.*;
 import pages.journal.EditSubjectCategories.*;
 import pages.journal.Subscriptions.JournalSubscriptionDetailsPage;
@@ -285,8 +287,50 @@ public class JournalTests {
         }
     }
 
-    //ToDo: Delete Sample Journal
-    //ToDO: Delete Sample Book
+    //ToDo: Delete Journal
+    public void deleteSampleJournalTest_BVT() {
+        String seriesNumber = prop.getProperty("deleteSampleJournal_journalSequenceNumber");
+
+        ExtentManager.createNode("JOURNAL -> DELETE -> Delete Sample Journal.",
+                "Verify Delete Sample Journal Page.");
+
+        DeleteSampleJournalPage deleteSampleJournalPage = new DeleteSampleJournalPage();
+        if (ExtentManager.compareNotNULL(deleteSampleJournalPage,
+                "Open 'JOURNAL -> DELETE -> Delete Sample Journal page.")) {
+
+            ExtentManager.compareTrue(deleteSampleJournalPage.setJournalSequence(seriesNumber),
+                    "Set Journal Sequence number to " + seriesNumber);
+
+            ExtentManager.compareTrue(deleteSampleJournalPage.clickSubmit(),
+                    "Click 'Submit' button.");
+
+            ExtentManager.compareTrue(deleteSampleJournalPage.deleteButton.isDisplayed()
+                    && deleteSampleJournalPage.isPageOpened(),
+                    "Verify that Delete Sample Journal page is opened.");
+        }
+    }
+    public void deleteSampleBookTest_BVT() {
+        String seriesNumber = prop.getProperty("deleteSampleBook_sampleBookNumber");
+
+        ExtentManager.createNode("JOURNAL -> DELETE -> Delete Sample Book.",
+                "Verify Delete Sample Book Page.");
+
+        DeleteSampleBookPage deleteSampleBookPage = new DeleteSampleBookPage();
+        if (ExtentManager.compareNotNULL(deleteSampleBookPage,
+                "Open 'JOURNAL -> DELETE -> Delete Sample Book page.")) {
+
+            ExtentManager.compareTrue(deleteSampleBookPage.setJournalSequence(seriesNumber),
+                    "Set Journal Sequence number to " + seriesNumber);
+
+            ExtentManager.compareTrue(deleteSampleBookPage.clickSubmit(),
+                    "Click 'Submit' button.");
+
+            ExtentManager.compareTrue(deleteSampleBookPage.deleteButton.isDisplayed()
+                            && deleteSampleBookPage.isPageOpened(),
+                    "Verify that Delete Sample Book page is opened.");
+        }
+    }
+    //ToDo: Delete Series
 
     public void JournalProductCodesInquiryTest() {
         String journalSequenceNumber = prop.getProperty("journalProductCodesInquiry_journalSequenceNumber");
