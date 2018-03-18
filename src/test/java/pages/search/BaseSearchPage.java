@@ -8,6 +8,9 @@ import org.openqa.selenium.support.FindBy;
 import pages.MainPage;
 
 public class BaseSearchPage extends MainPage {
+    @FindBy (css = ".BackgroundBigHeader td[align='center'] b")
+    public WebElement pageTitle;
+
     @FindBy(css = "input[src *= 'search_button.gif']")
     public Button searchButton;
 

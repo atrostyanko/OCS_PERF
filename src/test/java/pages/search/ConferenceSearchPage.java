@@ -3,7 +3,7 @@ package pages.search;
 import com.webtestsbase.commonElements.elements.CheckBox;
 import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.support.FindBy;
-import pages.publisher.ConferenceDetailsPage;
+import pages.conference.ConferenceDetailsPage;
 
 public class ConferenceSearchPage extends BaseSearchPage {
     @FindBy(name = "conferenceNo")
@@ -36,7 +36,7 @@ public class ConferenceSearchPage extends BaseSearchPage {
     public boolean setValue(SearchFields field, String value) {
         TextInput textInput = null;
         switch (field.value()) {
-            case "conferenceNo":
+            case "searchConferenceNo":
                 textInput = conferenceNo;
                 break;
             case "conferenceTitle":
@@ -68,7 +68,7 @@ public class ConferenceSearchPage extends BaseSearchPage {
 
     //===== Enums ======================================================================================================
     public enum SearchFields {
-        ConferenceNumber("conferenceNo"),
+        ConferenceNumber("searchConferenceNo"),
         ConferenceTitle("conferenceTitle"),
         HostOrganization("hostOrganization"),
         Sponsors("sponsors");

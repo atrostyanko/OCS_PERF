@@ -19,25 +19,25 @@ public class PublishersTests {
 
     //=== Tests
     private void searchPublisherTest(SearchOptions option, SearchFields field, String value) {
-        ExtentManager.createNode("Search -> Publishers -> " + option + " by " + field + ".",
+        eReports.createNode("Search -> Publishers -> " + option + " by " + field + ".",
                 "Verify Search " + option + " Publishers by " + field + ".");
 
         //=== Journal Sequence No.
         PublisherSearchPage publisherSearchPage = new PublisherSearchPage();
-        ExtentManager.compareNotNULL(publisherSearchPage,
+        eReports.compareNotNULL(publisherSearchPage,
                 "Open 'Search -> Publishers' search page.");
 
-        ExtentManager.compareTrue(publisherSearchPage.selectSearchOption(option),
+        eReports.compareTrue(publisherSearchPage.selectSearchOption(option),
                 "Set '" + option + "' search option.");
 
-        ExtentManager.compareTrue(publisherSearchPage.setValue(field, value),
+        eReports.compareTrue(publisherSearchPage.setValue(field, value),
                 "Set " + value + " to the '" + field + "' field.");
 
         PublisherInquiryPage publisherInquiryPage = (PublisherInquiryPage) publisherSearchPage.clickSearchButton(option);
-        ExtentManager.compareNotNULL(publisherInquiryPage,
+        eReports.compareNotNULL(publisherInquiryPage,
                 "Click 'Search' button and verify that Publisher Inquiry page was opened.");
 
-        ExtentManager.compareTrue(publisherInquiryPage.checkValue(field, value),
+        eReports.compareTrue(publisherInquiryPage.checkValue(field, value),
                 "Verify that " + value + " is displayed in the '" + field + "' field.");
     }
 
@@ -95,5 +95,15 @@ public class PublishersTests {
                 prop.getProperty("coveredBookPublishersSearchName"));
         //====== Address
         //====== Publ. Number = YD550
+    }
+
+    public void PublishersTest_BVT() {
+        eReports.createNode("Search -> Publishers page.",
+                "Verify Search Publishers page.");
+
+        PublisherSearchPage publisherSearchPage = new PublisherSearchPage();
+        eReports.compareNotNULL(publisherSearchPage,
+                "Open 'Search -> Publishers' search page.");
+
     }
 }

@@ -1,4 +1,4 @@
-package pages.publisher;
+package pages.conference;
 
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Label;
@@ -9,11 +9,7 @@ import pages.issue.BaseIssuePage;
 import pages.search.ConferenceSearchPage.SearchFields;
 
 
-public class ConferenceDetailsPage extends BaseIssuePage {
-    @FindBy (xpath = ".//span[contains(text(), 'Conference No')]")
-    @CacheLookup
-    public Label conferenceNo;
-
+public class ConferenceDetailsPage extends BaseConferencePage {
     @FindBy (xpath = ".//span[contains(text(), 'Conference Title')]")
     @CacheLookup
     public Label conferenceTitle;
@@ -32,6 +28,8 @@ public class ConferenceDetailsPage extends BaseIssuePage {
 
     @Override
     public void openPage() {
+        clickConf();
+        clickSubMenu("Conference Details");
     }
 
     @Override
@@ -43,8 +41,8 @@ public class ConferenceDetailsPage extends BaseIssuePage {
     public boolean checkValue(SearchFields field, String value) {
         String fieldValue = "";
         switch (field.value()) {
-            case "conferenceNo":
-                fieldValue = WebDriverFactory.getElementValue(conferenceNo.asWebElement());
+            case "searchConferenceNo":
+                fieldValue = WebDriverFactory.getElementValue(conferenceNoLabel.asWebElement());
                 break;
             case "conferenceTitle":
                 fieldValue = WebDriverFactory.getElementValue(conferenceTitle.asWebElement());

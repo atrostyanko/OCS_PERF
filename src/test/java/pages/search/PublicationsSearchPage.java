@@ -40,7 +40,6 @@ public class PublicationsSearchPage extends BaseSearchPage {
     @FindBy(css = "input[name = 'section'][value='allBooks']")
     public CheckBox allBooksOption;
 
-
     @FindBy(name = "jrnlSeqNo")
     public TextInput journalSequenceNo;
 

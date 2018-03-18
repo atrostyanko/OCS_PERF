@@ -32,50 +32,50 @@ public class JournalTests {
     public void journalInquiryTest() {
         String journalSequenceNumber = prop.getProperty("journalSequenceNumber");
 
-        ExtentManager.createNode("JOURNAL -> Journal Inquiry Page.", "Verify Journal Inquiry Page.");
+        eReports.createNode("JOURNAL -> Journal Inquiry Page.", "Verify Journal Inquiry Page.");
 
         JournalInquiryPage journalInquiryPage = new JournalInquiryPage();
-        if (ExtentManager.compareNotNULL(journalInquiryPage, "Open 'JOURNAL -> Journal Inquiry' page.")) {
+        if (eReports.compareNotNULL(journalInquiryPage, "Open 'JOURNAL -> Journal Inquiry' page.")) {
 
-            ExtentManager.compareTrue(journalInquiryPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(journalInquiryPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
-            ExtentManager.compareTrue(journalInquiryPage.clickSubmit(),
+            eReports.compareTrue(journalInquiryPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareNotNULL(journalInquiryPage.clickCDRXTab(),
+            eReports.compareNotNULL(journalInquiryPage.clickCDRXTab(),
                     "Open 'Journal Issues List' tab.");
-            ExtentManager.compareNotNULL(journalInquiryPage.clickJrnlXRefTab(),
+            eReports.compareNotNULL(journalInquiryPage.clickJrnlXRefTab(),
                     "Open 'Journal Changes' tab.");
-            ExtentManager.compareNotNULL(journalInquiryPage.clickPCSCTab(),
+            eReports.compareNotNULL(journalInquiryPage.clickPCSCTab(),
                     "Open 'Journal Product Codes Inquiry' tab.");
-            ExtentManager.compareNotNULL(journalInquiryPage.clickPCHistTab(),
+            eReports.compareNotNULL(journalInquiryPage.clickPCHistTab(),
                     "Open 'Journal Product Code History' tab.");
-            ExtentManager.compareNotNULL(journalInquiryPage.clickSCHistTab(),
+            eReports.compareNotNULL(journalInquiryPage.clickSCHistTab(),
                     "Open 'Journal Subject Catagory History' tab.");
-            ExtentManager.compareNotNULL(journalInquiryPage.clickRoyInqTab(),
+            eReports.compareNotNULL(journalInquiryPage.clickRoyInqTab(),
                     "Open 'Journal Royalty Inquiry' tab.");
-            ExtentManager.compareNotNULL(journalInquiryPage.clickSubsHistTab(),
+            eReports.compareNotNULL(journalInquiryPage.clickSubsHistTab(),
                     "Open 'Journal Subscription History' tab.");
-            ExtentManager.compareNotNULL(journalInquiryPage.clickIssueLoginTab(),
+            eReports.compareNotNULL(journalInquiryPage.clickIssueLoginTab(),
                     "Open 'Issue Login for a Journal' tab.");
-            ExtentManager.compareNotNULL(journalInquiryPage.clickJrnlInqTab(),
+            eReports.compareNotNULL(journalInquiryPage.clickJrnlInqTab(),
                     "Open 'Journal Inquiry' tab.");
         }
     }
     public void journalInquiryTest_BVT() {
         String journalSequenceNumber = prop.getProperty("journalSequenceNumber");
 
-        ExtentManager.createNode("JOURNAL -> Journal Inquiry Page.", "Verify Journal Inquiry Page.");
+        eReports.createNode("JOURNAL -> Journal Inquiry Page.", "Verify Journal Inquiry Page.");
 
         JournalInquiryPage journalInquiryPage = new JournalInquiryPage();
-        if (ExtentManager.compareNotNULL(journalInquiryPage, "Open 'JOURNAL -> Journal Inquiry' page.")) {
+        if (eReports.compareNotNULL(journalInquiryPage, "Open 'JOURNAL -> Journal Inquiry' page.")) {
 
-            ExtentManager.compareTrue(journalInquiryPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(journalInquiryPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
-            ExtentManager.compareTrue(journalInquiryPage.clickSubmit(),
+            eReports.compareTrue(journalInquiryPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(journalInquiryPage.jrnlBookSeq.isDisplayed() && journalInquiryPage.isPageOpened(),
+            eReports.compareTrue(journalInquiryPage.jrnlBookSeq.isDisplayed() && journalInquiryPage.isPageOpened(),
                     "Verify that Journal Inquiry page is opened.");
         }
     }
@@ -83,39 +83,39 @@ public class JournalTests {
     public void journalEditCoveredJournalTest() {
         String journalSequenceNumber = prop.getProperty("editCoveredJournal_journalSequenceNumber");
 
-        ExtentManager.createNode("JOURNAL -> EDIT -> Edit Covered Journal.", "Verify Edit Covered Journal Page.");
+        eReports.createNode("JOURNAL -> EDIT -> Edit Covered Journal.", "Verify Edit Covered Journal Page.");
 
         EditCoveredJournalPage editCoveredJournalPage = new EditCoveredJournalPage();
-        if (ExtentManager.compareNotNULL(editCoveredJournalPage,
+        if (eReports.compareNotNULL(editCoveredJournalPage,
                 "Open 'JOURNAL -> EDIT -> Edit Covered Journal page.")) {
 
-            ExtentManager.compareTrue(editCoveredJournalPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(editCoveredJournalPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
-            ExtentManager.compareTrue(editCoveredJournalPage.clickSubmit(),
+            eReports.compareTrue(editCoveredJournalPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editCoveredJournalPage.clickSubmitChanges(),
+            eReports.compareTrue(editCoveredJournalPage.clickSubmitChanges(),
                     "Click 'Submit Changes' button.");
 
             JournalInquiryPage journalInquiryPage = editCoveredJournalPage.clickConfirmButton();
-            ExtentManager.compareNotNULL(journalInquiryPage,
+            eReports.compareNotNULL(journalInquiryPage,
                     "Click 'Confirm' button and verify Journal Inquiry page is opened.");
         }
     }
     public void journalEditCoveredJournalTest_BVT() {
         String journalSequenceNumber = prop.getProperty("editCoveredJournal_journalSequenceNumber");
-        ExtentManager.createNode("JOURNAL -> EDIT -> Edit Covered Journal.", "Verify Edit Covered Journal Page.");
+        eReports.createNode("JOURNAL -> EDIT -> Edit Covered Journal.", "Verify Edit Covered Journal Page.");
 
         EditCoveredJournalPage editCoveredJournalPage = new EditCoveredJournalPage();
-        if (ExtentManager.compareNotNULL(editCoveredJournalPage,
+        if (eReports.compareNotNULL(editCoveredJournalPage,
                 "Open 'JOURNAL -> EDIT -> Edit Covered Journal page.")) {
 
-            ExtentManager.compareTrue(editCoveredJournalPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(editCoveredJournalPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
-            ExtentManager.compareTrue(editCoveredJournalPage.clickSubmit(),
+            eReports.compareTrue(editCoveredJournalPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editCoveredJournalPage.submitChanges.isDisplayed() && editCoveredJournalPage.isPageOpened(),
+            eReports.compareTrue(editCoveredJournalPage.submitChanges.isDisplayed() && editCoveredJournalPage.isPageOpened(),
                     "Verify that Editing Covered Journal page is opened.");
         }
     }
@@ -123,40 +123,40 @@ public class JournalTests {
     public void journalEditSampleJournalTest() {
         String journalSequenceNumber = prop.getProperty("editSampleJournal_journalSequenceNumber");
 
-        ExtentManager.createNode("JOURNAL -> EDIT -> Edit Sample Journal.", "Verify Edit Sample Journal Page.");
+        eReports.createNode("JOURNAL -> EDIT -> Edit Sample Journal.", "Verify Edit Sample Journal Page.");
 
         EditSampleJournalPage editSampleJournalPage = new EditSampleJournalPage();
-        if (ExtentManager.compareNotNULL(editSampleJournalPage,
+        if (eReports.compareNotNULL(editSampleJournalPage,
                 "Open 'JOURNAL -> EDIT -> Edit Sample Journal page.")) {
 
-            ExtentManager.compareTrue(editSampleJournalPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(editSampleJournalPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
-            ExtentManager.compareTrue(editSampleJournalPage.clickSubmit(),
+            eReports.compareTrue(editSampleJournalPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editSampleJournalPage.clickSubmitChanges(),
+            eReports.compareTrue(editSampleJournalPage.clickSubmitChanges(),
                     "Click 'Submit Changes' button.");
 
             JournalInquiryPage journalInquiryPage = editSampleJournalPage.clickConfirmButton();
-            ExtentManager.compareNotNULL(journalInquiryPage,
+            eReports.compareNotNULL(journalInquiryPage,
                     "Click 'Confirm' button and verify Journal Inquiry page is opened.");
         }
     }
     public void journalEditSampleJournalTest_BVT() {
         String journalSequenceNumber = prop.getProperty("editSampleJournal_journalSequenceNumber");
 
-        ExtentManager.createNode("JOURNAL -> EDIT -> Edit Sample Journal.", "Verify Edit Sample Journal Page.");
+        eReports.createNode("JOURNAL -> EDIT -> Edit Sample Journal.", "Verify Edit Sample Journal Page.");
 
         EditSampleJournalPage editSampleJournalPage = new EditSampleJournalPage();
-        if (ExtentManager.compareNotNULL(editSampleJournalPage,
+        if (eReports.compareNotNULL(editSampleJournalPage,
                 "Open 'JOURNAL -> EDIT -> Edit Sample Journal page.")) {
 
-            ExtentManager.compareTrue(editSampleJournalPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(editSampleJournalPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
-            ExtentManager.compareTrue(editSampleJournalPage.clickSubmit(),
+            eReports.compareTrue(editSampleJournalPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editSampleJournalPage.submitChanges.isDisplayed() && editSampleJournalPage.isPageOpened(),
+            eReports.compareTrue(editSampleJournalPage.submitChanges.isDisplayed() && editSampleJournalPage.isPageOpened(),
                     "Verify that Editing Sample Journal page is opened.");
         }
     }
@@ -164,41 +164,41 @@ public class JournalTests {
     public void journalEditBookTest() {
         String bookNumber = prop.getProperty("editBook_bookNumber");
 
-        ExtentManager.createNode("JOURNAL -> EDIT -> Edit Book.", "Verify Edit Book Page.");
+        eReports.createNode("JOURNAL -> EDIT -> Edit Book.", "Verify Edit Book Page.");
 
         EditBookPage editBookPage = new EditBookPage();
-        if (ExtentManager.compareNotNULL(editBookPage,
+        if (eReports.compareNotNULL(editBookPage,
                 "Open 'JOURNAL -> EDIT -> Edit Book page.")) {
 
-            ExtentManager.compareTrue(editBookPage.setJournalSequence(bookNumber),
+            eReports.compareTrue(editBookPage.setJournalSequence(bookNumber),
                     "Set Journal Sequence number to " + bookNumber);
-            ExtentManager.compareTrue(editBookPage.clickSubmit(),
+            eReports.compareTrue(editBookPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editBookPage.clickSubmitChanges(),
+            eReports.compareTrue(editBookPage.clickSubmitChanges(),
                     "Click 'Submit Changes' button.");
 
             BookInquiryPage bookInquiryPage = editBookPage.clickConfirmButton();
-            ExtentManager.compareNotNULL(bookInquiryPage,
+            eReports.compareNotNULL(bookInquiryPage,
                     "Click 'Confirm' button and verify Book Inquiry page is opened.");
         }
     }
     public void journalEditBookTest_BVT() {
         String bookNumber = prop.getProperty("editBook_bookNumber");
 
-        ExtentManager.createNode("JOURNAL -> EDIT -> Edit Book.",
+        eReports.createNode("JOURNAL -> EDIT -> Edit Book.",
                 "Verify Edit Book Page.");
 
         EditBookPage editBookPage = new EditBookPage();
-        if (ExtentManager.compareNotNULL(editBookPage,
+        if (eReports.compareNotNULL(editBookPage,
                 "Open 'JOURNAL -> EDIT -> Edit Book page.")) {
 
-            ExtentManager.compareTrue(editBookPage.setJournalSequence(bookNumber),
+            eReports.compareTrue(editBookPage.setJournalSequence(bookNumber),
                     "Set Journal Sequence number to " + bookNumber);
-            ExtentManager.compareTrue(editBookPage.clickSubmit(),
+            eReports.compareTrue(editBookPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editBookPage.submitChanges.isDisplayed() && editBookPage.isPageOpened(),
+            eReports.compareTrue(editBookPage.submitChanges.isDisplayed() && editBookPage.isPageOpened(),
                     "Verify that Edit Book page is opened.");
         }
     }
@@ -206,41 +206,41 @@ public class JournalTests {
     public void journalEditSampleBookTest() {
         String sampleBookNumber = prop.getProperty("editSampleBook_sampleBookNumber");
 
-        ExtentManager.createNode("JOURNAL -> EDIT -> Edit Sample Book.", "Verify Edit Sample Book Page.");
+        eReports.createNode("JOURNAL -> EDIT -> Edit Sample Book.", "Verify Edit Sample Book Page.");
 
         EditSampleBookPage editSampleBookPage = new EditSampleBookPage();
-        if (ExtentManager.compareNotNULL(editSampleBookPage,
+        if (eReports.compareNotNULL(editSampleBookPage,
                 "Open 'JOURNAL -> EDIT -> Edit Sample Book page.")) {
 
-            ExtentManager.compareTrue(editSampleBookPage.setJournalSequence(sampleBookNumber),
+            eReports.compareTrue(editSampleBookPage.setJournalSequence(sampleBookNumber),
                     "Set Journal Sequence number to " + sampleBookNumber);
-            ExtentManager.compareTrue(editSampleBookPage.clickSubmit(),
+            eReports.compareTrue(editSampleBookPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editSampleBookPage.clickSubmitChanges(),
+            eReports.compareTrue(editSampleBookPage.clickSubmitChanges(),
                     "Click 'Submit Changes' button.");
 
             BookInquiryPage bookInquiryPage = editSampleBookPage.clickConfirmButton();
-            ExtentManager.compareNotNULL(bookInquiryPage,
+            eReports.compareNotNULL(bookInquiryPage,
                     "Click 'Confirm' button and verify Book Inquiry page is opened.");
         }
     }
     public void journalEditSampleBookTest_BVT() {
         String sampleBookNumber = prop.getProperty("editSampleBook_sampleBookNumber");
 
-        ExtentManager.createNode("JOURNAL -> EDIT -> Edit Sample Book.",
+        eReports.createNode("JOURNAL -> EDIT -> Edit Sample Book.",
                 "Verify Edit Sample Book Page.");
 
         EditSampleBookPage editSampleBookPage = new EditSampleBookPage();
-        if (ExtentManager.compareNotNULL(editSampleBookPage,
+        if (eReports.compareNotNULL(editSampleBookPage,
                 "Open 'JOURNAL -> EDIT -> Edit Sample Book page.")) {
 
-            ExtentManager.compareTrue(editSampleBookPage.setJournalSequence(sampleBookNumber),
+            eReports.compareTrue(editSampleBookPage.setJournalSequence(sampleBookNumber),
                     "Set Journal Sequence number to " + sampleBookNumber);
-            ExtentManager.compareTrue(editSampleBookPage.clickSubmit(),
+            eReports.compareTrue(editSampleBookPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editSampleBookPage.submitChanges.isDisplayed() && editSampleBookPage.isPageOpened(),
+            eReports.compareTrue(editSampleBookPage.submitChanges.isDisplayed() && editSampleBookPage.isPageOpened(),
                     "Verify that Edit Sample Book page is opened.");
         }
     }
@@ -248,41 +248,41 @@ public class JournalTests {
     public void journalEditSeriesTest() {
         String seriesNumber = prop.getProperty("editSeries_seriesNumber");
 
-        ExtentManager.createNode("JOURNAL -> EDIT -> Edit Series.", "Verify Edit Series Page.");
+        eReports.createNode("JOURNAL -> EDIT -> Edit Series.", "Verify Edit Series Page.");
 
         EditSeriesPage editSeriesPage = new EditSeriesPage();
-        if (ExtentManager.compareNotNULL(editSeriesPage,
+        if (eReports.compareNotNULL(editSeriesPage,
                 "Open 'JOURNAL -> EDIT -> Edit Series page.")) {
 
-            ExtentManager.compareTrue(editSeriesPage.setJournalSequence(seriesNumber),
+            eReports.compareTrue(editSeriesPage.setJournalSequence(seriesNumber),
                     "Set Journal Sequence number to " + seriesNumber);
-            ExtentManager.compareTrue(editSeriesPage.clickSubmit(),
+            eReports.compareTrue(editSeriesPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editSeriesPage.clickSubmitChanges(),
+            eReports.compareTrue(editSeriesPage.clickSubmitChanges(),
                     "Click 'Submit Changes' button.");
 
             JournalInquiryPage journalInquiryPage = editSeriesPage.clickConfirmButton();
-            ExtentManager.compareNotNULL(journalInquiryPage,
+            eReports.compareNotNULL(journalInquiryPage,
                     "Click 'Confirm' button and verify Journal Inquiry page is opened.");
         }
     }
     public void journalEditSeriesTest_BVT() {
         String seriesNumber = prop.getProperty("editSeries_seriesNumber");
 
-        ExtentManager.createNode("JOURNAL -> EDIT -> Edit Series.",
+        eReports.createNode("JOURNAL -> EDIT -> Edit Series.",
                 "Verify Edit Series Page.");
 
         EditSeriesPage editSeriesPage = new EditSeriesPage();
-        if (ExtentManager.compareNotNULL(editSeriesPage,
+        if (eReports.compareNotNULL(editSeriesPage,
                 "Open 'JOURNAL -> EDIT -> Edit Series page.")) {
 
-            ExtentManager.compareTrue(editSeriesPage.setJournalSequence(seriesNumber),
+            eReports.compareTrue(editSeriesPage.setJournalSequence(seriesNumber),
                     "Set Journal Sequence number to " + seriesNumber);
-            ExtentManager.compareTrue(editSeriesPage.clickSubmit(),
+            eReports.compareTrue(editSeriesPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editSeriesPage.submitChanges.isDisplayed() && editSeriesPage.isPageOpened(),
+            eReports.compareTrue(editSeriesPage.submitChanges.isDisplayed() && editSeriesPage.isPageOpened(),
                     "Verify that Edit Series page is opened.");
         }
     }
@@ -291,20 +291,20 @@ public class JournalTests {
     public void deleteSampleJournalTest_BVT() {
         String seriesNumber = prop.getProperty("deleteSampleJournal_journalSequenceNumber");
 
-        ExtentManager.createNode("JOURNAL -> DELETE -> Delete Sample Journal.",
+        eReports.createNode("JOURNAL -> DELETE -> Delete Sample Journal.",
                 "Verify Delete Sample Journal Page.");
 
         DeleteSampleJournalPage deleteSampleJournalPage = new DeleteSampleJournalPage();
-        if (ExtentManager.compareNotNULL(deleteSampleJournalPage,
+        if (eReports.compareNotNULL(deleteSampleJournalPage,
                 "Open 'JOURNAL -> DELETE -> Delete Sample Journal page.")) {
 
-            ExtentManager.compareTrue(deleteSampleJournalPage.setJournalSequence(seriesNumber),
+            eReports.compareTrue(deleteSampleJournalPage.setJournalSequence(seriesNumber),
                     "Set Journal Sequence number to " + seriesNumber);
 
-            ExtentManager.compareTrue(deleteSampleJournalPage.clickSubmit(),
+            eReports.compareTrue(deleteSampleJournalPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(deleteSampleJournalPage.deleteButton.isDisplayed()
+            eReports.compareTrue(deleteSampleJournalPage.deleteButton.isDisplayed()
                     && deleteSampleJournalPage.isPageOpened(),
                     "Verify that Delete Sample Journal page is opened.");
         }
@@ -312,20 +312,20 @@ public class JournalTests {
     public void deleteSampleBookTest_BVT() {
         String seriesNumber = prop.getProperty("deleteSampleBook_sampleBookNumber");
 
-        ExtentManager.createNode("JOURNAL -> DELETE -> Delete Sample Book.",
+        eReports.createNode("JOURNAL -> DELETE -> Delete Sample Book.",
                 "Verify Delete Sample Book Page.");
 
         DeleteSampleBookPage deleteSampleBookPage = new DeleteSampleBookPage();
-        if (ExtentManager.compareNotNULL(deleteSampleBookPage,
+        if (eReports.compareNotNULL(deleteSampleBookPage,
                 "Open 'JOURNAL -> DELETE -> Delete Sample Book page.")) {
 
-            ExtentManager.compareTrue(deleteSampleBookPage.setJournalSequence(seriesNumber),
+            eReports.compareTrue(deleteSampleBookPage.setJournalSequence(seriesNumber),
                     "Set Journal Sequence number to " + seriesNumber);
 
-            ExtentManager.compareTrue(deleteSampleBookPage.clickSubmit(),
+            eReports.compareTrue(deleteSampleBookPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(deleteSampleBookPage.deleteButton.isDisplayed()
+            eReports.compareTrue(deleteSampleBookPage.deleteButton.isDisplayed()
                             && deleteSampleBookPage.isPageOpened(),
                     "Verify that Delete Sample Book page is opened.");
         }
@@ -335,34 +335,34 @@ public class JournalTests {
     public void JournalProductCodesInquiryTest() {
         String journalSequenceNumber = prop.getProperty("journalProductCodesInquiry_journalSequenceNumber");
 
-        ExtentManager.createNode("JOURNAL -> Prod. Codes - Subj. Categories Page.", "Verify Journal Product Codes Inquiry Page.");
+        eReports.createNode("JOURNAL -> Prod. Codes - Subj. Categories Page.", "Verify Journal Product Codes Inquiry Page.");
 
         JournalProductCodesInquiryPage journalProductCodesInquiryPage = new JournalProductCodesInquiryPage();
-        if (ExtentManager.compareNotNULL(journalProductCodesInquiryPage,
+        if (eReports.compareNotNULL(journalProductCodesInquiryPage,
                 "Open 'JOURNAL -> Journal Product Codes Inquiry' page.")) {
 
-            ExtentManager.compareTrue(journalProductCodesInquiryPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(journalProductCodesInquiryPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
-            ExtentManager.compareTrue(journalProductCodesInquiryPage.clickSubmit(),
+            eReports.compareTrue(journalProductCodesInquiryPage.clickSubmit(),
                     "Click 'Submit' button.");
             /*
-            ExtentManager.compareNotNULL(journalProductCodesInquiryPage.clickCDRXTab(),
+            eReports.compareNotNULL(journalProductCodesInquiryPage.clickCDRXTab(),
                     "Open 'Journal Issues List' tab.");
-            ExtentManager.compareNotNULL(journalProductCodesInquiryPage.clickJrnlXRefTab(),
+            eReports.compareNotNULL(journalProductCodesInquiryPage.clickJrnlXRefTab(),
                     "Open 'Journal Changes' tab.");
-            ExtentManager.compareNotNULL(journalProductCodesInquiryPage.clickPCSCTab(),
+            eReports.compareNotNULL(journalProductCodesInquiryPage.clickPCSCTab(),
                     "Open 'Journal Product Codes Inquiry' tab.");
-            ExtentManager.compareNotNULL(journalProductCodesInquiryPage.clickPCHistTab(),
+            eReports.compareNotNULL(journalProductCodesInquiryPage.clickPCHistTab(),
                     "Open 'Journal Product Code History' tab.");
-            ExtentManager.compareNotNULL(journalProductCodesInquiryPage.clickSCHistTab(),
+            eReports.compareNotNULL(journalProductCodesInquiryPage.clickSCHistTab(),
                     "Open 'Journal Subject Catagory History' tab.");
-            ExtentManager.compareNotNULL(journalProductCodesInquiryPage.clickRoyInqTab(),
+            eReports.compareNotNULL(journalProductCodesInquiryPage.clickRoyInqTab(),
                     "Open 'Journal Royalty Inquiry' tab.");
-            ExtentManager.compareNotNULL(journalProductCodesInquiryPage.clickSubsHistTab(),
+            eReports.compareNotNULL(journalProductCodesInquiryPage.clickSubsHistTab(),
                     "Open 'Journal Subscription History' tab.");
-            ExtentManager.compareNotNULL(journalProductCodesInquiryPage.clickIssueLoginTab(),
+            eReports.compareNotNULL(journalProductCodesInquiryPage.clickIssueLoginTab(),
                     "Open 'Issue Login for a Journal' tab.");
-            ExtentManager.compareNotNULL(journalProductCodesInquiryPage.clickJrnlInqTab(),
+            eReports.compareNotNULL(journalProductCodesInquiryPage.clickJrnlInqTab(),
                     "Open 'Journal Inquiry' tab.");
                    */
         }
@@ -370,19 +370,19 @@ public class JournalTests {
     public void JournalProductCodesInquiryTest_BVT() {
         String journalSequenceNumber = prop.getProperty("journalProductCodesInquiry_journalSequenceNumber");
 
-        ExtentManager.createNode("JOURNAL -> Prod. Codes - Subj. Categories Page.",
+        eReports.createNode("JOURNAL -> Prod. Codes - Subj. Categories Page.",
                 "Verify Journal Product Codes Inquiry Page.");
 
         JournalProductCodesInquiryPage journalProductCodesInquiryPage = new JournalProductCodesInquiryPage();
-        if (ExtentManager.compareNotNULL(journalProductCodesInquiryPage,
+        if (eReports.compareNotNULL(journalProductCodesInquiryPage,
                 "Open 'JOURNAL -> Journal Product Codes Inquiry' page.")) {
 
-            ExtentManager.compareTrue(journalProductCodesInquiryPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(journalProductCodesInquiryPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
-            ExtentManager.compareTrue(journalProductCodesInquiryPage.clickSubmit(),
+            eReports.compareTrue(journalProductCodesInquiryPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(journalProductCodesInquiryPage.jrnlBookSeq.isDisplayed()
+            eReports.compareTrue(journalProductCodesInquiryPage.jrnlBookSeq.isDisplayed()
                             && journalProductCodesInquiryPage.isPageOpened(),
                     "Verify that Journal Product Codes Inquiry page is opened.");
         }
@@ -393,43 +393,43 @@ public class JournalTests {
         String productCode = prop.getProperty("editingProductCodesForJournals_ProductCode");
         String subjectCode = prop.getProperty("editingProductCodesForJournals_SubjectCode");
 
-        ExtentManager.createNode("JOURNAL -> Edit Product Codes -> For Journals.", "Verify Edit Product Codes For Journals Page.");
+        eReports.createNode("JOURNAL -> Edit Product Codes -> For Journals.", "Verify Edit Product Codes For Journals Page.");
 
         EditProductCodesForJournalsPage editProductCodesForJournalsPage = new EditProductCodesForJournalsPage();
-        if (ExtentManager.compareNotNULL(editProductCodesForJournalsPage,
+        if (eReports.compareNotNULL(editProductCodesForJournalsPage,
                 "Open 'JOURNAL -> Edit Product Codes -> For Journals page.")) {
 
-            ExtentManager.compareTrue(editProductCodesForJournalsPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(editProductCodesForJournalsPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
-            ExtentManager.compareTrue(editProductCodesForJournalsPage.clickSubmit(),
+            eReports.compareTrue(editProductCodesForJournalsPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editProductCodesForJournalsPage.addProductionCode(productCode),
+            eReports.compareTrue(editProductCodesForJournalsPage.addProductionCode(productCode),
                     "Set '" + productCode + "' production code option.");
 
-            ExtentManager.compareTrue(editProductCodesForJournalsPage.clickAddProductCodesButton(),
+            eReports.compareTrue(editProductCodesForJournalsPage.clickAddProductCodesButton(),
                     "Click 'Add' button.");
 
             EditSubjectCategoriesForJournalsPage editSubjectCategoriesForJournalsPage =
                     editProductCodesForJournalsPage.clickConfirmAddingProductCodesButton();
-            if (ExtentManager.compareNotNULL(editSubjectCategoriesForJournalsPage,
+            if (eReports.compareNotNULL(editSubjectCategoriesForJournalsPage,
                     "Click 'Confirm' button to complete adding product codes.")) {
 
-                ExtentManager.compareTrue(editSubjectCategoriesForJournalsPage.selectSubjectCategory(productCode, subjectCode),
+                eReports.compareTrue(editSubjectCategoriesForJournalsPage.selectSubjectCategory(productCode, subjectCode),
                         "Set '" + subjectCode + "' subject code for '" + productCode + "' the production code.");
 
-                ExtentManager.compareTrue(editSubjectCategoriesForJournalsPage.clickAddSubjectCodesButton(),
+                eReports.compareTrue(editSubjectCategoriesForJournalsPage.clickAddSubjectCodesButton(),
                         "Click 'Confirm' button to add Subject Categories.");
 
                 EditCoveredJournalPage editCoveredJournalPage = editSubjectCategoriesForJournalsPage.clickConfirmAddingSubjectCategoriesButton();
-                if (ExtentManager.compareNotNULL(editCoveredJournalPage,
+                if (eReports.compareNotNULL(editCoveredJournalPage,
                         "Click 'Confirm' button to add Subject Categories.")) {
 
-                    ExtentManager.compareTrue(editCoveredJournalPage.clickSubmitChanges(),
+                    eReports.compareTrue(editCoveredJournalPage.clickSubmitChanges(),
                             "Click 'Submit Changes' button.");
 
                     JournalInquiryPage journalInquiryPage = editCoveredJournalPage.clickConfirmButton();
-                    if (ExtentManager.compareNotNULL(journalInquiryPage,
+                    if (eReports.compareNotNULL(journalInquiryPage,
                             "Click 'Confirm' button and verify Journal Inquiry page is opened.")) {
 
                     }
@@ -440,19 +440,19 @@ public class JournalTests {
     public void journalEditProductCodesForJournalsTest_BVT() {
         String journalSequenceNumber = prop.getProperty("editingProductCodesForJournals_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Edit Product Codes -> For Journals.",
+        eReports.createNode("JOURNAL -> Edit Product Codes -> For Journals.",
                 "Verify Edit Product Codes For Journals Page.");
 
         EditProductCodesForJournalsPage editProductCodesForJournalsPage = new EditProductCodesForJournalsPage();
-        if (ExtentManager.compareNotNULL(editProductCodesForJournalsPage,
+        if (eReports.compareNotNULL(editProductCodesForJournalsPage,
                 "Open 'JOURNAL -> Edit Product Codes -> For Journals page.")) {
 
-            ExtentManager.compareTrue(editProductCodesForJournalsPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(editProductCodesForJournalsPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
-            ExtentManager.compareTrue(editProductCodesForJournalsPage.clickSubmit(),
+            eReports.compareTrue(editProductCodesForJournalsPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editProductCodesForJournalsPage.addButton.isDisplayed()
+            eReports.compareTrue(editProductCodesForJournalsPage.addButton.isDisplayed()
                             && editProductCodesForJournalsPage.isPageOpened(),
                     "Verify that Edit Product Codes For Journals page is opened.");
         }
@@ -461,44 +461,44 @@ public class JournalTests {
     public void journalEditProductCodesForSampleJournalsTest() {
         String journalSequenceNumber = prop.getProperty("journalEditProductCodesForSampleJournals_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Edit Product Codes -> For Sample Journals.",
+        eReports.createNode("JOURNAL -> Edit Product Codes -> For Sample Journals.",
                 "Verify Edit Product Codes For Sample Journals Page.");
 
         EditProductCodesForSampleJournalsPage editProductCodesForSampleJournalsPage = new EditProductCodesForSampleJournalsPage();
-        if (ExtentManager.compareNotNULL(editProductCodesForSampleJournalsPage,
+        if (eReports.compareNotNULL(editProductCodesForSampleJournalsPage,
                 "Open 'JOURNAL -> Edit Product Codes -> For Sample Journals page.")) {
 
-            ExtentManager.compareTrue(editProductCodesForSampleJournalsPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(editProductCodesForSampleJournalsPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
-            ExtentManager.compareTrue(editProductCodesForSampleJournalsPage.clickSubmit(),
+            eReports.compareTrue(editProductCodesForSampleJournalsPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editProductCodesForSampleJournalsPage.clickAddProductCodesButton(),
+            eReports.compareTrue(editProductCodesForSampleJournalsPage.clickAddProductCodesButton(),
                     "Click 'Add' button.");
 
-            ExtentManager.compareTrue(editProductCodesForSampleJournalsPage.clickConfirmAddingProductCodesButton(),
+            eReports.compareTrue(editProductCodesForSampleJournalsPage.clickConfirmAddingProductCodesButton(),
                     "Click 'Confirm' button to complete adding product codes.");
 
-            ExtentManager.compareTrue(editProductCodesForSampleJournalsPage.updateMessage.isDisplayed(),
+            eReports.compareTrue(editProductCodesForSampleJournalsPage.updateMessage.isDisplayed(),
                     "Verify that 'Product code(s) :  has/have been successfully added.' message is displayed.");
 }
     }
     public void journalEditProductCodesForSampleJournalsTest_BVT() {
         String journalSequenceNumber = prop.getProperty("journalEditProductCodesForSampleJournals_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Edit Product Codes -> For Sample Journals.",
+        eReports.createNode("JOURNAL -> Edit Product Codes -> For Sample Journals.",
                 "Verify Edit Product Codes For Sample Journals Page.");
 
         EditProductCodesForSampleJournalsPage editProductCodesForSampleJournalsPage = new EditProductCodesForSampleJournalsPage();
-        if (ExtentManager.compareNotNULL(editProductCodesForSampleJournalsPage,
+        if (eReports.compareNotNULL(editProductCodesForSampleJournalsPage,
                 "Open 'JOURNAL -> Edit Product Codes -> For Sample Journals page.")) {
 
-            ExtentManager.compareTrue(editProductCodesForSampleJournalsPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(editProductCodesForSampleJournalsPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
-            ExtentManager.compareTrue(editProductCodesForSampleJournalsPage.clickSubmit(),
+            eReports.compareTrue(editProductCodesForSampleJournalsPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editProductCodesForSampleJournalsPage.addButton.isDisplayed()
+            eReports.compareTrue(editProductCodesForSampleJournalsPage.addButton.isDisplayed()
                             && editProductCodesForSampleJournalsPage.isPageOpened(),
                     "Verify that Edit Product Codes For Sample Journals page is opened.");
         }
@@ -507,44 +507,44 @@ public class JournalTests {
     public void journalEditProductCodesForBooksTest() {
         String bookNumber = prop.getProperty("editingProductCodesForBooks_bookNumber");
 
-        ExtentManager.createNode("JOURNAL -> Edit Product Codes -> For Books.",
+        eReports.createNode("JOURNAL -> Edit Product Codes -> For Books.",
                 "Verify Edit Product Codes For Books Page.");
 
         EditProductCodesForBooksPage editProductCodesForBooksPage = new EditProductCodesForBooksPage();
-        if (ExtentManager.compareNotNULL(editProductCodesForBooksPage,
+        if (eReports.compareNotNULL(editProductCodesForBooksPage,
                 "Open 'JOURNAL -> Edit Product Codes -> For Books page.")) {
 
-            ExtentManager.compareTrue(editProductCodesForBooksPage.setJournalSequence(bookNumber),
+            eReports.compareTrue(editProductCodesForBooksPage.setJournalSequence(bookNumber),
                     "Set Journal Sequence number to " + bookNumber);
-            ExtentManager.compareTrue(editProductCodesForBooksPage.clickSubmit(),
+            eReports.compareTrue(editProductCodesForBooksPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editProductCodesForBooksPage.clickAddProductCodesButton(),
+            eReports.compareTrue(editProductCodesForBooksPage.clickAddProductCodesButton(),
                     "Click 'Add' button.");
 
-            ExtentManager.compareTrue(editProductCodesForBooksPage.clickConfirmAddingProductCodesButton(),
+            eReports.compareTrue(editProductCodesForBooksPage.clickConfirmAddingProductCodesButton(),
                     "Click 'Confirm' button to complete adding product codes.");
 
-            ExtentManager.compareTrue(editProductCodesForBooksPage.updateMessage.isDisplayed(),
+            eReports.compareTrue(editProductCodesForBooksPage.updateMessage.isDisplayed(),
                     "Verify that 'Product code(s) :  has/have been successfully added.' message is displayed.");
         }
     }
     public void journalEditProductCodesForBooksTest_BVT() {
         String bookNumber = prop.getProperty("editingProductCodesForBooks_bookNumber");
 
-        ExtentManager.createNode("JOURNAL -> Edit Product Codes -> For Books.",
+        eReports.createNode("JOURNAL -> Edit Product Codes -> For Books.",
                 "Verify Edit Product Codes For Books Page.");
 
         EditProductCodesForBooksPage editProductCodesForBooksPage = new EditProductCodesForBooksPage();
-        if (ExtentManager.compareNotNULL(editProductCodesForBooksPage,
+        if (eReports.compareNotNULL(editProductCodesForBooksPage,
                 "Open 'JOURNAL -> Edit Product Codes -> For Books page.")) {
 
-            ExtentManager.compareTrue(editProductCodesForBooksPage.setJournalSequence(bookNumber),
+            eReports.compareTrue(editProductCodesForBooksPage.setJournalSequence(bookNumber),
                     "Set Journal Sequence number to " + bookNumber);
-            ExtentManager.compareTrue(editProductCodesForBooksPage.clickSubmit(),
+            eReports.compareTrue(editProductCodesForBooksPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editProductCodesForBooksPage.addButton.isDisplayed()
+            eReports.compareTrue(editProductCodesForBooksPage.addButton.isDisplayed()
                             && editProductCodesForBooksPage.isPageOpened(),
                     "Verify that Edit Product Codes For Books page is opened.");
         }
@@ -553,45 +553,45 @@ public class JournalTests {
     public void journalEditProductCodesForSampleBooksTest() {
         String bookNumber = prop.getProperty("editingProductCodesForSampleBooks_bookNumber");
 
-        ExtentManager.createNode("JOURNAL -> Edit Product Codes -> For Sample Books.",
+        eReports.createNode("JOURNAL -> Edit Product Codes -> For Sample Books.",
                 "Verify Edit Product Codes For Sample Books Page.");
 
         EditProductCodesForSampleBooksPage editProductCodesForSampleBooksPage = new EditProductCodesForSampleBooksPage();
-        if (ExtentManager.compareNotNULL(editProductCodesForSampleBooksPage,
+        if (eReports.compareNotNULL(editProductCodesForSampleBooksPage,
                 "Open 'JOURNAL -> Edit Product Codes -> For Sample Books page.")) {
 
-            ExtentManager.compareTrue(editProductCodesForSampleBooksPage.setJournalSequence(bookNumber),
+            eReports.compareTrue(editProductCodesForSampleBooksPage.setJournalSequence(bookNumber),
                     "Set Journal Sequence number to " + bookNumber);
-            ExtentManager.compareTrue(editProductCodesForSampleBooksPage.clickSubmit(),
+            eReports.compareTrue(editProductCodesForSampleBooksPage.clickSubmit(),
                     "Click 'Submit' button.");
 
 
-            ExtentManager.compareTrue(editProductCodesForSampleBooksPage.clickAddProductCodesButton(),
+            eReports.compareTrue(editProductCodesForSampleBooksPage.clickAddProductCodesButton(),
                     "Click 'Add' button.");
 
-            ExtentManager.compareTrue(editProductCodesForSampleBooksPage.clickConfirmAddingProductCodesButton(),
+            eReports.compareTrue(editProductCodesForSampleBooksPage.clickConfirmAddingProductCodesButton(),
                     "Click 'Confirm' button to complete adding product codes.");
 
-            ExtentManager.compareTrue(editProductCodesForSampleBooksPage.updateMessage.isDisplayed(),
+            eReports.compareTrue(editProductCodesForSampleBooksPage.updateMessage.isDisplayed(),
                     "Verify that 'Product code(s) :  has/have been successfully added.' message is displayed.");
         }
     }
     public void journalEditProductCodesForSampleBooksTest_BVT() {
         String bookNumber = prop.getProperty("editingProductCodesForSampleBooks_bookNumber");
 
-        ExtentManager.createNode("JOURNAL -> Edit Product Codes -> For Sample Books.",
+        eReports.createNode("JOURNAL -> Edit Product Codes -> For Sample Books.",
                 "Verify Edit Product Codes For Sample Books Page.");
 
         EditProductCodesForSampleBooksPage editProductCodesForSampleBooksPage = new EditProductCodesForSampleBooksPage();
-        if (ExtentManager.compareNotNULL(editProductCodesForSampleBooksPage,
+        if (eReports.compareNotNULL(editProductCodesForSampleBooksPage,
                 "Open 'JOURNAL -> Edit Product Codes -> For Sample Books page.")) {
 
-            ExtentManager.compareTrue(editProductCodesForSampleBooksPage.setJournalSequence(bookNumber),
+            eReports.compareTrue(editProductCodesForSampleBooksPage.setJournalSequence(bookNumber),
                     "Set Journal Sequence number to " + bookNumber);
-            ExtentManager.compareTrue(editProductCodesForSampleBooksPage.clickSubmit(),
+            eReports.compareTrue(editProductCodesForSampleBooksPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editProductCodesForSampleBooksPage.addButton.isDisplayed()
+            eReports.compareTrue(editProductCodesForSampleBooksPage.addButton.isDisplayed()
                             && editProductCodesForSampleBooksPage.isPageOpened(),
                     "Verify that Edit Product Codes For Sample Books page is opened.");
         }
@@ -600,45 +600,45 @@ public class JournalTests {
     public void journalEditProductCodesForSeriesTest() {
         String seriesNumber = prop.getProperty("editProductCodesForSeries_seriesNumber");
 
-        ExtentManager.createNode("JOURNAL -> Edit Product Codes -> For Series.",
+        eReports.createNode("JOURNAL -> Edit Product Codes -> For Series.",
                     "Verify Edit Product Codes For Series Page.");
 
         EditProductCodesForSeriesPage editProductCodesForSeriesPage = new EditProductCodesForSeriesPage();
-        if (ExtentManager.compareNotNULL(editProductCodesForSeriesPage,
+        if (eReports.compareNotNULL(editProductCodesForSeriesPage,
                 "Open 'JOURNAL -> Edit Product Codes -> For Series page.")) {
 
-            ExtentManager.compareTrue(editProductCodesForSeriesPage.setJournalSequence(seriesNumber),
+            eReports.compareTrue(editProductCodesForSeriesPage.setJournalSequence(seriesNumber),
                     "Set Journal Sequence number to " + seriesNumber);
-            ExtentManager.compareTrue(editProductCodesForSeriesPage.clickSubmit(),
+            eReports.compareTrue(editProductCodesForSeriesPage.clickSubmit(),
                     "Click 'Submit' button.");
 
 
-            ExtentManager.compareTrue(editProductCodesForSeriesPage.clickAddProductCodesButton(),
+            eReports.compareTrue(editProductCodesForSeriesPage.clickAddProductCodesButton(),
                     "Click 'Add' button.");
 
-            ExtentManager.compareTrue(editProductCodesForSeriesPage.clickConfirmAddingProductCodesButton(),
+            eReports.compareTrue(editProductCodesForSeriesPage.clickConfirmAddingProductCodesButton(),
                     "Click 'Confirm' button to complete adding product codes.");
 
-            ExtentManager.compareTrue(editProductCodesForSeriesPage.updateMessage.isDisplayed(),
+            eReports.compareTrue(editProductCodesForSeriesPage.updateMessage.isDisplayed(),
                     "Verify that 'Product code(s) :  has/have been successfully added.' message is displayed.");
         }
     }
     public void journalEditProductCodesForSeriesTest_BVT() {
         String seriesNumber = prop.getProperty("editProductCodesForSeries_seriesNumber");
 
-        ExtentManager.createNode("JOURNAL -> Edit Product Codes -> For Series.",
+        eReports.createNode("JOURNAL -> Edit Product Codes -> For Series.",
                     "Verify Edit Product Codes For Series Page.");
 
         EditProductCodesForSeriesPage editProductCodesForSeriesPage = new EditProductCodesForSeriesPage();
-        if (ExtentManager.compareNotNULL(editProductCodesForSeriesPage,
+        if (eReports.compareNotNULL(editProductCodesForSeriesPage,
                 "Open 'JOURNAL -> Edit Product Codes -> For Series page.")) {
 
-            ExtentManager.compareTrue(editProductCodesForSeriesPage.setJournalSequence(seriesNumber),
+            eReports.compareTrue(editProductCodesForSeriesPage.setJournalSequence(seriesNumber),
                     "Set Journal Sequence number to " + seriesNumber);
-            ExtentManager.compareTrue(editProductCodesForSeriesPage.clickSubmit(),
+            eReports.compareTrue(editProductCodesForSeriesPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editProductCodesForSeriesPage.addButton.isDisplayed()
+            eReports.compareTrue(editProductCodesForSeriesPage.addButton.isDisplayed()
                             && editProductCodesForSeriesPage.isPageOpened(),
                     "Verify that Edit Product Codes For Series page is opened.");
         }
@@ -647,51 +647,51 @@ public class JournalTests {
     public void journalEditSubjectCategoriesForJournalsTest() {
         String journalSequenceNumber = prop.getProperty("editingCategoriesCodesForJournals_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Edit Subject Categories -> For Journals.",
+        eReports.createNode("JOURNAL -> Edit Subject Categories -> For Journals.",
                 "Verify Edit Subject Categories For Journals Page.");
 
         EditSubjectCategoriesForJournalsPage editSubjectCategoriesForJournalsPage = new EditSubjectCategoriesForJournalsPage();
-        ExtentManager.compareNotNULL(editSubjectCategoriesForJournalsPage,
+        eReports.compareNotNULL(editSubjectCategoriesForJournalsPage,
                 "Open 'JOURNAL -> Edit Subject Categories -> For Journals page.");
 
-        ExtentManager.compareTrue(editSubjectCategoriesForJournalsPage.setJournalSequence(journalSequenceNumber),
+        eReports.compareTrue(editSubjectCategoriesForJournalsPage.setJournalSequence(journalSequenceNumber),
                 "Set Journal Sequence number to " + journalSequenceNumber);
 
-        ExtentManager.compareTrue(editSubjectCategoriesForJournalsPage.clickSubmit(),
+        eReports.compareTrue(editSubjectCategoriesForJournalsPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(editSubjectCategoriesForJournalsPage.clickAddSubjectCodesButton(),
+        eReports.compareTrue(editSubjectCategoriesForJournalsPage.clickAddSubjectCodesButton(),
                 "Click 'Add' button.");
 
         EditCoveredJournalPage editCoveredJournalPage = editSubjectCategoriesForJournalsPage.clickConfirmAddingSubjectCategoriesButton();
-        if (ExtentManager.compareNotNULL(editCoveredJournalPage,
+        if (eReports.compareNotNULL(editCoveredJournalPage,
                 "Click 'Confirm' button to complete adding product codes.")) {
 
-            ExtentManager.compareTrue(editCoveredJournalPage.clickSubmitChanges(),
+            eReports.compareTrue(editCoveredJournalPage.clickSubmitChanges(),
                     "Click 'Submit Changes' button.");
 
             JournalInquiryPage journalInquiryPage = editCoveredJournalPage.clickConfirmButton();
-            ExtentManager.compareNotNULL(journalInquiryPage,
+            eReports.compareNotNULL(journalInquiryPage,
                     "Click 'Confirm' button and verify Journal Inquiry page is opened.");
         }
     }
     public void journalEditSubjectCategoriesForJournalsTest_BVT() {
         String journalSequenceNumber = prop.getProperty("editingCategoriesCodesForJournals_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Edit Subject Categories -> For Journals.",
+        eReports.createNode("JOURNAL -> Edit Subject Categories -> For Journals.",
                 "Verify Edit Subject Categories For Journals Page.");
 
         EditSubjectCategoriesForJournalsPage editSubjectCategoriesForJournalsPage = new EditSubjectCategoriesForJournalsPage();
-        if (ExtentManager.compareNotNULL(editSubjectCategoriesForJournalsPage,
+        if (eReports.compareNotNULL(editSubjectCategoriesForJournalsPage,
                 "Open 'JOURNAL -> Edit Subject Categories -> For Journals page.")) {
 
-            ExtentManager.compareTrue(editSubjectCategoriesForJournalsPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(editSubjectCategoriesForJournalsPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
 
-            ExtentManager.compareTrue(editSubjectCategoriesForJournalsPage.clickSubmit(),
+            eReports.compareTrue(editSubjectCategoriesForJournalsPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editSubjectCategoriesForJournalsPage.addButton.isDisplayed()
+            eReports.compareTrue(editSubjectCategoriesForJournalsPage.addButton.isDisplayed()
                             && editSubjectCategoriesForJournalsPage.isPageOpened(),
                     "Verify that Edit Subject Categories For Journals page is opened.");
         }
@@ -699,48 +699,48 @@ public class JournalTests {
 
     public void journalEditSubjectCategoriesForSampleJournalsTest() {
         String journalSequenceNumber = prop.getProperty("journalEditCategoriesCodesForSampleJournals_JournalSequence");
-        ExtentManager.createNode("JOURNAL -> Edit Subject Categories -> For Sample Journals.",
+        eReports.createNode("JOURNAL -> Edit Subject Categories -> For Sample Journals.",
                 "Verify Edit Subject Categories For Sample Journals Page.");
 
         EditSubjectCategoriesForSampleJournalsPage editSubjectCategoriesForSampleJournalsPage = new EditSubjectCategoriesForSampleJournalsPage();
-        ExtentManager.compareNotNULL(editSubjectCategoriesForSampleJournalsPage,
+        eReports.compareNotNULL(editSubjectCategoriesForSampleJournalsPage,
                 "Open 'JOURNAL -> Edit Subject Categories -> For Sample Journals page.");
 
-        ExtentManager.compareTrue(editSubjectCategoriesForSampleJournalsPage.setJournalSequence(journalSequenceNumber),
+        eReports.compareTrue(editSubjectCategoriesForSampleJournalsPage.setJournalSequence(journalSequenceNumber),
                 "Set Journal Sequence number to " + journalSequenceNumber);
-        ExtentManager.compareTrue(editSubjectCategoriesForSampleJournalsPage.clickSubmit(),
+        eReports.compareTrue(editSubjectCategoriesForSampleJournalsPage.clickSubmit(),
                 "Click 'Submit' button.");
 
 
-        ExtentManager.compareTrue(editSubjectCategoriesForSampleJournalsPage.clickAddProductCodesButton(),
+        eReports.compareTrue(editSubjectCategoriesForSampleJournalsPage.clickAddProductCodesButton(),
                 "Click 'Add' button.");
 
-        ExtentManager.compareTrue(editSubjectCategoriesForSampleJournalsPage.clickConfirmAddingSubjectCategoriesButton(),
+        eReports.compareTrue(editSubjectCategoriesForSampleJournalsPage.clickConfirmAddingSubjectCategoriesButton(),
                 "Click 'Confirm' button to complete adding product codes.");
 
-        ExtentManager.compareTrue(editSubjectCategoriesForSampleJournalsPage.clickSubmitChanges(),
+        eReports.compareTrue(editSubjectCategoriesForSampleJournalsPage.clickSubmitChanges(),
                 "Click 'Submit Changes' button.");
 
         JournalInquiryPage journalInquiryPage = editSubjectCategoriesForSampleJournalsPage.clickConfirmButton();
-        ExtentManager.compareNotNULL(journalInquiryPage,
+        eReports.compareNotNULL(journalInquiryPage,
                 "Click 'Confirm' button and verify Journal Inquiry page is opened.");
     }
     public void journalEditSubjectCategoriesForSampleJournalsTest_BVT() {
         String journalSequenceNumber = prop.getProperty("journalEditCategoriesCodesForSampleJournals_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Edit Subject Categories -> For Sample Journals.",
+        eReports.createNode("JOURNAL -> Edit Subject Categories -> For Sample Journals.",
                 "Verify Edit Subject Categories For Sample Journals Page.");
 
         EditSubjectCategoriesForSampleJournalsPage editSubjectCategoriesForSampleJournalsPage = new EditSubjectCategoriesForSampleJournalsPage();
-        if (ExtentManager.compareNotNULL(editSubjectCategoriesForSampleJournalsPage,
+        if (eReports.compareNotNULL(editSubjectCategoriesForSampleJournalsPage,
                 "Open 'JOURNAL -> Edit Subject Categories -> For Sample Journals page.")) {
 
-            ExtentManager.compareTrue(editSubjectCategoriesForSampleJournalsPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(editSubjectCategoriesForSampleJournalsPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
-            ExtentManager.compareTrue(editSubjectCategoriesForSampleJournalsPage.clickSubmit(),
+            eReports.compareTrue(editSubjectCategoriesForSampleJournalsPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editSubjectCategoriesForSampleJournalsPage.addButton.isDisplayed()
+            eReports.compareTrue(editSubjectCategoriesForSampleJournalsPage.addButton.isDisplayed()
                             && editSubjectCategoriesForSampleJournalsPage.isPageOpened(),
                     "Verify that Edit Subject Categories For Sample Journals page is opened.");
         }
@@ -749,46 +749,46 @@ public class JournalTests {
     public void journalEditSubjectCategoriesForBooksTest() {
         String bookNumber = prop.getProperty("editingCategoriesCodesForBooks_bookNumber");
 
-        ExtentManager.createNode("JOURNAL -> Edit Subject Categories -> For Books.",
+        eReports.createNode("JOURNAL -> Edit Subject Categories -> For Books.",
                 "Verify Edit Subject Categories For Books Page.");
 
         EditSubjectCategoriesForBooksPage editSubjectCategoriesForBooksPage = new EditSubjectCategoriesForBooksPage();
-        ExtentManager.compareNotNULL(editSubjectCategoriesForBooksPage,
+        eReports.compareNotNULL(editSubjectCategoriesForBooksPage,
                 "Open 'JOURNAL -> Edit Subject Categories -> For Books page.");
 
-        ExtentManager.compareTrue(editSubjectCategoriesForBooksPage.setJournalSequence(bookNumber),
+        eReports.compareTrue(editSubjectCategoriesForBooksPage.setJournalSequence(bookNumber),
                 "Set Journal Sequence number to " + bookNumber);
 
-        ExtentManager.compareTrue(editSubjectCategoriesForBooksPage.clickSubmit(),
+        eReports.compareTrue(editSubjectCategoriesForBooksPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(editSubjectCategoriesForBooksPage.clickAddProductCodesButton(),
+        eReports.compareTrue(editSubjectCategoriesForBooksPage.clickAddProductCodesButton(),
                 "Click 'Add' button.");
 
-        ExtentManager.compareTrue(editSubjectCategoriesForBooksPage.clickConfirmAddingSubjectCategoriesButton(),
+        eReports.compareTrue(editSubjectCategoriesForBooksPage.clickConfirmAddingSubjectCategoriesButton(),
                 "Click 'Confirm' button to complete adding product codes.");
 
         String message = "Record for Subject Categories for Journal Seq No. " + bookNumber + " successfully updated. Please review below.";
-        ExtentManager.compareTrue(editSubjectCategoriesForBooksPage.isMessageDisplayed(message),
+        eReports.compareTrue(editSubjectCategoriesForBooksPage.isMessageDisplayed(message),
                 "Verify that '" + message +"' message is displayed.");
     }
     public void journalEditSubjectCategoriesForBooksTest_BVT() {
         String bookNumber = prop.getProperty("editingCategoriesCodesForBooks_bookNumber");
 
-        ExtentManager.createNode("JOURNAL -> Edit Subject Categories -> For Books.",
+        eReports.createNode("JOURNAL -> Edit Subject Categories -> For Books.",
                 "Verify Edit Subject Categories For Books Page.");
 
         EditSubjectCategoriesForBooksPage editSubjectCategoriesForBooksPage = new EditSubjectCategoriesForBooksPage();
-        if (ExtentManager.compareNotNULL(editSubjectCategoriesForBooksPage,
+        if (eReports.compareNotNULL(editSubjectCategoriesForBooksPage,
                 "Open 'JOURNAL -> Edit Subject Categories -> For Books page.")) {
 
-            ExtentManager.compareTrue(editSubjectCategoriesForBooksPage.setJournalSequence(bookNumber),
+            eReports.compareTrue(editSubjectCategoriesForBooksPage.setJournalSequence(bookNumber),
                     "Set Journal Sequence number to " + bookNumber);
 
-            ExtentManager.compareTrue(editSubjectCategoriesForBooksPage.clickSubmit(),
+            eReports.compareTrue(editSubjectCategoriesForBooksPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editSubjectCategoriesForBooksPage.addButton.isDisplayed()
+            eReports.compareTrue(editSubjectCategoriesForBooksPage.addButton.isDisplayed()
                             && editSubjectCategoriesForBooksPage.isPageOpened(),
                     "Verify that Edit Subject Categories For Books page is opened.");
         }
@@ -797,46 +797,46 @@ public class JournalTests {
     public void journalEditSubjectCategoriesForSampleBooksTest() {
         String bookNumber = prop.getProperty("editingCategoriesCodesForSampleBooks_bookNumber");
 
-        ExtentManager.createNode("JOURNAL -> Edit Subject Categories -> For Sample Books.",
+        eReports.createNode("JOURNAL -> Edit Subject Categories -> For Sample Books.",
                 "Verify Edit Subject Categories For For Sample Books.");
 
         EditSubjectCategoriesForSampleBooksPage editSubjectCategoriesForSampleBooksPage = new EditSubjectCategoriesForSampleBooksPage();
-        ExtentManager.compareNotNULL(editSubjectCategoriesForSampleBooksPage,
+        eReports.compareNotNULL(editSubjectCategoriesForSampleBooksPage,
                 "Open 'JOURNAL -> Edit Subject Categories -> For Sample Books page.");
 
-        ExtentManager.compareTrue(editSubjectCategoriesForSampleBooksPage.setJournalSequence(bookNumber),
+        eReports.compareTrue(editSubjectCategoriesForSampleBooksPage.setJournalSequence(bookNumber),
                 "Set Journal Sequence number to " + bookNumber);
 
-        ExtentManager.compareTrue(editSubjectCategoriesForSampleBooksPage.clickSubmit(),
+        eReports.compareTrue(editSubjectCategoriesForSampleBooksPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(editSubjectCategoriesForSampleBooksPage.clickAddProductCodesButton(),
+        eReports.compareTrue(editSubjectCategoriesForSampleBooksPage.clickAddProductCodesButton(),
                 "Click 'Add' button.");
 
-        ExtentManager.compareTrue(editSubjectCategoriesForSampleBooksPage.clickConfirmAddingSubjectCategoriesButton(),
+        eReports.compareTrue(editSubjectCategoriesForSampleBooksPage.clickConfirmAddingSubjectCategoriesButton(),
                 "Click 'Confirm' button to complete adding product codes.");
 
         String message = "Record for Subject Categories for Journal Seq No. " + bookNumber + " successfully updated. Please review below.";
-        ExtentManager.compareTrue(editSubjectCategoriesForSampleBooksPage.isMessageDisplayed(message),
+        eReports.compareTrue(editSubjectCategoriesForSampleBooksPage.isMessageDisplayed(message),
                 "Verify that '" + message +"' message is displayed.");
     }
     public void journalEditSubjectCategoriesForSampleBooksTest_BVT() {
         String bookNumber = prop.getProperty("editingCategoriesCodesForSampleBooks_bookNumber");
 
-        ExtentManager.createNode("JOURNAL -> Edit Subject Categories -> For Sample Books.",
+        eReports.createNode("JOURNAL -> Edit Subject Categories -> For Sample Books.",
                 "Verify Edit Subject Categories For For Sample Books.");
 
         EditSubjectCategoriesForSampleBooksPage editSubjectCategoriesForSampleBooksPage = new EditSubjectCategoriesForSampleBooksPage();
-        if (ExtentManager.compareNotNULL(editSubjectCategoriesForSampleBooksPage,
+        if (eReports.compareNotNULL(editSubjectCategoriesForSampleBooksPage,
                 "Open 'JOURNAL -> Edit Subject Categories -> For Sample Books page.")) {
 
-            ExtentManager.compareTrue(editSubjectCategoriesForSampleBooksPage.setJournalSequence(bookNumber),
+            eReports.compareTrue(editSubjectCategoriesForSampleBooksPage.setJournalSequence(bookNumber),
                     "Set Journal Sequence number to " + bookNumber);
 
-            ExtentManager.compareTrue(editSubjectCategoriesForSampleBooksPage.clickSubmit(),
+            eReports.compareTrue(editSubjectCategoriesForSampleBooksPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editSubjectCategoriesForSampleBooksPage.addButton.isDisplayed()
+            eReports.compareTrue(editSubjectCategoriesForSampleBooksPage.addButton.isDisplayed()
                             && editSubjectCategoriesForSampleBooksPage.isPageOpened(),
                     "Verify that Edit Subject Categories For For Sample page is opened.");
         }
@@ -845,46 +845,46 @@ public class JournalTests {
     public void journalEditSubjectCategoriesForSeriesTest() {
         String seriesNumber = prop.getProperty("editCategoriesCodesForSeries_seriesNumber");
 
-        ExtentManager.createNode("JOURNAL -> Edit Subject Categories -> For Series.",
+        eReports.createNode("JOURNAL -> Edit Subject Categories -> For Series.",
                 "Verify Edit Subject Categories For Series Page.");
 
         EditSubjectCategoriesForSeriesPage editSubjectCategoriesForSeriesPage = new EditSubjectCategoriesForSeriesPage();
-        ExtentManager.compareNotNULL(editSubjectCategoriesForSeriesPage,
+        eReports.compareNotNULL(editSubjectCategoriesForSeriesPage,
                 "Open 'JOURNAL -> Edit Subject Categories -> For Series page.");
 
-        ExtentManager.compareTrue(editSubjectCategoriesForSeriesPage.setJournalSequence(seriesNumber),
+        eReports.compareTrue(editSubjectCategoriesForSeriesPage.setJournalSequence(seriesNumber),
                 "Set Journal Sequence number to " + seriesNumber);
 
-        ExtentManager.compareTrue(editSubjectCategoriesForSeriesPage.clickSubmit(),
+        eReports.compareTrue(editSubjectCategoriesForSeriesPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(editSubjectCategoriesForSeriesPage.clickAddProductCodesButton(),
+        eReports.compareTrue(editSubjectCategoriesForSeriesPage.clickAddProductCodesButton(),
                 "Click 'Add' button.");
 
-        ExtentManager.compareTrue(editSubjectCategoriesForSeriesPage.clickConfirmAddingSubjectCategoriesButton(),
+        eReports.compareTrue(editSubjectCategoriesForSeriesPage.clickConfirmAddingSubjectCategoriesButton(),
                 "Click 'Confirm' button to complete adding product codes.");
 
         String message = "Record for Subject Categories for Journal Seq No. " + seriesNumber + " successfully updated. Please review below.";
-        ExtentManager.compareTrue(editSubjectCategoriesForSeriesPage.isMessageDisplayed(message),
+        eReports.compareTrue(editSubjectCategoriesForSeriesPage.isMessageDisplayed(message),
                 "Verify that '" + message +"' message is displayed.");
     }
     public void journalEditSubjectCategoriesForSeriesTest_BVT() {
         String seriesNumber = prop.getProperty("editCategoriesCodesForSeries_seriesNumber");
 
-        ExtentManager.createNode("JOURNAL -> Edit Subject Categories -> For Series.",
+        eReports.createNode("JOURNAL -> Edit Subject Categories -> For Series.",
                 "Verify Edit Subject Categories For Series Page.");
 
         EditSubjectCategoriesForSeriesPage editSubjectCategoriesForSeriesPage = new EditSubjectCategoriesForSeriesPage();
-        if (ExtentManager.compareNotNULL(editSubjectCategoriesForSeriesPage,
+        if (eReports.compareNotNULL(editSubjectCategoriesForSeriesPage,
                 "Open 'JOURNAL -> Edit Subject Categories -> For Series page.")) {
 
-            ExtentManager.compareTrue(editSubjectCategoriesForSeriesPage.setJournalSequence(seriesNumber),
+            eReports.compareTrue(editSubjectCategoriesForSeriesPage.setJournalSequence(seriesNumber),
                     "Set Journal Sequence number to " + seriesNumber);
 
-            ExtentManager.compareTrue(editSubjectCategoriesForSeriesPage.clickSubmit(),
+            eReports.compareTrue(editSubjectCategoriesForSeriesPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editSubjectCategoriesForSeriesPage.addButton.isDisplayed()
+            eReports.compareTrue(editSubjectCategoriesForSeriesPage.addButton.isDisplayed()
                             && editSubjectCategoriesForSeriesPage.isPageOpened(),
                     "Verify that Edit Subject Categories For Series page is opened.");
         }
@@ -893,55 +893,55 @@ public class JournalTests {
     public void journalProductCodeHistoryTest() {
         String journalSequenceNumber = prop.getProperty("journalProductCodeHistory_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Journal Product Code History.",
+        eReports.createNode("JOURNAL -> Journal Product Code History.",
                 "Verify Journal Product Code History Page.");
 
         JournalProductCodeHistoryPage journalProductCodeHistoryPage = new JournalProductCodeHistoryPage();
-        ExtentManager.compareNotNULL(journalProductCodeHistoryPage,
+        eReports.compareNotNULL(journalProductCodeHistoryPage,
                 "Open 'JOURNAL -> Journal Product Code History page.");
 
-        ExtentManager.compareTrue(journalProductCodeHistoryPage.setJournalSequence(journalSequenceNumber),
+        eReports.compareTrue(journalProductCodeHistoryPage.setJournalSequence(journalSequenceNumber),
                 "Set Journal Sequence number to " + journalSequenceNumber);
-        ExtentManager.compareTrue(journalProductCodeHistoryPage.clickSubmit(),
+        eReports.compareTrue(journalProductCodeHistoryPage.clickSubmit(),
                 "Click 'Submit' button.");
 
         /*
-        ExtentManager.compareNotNULL(journalProductCodeHistoryPage.clickCDRXTab(),
+        eReports.compareNotNULL(journalProductCodeHistoryPage.clickCDRXTab(),
                 "Open 'Journal Issues List' tab.");
-        ExtentManager.compareNotNULL(journalProductCodeHistoryPage.clickJrnlXRefTab(),
+        eReports.compareNotNULL(journalProductCodeHistoryPage.clickJrnlXRefTab(),
                 "Open 'Journal Changes' tab.");
-        ExtentManager.compareNotNULL(journalProductCodeHistoryPage.clickPCSCTab(),
+        eReports.compareNotNULL(journalProductCodeHistoryPage.clickPCSCTab(),
                 "Open 'Journal Product Codes Inquiry' tab.");
-        ExtentManager.compareNotNULL(journalProductCodeHistoryPage.clickPCHistTab(),
+        eReports.compareNotNULL(journalProductCodeHistoryPage.clickPCHistTab(),
                 "Open 'Journal Product Code History' tab.");
-        ExtentManager.compareNotNULL(journalProductCodeHistoryPage.clickSCHistTab(),
+        eReports.compareNotNULL(journalProductCodeHistoryPage.clickSCHistTab(),
                 "Open 'Journal Subject Catagory History' tab.");
-        ExtentManager.compareNotNULL(journalProductCodeHistoryPage.clickRoyInqTab(),
+        eReports.compareNotNULL(journalProductCodeHistoryPage.clickRoyInqTab(),
                 "Open 'Journal Royalty Inquiry' tab.");
-        ExtentManager.compareNotNULL(journalProductCodeHistoryPage.clickSubsHistTab(),
+        eReports.compareNotNULL(journalProductCodeHistoryPage.clickSubsHistTab(),
                 "Open 'Journal Subscription History' tab.");
-        ExtentManager.compareNotNULL(journalProductCodeHistoryPage.clickIssueLoginTab(),
+        eReports.compareNotNULL(journalProductCodeHistoryPage.clickIssueLoginTab(),
                 "Open 'Issue Login for a Journal' tab.");
-        ExtentManager.compareNotNULL(journalProductCodeHistoryPage.clickJrnlInqTab(),
+        eReports.compareNotNULL(journalProductCodeHistoryPage.clickJrnlInqTab(),
                 "Open 'Journal Inquiry' tab.");
         */
     }
     public void journalProductCodeHistoryTest_BVT() {
         String journalSequenceNumber = prop.getProperty("journalProductCodeHistory_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Journal Product Code History.",
+        eReports.createNode("JOURNAL -> Journal Product Code History.",
                 "Verify Journal Product Code History Page.");
 
         JournalProductCodeHistoryPage journalProductCodeHistoryPage = new JournalProductCodeHistoryPage();
-        if (ExtentManager.compareNotNULL(journalProductCodeHistoryPage,
+        if (eReports.compareNotNULL(journalProductCodeHistoryPage,
                 "Open 'JOURNAL -> Journal Product Code History page.")) {
 
-            ExtentManager.compareTrue(journalProductCodeHistoryPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(journalProductCodeHistoryPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
-            ExtentManager.compareTrue(journalProductCodeHistoryPage.clickSubmit(),
+            eReports.compareTrue(journalProductCodeHistoryPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(journalProductCodeHistoryPage.isPageOpened(),
+            eReports.compareTrue(journalProductCodeHistoryPage.isPageOpened(),
                     "Verify that Journal Product Code History page is opened.");
         }
     }
@@ -951,54 +951,54 @@ public class JournalTests {
     public void journalSubjectCategoryHistoryTest() {
         String journalSequenceNumber = prop.getProperty("subjectCategoryHistory_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Subject Category History.",
+        eReports.createNode("JOURNAL -> Subject Category History.",
                 "Verify Journal Subject Catagory History Page.");
 
         JournalSubjectCategoryHistoryPage journalSubjectCatagoryHistoryPage = new JournalSubjectCategoryHistoryPage();
-        ExtentManager.compareNotNULL(journalSubjectCatagoryHistoryPage,
+        eReports.compareNotNULL(journalSubjectCatagoryHistoryPage,
                 "Open 'JOURNAL -> Journal Subject Catagory History page.");
 
-        ExtentManager.compareTrue(journalSubjectCatagoryHistoryPage.setJournalSequence(journalSequenceNumber),
+        eReports.compareTrue(journalSubjectCatagoryHistoryPage.setJournalSequence(journalSequenceNumber),
                 "Set Journal Sequence number to " + journalSequenceNumber);
-        ExtentManager.compareTrue(journalSubjectCatagoryHistoryPage.clickSubmit(),
+        eReports.compareTrue(journalSubjectCatagoryHistoryPage.clickSubmit(),
                 "Click 'Submit' button.");
 /*
-        ExtentManager.compareNotNULL(journalSubjectCatagoryHistoryPage.clickCDRXTab(),
+        eReports.compareNotNULL(journalSubjectCatagoryHistoryPage.clickCDRXTab(),
                 "Open 'Journal Issues List' tab.");
-        ExtentManager.compareNotNULL(journalSubjectCatagoryHistoryPage.clickJrnlXRefTab(),
+        eReports.compareNotNULL(journalSubjectCatagoryHistoryPage.clickJrnlXRefTab(),
                 "Open 'Journal Changes' tab.");
-        ExtentManager.compareNotNULL(journalSubjectCatagoryHistoryPage.clickPCSCTab(),
+        eReports.compareNotNULL(journalSubjectCatagoryHistoryPage.clickPCSCTab(),
                 "Open 'Journal Product Codes Inquiry' tab.");
-        ExtentManager.compareNotNULL(journalSubjectCatagoryHistoryPage.clickPCHistTab(),
+        eReports.compareNotNULL(journalSubjectCatagoryHistoryPage.clickPCHistTab(),
                 "Open 'Journal Product Code History' tab.");
-        ExtentManager.compareNotNULL(journalSubjectCatagoryHistoryPage.clickSCHistTab(),
+        eReports.compareNotNULL(journalSubjectCatagoryHistoryPage.clickSCHistTab(),
                 "Open 'Journal Subject Catagory History' tab.");
-        ExtentManager.compareNotNULL(journalSubjectCatagoryHistoryPage.clickRoyInqTab(),
+        eReports.compareNotNULL(journalSubjectCatagoryHistoryPage.clickRoyInqTab(),
                 "Open 'Journal Royalty Inquiry' tab.");
-        ExtentManager.compareNotNULL(journalSubjectCatagoryHistoryPage.clickSubsHistTab(),
+        eReports.compareNotNULL(journalSubjectCatagoryHistoryPage.clickSubsHistTab(),
                 "Open 'Journal Subscription History' tab.");
-        ExtentManager.compareNotNULL(journalSubjectCatagoryHistoryPage.clickIssueLoginTab(),
+        eReports.compareNotNULL(journalSubjectCatagoryHistoryPage.clickIssueLoginTab(),
                 "Open 'Issue Login for a Journal' tab.");
-        ExtentManager.compareNotNULL(journalSubjectCatagoryHistoryPage.clickJrnlInqTab(),
+        eReports.compareNotNULL(journalSubjectCatagoryHistoryPage.clickJrnlInqTab(),
                 "Open 'Journal Inquiry' tab.");
 */
     }
     public void journalSubjectCategoryHistoryTest_BVT() {
         String journalSequenceNumber = prop.getProperty("subjectCategoryHistory_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Subject Category History.",
+        eReports.createNode("JOURNAL -> Subject Category History.",
                 "Verify Journal Subject Category History Page.");
 
         JournalSubjectCategoryHistoryPage journalSubjectCategoryHistoryPage = new JournalSubjectCategoryHistoryPage();
-        if (ExtentManager.compareNotNULL(journalSubjectCategoryHistoryPage,
+        if (eReports.compareNotNULL(journalSubjectCategoryHistoryPage,
                 "Open 'JOURNAL -> Subject Category History page.")) {
 
-            ExtentManager.compareTrue(journalSubjectCategoryHistoryPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(journalSubjectCategoryHistoryPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
-            ExtentManager.compareTrue(journalSubjectCategoryHistoryPage.clickSubmit(),
+            eReports.compareTrue(journalSubjectCategoryHistoryPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(journalSubjectCategoryHistoryPage.isPageOpened(),
+            eReports.compareTrue(journalSubjectCategoryHistoryPage.isPageOpened(),
                     "Verify that Journal Subject Category History page is opened.");
         }
     }
@@ -1006,54 +1006,54 @@ public class JournalTests {
     public void journalViewIssuesTest() {
         String journalSequenceNumber = prop.getProperty("viewIssuesCRDX_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> View Issues (CRDX).",
+        eReports.createNode("JOURNAL -> View Issues (CRDX).",
                 "Verify Journal Issues List Page.");
 
         JournalIssuesListPage journalIssuesListPage = new JournalIssuesListPage();
-        ExtentManager.compareNotNULL(journalIssuesListPage,
+        eReports.compareNotNULL(journalIssuesListPage,
                 "Open 'JOURNAL -> Journal Issues List page.");
 
-        ExtentManager.compareTrue(journalIssuesListPage.setJournalSequence(journalSequenceNumber),
+        eReports.compareTrue(journalIssuesListPage.setJournalSequence(journalSequenceNumber),
                 "Set Journal Sequence number to " + journalSequenceNumber);
-        ExtentManager.compareTrue(journalIssuesListPage.clickSubmit(),
+        eReports.compareTrue(journalIssuesListPage.clickSubmit(),
                 "Click 'Submit' button.");
 /*
-        ExtentManager.compareNotNULL(journalIssuesListPage.clickCDRXTab(),
+        eReports.compareNotNULL(journalIssuesListPage.clickCDRXTab(),
                 "Open 'Journal Issues List' tab.");
-        ExtentManager.compareNotNULL(journalIssuesListPage.clickJrnlXRefTab(),
+        eReports.compareNotNULL(journalIssuesListPage.clickJrnlXRefTab(),
                 "Open 'Journal Changes' tab.");
-        ExtentManager.compareNotNULL(journalIssuesListPage.clickPCSCTab(),
+        eReports.compareNotNULL(journalIssuesListPage.clickPCSCTab(),
                 "Open 'Journal Product Codes Inquiry' tab.");
-        ExtentManager.compareNotNULL(journalIssuesListPage.clickPCHistTab(),
+        eReports.compareNotNULL(journalIssuesListPage.clickPCHistTab(),
                 "Open 'Journal Product Code History' tab.");
-        ExtentManager.compareNotNULL(journalIssuesListPage.clickSCHistTab(),
+        eReports.compareNotNULL(journalIssuesListPage.clickSCHistTab(),
                 "Open 'Journal Subject Catagory History' tab.");
-        ExtentManager.compareNotNULL(journalIssuesListPage.clickRoyInqTab(),
+        eReports.compareNotNULL(journalIssuesListPage.clickRoyInqTab(),
                 "Open 'Journal Royalty Inquiry' tab.");
-        ExtentManager.compareNotNULL(journalIssuesListPage.clickSubsHistTab(),
+        eReports.compareNotNULL(journalIssuesListPage.clickSubsHistTab(),
                 "Open 'Journal Subscription History' tab.");
-        ExtentManager.compareNotNULL(journalIssuesListPage.clickIssueLoginTab(),
+        eReports.compareNotNULL(journalIssuesListPage.clickIssueLoginTab(),
                 "Open 'Issue Login for a Journal' tab.");
-        ExtentManager.compareNotNULL(journalIssuesListPage.clickJrnlInqTab(),
+        eReports.compareNotNULL(journalIssuesListPage.clickJrnlInqTab(),
                 "Open 'Journal Inquiry' tab.");
 */
     }
     public void journalViewIssuesTest_BVT() {
         String journalSequenceNumber = prop.getProperty("viewIssuesCRDX_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> View Issues (CRDX).",
+        eReports.createNode("JOURNAL -> View Issues (CRDX).",
                 "Verify Journal Issues List Page.");
 
         JournalIssuesListPage journalIssuesListPage = new JournalIssuesListPage();
-        if (ExtentManager.compareNotNULL(journalIssuesListPage,
+        if (eReports.compareNotNULL(journalIssuesListPage,
                 "Open 'JOURNAL -> Journal Issues List page.")) {
 
-            ExtentManager.compareTrue(journalIssuesListPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(journalIssuesListPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
-            ExtentManager.compareTrue(journalIssuesListPage.clickSubmit(),
+            eReports.compareTrue(journalIssuesListPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(journalIssuesListPage.isPageOpened(),
+            eReports.compareTrue(journalIssuesListPage.isPageOpened(),
                     "Verify that Journal Issues List page is opened.");
         }
     }
@@ -1061,54 +1061,54 @@ public class JournalTests {
     public void journalRoyaltyInquiryTest() {
         String journalSequenceNumber = prop.getProperty("journalRoyaltyInquiry_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Royalty -> Royalty Inquiry.",
+        eReports.createNode("JOURNAL -> Royalty -> Royalty Inquiry.",
                 "Verify Journal Royalty Inquiry Page.");
 
         JournalRoyaltyInquiryPage royaltyInquiryPage = new JournalRoyaltyInquiryPage();
-        ExtentManager.compareNotNULL(royaltyInquiryPage,
+        eReports.compareNotNULL(royaltyInquiryPage,
                 "Open 'JOURNAL -> Journal Royalty Inquiry page.");
 
-        ExtentManager.compareTrue(royaltyInquiryPage.setJournalSequence(journalSequenceNumber),
+        eReports.compareTrue(royaltyInquiryPage.setJournalSequence(journalSequenceNumber),
                 "Set Journal Sequence number to " + journalSequenceNumber);
-        ExtentManager.compareTrue(royaltyInquiryPage.clickSubmit(),
+        eReports.compareTrue(royaltyInquiryPage.clickSubmit(),
                 "Click 'Submit' button.");
 /*
-        ExtentManager.compareNotNULL(royaltyInquiryPage.clickCDRXTab(),
+        eReports.compareNotNULL(royaltyInquiryPage.clickCDRXTab(),
                 "Open 'Journal Issues List' tab.");
-        ExtentManager.compareNotNULL(royaltyInquiryPage.clickJrnlXRefTab(),
+        eReports.compareNotNULL(royaltyInquiryPage.clickJrnlXRefTab(),
                 "Open 'Journal Changes' tab.");
-        ExtentManager.compareNotNULL(royaltyInquiryPage.clickPCSCTab(),
+        eReports.compareNotNULL(royaltyInquiryPage.clickPCSCTab(),
                 "Open 'Journal Product Codes Inquiry' tab.");
-        ExtentManager.compareNotNULL(royaltyInquiryPage.clickPCHistTab(),
+        eReports.compareNotNULL(royaltyInquiryPage.clickPCHistTab(),
                 "Open 'Journal Product Code History' tab.");
-        ExtentManager.compareNotNULL(royaltyInquiryPage.clickSCHistTab(),
+        eReports.compareNotNULL(royaltyInquiryPage.clickSCHistTab(),
                 "Open 'Journal Subject Catagory History' tab.");
-        ExtentManager.compareNotNULL(royaltyInquiryPage.clickRoyInqTab(),
+        eReports.compareNotNULL(royaltyInquiryPage.clickRoyInqTab(),
                 "Open 'Journal Royalty Inquiry' tab.");
-        ExtentManager.compareNotNULL(royaltyInquiryPage.clickSubsHistTab(),
+        eReports.compareNotNULL(royaltyInquiryPage.clickSubsHistTab(),
                 "Open 'Journal Subscription History' tab.");
-        ExtentManager.compareNotNULL(royaltyInquiryPage.clickIssueLoginTab(),
+        eReports.compareNotNULL(royaltyInquiryPage.clickIssueLoginTab(),
                 "Open 'Issue Login for a Journal' tab.");
-        ExtentManager.compareNotNULL(royaltyInquiryPage.clickJrnlInqTab(),
+        eReports.compareNotNULL(royaltyInquiryPage.clickJrnlInqTab(),
                 "Open 'Journal Inquiry' tab.");
 */
     }
     public void journalRoyaltyInquiryTest_BVT() {
         String journalSequenceNumber = prop.getProperty("journalRoyaltyInquiry_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Royalty -> Royalty Inquiry.",
+        eReports.createNode("JOURNAL -> Royalty -> Royalty Inquiry.",
                 "Verify Journal Royalty Inquiry Page.");
 
         JournalRoyaltyInquiryPage royaltyInquiryPage = new JournalRoyaltyInquiryPage();
-        if (ExtentManager.compareNotNULL(royaltyInquiryPage,
+        if (eReports.compareNotNULL(royaltyInquiryPage,
                 "Open 'JOURNAL -> Journal Royalty Inquiry page.")) {
 
-            ExtentManager.compareTrue(royaltyInquiryPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(royaltyInquiryPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
-            ExtentManager.compareTrue(royaltyInquiryPage.clickSubmit(),
+            eReports.compareTrue(royaltyInquiryPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(royaltyInquiryPage.publisherNumber.isDisplayed() && royaltyInquiryPage.isPageOpened(),
+            eReports.compareTrue(royaltyInquiryPage.publisherNumber.isDisplayed() && royaltyInquiryPage.isPageOpened(),
                     "Verify that Journal Royalty Inquiry page is opened.");
         }
     }
@@ -1116,44 +1116,44 @@ public class JournalTests {
     public void journalEditRoyaltyTest() {
         String journalSequenceNumber = prop.getProperty("journalEditRoyalty_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Royalty -> Edit Royalty.",
+        eReports.createNode("JOURNAL -> Royalty -> Edit Royalty.",
                 "Verify Edit Royalty Page.");
 
         EditJournalRoyaltyPage editingJournalRoyaltyPage = new EditJournalRoyaltyPage();
-        ExtentManager.compareNotNULL(editingJournalRoyaltyPage, "JOURNAL -> Royalty -> Edit Royalty page.");
+        eReports.compareNotNULL(editingJournalRoyaltyPage, "JOURNAL -> Royalty -> Edit Royalty page.");
 
-        ExtentManager.compareTrue(editingJournalRoyaltyPage.setJournalSequence(journalSequenceNumber),
+        eReports.compareTrue(editingJournalRoyaltyPage.setJournalSequence(journalSequenceNumber),
                 "Set Journal Sequence number to " + journalSequenceNumber);
-        ExtentManager.compareTrue(editingJournalRoyaltyPage.clickSubmit(),
+        eReports.compareTrue(editingJournalRoyaltyPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(editingJournalRoyaltyPage.clickSubmitChanges(),
+        eReports.compareTrue(editingJournalRoyaltyPage.clickSubmitChanges(),
                 "Click 'Submit Changes' button.");
 
         JournalRoyaltyInquiryPage journalRoyaltyInquiryPage = editingJournalRoyaltyPage.clickConfirmButton();
-        ExtentManager.compareNotNULL(journalRoyaltyInquiryPage,
+        eReports.compareNotNULL(journalRoyaltyInquiryPage,
                 "Click 'Confirm' button and verify Journal Inquiry page is opened.");
 
         String message = "Record for Royalty for Journal # " + journalSequenceNumber + " successfully updated. Please review below.";
-        ExtentManager.compareTrue(journalRoyaltyInquiryPage.isMessageDisplayed(message),
+        eReports.compareTrue(journalRoyaltyInquiryPage.isMessageDisplayed(message),
                 "Verify that '" + message +"' message is displayed.");
     }
     public void journalEditRoyaltyTest_BVT() {
         String journalSequenceNumber = prop.getProperty("journalEditRoyalty_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Royalty -> Edit Royalty.",
+        eReports.createNode("JOURNAL -> Royalty -> Edit Royalty.",
                 "Verify Edit Royalty Page.");
 
         EditJournalRoyaltyPage editingJournalRoyaltyPage = new EditJournalRoyaltyPage();
-        if (ExtentManager.compareNotNULL(editingJournalRoyaltyPage, "JOURNAL -> Royalty -> Edit Royalty page.")) {
+        if (eReports.compareNotNULL(editingJournalRoyaltyPage, "JOURNAL -> Royalty -> Edit Royalty page.")) {
 
-            ExtentManager.compareTrue(editingJournalRoyaltyPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(editingJournalRoyaltyPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
 
-            ExtentManager.compareTrue(editingJournalRoyaltyPage.clickSubmit(),
+            eReports.compareTrue(editingJournalRoyaltyPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editingJournalRoyaltyPage.publisherNumber.isDisplayed()
+            eReports.compareTrue(editingJournalRoyaltyPage.publisherNumber.isDisplayed()
                             && editingJournalRoyaltyPage.isPageOpened(),
                     "Verify that Edit Royalty page is opened.");
         }
@@ -1162,36 +1162,36 @@ public class JournalTests {
     public void journalSubscriptionDetailsTest() {
         String journalSequenceNumber = prop.getProperty("journalSubscriptionDetails_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Subscriptions -> Subscription Details.",
+        eReports.createNode("JOURNAL -> Subscriptions -> Subscription Details.",
                 "Journal Subscription Details Page.");
 
         JournalSubscriptionDetailsPage journalSubscriptionDetailsPage = new JournalSubscriptionDetailsPage();
-        ExtentManager.compareNotNULL(journalSubscriptionDetailsPage,
+        eReports.compareNotNULL(journalSubscriptionDetailsPage,
                 "JOURNAL -> Subscriptions -> Subscription Details page.");
 
-        ExtentManager.compareTrue(journalSubscriptionDetailsPage.setJournalSequence(journalSequenceNumber),
+        eReports.compareTrue(journalSubscriptionDetailsPage.setJournalSequence(journalSequenceNumber),
                 "Set Journal Sequence number to " + journalSequenceNumber);
 
-        ExtentManager.compareTrue(journalSubscriptionDetailsPage.clickSubmit(),
+        eReports.compareTrue(journalSubscriptionDetailsPage.clickSubmit(),
                 "Click 'Submit' button.");
     }
     public void journalSubscriptionDetailsTest_BVT() {
         String journalSequenceNumber = prop.getProperty("journalSubscriptionDetails_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Subscriptions -> Subscription Details.",
+        eReports.createNode("JOURNAL -> Subscriptions -> Subscription Details.",
                 "Journal Subscription Details Page.");
 
         JournalSubscriptionDetailsPage journalSubscriptionDetailsPage = new JournalSubscriptionDetailsPage();
-        if (ExtentManager.compareNotNULL(journalSubscriptionDetailsPage,
+        if (eReports.compareNotNULL(journalSubscriptionDetailsPage,
                 "JOURNAL -> Subscriptions -> Subscription Details page.")) {
 
-            ExtentManager.compareTrue(journalSubscriptionDetailsPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(journalSubscriptionDetailsPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
 
-            ExtentManager.compareTrue(journalSubscriptionDetailsPage.clickSubmit(),
+            eReports.compareTrue(journalSubscriptionDetailsPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(journalSubscriptionDetailsPage.journalSeqNo.isDisplayed()
+            eReports.compareTrue(journalSubscriptionDetailsPage.journalSeqNo.isDisplayed()
                             && journalSubscriptionDetailsPage.isPageOpened(),
                     "Verify that Journal Subscription Details page is opened.");
         }
@@ -1200,54 +1200,54 @@ public class JournalTests {
     public void journalSubscriptionHistoryTest() {
         String journalSequenceNumber = prop.getProperty("journalViewHistory_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Subscriptions -> View History.",
+        eReports.createNode("JOURNAL -> Subscriptions -> View History.",
                 "Verify View History Page.");
 
         JournalSubscriptionHistoryPage journalSubscriptionHistoryPage = new JournalSubscriptionHistoryPage();
-        ExtentManager.compareNotNULL(journalSubscriptionHistoryPage,
+        eReports.compareNotNULL(journalSubscriptionHistoryPage,
                 "Open 'JOURNAL -> Subscriptions -> View History page.");
 
-        ExtentManager.compareTrue(journalSubscriptionHistoryPage.setJournalSequence(journalSequenceNumber),
+        eReports.compareTrue(journalSubscriptionHistoryPage.setJournalSequence(journalSequenceNumber),
                 "Set Journal Sequence number to " + journalSequenceNumber);
-        ExtentManager.compareTrue(journalSubscriptionHistoryPage.clickSubmit(),
+        eReports.compareTrue(journalSubscriptionHistoryPage.clickSubmit(),
                 "Click 'Submit' button.");
 /*
-        ExtentManager.compareNotNULL(journalSubscriptionHistoryPage.clickCDRXTab(),
+        eReports.compareNotNULL(journalSubscriptionHistoryPage.clickCDRXTab(),
                 "Open 'Journal Issues List' tab.");
-        ExtentManager.compareNotNULL(journalSubscriptionHistoryPage.clickJrnlXRefTab(),
+        eReports.compareNotNULL(journalSubscriptionHistoryPage.clickJrnlXRefTab(),
                 "Open 'Journal Changes' tab.");
-        ExtentManager.compareNotNULL(journalSubscriptionHistoryPage.clickPCSCTab(),
+        eReports.compareNotNULL(journalSubscriptionHistoryPage.clickPCSCTab(),
                 "Open 'Journal Product Codes Inquiry' tab.");
-        ExtentManager.compareNotNULL(journalSubscriptionHistoryPage.clickPCHistTab(),
+        eReports.compareNotNULL(journalSubscriptionHistoryPage.clickPCHistTab(),
                 "Open 'Journal Product Code History' tab.");
-        ExtentManager.compareNotNULL(journalSubscriptionHistoryPage.clickSCHistTab(),
+        eReports.compareNotNULL(journalSubscriptionHistoryPage.clickSCHistTab(),
                 "Open 'Journal Subject Catagory History' tab.");
-        ExtentManager.compareNotNULL(journalSubscriptionHistoryPage.clickRoyInqTab(),
+        eReports.compareNotNULL(journalSubscriptionHistoryPage.clickRoyInqTab(),
                 "Open 'Journal Royalty Inquiry' tab.");
-        ExtentManager.compareNotNULL(journalSubscriptionHistoryPage.clickSubsHistTab(),
+        eReports.compareNotNULL(journalSubscriptionHistoryPage.clickSubsHistTab(),
                 "Open 'Journal Subscription History' tab.");
-        ExtentManager.compareNotNULL(journalSubscriptionHistoryPage.clickIssueLoginTab(),
+        eReports.compareNotNULL(journalSubscriptionHistoryPage.clickIssueLoginTab(),
                 "Open 'Issue Login for a Journal' tab.");
-        ExtentManager.compareNotNULL(journalSubscriptionHistoryPage.clickJrnlInqTab(),
+        eReports.compareNotNULL(journalSubscriptionHistoryPage.clickJrnlInqTab(),
                 "Open 'Journal Inquiry' tab.");
 */
     }
     public void journalSubscriptionHistoryTest_BVT() {
         String journalSequenceNumber = prop.getProperty("journalViewHistory_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Subscriptions -> View History.",
+        eReports.createNode("JOURNAL -> Subscriptions -> View History.",
                 "Verify View History Page.");
 
         JournalSubscriptionHistoryPage journalSubscriptionHistoryPage = new JournalSubscriptionHistoryPage();
-        if (ExtentManager.compareNotNULL(journalSubscriptionHistoryPage,
+        if (eReports.compareNotNULL(journalSubscriptionHistoryPage,
                 "Open 'JOURNAL -> Subscriptions -> View History page.")) {
 
-            ExtentManager.compareTrue(journalSubscriptionHistoryPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(journalSubscriptionHistoryPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
-            ExtentManager.compareTrue(journalSubscriptionHistoryPage.clickSubmit(),
+            eReports.compareTrue(journalSubscriptionHistoryPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(journalSubscriptionHistoryPage.journalSeqNo.isDisplayed()
+            eReports.compareTrue(journalSubscriptionHistoryPage.journalSeqNo.isDisplayed()
                             && journalSubscriptionHistoryPage.isPageOpened(),
                     "Verify that View History page is opened.");
         }
@@ -1257,32 +1257,32 @@ public class JournalTests {
         String journalSequenceNumber = prop.getProperty("journalEditHistory_JournalSequence");
         String seqNo = prop.getProperty("journalEditHistory_seqNo");
 
-        ExtentManager.createNode("JOURNAL -> Subscriptions -> View History.",
+        eReports.createNode("JOURNAL -> Subscriptions -> View History.",
                 "Verify View Edit History Page.");
 
         JournalSubscriptionHistoryEditViewPage journalSubscriptionHistoryEditViewPage = new JournalSubscriptionHistoryEditViewPage();
-        if (ExtentManager.compareNotNULL(journalSubscriptionHistoryEditViewPage,
+        if (eReports.compareNotNULL(journalSubscriptionHistoryEditViewPage,
                 "Open 'JOURNAL -> Subscriptions -> View History' page.")) {
 
-            ExtentManager.compareTrue(journalSubscriptionHistoryEditViewPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(journalSubscriptionHistoryEditViewPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
 
-            ExtentManager.compareTrue(journalSubscriptionHistoryEditViewPage.clickSubmit(),
+            eReports.compareTrue(journalSubscriptionHistoryEditViewPage.clickSubmit(),
                     "Click 'Submit' button.");
 
             JournalSubscriptionHistoryEditPage journalSubscriptionHistoryEditPage = journalSubscriptionHistoryEditViewPage.clickEditButton(seqNo);
-            if (ExtentManager.compareNotNULL(journalSubscriptionHistoryEditPage,
+            if (eReports.compareNotNULL(journalSubscriptionHistoryEditPage,
                     "Click 'edit' button and verify that the edit page is opened.")) {
 
-                ExtentManager.compareTrue(journalSubscriptionHistoryEditPage.clickSubmitChanges(),
+                eReports.compareTrue(journalSubscriptionHistoryEditPage.clickSubmitChanges(),
                         "Click 'Submit Changes' button.");
 
                 JournalSubscriptionDetailsPage journalSubscriptionDetailsPage = journalSubscriptionHistoryEditPage.clickConfirmButton();
-                ExtentManager.compareNotNULL(journalSubscriptionDetailsPage,
+                eReports.compareNotNULL(journalSubscriptionDetailsPage,
                         "Click 'Confirm' button and verify Journal Inquiry page is opened.");
 
                 String message = "Record for Journal Seq# " + journalSequenceNumber + " successfully updated. Please review below.";
-                ExtentManager.compareTrue(journalSubscriptionDetailsPage.isMessageDisplayed(message),
+                eReports.compareTrue(journalSubscriptionDetailsPage.isMessageDisplayed(message),
                         "Verify that '" + message + "' message is displayed.");
             }
         }
@@ -1290,20 +1290,20 @@ public class JournalTests {
     public void journalSubscriptionViewEditHistoryTest_BVT() {
         String journalSequenceNumber = prop.getProperty("journalEditHistory_JournalSequence");
 
-        ExtentManager.createNode("JOURNAL -> Subscriptions -> View History.",
+        eReports.createNode("JOURNAL -> Subscriptions -> View History.",
                 "Verify View Edit History Page.");
 
         JournalSubscriptionHistoryEditViewPage journalSubscriptionHistoryEditViewPage = new JournalSubscriptionHistoryEditViewPage();
-        if (ExtentManager.compareNotNULL(journalSubscriptionHistoryEditViewPage,
+        if (eReports.compareNotNULL(journalSubscriptionHistoryEditViewPage,
                 "Open 'JOURNAL -> Subscriptions -> View History' page.")) {
 
-            ExtentManager.compareTrue(journalSubscriptionHistoryEditViewPage.setJournalSequence(journalSequenceNumber),
+            eReports.compareTrue(journalSubscriptionHistoryEditViewPage.setJournalSequence(journalSequenceNumber),
                     "Set Journal Sequence number to " + journalSequenceNumber);
 
-            ExtentManager.compareTrue(journalSubscriptionHistoryEditViewPage.clickSubmit(),
+            eReports.compareTrue(journalSubscriptionHistoryEditViewPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(journalSubscriptionHistoryEditViewPage.journalSeqNo.isDisplayed()
+            eReports.compareTrue(journalSubscriptionHistoryEditViewPage.journalSeqNo.isDisplayed()
                             && journalSubscriptionHistoryEditViewPage.isPageOpened(),
                     "Verify that View Edit History page is opened.");
         }
@@ -1312,37 +1312,37 @@ public class JournalTests {
     public void journalChangesTest() {
         String journalChangesNumber = prop.getProperty("journalChangesNumber");
 
-        ExtentManager.createNode("JOURNAL -> Journal Changes.",
+        eReports.createNode("JOURNAL -> Journal Changes.",
                 "Verify Journal Changes Page.");
 
         JournalChangesPage journalChangesPage = new JournalChangesPage();
-        ExtentManager.compareNotNULL(journalChangesPage,
+        eReports.compareNotNULL(journalChangesPage,
                 "Open 'JOURNAL -> Journal Changes page.");
 
-        ExtentManager.compareTrue(journalChangesPage.setJournalSequence(journalChangesNumber),
+        eReports.compareTrue(journalChangesPage.setJournalSequence(journalChangesNumber),
                 "Set Journal Sequence number to " + journalChangesNumber);
-        ExtentManager.compareTrue(journalChangesPage.clickSubmit(),
+        eReports.compareTrue(journalChangesPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(journalChangesPage.actionsList.size() > 0,
+        eReports.compareTrue(journalChangesPage.actionsList.size() > 0,
                 "Verify that Journal Changes are displayed on the page.");
     }
     public void journalChangesTest_BVT() {
         String journalChangesNumber = prop.getProperty("journalChangesNumber");
 
-        ExtentManager.createNode("JOURNAL -> Journal Changes.",
+        eReports.createNode("JOURNAL -> Journal Changes.",
                 "Verify Journal Changes Page.");
 
         JournalChangesPage journalChangesPage = new JournalChangesPage();
-        if (ExtentManager.compareNotNULL(journalChangesPage,
+        if (eReports.compareNotNULL(journalChangesPage,
                 "Open 'JOURNAL -> Journal Changes page.")) {
 
-            ExtentManager.compareTrue(journalChangesPage.setJournalSequence(journalChangesNumber),
+            eReports.compareTrue(journalChangesPage.setJournalSequence(journalChangesNumber),
                     "Set Journal Sequence number to " + journalChangesNumber);
-            ExtentManager.compareTrue(journalChangesPage.clickSubmit(),
+            eReports.compareTrue(journalChangesPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(journalChangesPage.jrnlBookSeq.isDisplayed()
+            eReports.compareTrue(journalChangesPage.jrnlBookSeq.isDisplayed()
                             && journalChangesPage.isPageOpened(),
                     "Verify that View Edit History page is opened.");
         }
@@ -1352,49 +1352,49 @@ public class JournalTests {
         String journalNumberForXRefNotes = prop.getProperty("journalNumberForXRefNotes");
         String updateNotes = prop.getProperty("updateNotes");
 
-        ExtentManager.createNode("JOURNAL -> Edit XRef Notes.",
+        eReports.createNode("JOURNAL -> Edit XRef Notes.",
                 "Verify Edit XRef Notes Page.");
 
         EditXRefNotesPage editXRefNotesPage = new EditXRefNotesPage();
-        ExtentManager.compareNotNULL(editXRefNotesPage,
+        eReports.compareNotNULL(editXRefNotesPage,
                 "Open 'JOURNAL -> Edit XRef Notes page.");
 
-        ExtentManager.compareTrue(editXRefNotesPage.setJournalSequence(journalNumberForXRefNotes),
+        eReports.compareTrue(editXRefNotesPage.setJournalSequence(journalNumberForXRefNotes),
                 "Set Journal Sequence number to " + journalNumberForXRefNotes);
-        ExtentManager.compareTrue(editXRefNotesPage.clickSubmit(),
+        eReports.compareTrue(editXRefNotesPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(editXRefNotesPage.notes.setText(updateNotes),
+        eReports.compareTrue(editXRefNotesPage.notes.setText(updateNotes),
                 "Set '" + updateNotes + "' to notes field.");
 
         JournalChangesPage journalChangesPage = editXRefNotesPage.clickUpdateButton();
-        if (ExtentManager.compareNotNULL(journalChangesPage,
+        if (eReports.compareNotNULL(journalChangesPage,
                 "Click 'Update' button.")) {
 
-            ExtentManager.compare(updateNotes, journalChangesPage.getElementValue(journalChangesPage.actionPerformedNotes.asWebElement()),
+            eReports.compare(updateNotes, journalChangesPage.getElementValue(journalChangesPage.actionPerformedNotes.asWebElement()),
                     "Verify the notes field was updated.");
 
-            ExtentManager.compareTrue(journalChangesPage.updateMessage.isDisplayed(),
+            eReports.compareTrue(journalChangesPage.updateMessage.isDisplayed(),
                     "Verify the 'Notes information has been successfully updated'.");
         }
     }
     public void journalEditXRefNotesTest_BVT() {
         String journalNumberForXRefNotes = prop.getProperty("journalNumberForXRefNotes");
 
-        ExtentManager.createNode("JOURNAL -> Edit XRef Notes.",
+        eReports.createNode("JOURNAL -> Edit XRef Notes.",
                 "Verify Edit XRef Notes Page.");
 
         EditXRefNotesPage editXRefNotesPage = new EditXRefNotesPage();
-        if (ExtentManager.compareNotNULL(editXRefNotesPage,
+        if (eReports.compareNotNULL(editXRefNotesPage,
                 "Open 'JOURNAL -> Edit XRef Notes page.")) {
 
-            ExtentManager.compareTrue(editXRefNotesPage.setJournalSequence(journalNumberForXRefNotes),
+            eReports.compareTrue(editXRefNotesPage.setJournalSequence(journalNumberForXRefNotes),
                     "Set Journal Sequence number to " + journalNumberForXRefNotes);
 
-            ExtentManager.compareTrue(editXRefNotesPage.clickSubmit(),
+            eReports.compareTrue(editXRefNotesPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(editXRefNotesPage.jrnlBookSeq.isDisplayed()
+            eReports.compareTrue(editXRefNotesPage.jrnlBookSeq.isDisplayed()
                             && editXRefNotesPage.isPageOpened(),
                     "Verify that Edit XRef Notes page is opened.");
         }
@@ -1405,32 +1405,32 @@ public class JournalTests {
         String media = prop.getProperty("media");
         String pubYearRange = prop.getProperty("pubYearRange");
 
-        ExtentManager.createNode("JOURNAL -> Issue Login.",
+        eReports.createNode("JOURNAL -> Issue Login.",
                 "Verify Issue Login for a Journal Page.");
 
         JournalIssueLoginPage journalIssueLoginPage = new JournalIssueLoginPage();
-        ExtentManager.compareNotNULL(journalIssueLoginPage,
+        eReports.compareNotNULL(journalIssueLoginPage,
                 "Open 'JOURNAL -> Issue Login for a Journal page.");
 
-        ExtentManager.compareTrue(journalIssueLoginPage.setJournalSequence(journalSequence),
+        eReports.compareTrue(journalIssueLoginPage.setJournalSequence(journalSequence),
                 "Set Journal Sequence number to " + journalSequence);
-        ExtentManager.compareTrue(journalIssueLoginPage.clickSubmit(),
+        eReports.compareTrue(journalIssueLoginPage.clickSubmit(),
                 "Click 'Submit' button.");
 
 
-        ExtentManager.compareTrue(journalIssueLoginPage.selectMedia(media),
+        eReports.compareTrue(journalIssueLoginPage.selectMedia(media),
                 "Set 'Media' to " + media);
-        ExtentManager.compareTrue(journalIssueLoginPage.pubYearRange.setText(pubYearRange),
+        eReports.compareTrue(journalIssueLoginPage.pubYearRange.setText(pubYearRange),
                 "Set 'PubYear Range' to " + pubYearRange);
 
-        ExtentManager.compareTrue(journalIssueLoginPage.clickSubmitChanges(),
+        eReports.compareTrue(journalIssueLoginPage.clickSubmitChanges(),
                 "Click 'Submit Changes' button.");
 
         IssueDetailsPage issueDetailsPage = journalIssueLoginPage.clickConfirmButton();
-        if (ExtentManager.compareNotNULL(issueDetailsPage,
+        if (eReports.compareNotNULL(issueDetailsPage,
                 "Click 'Confirm' button and verify Issue Details page is opened.")) {
 
-            ExtentManager.compare(journalSequence,
+            eReports.compare(journalSequence,
                     issueDetailsPage.getElementValue(issueDetailsPage.journalSeq.asWebElement()),
                     "Verify that Journal Seq. # is " + journalSequence);
         }
@@ -1439,20 +1439,20 @@ public class JournalTests {
     public void journalIssueLoginTest_BVT() {
         String journalSequence = prop.getProperty("journalNumberForIssueLogin");
 
-        ExtentManager.createNode("JOURNAL -> Issue Login.",
+        eReports.createNode("JOURNAL -> Issue Login.",
                 "Verify Issue Login for a Journal Page.");
 
         JournalIssueLoginPage journalIssueLoginPage = new JournalIssueLoginPage();
-        if (ExtentManager.compareNotNULL(journalIssueLoginPage,
+        if (eReports.compareNotNULL(journalIssueLoginPage,
                 "Open 'JOURNAL -> Issue Login for a Journal page.")) {
 
-            ExtentManager.compareTrue(journalIssueLoginPage.setJournalSequence(journalSequence),
+            eReports.compareTrue(journalIssueLoginPage.setJournalSequence(journalSequence),
                     "Set Journal Sequence number to " + journalSequence);
 
-            ExtentManager.compareTrue(journalIssueLoginPage.clickSubmit(),
+            eReports.compareTrue(journalIssueLoginPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(journalIssueLoginPage.jrnlBookSeq.isDisplayed()
+            eReports.compareTrue(journalIssueLoginPage.jrnlBookSeq.isDisplayed()
                             && journalIssueLoginPage.isPageOpened(),
                     "Verify that Issue Login page is opened.");
         }
@@ -1461,45 +1461,45 @@ public class JournalTests {
     public void journalTransformingBookTest() {
         String sampleBookNumber = prop.getProperty("sampleBookNumber");
 
-        ExtentManager.createNode("JOURNAL -> Transform a Sample Book.",
+        eReports.createNode("JOURNAL -> Transform a Sample Book.",
                 "Verify Transforming a Book Page.");
 
         TransformingBookPage transformingBookPage = new TransformingBookPage();
-        ExtentManager.compareNotNULL(transformingBookPage,
+        eReports.compareNotNULL(transformingBookPage,
                 "Open 'JOURNAL -> Transforming a Book page.");
 
-        ExtentManager.compareTrue(transformingBookPage.setJournalSequence(sampleBookNumber),
+        eReports.compareTrue(transformingBookPage.setJournalSequence(sampleBookNumber),
                 "Set Journal Sequence number to " + sampleBookNumber);
-        ExtentManager.compareTrue(transformingBookPage.clickSubmit(),
+        eReports.compareTrue(transformingBookPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(transformingBookPage.transformBookButton.isDisplayed(),
+        eReports.compareTrue(transformingBookPage.transformBookButton.isDisplayed(),
                 "Verify that 'Transform Book' button is displayed.");
 
-        ExtentManager.compareTrue(transformingBookPage.transformBookButton.isDisplayed(),
+        eReports.compareTrue(transformingBookPage.transformBookButton.isDisplayed(),
                 "Verify that 'Transform Book' button is displayed.");
 
         BookInquiryPage bookInquiryPage = transformingBookPage.clickTransformButton();
-        ExtentManager.compareNotNULL(bookInquiryPage,
+        eReports.compareNotNULL(bookInquiryPage,
                 "Click 'Transform' button and verify that the book was transformed.");
     }
     public void journalTransformingBookTest_BVT() {
         String sampleBookNumber = prop.getProperty("sampleBookNumber");
 
-        ExtentManager.createNode("JOURNAL -> Transform a Sample Book.",
+        eReports.createNode("JOURNAL -> Transform a Sample Book.",
                 "Verify Transforming a Book Page.");
 
         TransformingBookPage transformingBookPage = new TransformingBookPage();
-        if (ExtentManager.compareNotNULL(transformingBookPage,
+        if (eReports.compareNotNULL(transformingBookPage,
                 "Open 'JOURNAL -> Transforming a Book page.")) {
 
-            ExtentManager.compareTrue(transformingBookPage.setJournalSequence(sampleBookNumber),
+            eReports.compareTrue(transformingBookPage.setJournalSequence(sampleBookNumber),
                     "Set Journal Sequence number to " + sampleBookNumber);
 
-            ExtentManager.compareTrue(transformingBookPage.clickSubmit(),
+            eReports.compareTrue(transformingBookPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(transformingBookPage.jrnlBookSeq.isDisplayed()
+            eReports.compareTrue(transformingBookPage.jrnlBookSeq.isDisplayed()
                             && transformingBookPage.isPageOpened(),
                     "Verify that Transforming a Book page is opened.");
         }
@@ -1508,19 +1508,19 @@ public class JournalTests {
     public void journalTransformingSampleJournalTest() {
         String sampleJournalNumber = prop.getProperty("sampleJournalNumber");
 
-        ExtentManager.createNode("JOURNAL -> Transforming a Sample Journal.",
+        eReports.createNode("JOURNAL -> Transforming a Sample Journal.",
                 "Verify Transforming a Sample Journal Page.");
 
         TransformingSampleJournalPage transformingSampleJournalPage = new TransformingSampleJournalPage();
-        ExtentManager.compareNotNULL(transformingSampleJournalPage,
+        eReports.compareNotNULL(transformingSampleJournalPage,
                 "Open 'JOURNAL -> Transforming a Sample Journal page.");
 
-        ExtentManager.compareTrue(transformingSampleJournalPage.setJournalSequence(sampleJournalNumber),
+        eReports.compareTrue(transformingSampleJournalPage.setJournalSequence(sampleJournalNumber),
                 "Set Journal Sequence number to " + sampleJournalNumber);
-        ExtentManager.compareTrue(transformingSampleJournalPage.clickSubmit(),
+        eReports.compareTrue(transformingSampleJournalPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(transformingSampleJournalPage.submitChanges.isDisplayed(),
+        eReports.compareTrue(transformingSampleJournalPage.submitChanges.isDisplayed(),
                 "Verify that 'Submit Changes' button is displayed.");
 
         //ToDo: Закончить, когда пойму как выставить разрешение на трансформацию журнала
@@ -1528,349 +1528,349 @@ public class JournalTests {
     public void journalTransformingSampleJournalTest_BVT() {
         String sampleJournalNumber = prop.getProperty("sampleJournalNumber");
 
-        ExtentManager.createNode("JOURNAL -> Transforming a Sample Journal.",
+        eReports.createNode("JOURNAL -> Transforming a Sample Journal.",
                 "Verify Transforming a Sample Journal Page.");
 
         TransformingSampleJournalPage transformingSampleJournalPage = new TransformingSampleJournalPage();
-        if (ExtentManager.compareNotNULL(transformingSampleJournalPage,
+        if (eReports.compareNotNULL(transformingSampleJournalPage,
                 "Open 'JOURNAL -> Transforming a Sample Journal page.")) {
 
-            ExtentManager.compareTrue(transformingSampleJournalPage.setJournalSequence(sampleJournalNumber),
+            eReports.compareTrue(transformingSampleJournalPage.setJournalSequence(sampleJournalNumber),
                     "Set Journal Sequence number to " + sampleJournalNumber);
-            ExtentManager.compareTrue(transformingSampleJournalPage.clickSubmit(),
+            eReports.compareTrue(transformingSampleJournalPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(transformingSampleJournalPage.jrnlBookSeq.isDisplayed()
+            eReports.compareTrue(transformingSampleJournalPage.jrnlBookSeq.isDisplayed()
                             && transformingSampleJournalPage.isPageOpened(),
                     "Verify that Transforming a Sample Journal page is opened.");
         }
     }
 
     public void journalAlterTitlesTest(String journalSequence) {
-        ExtentManager.createNode("JOURNAL -> Journal XRef -> Alter Titles.",
+        eReports.createNode("JOURNAL -> Journal XRef -> Alter Titles.",
                 "Verify Alter Titles Page.");
 
         AlterTitlesPage alterTitlesPage = new AlterTitlesPage();
-        ExtentManager.compareNotNULL(alterTitlesPage,
+        eReports.compareNotNULL(alterTitlesPage,
                 "Open 'JOURNAL -> Journal XRef -> Alter Titles page.");
 
-        ExtentManager.compareTrue(alterTitlesPage.setJournalSequence(journalSequence),
+        eReports.compareTrue(alterTitlesPage.setJournalSequence(journalSequence),
                 "Set Journal Sequence number to " + journalSequence);
-        ExtentManager.compareTrue(alterTitlesPage.clickSubmit(),
+        eReports.compareTrue(alterTitlesPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(alterTitlesPage.clickSubmitChanges(),
+        eReports.compareTrue(alterTitlesPage.clickSubmitChanges(),
                 "Click 'Submit Changes' button.");
 
         JournalChangesPage journalChangesPage = alterTitlesPage.clickConfirmButton();
-        ExtentManager.compareNotNULL(journalChangesPage,
+        eReports.compareNotNULL(journalChangesPage,
                 "Click 'Confirm' button and verify Journal Changes page is opened.");
 
         String message = "Record for Publication Titles for Journal Seq No. " + journalSequence + " successfully updated. Please review below.";
-        ExtentManager.compareTrue(journalChangesPage.isMessageDisplayed(message),
+        eReports.compareTrue(journalChangesPage.isMessageDisplayed(message),
                 "Verify that '" + message +"' message is displayed.");
     }
     public void journalAlterTitlesTest_BVT(String journalSequence) {
-        ExtentManager.createNode("JOURNAL -> Journal XRef -> Alter Titles.",
+        eReports.createNode("JOURNAL -> Journal XRef -> Alter Titles.",
                 "Verify Alter Titles Page.");
 
         AlterTitlesPage alterTitlesPage = new AlterTitlesPage();
-        if (ExtentManager.compareNotNULL(alterTitlesPage,
+        if (eReports.compareNotNULL(alterTitlesPage,
                 "Open 'JOURNAL -> Journal XRef -> Alter Titles page.")) {
 
-            ExtentManager.compareTrue(alterTitlesPage.setJournalSequence(journalSequence),
+            eReports.compareTrue(alterTitlesPage.setJournalSequence(journalSequence),
                     "Set Journal Sequence number to " + journalSequence);
 
-            ExtentManager.compareTrue(alterTitlesPage.clickSubmit(),
+            eReports.compareTrue(alterTitlesPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(alterTitlesPage.submitChanges.isDisplayed()
+            eReports.compareTrue(alterTitlesPage.submitChanges.isDisplayed()
                             && alterTitlesPage.isPageOpened(),
                     "Verify that Alter Titles page is opened.");
         }
     }
 
     public void dropSuspendCeaseTest(String journalSequence) {
-        ExtentManager.createNode("JOURNAL -> Journal XRef -> Drop Suspend Cease.",
+        eReports.createNode("JOURNAL -> Journal XRef -> Drop Suspend Cease.",
                 "Verify Drop Suspend Cease Page.");
 
         DropSuspendCeasePage dropSuspendCeasePage = new DropSuspendCeasePage();
-        ExtentManager.compareNotNULL(dropSuspendCeasePage,
+        eReports.compareNotNULL(dropSuspendCeasePage,
                 "Open 'JOURNAL -> Journal XRef -> Drop Suspend Cease page.");
 
-        ExtentManager.compareTrue(dropSuspendCeasePage.setJournalSequence(journalSequence),
+        eReports.compareTrue(dropSuspendCeasePage.setJournalSequence(journalSequence),
                 "Set Journal Sequence number to " + journalSequence);
-        ExtentManager.compareTrue(dropSuspendCeasePage.clickSubmit(),
+        eReports.compareTrue(dropSuspendCeasePage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(dropSuspendCeasePage.clickSubmitChanges(),
+        eReports.compareTrue(dropSuspendCeasePage.clickSubmitChanges(),
                 "Click 'Submit Changes' button.");
 
-        ExtentManager.compareTrue(dropSuspendCeasePage.suspendOption.set(),
+        eReports.compareTrue(dropSuspendCeasePage.suspendOption.set(),
                 "Select 'Suspend' option.");
 
         JournalChangesPage journalChangesPage = dropSuspendCeasePage.clickConfirmButton();
-        ExtentManager.compareNotNULL(journalChangesPage,
+        eReports.compareNotNULL(journalChangesPage,
                 "Click 'Confirm' button and verify Journal Changes page is opened.");
     }
     public void dropSuspendCeaseTest_BVT(String journalSequence) {
-        ExtentManager.createNode("JOURNAL -> Journal XRef -> Drop Suspend Cease.",
+        eReports.createNode("JOURNAL -> Journal XRef -> Drop Suspend Cease.",
                 "Verify Drop Suspend Cease Page.");
 
         DropSuspendCeasePage dropSuspendCeasePage = new DropSuspendCeasePage();
-        if (ExtentManager.compareNotNULL(dropSuspendCeasePage,
+        if (eReports.compareNotNULL(dropSuspendCeasePage,
                 "Open 'JOURNAL -> Journal XRef -> Drop Suspend Cease page.")) {
 
-            ExtentManager.compareTrue(dropSuspendCeasePage.setJournalSequence(journalSequence),
+            eReports.compareTrue(dropSuspendCeasePage.setJournalSequence(journalSequence),
                     "Set Journal Sequence number to " + journalSequence);
 
-            ExtentManager.compareTrue(dropSuspendCeasePage.clickSubmit(),
+            eReports.compareTrue(dropSuspendCeasePage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(dropSuspendCeasePage.submitChanges.isDisplayed()
+            eReports.compareTrue(dropSuspendCeasePage.submitChanges.isDisplayed()
                             && dropSuspendCeasePage.isPageOpened(),
                     "Verify that Alter Titles page is opened.");
         }
     }
 
     public void reactivateTest(String journalSequence) {
-        ExtentManager.createNode("JOURNAL -> Journal XRef -> Drop Suspend Cease.",
+        eReports.createNode("JOURNAL -> Journal XRef -> Drop Suspend Cease.",
                 "Verify Drop Suspend Cease Page.");
 
         DropSuspendCeasePage dropSuspendCeasePage = new DropSuspendCeasePage();
-        ExtentManager.compareNotNULL(dropSuspendCeasePage,
+        eReports.compareNotNULL(dropSuspendCeasePage,
                 "Open 'JOURNAL -> Journal XRef -> Drop Suspend Cease' page.");
 
-        ExtentManager.compareTrue(dropSuspendCeasePage.setJournalSequence(journalSequence),
+        eReports.compareTrue(dropSuspendCeasePage.setJournalSequence(journalSequence),
                 "Set Journal Sequence number to " + journalSequence);
-        ExtentManager.compareTrue(dropSuspendCeasePage.clickSubmit(),
+        eReports.compareTrue(dropSuspendCeasePage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(dropSuspendCeasePage.clickSubmitChanges(),
+        eReports.compareTrue(dropSuspendCeasePage.clickSubmitChanges(),
                 "Click 'Submit Changes' button.");
 
-        ExtentManager.compareTrue(dropSuspendCeasePage.reactivateOption.set(),
+        eReports.compareTrue(dropSuspendCeasePage.reactivateOption.set(),
                 "Select 'Suspend' option.");
 
         JournalChangesPage journalChangesPage = dropSuspendCeasePage.clickConfirmButton();
-        ExtentManager.compareNotNULL(journalChangesPage,
+        eReports.compareNotNULL(journalChangesPage,
                 "Click 'Confirm' button and verify Journal Changes page is opened.");
 
         String message = "Record for Journal Seq No. " + journalSequence + " has been reactivateed. successfully updated. Please review below.";
-        ExtentManager.compareTrue(journalChangesPage.isMessageDisplayed(message),
+        eReports.compareTrue(journalChangesPage.isMessageDisplayed(message),
                 "Verify that '" + message +"' message is displayed.");
     }
 
     public void absorbTest(String journalSequence) {
-        ExtentManager.createNode("JOURNAL -> Journal XRef -> Absorb.",
+        eReports.createNode("JOURNAL -> Journal XRef -> Absorb.",
                 "Verify Absorb Page.");
 
         AbsorbPage absorbPage = new AbsorbPage();
-        ExtentManager.compareNotNULL(absorbPage,
+        eReports.compareNotNULL(absorbPage,
                 "Open 'JOURNAL -> Journal XRef -> Absorb page.");
 
-        ExtentManager.compareTrue(absorbPage.setJournalSequence(journalSequence),
+        eReports.compareTrue(absorbPage.setJournalSequence(journalSequence),
                 "Set Journal Sequence number to " + journalSequence);
-        ExtentManager.compareTrue(absorbPage.clickSubmit(),
+        eReports.compareTrue(absorbPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(absorbPage.clickSubmitChanges(),
+        eReports.compareTrue(absorbPage.clickSubmitChanges(),
                 "Click 'Submit Changes' button.");
 
         JournalChangesPage journalChangesPage = absorbPage.clickConfirmButton();
-        ExtentManager.compareNotNULL(journalChangesPage,
+        eReports.compareNotNULL(journalChangesPage,
                 "Click 'Confirm' button and verify Journal Changes page is opened.");
 
         //ToDo: Доделать когда будет понятна вся функциональность
     }
     public void absorbTest_BVT(String journalSequence) {
-        ExtentManager.createNode("JOURNAL -> Journal XRef -> Absorb.",
+        eReports.createNode("JOURNAL -> Journal XRef -> Absorb.",
                 "Verify Absorb Page.");
 
         AbsorbPage absorbPage = new AbsorbPage();
-        if (ExtentManager.compareNotNULL(absorbPage,
+        if (eReports.compareNotNULL(absorbPage,
                 "Open 'JOURNAL -> Journal XRef -> Absorb page.")) {
 
-            ExtentManager.compareTrue(absorbPage.setJournalSequence(journalSequence),
+            eReports.compareTrue(absorbPage.setJournalSequence(journalSequence),
                     "Set Journal Sequence number to " + journalSequence);
 
-            ExtentManager.compareTrue(absorbPage.clickSubmit(),
+            eReports.compareTrue(absorbPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(absorbPage.submitChanges.isDisplayed()
+            eReports.compareTrue(absorbPage.submitChanges.isDisplayed()
                             && absorbPage.isPageOpened(),
                     "Verify that Absorb page is opened.");
         }
     }
 
     public void mergeTest(String journalSequence) {
-        ExtentManager.createNode("JOURNAL -> Journal XRef -> Merge.",
+        eReports.createNode("JOURNAL -> Journal XRef -> Merge.",
                 "Verify Merge Page.");
 
         MergePage mergePage = new MergePage();
-        ExtentManager.compareNotNULL(mergePage,
+        eReports.compareNotNULL(mergePage,
                 "Open 'JOURNAL -> Journal XRef -> Merge page.");
 
-        ExtentManager.compareTrue(mergePage.setJournalSequence(journalSequence),
+        eReports.compareTrue(mergePage.setJournalSequence(journalSequence),
                 "Set Journal Sequence number to " + journalSequence);
-        ExtentManager.compareTrue(mergePage.clickSubmit(),
+        eReports.compareTrue(mergePage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(mergePage.clickSubmitChanges(),
+        eReports.compareTrue(mergePage.clickSubmitChanges(),
                 "Click 'Submit Changes' button.");
 
         JournalChangesPage journalChangesPage = mergePage.clickConfirmButton();
-        ExtentManager.compareNotNULL(journalChangesPage,
+        eReports.compareNotNULL(journalChangesPage,
                 "Click 'Confirm' button and verify Journal Changes page is opened.");
 
         //ToDo: Доделать когда будет понятна вся функциональность
     }
     public void mergeTest_BVT(String journalSequence) {
-        ExtentManager.createNode("JOURNAL -> Journal XRef -> Merge.",
+        eReports.createNode("JOURNAL -> Journal XRef -> Merge.",
                 "Verify Merge Page.");
 
         MergePage mergePage = new MergePage();
-        if (ExtentManager.compareNotNULL(mergePage,
+        if (eReports.compareNotNULL(mergePage,
                 "Open 'JOURNAL -> Journal XRef -> Merge page.")) {
 
-            ExtentManager.compareTrue(mergePage.setJournalSequence(journalSequence),
+            eReports.compareTrue(mergePage.setJournalSequence(journalSequence),
                     "Set Journal Sequence number to " + journalSequence);
 
-            ExtentManager.compareTrue(mergePage.clickSubmit(),
+            eReports.compareTrue(mergePage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(mergePage.submitChanges.isDisplayed()
+            eReports.compareTrue(mergePage.submitChanges.isDisplayed()
                             && mergePage.isPageOpened(),
                     "Verify that Merge page is opened.");
         }
     }
 
     public void splitTest(String journalSequence) {
-        ExtentManager.createNode("JOURNAL -> Journal XRef -> Split.",
+        eReports.createNode("JOURNAL -> Journal XRef -> Split.",
                 "Verify Split Page.");
 
         SplitPage splitPage = new SplitPage();
-        ExtentManager.compareNotNULL(splitPage,
+        eReports.compareNotNULL(splitPage,
                 "Open 'JOURNAL -> Journal XRef -> Split page.");
 
-        ExtentManager.compareTrue(splitPage.setJournalSequence(journalSequence),
+        eReports.compareTrue(splitPage.setJournalSequence(journalSequence),
                 "Set Journal Sequence number to " + journalSequence);
-        ExtentManager.compareTrue(splitPage.clickSubmit(),
+        eReports.compareTrue(splitPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(splitPage.clickSubmitChanges(),
+        eReports.compareTrue(splitPage.clickSubmitChanges(),
                 "Click 'Submit Changes' button.");
 
         JournalChangesPage journalChangesPage = splitPage.clickConfirmButton();
-        ExtentManager.compareNotNULL(journalChangesPage,
+        eReports.compareNotNULL(journalChangesPage,
                 "Click 'Confirm' button and verify Journal Changes page is opened.");
 
         //ToDo: Доделать когда будет понятна вся функциональность
     }
     public void splitTest_BVT(String journalSequence) {
-        ExtentManager.createNode("JOURNAL -> Journal XRef -> Split.",
+        eReports.createNode("JOURNAL -> Journal XRef -> Split.",
                 "Verify Split Page.");
 
         SplitPage splitPage = new SplitPage();
-        if (ExtentManager.compareNotNULL(splitPage,
+        if (eReports.compareNotNULL(splitPage,
                 "Open 'JOURNAL -> Journal XRef -> Split page.")) {
 
-            ExtentManager.compareTrue(splitPage.setJournalSequence(journalSequence),
+            eReports.compareTrue(splitPage.setJournalSequence(journalSequence),
                     "Set Journal Sequence number to " + journalSequence);
 
-            ExtentManager.compareTrue(splitPage.clickSubmit(),
+            eReports.compareTrue(splitPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(splitPage.submitChanges.isDisplayed()
+            eReports.compareTrue(splitPage.submitChanges.isDisplayed()
                             && splitPage.isPageOpened(),
                     "Verify that Split page is opened.");
         }
     }
 
     public void titleChangesTest(String journalSequenceFirst, String journalSequenceSecond) {
-        ExtentManager.createNode("JOURNAL -> Journal XRef -> Title Changes.",
+        eReports.createNode("JOURNAL -> Journal XRef -> Title Changes.",
                 "Verify Title Changes Page.");
 
         TitleChangesPage titleChangesPage = new TitleChangesPage();
-        ExtentManager.compareNotNULL(titleChangesPage,
+        eReports.compareNotNULL(titleChangesPage,
                 "Open 'JOURNAL -> Journal XRef -> Title Changes page.");
 
-        ExtentManager.compareTrue(titleChangesPage.setJournalSequence(journalSequenceFirst),
+        eReports.compareTrue(titleChangesPage.setJournalSequence(journalSequenceFirst),
                 "Set Journal Sequence number to " + journalSequenceFirst);
-        ExtentManager.compareTrue(titleChangesPage.clickSubmit(),
+        eReports.compareTrue(titleChangesPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(titleChangesPage.acusitionUser.setText(journalSequenceSecond),
+        eReports.compareTrue(titleChangesPage.acusitionUser.setText(journalSequenceSecond),
                 "Set '" + journalSequenceSecond + "' to the 'Change to Jrnl Seq #' field.");
 
-        ExtentManager.compareTrue(titleChangesPage.clickSubmitChanges(),
+        eReports.compareTrue(titleChangesPage.clickSubmitChanges(),
                 "Click 'Submit Changes' button.");
 
         JournalChangesPage journalChangesPage = titleChangesPage.clickConfirmButton();
-        ExtentManager.compareNotNULL(journalChangesPage,
+        eReports.compareNotNULL(journalChangesPage,
                 "Click 'Confirm' button and verify Journal Changes page is opened.");
     }
     public void titleChangesTest_BVT(String journalSequenceFirst) {
-        ExtentManager.createNode("JOURNAL -> Journal XRef -> Title Changes.",
+        eReports.createNode("JOURNAL -> Journal XRef -> Title Changes.",
                 "Verify Title Changes Page.");
 
         TitleChangesPage titleChangesPage = new TitleChangesPage();
-        if (ExtentManager.compareNotNULL(titleChangesPage,
+        if (eReports.compareNotNULL(titleChangesPage,
                 "Open 'JOURNAL -> Journal XRef -> Title Changes page.")) {
 
-            ExtentManager.compareTrue(titleChangesPage.setJournalSequence(journalSequenceFirst),
+            eReports.compareTrue(titleChangesPage.setJournalSequence(journalSequenceFirst),
                     "Set Journal Sequence number to " + journalSequenceFirst);
 
-            ExtentManager.compareTrue(titleChangesPage.clickSubmit(),
+            eReports.compareTrue(titleChangesPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(titleChangesPage.submitChanges.isDisplayed()
+            eReports.compareTrue(titleChangesPage.submitChanges.isDisplayed()
                             && titleChangesPage.isPageOpened(),
                     "Verify that Title Changes page is opened.");
         }
     }
 
     public void addVariantsTest(String journalSequence) {
-        ExtentManager.createNode("JOURNAL -> Journal XRef -> Add Variants.",
+        eReports.createNode("JOURNAL -> Journal XRef -> Add Variants.",
                 "Verify Add Variants Page.");
 
         VariantsPage variantsPage = new VariantsPage();
-        ExtentManager.compareNotNULL(variantsPage,
+        eReports.compareNotNULL(variantsPage,
                 "Open 'JOURNAL -> Journal XRef -> Add Variants page.");
 
-        ExtentManager.compareTrue(variantsPage.setJournalSequence(journalSequence),
+        eReports.compareTrue(variantsPage.setJournalSequence(journalSequence),
                 "Set Journal Sequence number to " + journalSequence);
-        ExtentManager.compareTrue(variantsPage.clickSubmit(),
+        eReports.compareTrue(variantsPage.clickSubmit(),
                 "Click 'Submit' button.");
 
-        ExtentManager.compareTrue(variantsPage.clickSubmitChanges(),
+        eReports.compareTrue(variantsPage.clickSubmitChanges(),
                 "Click 'Submit Changes' button.");
 
         JournalInquiryPage journalInquiryPage = variantsPage.clickConfirmButton();
-        if (ExtentManager.compareNotNULL(journalInquiryPage,
+        if (eReports.compareNotNULL(journalInquiryPage,
                 "Click 'Confirm' button and verify Journal Inquiry page is opened.")) {
 
             String message = "Record for Variants for Journal Seq No. "
                     + journalSequence + " has been processed. successfully updated. Please review below.";
-            ExtentManager.compareTrue(journalInquiryPage.isMessageDisplayed(message),
+            eReports.compareTrue(journalInquiryPage.isMessageDisplayed(message),
                     "Verify that '" + message + "' message is displayed.");
         }
     }
     public void addVariantsTest_BVT(String journalSequence) {
-        ExtentManager.createNode("JOURNAL -> Journal XRef -> Add Variants.",
+        eReports.createNode("JOURNAL -> Journal XRef -> Add Variants.",
                 "Verify Add Variants Page.");
 
         VariantsPage variantsPage = new VariantsPage();
-        if (ExtentManager.compareNotNULL(variantsPage,
+        if (eReports.compareNotNULL(variantsPage,
                 "Open 'JOURNAL -> Journal XRef -> Add Variants page.")) {
 
-            ExtentManager.compareTrue(variantsPage.setJournalSequence(journalSequence),
+            eReports.compareTrue(variantsPage.setJournalSequence(journalSequence),
                     "Set Journal Sequence number to " + journalSequence);
 
-            ExtentManager.compareTrue(variantsPage.clickSubmit(),
+            eReports.compareTrue(variantsPage.clickSubmit(),
                     "Click 'Submit' button.");
 
-            ExtentManager.compareTrue(variantsPage.submitChanges.isDisplayed()
+            eReports.compareTrue(variantsPage.submitChanges.isDisplayed()
                             && variantsPage.isPageOpened(),
                     "Verify that Title Changes page is opened.");
         }

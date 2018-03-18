@@ -19,41 +19,41 @@ public class IssueTests {
 
     //=== Tests
     private void searchIssueTest(SearchFields field, String value) {
-        ExtentManager.createNode("Search -> Issues -> by " + field + ".",
+        eReports.createNode("Search -> Issues -> by " + field + ".",
                 "Verify Search Issues by " + field + ".");
 
         //=== Journal Sequence No.
         IssueSearchPage issueSearchPage = new IssueSearchPage();
-        ExtentManager.compareNotNULL(issueSearchPage,
+        eReports.compareNotNULL(issueSearchPage,
                 "Open 'Search -> Issues' search page.");
 
-        ExtentManager.compareTrue(issueSearchPage.setValue(field, value),
+        eReports.compareTrue(issueSearchPage.setValue(field, value),
                 "Set " + value + " to the '" + field + "' field.");
 
         IssueDetailsPage issueDetailsPage = (IssueDetailsPage) issueSearchPage.clickSearchButton(false);
-        ExtentManager.compareNotNULL(issueDetailsPage,
+        eReports.compareNotNULL(issueDetailsPage,
                 "Click 'Search' button and verify that Issue Details page was opened.");
 
-        ExtentManager.compareTrue(issueDetailsPage.checkValue(field, value),
+        eReports.compareTrue(issueDetailsPage.checkValue(field, value),
                 "Verify that " + value + " is displayed in the '" + field + "' field.");
     }
     private void searchArticleTest(SearchFields field, String value, String articleValue) {
-        ExtentManager.createNode("Search -> Issues -> by Article + " + field + ".",
+        eReports.createNode("Search -> Issues -> by Article + " + field + ".",
                 "Verify Search Issues by Article + " + field + ".");
 
         //=== Journal Sequence No.
         IssueSearchPage issueSearchPage = new IssueSearchPage();
-        ExtentManager.compareNotNULL(issueSearchPage,
+        eReports.compareNotNULL(issueSearchPage,
                 "Open 'Search -> Issues' search page.");
 
-        ExtentManager.compareTrue(issueSearchPage.setValue(field, value),
+        eReports.compareTrue(issueSearchPage.setValue(field, value),
                 "Set " + value + " to the '" + field + "' field.");
 
-        ExtentManager.compareTrue(issueSearchPage.setValue(SearchFields.ArticleNumber, articleValue),
+        eReports.compareTrue(issueSearchPage.setValue(SearchFields.ArticleNumber, articleValue),
                 "Set " + value + " to the '" + field + "' field.");
 
         ArticleSummaryPage articleSummaryPage = (ArticleSummaryPage) issueSearchPage.clickSearchButton(true);
-        ExtentManager.compareNotNULL(articleSummaryPage,
+        eReports.compareNotNULL(articleSummaryPage,
                 "Click 'Search' button and verify that Article Summary page was opened.");
     }
 
@@ -69,5 +69,14 @@ public class IssueTests {
 
         searchArticleTest(SearchFields.Accession,
                 prop.getProperty("issuesSearchAccession"), prop.getProperty("issuesSearchArticleNumber"));
+    }
+    public void IssueTest_BVT() {
+        eReports.createNode("Search -> Issues page.",
+                "Verify Search Issues page.");
+
+        //=== Journal Sequence No.
+        IssueSearchPage issueSearchPage = new IssueSearchPage();
+        eReports.compareNotNULL(issueSearchPage,
+                "Open 'Search -> Issues' search page.");
     }
 }

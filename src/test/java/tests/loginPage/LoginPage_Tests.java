@@ -26,14 +26,14 @@ public class LoginPage_Tests {
         String password = prop.getProperty("password");
         MainPage returnPage = null;
 
-        ExtentManager.createNode("Login Page.", "Verify that user can login to the APP.");
+        eReports.createNode("Login Page.", "Verify that user can login to the APP.");
 
         LoginPage loginPage = new LoginPage();
-        if (ExtentManager.compareNotNULL(loginPage, "Check that HOME Page is opened.")) {
-            ExtentManager.compareTrue(loginPage.setUserID(userID), "Set user ID: " + userID);
-            ExtentManager.compareTrue(loginPage.setPassword(password), "Set password: " + password);
+        if (eReports.compareNotNULL(loginPage, "Check that HOME Page is opened.")) {
+            eReports.compareTrue(loginPage.setUserID(userID), "Set user ID: " + userID);
+            eReports.compareTrue(loginPage.setPassword(password), "Set password: " + password);
             returnPage = loginPage.submit();
-            ExtentManager.compareNotNULL(returnPage, "Click 'Submit' button and check that the main page is opened.");
+            eReports.compareNotNULL(returnPage, "Click 'Submit' button and check that the main page is opened.");
         }
         return returnPage;
     }

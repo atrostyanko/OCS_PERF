@@ -456,12 +456,12 @@ public class WebDriverFactory {
                         return child;
                     }
                 } catch (org.openqa.selenium.NoSuchElementException nse) {
-                    ExtentManager.getCurrentTest().warning("getChildElementContainsText: Parent did not contain Child element: " + childBy.toString());
+                    eReports.getCurrentTest().warning("getChildElementContainsText: Parent did not contain Child element: " + childBy.toString());
                 }
 
             }
         } else {
-            ExtentManager.getCurrentTest().debug("List of elements to search is empty");
+            eReports.getCurrentTest().debug("List of elements to search is empty");
         }
         return null;
     }
@@ -475,12 +475,12 @@ public class WebDriverFactory {
                         return child;
                     }
                 } catch (org.openqa.selenium.NoSuchElementException nse) {
-                    ExtentManager.getCurrentTest().warning("getChildElementMatchText: Parent did not contain Child element: " + childBy.toString());
+                    eReports.getCurrentTest().warning("getChildElementMatchText: Parent did not contain Child element: " + childBy.toString());
                 }
 
             }
         } else {
-            ExtentManager.getCurrentTest().debug("List of elements to search is empty");
+            eReports.getCurrentTest().debug("List of elements to search is empty");
         }
         return null;
     }
@@ -587,11 +587,11 @@ public class WebDriverFactory {
                     //waitForPageNotBusy(SHORT_TIME_OUT);
                     bReturn = true;
                 } else {
-                    ExtentManager.getCurrentTest().warning("The Item is Null: " + sText);
+                    eReports.getCurrentTest().warning("The Item is Null: " + sText);
                 }
             }
         } catch (StaleElementReferenceException e) {
-            ExtentManager.getCurrentTest().warning("Caught Stale Element Exception!!");
+            eReports.getCurrentTest().warning("Caught Stale Element Exception!!");
             return selectItemFromOpsDropDownMenu(webElement, sText);
         }
         return bReturn;
@@ -642,7 +642,7 @@ public class WebDriverFactory {
         try {
             return element.findElement(locator);
         } catch (org.openqa.selenium.NoSuchElementException e) {
-            ExtentManager.getCurrentTest().debug("Element with Locator " + locator + " not found");
+            eReports.getCurrentTest().debug("Element with Locator " + locator + " not found");
             return null;
         }
     }
@@ -656,7 +656,7 @@ public class WebDriverFactory {
         try {
             return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         } catch (TimeoutException e) {
-            ExtentManager.getCurrentTest().warning("waitAndFindDisplayedElement: Element " + locator.toString() +
+            eReports.getCurrentTest().warning("waitAndFindDisplayedElement: Element " + locator.toString() +
                     " never displayed with in timeout of " + TIMEOUT);
         }
         return null;
@@ -668,7 +668,7 @@ public class WebDriverFactory {
         try {
             return wait.until(ExpectedConditions.visibilityOf(webElement));
         } catch (TimeoutException e) {
-            ExtentManager.getCurrentTest().warning("Element " + webElement.getTagName() +
+            eReports.getCurrentTest().warning("Element " + webElement.getTagName() +
                     " never displayed with in timeout of " + IMPLICIT_WAIT_TIMEOUT);
         }
         return null;

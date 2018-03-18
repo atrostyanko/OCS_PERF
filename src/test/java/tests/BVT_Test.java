@@ -12,6 +12,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import pages.MainPage;
+import tests.conference.ConferenceTests;
 import tests.issue.IssueTests;
 import tests.journal.JournalTests;
 import tests.loginPage.LoginPage_Tests;
@@ -43,12 +44,12 @@ public class BVT_Test {
     @AfterClass
     public static void afterClass() {
         WebDriverFactory.finishBrowser();
-        ExtentManager.flush();
+        eReports.flush();
     }
 
     @Test
     public void publisherTests() {
-        ExtentManager.createTest("PUBLISHER Tests.", "Verify all items from PUBLISHER menu.");
+        eReports.createTest("PUBLISHER Tests.", "Verify all items from PUBLISHER menu.");
 
         MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
         PublisherTests publisherTest = new PublisherTests(eReports, prop);
@@ -93,12 +94,12 @@ public class BVT_Test {
         //=== Add a Serie
         publisherTest.publisherAddNewSerieTest_BVT();
 
-        ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
+        eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
 
     @Test
     public void journalTests() {
-        ExtentManager.createTest("JOURNAL Tests.", "Verify all items from JOURNAL menu.");
+        eReports.createTest("JOURNAL Tests.", "Verify all items from JOURNAL menu.");
 
         MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
         JournalTests journalTest = new JournalTests(eReports, prop);
@@ -216,12 +217,12 @@ public class BVT_Test {
         //===== Add Variants
         journalTest.addVariantsTest_BVT(prop.getProperty("addVariants_JournalSequence"));
 
-        ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
+        eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
 
     @Test
     public void issueTests() {
-        ExtentManager.createTest("ISSUE Tests.", "Verify all items from ISSUE menu.");
+        eReports.createTest("ISSUE Tests.", "Verify all items from ISSUE menu.");
 
         MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
         IssueTests issueTests = new IssueTests(eReports, prop);
@@ -275,31 +276,51 @@ public class BVT_Test {
         issueTests.ClaimRequestTest_BVT();
 
 
-        ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
+        eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
+    }
+
+    @Test
+    public void conferenceTests() {
+        eReports.createTest("Conference Tests.", "Verify all items from Conf. menu.");
+
+        MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
+        ConferenceTests conferenceTests = new ConferenceTests(eReports, prop);
+
+        conferenceTests.conferenceDetailsTest_BVT();
+
+        conferenceTests.conferenceInputTest_BVT();
+
+        conferenceTests.conferenceEditTest_BVT();
+
+        conferenceTests.linkArticlesTest_BVT();
+
+        conferenceTests.linkSampleBooksTest_BVT();
+
+        eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
 
     @Test
     public void searchTest() {
-        ExtentManager.createTest("SEARCH Tests.", "Verify all items from SEARCH menu.");
+        eReports.createTest("SEARCH Tests.", "Verify all items from SEARCH menu.");
 
         MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
         SearchTests searchTests = new SearchTests(eReports, prop);
 
         //=== Publications
-        searchTests.publicationsTest();
+        searchTests.publicationsTest_BVT();
 
         //=== Publishers
-        searchTests.publishersTest();
+        searchTests.publishersTest_BVT();
 
         //=== Issues
-        searchTests.issuesTest();
+        searchTests.issuesTest_BVT();
 
         //=== Conferences
-        searchTests.conferencesTest();
+        searchTests.conferencesTest_BVT();
 
         //=== Product Codes
-        searchTests.productCodesTest();
+        searchTests.productCodesTest_BVT();
 
-        ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
+        eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
 }

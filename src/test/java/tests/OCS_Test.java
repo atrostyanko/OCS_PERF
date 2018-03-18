@@ -34,8 +34,8 @@ public class OCS_Test {
     @BeforeClass
     public static void beforeClass() {
         eReports = new ExtentManager();
-        ExtentManager.setFolderPath(TestsConfig.getConfig().getReportsPath());
-        ExtentManager.GetExtent("OCS Performance Test.");
+        eReports.setFolderPath(TestsConfig.getConfig().getReportsPath());
+        eReports.GetExtent("OCS Performance Test.");
         WebDriverFactory.startBrowser(true);
         PropertiesLoader.populate(new OCS_Test());
     }
@@ -43,12 +43,12 @@ public class OCS_Test {
     @AfterClass
     public static void afterClass() {
         WebDriverFactory.finishBrowser();
-        ExtentManager.flush();
+        eReports.flush();
     }
 
     @Test
     public void publisherTests() {
-        ExtentManager.createTest("PUBLISHER Tests.", "Verify all items from PUBLISHER menu.");
+        eReports.createTest("PUBLISHER Tests.", "Verify all items from PUBLISHER menu.");
 
         MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
         PublisherTests publisherTest = new PublisherTests(eReports, prop);
@@ -93,12 +93,12 @@ public class OCS_Test {
         //=== Add a Serie
         publisherTest.publisherAddNewSerieTest();
 
-        ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
+        eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
 
     @Test
     public void journalTests() {
-        ExtentManager.createTest("JOURNAL Tests.", "Verify all items from JOURNAL menu.");
+        eReports.createTest("JOURNAL Tests.", "Verify all items from JOURNAL menu.");
 
         MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
         JournalTests journalTest = new JournalTests(eReports, prop);
@@ -224,12 +224,12 @@ public class OCS_Test {
         //=== Transform a Sample Journal
         journalTest.journalTransformingSampleJournalTest();
 */
-        ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
+        eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
 
     @Test
     public void issueTests() {
-        ExtentManager.createTest("ISSUE Tests.", "Verify all items from ISSUE menu.");
+        eReports.createTest("ISSUE Tests.", "Verify all items from ISSUE menu.");
 
         MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
         IssueTests issueTests = new IssueTests(eReports, prop);
@@ -283,12 +283,12 @@ public class OCS_Test {
         issueTests.ClaimRequestTest();
 
 
-        ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
+        eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
 
     @Test
     public void searchTest() {
-        ExtentManager.createTest("SEARCH Tests.", "Verify all items from SEARCH menu.");
+        eReports.createTest("SEARCH Tests.", "Verify all items from SEARCH menu.");
 
         MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
         SearchTests searchTests = new SearchTests(eReports, prop);
@@ -308,6 +308,6 @@ public class OCS_Test {
         //=== Product Codes
         searchTests.productCodesTest();
 
-        ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
+        eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
 }

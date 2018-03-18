@@ -1,6 +1,7 @@
 package tests.search;
 
 import com.reporting.ExtentManager;
+import pages.issue.IssueDetailsPage;
 import pages.journal.JournalInquiryPage;
 import pages.publisher.BookInquiryPage;
 import pages.search.PublicationsSearchPage;
@@ -22,42 +23,42 @@ public class PublicationsTests {
     //=== Tests
     private void searchJournalTest(SearchOptions option, SearchFields field, String value) {
 
-        ExtentManager.createNode("Search -> Publications -> " + option + " by " + field + ".",
+        eReports.createNode("Search -> Publications -> " + option + " by " + field + ".",
                 "Verify Search " + option + " Publication by " + field + ".");
 
         //=== Journal Sequence No.
         PublicationsSearchPage publicationsSearchPage = new PublicationsSearchPage();
-        ExtentManager.compareNotNULL(publicationsSearchPage,
+        eReports.compareNotNULL(publicationsSearchPage,
                 "Open 'Search -> Publications' search page.");
 
-        ExtentManager.compareTrue(publicationsSearchPage.selectSearchOption(option),
+        eReports.compareTrue(publicationsSearchPage.selectSearchOption(option),
                 "Set '" + option + "' search option.");
 
-        ExtentManager.compareTrue(publicationsSearchPage.setValue(field, value),
+        eReports.compareTrue(publicationsSearchPage.setValue(field, value),
                 "Set " + value + " to the '" + field + "' field.");
 
         JournalInquiryPage journalInquiryPage = (JournalInquiryPage) publicationsSearchPage.clickSearchButton(option);
-        ExtentManager.compareNotNULL(journalInquiryPage,
+        eReports.compareNotNULL(journalInquiryPage,
                 "Click 'Search' button and verify that Journal Inquiry page was opened.");
     }
     private void searchBookTest(SearchOptions option, SearchFields field, String value) {
 
-        ExtentManager.createNode("Search -> Publications -> " + option + " by " + field + ".",
+        eReports.createNode("Search -> Publications -> " + option + " by " + field + ".",
                 "Verify Search " + option + " Publication by " + field + ".");
 
         //=== Journal Sequence No.
         PublicationsSearchPage publicationsSearchPage = new PublicationsSearchPage();
-        ExtentManager.compareNotNULL(publicationsSearchPage,
+        eReports.compareNotNULL(publicationsSearchPage,
                 "Open 'Search -> Publications' search page.");
 
-        ExtentManager.compareTrue(publicationsSearchPage.selectSearchOption(option),
+        eReports.compareTrue(publicationsSearchPage.selectSearchOption(option),
                 "Set '" + option + "' search option.");
 
-        ExtentManager.compareTrue(publicationsSearchPage.setValue(field, value),
+        eReports.compareTrue(publicationsSearchPage.setValue(field, value),
                 "Set " + value + " to the '" + field + "' field.");
 
         BookInquiryPage bookInquiryPage = (BookInquiryPage) publicationsSearchPage.clickSearchButton(option);
-        ExtentManager.compareNotNULL(bookInquiryPage,
+        eReports.compareNotNULL(bookInquiryPage,
                 "Click 'Search' button and verify that Book Inquiry page was opened.");
     }
 
@@ -97,5 +98,14 @@ public class PublicationsTests {
         searchBookTest(SearchOptions.ALLBOOKS,
                 SearchFields.FullTitle,
                 prop.getProperty("bookSearchFullTitle"));
+    }
+
+    public void PublicationsTest_BVT() {
+        eReports.createNode("Search -> Publications Page.",
+                "Verify Search OCS Page.");
+
+        PublicationsSearchPage publicationsSearchPage = new PublicationsSearchPage();
+        eReports.compareNotNULL(publicationsSearchPage,
+                "Open Search OCS page.");
     }
 }
