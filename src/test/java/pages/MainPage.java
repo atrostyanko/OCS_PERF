@@ -42,5 +42,4 @@ public class MainPage extends MenuPage {
     public boolean clickSubmit() {
         return submitBtn.click();
     }
-
 }

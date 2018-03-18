@@ -16,7 +16,9 @@ import tests.conference.ConferenceTests;
 import tests.issue.IssueTests;
 import tests.journal.JournalTests;
 import tests.loginPage.LoginPage_Tests;
+import tests.miscellaneous.MiscellaneousTests;
 import tests.publisher.PublisherTests;
+import tests.reports.ReportsTests;
 import tests.search.SearchTests;
 
 import java.util.Properties;
@@ -320,6 +322,22 @@ public class BVT_Test {
 
         //=== Product Codes
         searchTests.productCodesTest_BVT();
+
+        eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
+    }
+
+    @Test
+    public void Miscellaneous() {
+        eReports.createTest("SEARCH Tests.", "Verify all items from SEARCH menu.");
+
+        MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
+        MiscellaneousTests miscellaneousTests = new MiscellaneousTests(eReports, prop);
+
+        miscellaneousTests.reportsTest();
+
+        miscellaneousTests.dictionaryTest();
+
+        miscellaneousTests.printerSetupTest();
 
         eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
