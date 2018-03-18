@@ -35,6 +35,11 @@ public class ClaimingCandidatesPage extends BaseIssuePage {
                 && publisherCode.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Claiming Candidates");
+    }
+
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         if (submitBtn.click()) {

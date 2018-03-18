@@ -1434,7 +1434,7 @@ public class JournalTests {
                     issueDetailsPage.getElementValue(issueDetailsPage.journalSeq.asWebElement()),
                     "Verify that Journal Seq. # is " + journalSequence);
         }
-        dfIssueNo = issueDetailsPage.getElementValue(issueDetailsPage.issueno.asWebElement());
+        dfIssueNo = issueDetailsPage.getElementValue(issueDetailsPage.issueNoLabel.asWebElement());
     }
     public void journalIssueLoginTest_BVT() {
         String journalSequence = prop.getProperty("journalNumberForIssueLogin");

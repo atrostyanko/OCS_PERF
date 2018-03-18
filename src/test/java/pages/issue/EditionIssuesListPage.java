@@ -32,6 +32,11 @@ public class EditionIssuesListPage extends BaseIssuePage {
     }
 
     @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Edition Issues List");
+    }
+
+    @Override
     public boolean clickSubmit() {
         if (submitBtn.click()) {
             return WebDriverFactory.waitTextToBePresentInElement(pageTitle, "Edition Issues List")

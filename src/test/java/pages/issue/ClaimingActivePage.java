@@ -37,6 +37,11 @@ public class ClaimingActivePage extends BaseIssuePage {
                 && journalSequenceNumber.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Claiming Active");
+    }
+
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         if (submitBtn.click()) {

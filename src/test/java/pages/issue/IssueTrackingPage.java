@@ -17,6 +17,11 @@ public class IssueTrackingPage extends BaseIssuePage {
         clickSubMenu("Issue Tracking");
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Issue Tracking");
+    }
+
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         if (submitBtn.click()) {

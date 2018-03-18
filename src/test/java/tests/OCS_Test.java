@@ -232,7 +232,7 @@ public class OCS_Test {
         ExtentManager.createTest("ISSUE Tests.", "Verify all items from ISSUE menu.");
 
         MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
-        IssueTests issueTests = new IssueTests();
+        IssueTests issueTests = new IssueTests(eReports, prop);
 
         //=== Issue Details
         issueTests.issueDetailsTest();

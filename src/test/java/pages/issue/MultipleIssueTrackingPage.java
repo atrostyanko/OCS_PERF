@@ -5,11 +5,10 @@ import org.openqa.selenium.support.FindBy;
 
 public class MultipleIssueTrackingPage extends BaseIssuePage {
     @FindBy(name = "loginButton")
-    public Button loginButton;
+    public Button checkIn;
 
     @FindBy(name = "logoutButton")
-    public Button logoutButton;
-
+    public Button checkOut;
 
     //====== Constructor ==============================
     public MultipleIssueTrackingPage() {
@@ -27,8 +26,13 @@ public class MultipleIssueTrackingPage extends BaseIssuePage {
 
     @Override
     public boolean isSearchPageOpened() {
-        return loginButton.isDisplayed()
-                && logoutButton.isDisplayed()
+        return checkIn.isDisplayed()
+                && checkOut.isDisplayed()
                 && pageTitle.getText().equals("Multiple Issue Tracking");
+    }
+
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Multiple Issue Tracking");
     }
 }

@@ -40,6 +40,11 @@ public class ClaimingHistoryPage extends BaseIssuePage {
                 && publSequenceNumber.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Claiming History");
+    }
+
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         if (submitBtn.click()) {

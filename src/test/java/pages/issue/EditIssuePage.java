@@ -22,6 +22,11 @@ public class EditIssuePage extends BaseIssuePage {
         clickSubMenu("Edit Issue");
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Edit Issue Details");
+    }
+
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         if (submitBtn.click()) {

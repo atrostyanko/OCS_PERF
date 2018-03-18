@@ -224,55 +224,55 @@ public class BVT_Test {
         ExtentManager.createTest("ISSUE Tests.", "Verify all items from ISSUE menu.");
 
         MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
-        IssueTests issueTests = new IssueTests();
+        IssueTests issueTests = new IssueTests(eReports, prop);
 
         //=== Issue Details
-        issueTests.issueDetailsTest();
+        issueTests.issueDetailsTest_BVT();
 
         //=== Edit Issue
-        issueTests.editIssueTest();
+        issueTests.editIssueTest_BVT();
 
         //=== List All Articles
-        issueTests.listAllArticlesTest();
+        issueTests.listAllArticlesTest_BVT();
 
         //=== Extraction Details
-        issueTests.extractionDetailsTest();
+        issueTests.extractionDetailsTest_BVT();
 
         //=== Article
         //===== View Biblio
         //ToDo: пустая страница
-        //issueTests.viewBiblioTest();
+        //issueTests.viewBiblioTest_BVT();
 
         //=== Label Reprint
-        issueTests.labelReprintTest();
+        issueTests.labelReprintTest_BVT();
 
         //=== Re-Print Journal Labels
-        issueTests.printJournalLabelsTest();
+        issueTests.printJournalLabelsTest_BVT();
 
         //=== Send Issue to Image Capture
-        issueTests.sendIssueToImageCaptureTest();
+        issueTests.sendIssueToImageCaptureTest_BVT();
 
         //=== Issue Hold
-        issueTests.issueHoldTest();
+        issueTests.issueHoldTest_BVT();
 
         //=== Issue Tracking
-        issueTests.issueTrackingPageTest();
+        issueTests.issueTrackingPageTest_BVT();
 
         //=== Multiple Issues Tracking
-        issueTests.multipleIssuesTrackingTest();
+        issueTests.multipleIssuesTrackingTest_BVT();
 
         //=== Claiming
         //===== Candidates
-        issueTests.candidatesTest();
+        issueTests.candidatesTest_BVT();
 
         //===== Active Claim
-        issueTests.activeClaimTest();
+        issueTests.activeClaimTest_BVT();
 
         //===== History
-        issueTests.claimingHistoryTest();
+        issueTests.claimingHistoryTest_BVT();
 
         //===== Claim Request
-        issueTests.ClaimRequestTest();
+        issueTests.ClaimRequestTest_BVT();
 
 
         ExtentManager.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");

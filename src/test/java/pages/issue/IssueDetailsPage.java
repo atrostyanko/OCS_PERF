@@ -10,12 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import pages.search.IssueSearchPage.SearchFields;
 
 public class IssueDetailsPage extends BaseIssuePage {
-    @FindBy (xpath = ".//b[.='DF Issueno']")
-    @CacheLookup
-    public Label issueno;
-
     @FindBy (xpath = ".//b[contains(text(), 'Journal Seq.')]")
-    @CacheLookup
     public Label journalSeq;
 
     @FindBy (xpath = ".//b[contains(text(), 'Accession')]")
@@ -59,6 +54,11 @@ public class IssueDetailsPage extends BaseIssuePage {
         clickSubMenu("Issue Details");
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Issue Details");
+    }
+
     //===== Get methods ================================================================================================
     public String getElementValue(WebElement webElement) {
         return WebDriverFactory.getElementValue(webElement);
@@ -67,7 +67,7 @@ public class IssueDetailsPage extends BaseIssuePage {
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         if (submitBtn.click()) {
-            return WebDriverFactory.waitElementIsVisible(issueno.asWebElement());
+            return WebDriverFactory.waitElementIsVisible(issueNoLabel.asWebElement());
         }
         return false;
     }
@@ -95,7 +95,7 @@ public class IssueDetailsPage extends BaseIssuePage {
         String fieldValue = "";
         switch (field.value()) {
             case "issueNumber":
-                fieldValue = WebDriverFactory.getElementValue(issueno.asWebElement());
+                fieldValue = WebDriverFactory.getElementValue(issueNoLabel.asWebElement());
                 break;
             case "accession":
                 fieldValue = WebDriverFactory.getElementValue(accession.asWebElement());

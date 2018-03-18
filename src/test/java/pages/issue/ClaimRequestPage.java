@@ -30,6 +30,11 @@ public class ClaimRequestPage extends BaseIssuePage {
                 && journalSequence.isDisplayed();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Claiming");
+    }
+
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         if (submitBtn.click()) {

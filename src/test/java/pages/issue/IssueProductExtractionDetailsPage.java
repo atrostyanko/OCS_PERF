@@ -1,10 +1,14 @@
 package pages.issue;
 
 import com.webtestsbase.WebDriverFactory;
+import com.webtestsbase.commonElements.elements.Label;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class IssueProductExtractionDetailsPage extends BaseIssuePage {
+    @FindBy(xpath = ".//span[contains(text(), 'DF Issueno')]")
+    public Label issueNoLabel;
+
     @FindBy(name = "isiProductCode")
     private WebElement isiProductCode;
 
@@ -20,6 +24,11 @@ public class IssueProductExtractionDetailsPage extends BaseIssuePage {
     public void openPage() {
         clickIssue();
         clickSubMenu("Extraction Details");
+    }
+
+    @Override
+    public boolean isPageOpened() {
+        return pageTitle.getText().equals("Issue Product Extraction Details");
     }
 
     @Override

@@ -1,7 +1,7 @@
 package pages.issue;
 
-import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
+import com.webtestsbase.commonElements.elements.Label;
 import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -23,6 +23,9 @@ public class BaseIssuePage extends MainPage {
     @FindBy (name = "issueNo")
     @CacheLookup
     public TextInput issueNo;
+
+    @FindBy (xpath = ".//b[.='DF Issueno']")
+    public Label issueNoLabel;
 
     @FindBy(css = "[src *= 'Images/submit_changes.gif']")
     public Button submitChanges;
