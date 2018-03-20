@@ -1,5 +1,7 @@
 package pages.publisher;
 
+import com.webtestsbase.WebDriverFactory;
+
 public class AddSamplePublisherPage extends AddPublisherPage {
     //====== Constructor ==============================
     public AddSamplePublisherPage() {
@@ -11,9 +13,13 @@ public class AddSamplePublisherPage extends AddPublisherPage {
 
     @Override
     public void openPage() {
+        /*
         clickPublisher();
         clickSubMenu("Edit");
         clickSubMenu("Add Sample Publisher");
+        */
+        String subURL = "PublisherEditRetrieve.do?publisherKey=&action=ADD_SAMPLE_PUBLISHER";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

@@ -15,9 +15,13 @@ public class AbsorbPage extends BaseJournalInquiryPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Journal XRef");
         clickSubMenu("Absorb");
+        */
+        String subURL = "Business/Journal/Transform/Absorb/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

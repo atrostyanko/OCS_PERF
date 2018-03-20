@@ -2,6 +2,7 @@ package com.webtestsbase;
 
 import com.configuration.TestsConfig;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
@@ -52,6 +53,13 @@ public class CapabilitiesGenerator {
                 return caps;
             case SAFARI:
                 return new DesiredCapabilities();
+            case PHANTOMJS:
+                DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
+                capabilities.setJavascriptEnabled(true);
+                capabilities.setCapability("takesScreenshot", true);
+                capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
+                        TestsConfig.getConfig().getDriversPath() + "/phantomjs");
+                return capabilities;
             default:
                 throw new IllegalStateException("Browser is not supported");
         }

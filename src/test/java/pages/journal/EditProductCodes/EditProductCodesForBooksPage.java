@@ -26,9 +26,13 @@ public class EditProductCodesForBooksPage extends MainJournalPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Edit Product Codes");
         clickSubMenu("For Books");
+        */
+        String subURL = "Business/Journal/ProductCodes/Edit/prompt_product_codes.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

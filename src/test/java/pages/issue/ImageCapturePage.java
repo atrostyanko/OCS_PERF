@@ -1,5 +1,7 @@
 package pages.issue;
 
+import com.webtestsbase.WebDriverFactory;
+
 public class ImageCapturePage extends BaseIssuePage {
     //====== Constructor ==============================
     public ImageCapturePage() {
@@ -11,8 +13,12 @@ public class ImageCapturePage extends BaseIssuePage {
 
     @Override
     public void openPage() {
+        /*
         clickIssue();
         clickSubMenu("Send Issue to Image Capture");
+        */
+        String subURL = "Business/Issue/PreProcessing/pre_processing.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

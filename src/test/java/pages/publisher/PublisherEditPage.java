@@ -1,5 +1,6 @@
 package pages.publisher;
 
+import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Label;
 import org.openqa.selenium.support.FindBy;
 
@@ -18,9 +19,13 @@ public class PublisherEditPage extends MainPublisherPage {
 
     @Override
     public void openPage() {
+        /*
         clickPublisher();
         clickSubMenu("Edit");
         clickSubMenu("Edit Publisher");
+        */
+        String subURL = "Business/Publisher/Edit/prompt_edit_publisher.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

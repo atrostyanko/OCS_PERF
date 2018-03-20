@@ -50,8 +50,12 @@ public class IssueDetailsPage extends BaseIssuePage {
 
     @Override
     public void openPage() {
+        /*
         clickIssue();
         clickSubMenu("Issue Details");
+        */
+        String subURL = "Business/Issue/Details/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

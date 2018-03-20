@@ -24,9 +24,13 @@ public class ClaimingCandidatesPage extends BaseIssuePage {
 
     @Override
     public void openPage() {
+        /*
         clickIssue();
         clickSubMenu("Claiming");
         clickSubMenu("Candidates");
+        */
+        String subURL = "Business/Issue/Claiming/Candidate/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

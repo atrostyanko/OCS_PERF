@@ -1,5 +1,6 @@
 package pages.conference;
 
+import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
 import org.openqa.selenium.support.FindBy;
 
@@ -18,8 +19,12 @@ public class ConferenceEditPage extends BaseConferencePage {
 
     @Override
     public void openPage() {
+        /*
         clickConf();
         clickSubMenu("Conference Edit");
+        */
+        String subURL = "Business/Conference/Edit/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package pages.search;
 
+import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.CheckBox;
 import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.support.FindBy;
@@ -23,8 +24,12 @@ public class ConferenceSearchPage extends BaseSearchPage {
 
     @Override
     public void openPage() {
+        /*
         clickSearch();
         clickSubMenu("Conferences");
+        */
+        String subURL = "Business/MainSearch/prompt.jsp?_csegment=1";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

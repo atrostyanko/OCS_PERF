@@ -27,8 +27,12 @@ public class TransformingSampleJournalPage extends BaseJournalInquiryPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Transform a Sample Journal");
+        */
+        String subURL = "Business/Journal/Edit/prompt_sample_journal_transform.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

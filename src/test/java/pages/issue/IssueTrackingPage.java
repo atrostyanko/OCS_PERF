@@ -13,8 +13,12 @@ public class IssueTrackingPage extends BaseIssuePage {
 
     @Override
     public void openPage() {
+        /*
         clickIssue();
         clickSubMenu("Issue Tracking");
+        */
+        String subURL = "Business/Issue/Tracking/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package pages.conference;
 
+import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Label;
 import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.support.FindBy;
@@ -25,8 +26,12 @@ public class LinkSampleBooksPage extends BaseConferencePage {
 
     @Override
     public void openPage() {
+        /*
         clickConf();
         clickSubMenu("Link Sample Books");
+        */
+        String subURL = "Business/Conference/LinkSampleBooks/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

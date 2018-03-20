@@ -51,8 +51,12 @@ public class ProductCodesSearchPage extends BaseSearchPage {
 
     @Override
     public void openPage() {
+        /*
         clickSearch();
         clickSubMenu("Product Codes");
+        */
+        String subURL = "Business/MainSearch/prompt.jsp?_pssegment=1";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

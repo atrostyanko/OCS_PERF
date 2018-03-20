@@ -4,6 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,6 +15,7 @@ import com.configuration.TestsConfig;
 import com.reporting.ExtentManager;
 import com.utils.TimeUtils;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -31,6 +33,35 @@ public class WebDriverFactory {
 
     private static WebDriver driver;
 
+    private static String URL;
+    private static String username;
+    private static String password;
+    private static String manuContext;
+
+    public static void setPassword(String password) {
+        WebDriverFactory.password = password;
+    }
+
+    public static String getPassword() {
+        return password;
+    }
+
+    public static String getURL() {
+        return URL;
+    }
+
+    public static String getUsername() {
+        return username;
+    }
+
+    public static void setURL(String URL) {
+        WebDriverFactory.URL = URL;
+    }
+
+    public static void setUsername(String username) {
+        WebDriverFactory.username = username;
+    }
+
     /**
      * Main method of class - it initialize driver and starts browser.
      *
@@ -39,7 +70,11 @@ public class WebDriverFactory {
     public static void startBrowser(boolean isLocal) {
         if (driver == null) {
             Browser browser = TestsConfig.getConfig().getBrowser();
-            String sURL = TestsConfig.getConfig().getBrowserURL();
+
+            setURL(TestsConfig.getConfig().getBrowserURL());
+            setUsername(TestsConfig.getConfig().getUsername());
+            setPassword(TestsConfig.getConfig().getPassword());
+
             if (!isLocal) {
                 driver = new RemoteWebDriver(CapabilitiesGenerator.getDefaultCapabilities(browser));
             } else {
@@ -56,17 +91,18 @@ public class WebDriverFactory {
                     case SAFARI:
                         driver = new SafariDriver(CapabilitiesGenerator.getDefaultCapabilities(Browser.SAFARI));
                         break;
+                    case PHANTOMJS:
+                        driver = new PhantomJSDriver(CapabilitiesGenerator.getDefaultCapabilities(Browser.PHANTOMJS));
+                        driver.manage().window().setSize(new Dimension(1400,1000));
+                        break;
                     default:
                         throw new IllegalStateException("Unsupported browser type");
                 }
             }
-            driver.get(sURL);
-            /*
-            if (System.getProperty("os.name").toLowerCase().contains("mac")) {
-                TimeUtils.waitForSeconds(20);
-            }
-            */
+            driver.get(getURL());
+
             System.out.println("Browser is started...");
+            System.out.println(driver.getTitle());
         } else {
             throw new IllegalStateException("Driver has already been initialized. Quit it before using this method");
         }
@@ -80,6 +116,10 @@ public class WebDriverFactory {
             driver.quit();
             driver = null;
         }
+    }
+
+    public static void navigateTo(String relativePath) {
+        driver.get(WebDriverFactory.getURL() + relativePath);
     }
 
     //===== Get methods ================================================================================================

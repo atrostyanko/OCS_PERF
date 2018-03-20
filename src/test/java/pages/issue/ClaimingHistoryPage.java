@@ -28,9 +28,13 @@ public class ClaimingHistoryPage extends BaseIssuePage {
 
     @Override
     public void openPage() {
+        /*
         clickIssue();
         clickSubMenu("Claiming");
         clickSubMenu("History");
+        */
+        String subURL = "Business/Issue/Claiming/History/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

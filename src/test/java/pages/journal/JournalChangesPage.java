@@ -28,8 +28,12 @@ public class JournalChangesPage extends BaseJournalInquiryPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Journal Changes");
+        */
+        String subURL = "Business/Journal/Changes/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

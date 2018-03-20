@@ -13,9 +13,13 @@ public class VariantsPage extends BaseJournalInquiryPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Journal XRef");
         clickSubMenu("Add Variants");
+        */
+        String subURL = "Business/Journal/Transform/Variants/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

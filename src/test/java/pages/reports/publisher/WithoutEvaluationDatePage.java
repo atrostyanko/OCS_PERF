@@ -1,5 +1,6 @@
 package pages.reports.publisher;
 
+import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Label;
 import org.openqa.selenium.support.FindBy;
 import pages.reports.BaseReportsPage;
@@ -19,15 +20,20 @@ public class WithoutEvaluationDatePage extends BaseReportsPage {
 
     @Override
     public void openPage() {
+        /*
         clickMisc();
         clickSubMenu("Reports");
         clickSubMenu("Publisher");
         clickSubMenu("Without evaluation date");
+        */
+        String subURL = "Business/Reports/Common/prompt.jsp?key=publsamplnoevaldate";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override
     public boolean isPageOpened() {
-        return pageTitle.getText().equals("OCS Reports") && reportTitle.isDisplayed();
+        return WebDriverFactory.waitElementIsVisible(reportTitle.asWebElement())
+                && pageTitle.getText().equals("OCS Reports");
     }
 
     //===== Click methods ==============================================================================================

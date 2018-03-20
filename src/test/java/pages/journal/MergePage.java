@@ -13,9 +13,13 @@ public class MergePage extends BaseJournalInquiryPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Journal XRef");
         clickSubMenu("Merge");
+        */
+        String subURL = "Business/Journal/Transform/Merge/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

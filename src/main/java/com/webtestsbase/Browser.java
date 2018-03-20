@@ -8,7 +8,9 @@ public enum  Browser {
     FIREFOX("firefox"),
     CHROME("chrome"),
     IE10("ie10"),
-    SAFARI("safari");
+    SAFARI("safari"),
+    PHANTOMJS("phantomJS");
+
     private String browserName;
 
     Browser(String browserName) {

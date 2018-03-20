@@ -28,8 +28,12 @@ public class ConferenceDetailsPage extends BaseConferencePage {
 
     @Override
     public void openPage() {
+        /*
         clickConf();
         clickSubMenu("Conference Details");
+        */
+        String subURL = "Business/Conference/Details/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

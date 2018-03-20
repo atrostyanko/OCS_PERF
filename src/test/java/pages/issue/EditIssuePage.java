@@ -18,8 +18,12 @@ public class EditIssuePage extends BaseIssuePage {
 
     @Override
     public void openPage() {
+        /*
         clickIssue();
         clickSubMenu("Edit Issue");
+        */
+        String subURL = "Business/Issue/Edit/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

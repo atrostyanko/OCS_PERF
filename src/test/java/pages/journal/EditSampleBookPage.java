@@ -1,5 +1,6 @@
 package pages.journal;
 
+import com.webtestsbase.WebDriverFactory;
 import pages.publisher.BookInquiryPage;
 
 public class EditSampleBookPage extends MainJournalPage {
@@ -13,9 +14,13 @@ public class EditSampleBookPage extends MainJournalPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Edit");
         clickSubMenu("Edit Sample Book");
+        */
+        String subURL = "Business/Journal/Edit/prompt_sample_book.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

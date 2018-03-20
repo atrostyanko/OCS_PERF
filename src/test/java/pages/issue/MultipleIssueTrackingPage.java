@@ -1,5 +1,6 @@
 package pages.issue;
 
+import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
 import org.openqa.selenium.support.FindBy;
 
@@ -20,8 +21,12 @@ public class MultipleIssueTrackingPage extends BaseIssuePage {
 
     @Override
     public void openPage() {
+        /*
         clickIssue();
         clickSubMenu("Multiple Issues Tracking");
+        */
+        String subURL = "Business/Issue/MultipleTracking/multiple_issue_tracking.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

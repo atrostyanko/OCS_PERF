@@ -1,5 +1,6 @@
 package pages.journal.Delete;
 
+import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
 import org.openqa.selenium.support.FindBy;
 import pages.journal.MainJournalPage;
@@ -19,9 +20,13 @@ public class DeleteSampleJournalPage extends MainJournalPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Delete");
         clickSubMenu("Delete Sample Journal");
+        */
+        String subURL = "Business/Journal/Edit/prompt_delete_sample_journal.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

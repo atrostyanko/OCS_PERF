@@ -1,5 +1,7 @@
 package pages.publisher;
 
+import com.webtestsbase.WebDriverFactory;
+
 public class EditRoyaltyPage extends MainPublisherPage {
     //====== Constructor ==============================
     public EditRoyaltyPage() {
@@ -11,9 +13,13 @@ public class EditRoyaltyPage extends MainPublisherPage {
 
     @Override
     public void openPage() {
+        /*
         clickPublisher();
         clickSubMenu("Royalty");
         clickSubMenu("Edit Royalty");
+        */
+        String subURL = "Business/Publisher/RoyaltyInquiry/Edit/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

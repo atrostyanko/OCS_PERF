@@ -13,8 +13,12 @@ public class JournalSubjectCategoryHistoryPage extends BaseJournalInquiryPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Subject Category History");
+        */
+        String subURL = "Business/Journal/SubjectCatagoryHistory/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

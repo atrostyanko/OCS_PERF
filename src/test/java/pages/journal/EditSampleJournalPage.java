@@ -1,5 +1,7 @@
 package pages.journal;
 
+import com.webtestsbase.WebDriverFactory;
+
 public class EditSampleJournalPage extends MainJournalPage {
     //====== Constructor ==============================
     public EditSampleJournalPage() {
@@ -11,9 +13,13 @@ public class EditSampleJournalPage extends MainJournalPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Edit");
         clickSubMenu("Edit Sample Journal");
+        */
+        String subURL = "Business/Journal/Edit/prompt_sample_journal_edit.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

@@ -1,9 +1,11 @@
 package tests.loginPage;
 
 import com.reporting.ExtentManager;
+import com.webtestsbase.WebDriverFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import pages.LoginPage;
 import pages.MainPage;
-import tests.OCS_Test;
 
 import java.util.Properties;
 
@@ -22,16 +24,18 @@ public class LoginPage_Tests {
     }
 
     public MainPage login() {
-        String userID = prop.getProperty("userID");
-        String password = prop.getProperty("password");
+        String userID = WebDriverFactory.getUsername(); //prop.getProperty("userID");
+        String password = WebDriverFactory.getPassword(); //prop.getProperty("password");
         MainPage returnPage = null;
 
         eReports.createNode("Login Page.", "Verify that user can login to the APP.");
 
         LoginPage loginPage = new LoginPage();
         if (eReports.compareNotNULL(loginPage, "Check that HOME Page is opened.")) {
+
             eReports.compareTrue(loginPage.setUserID(userID), "Set user ID: " + userID);
             eReports.compareTrue(loginPage.setPassword(password), "Set password: " + password);
+
             returnPage = loginPage.submit();
             eReports.compareNotNULL(returnPage, "Click 'Submit' button and check that the main page is opened.");
         }

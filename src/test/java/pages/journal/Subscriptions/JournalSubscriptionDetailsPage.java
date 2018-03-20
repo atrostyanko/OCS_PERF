@@ -18,9 +18,13 @@ public class JournalSubscriptionDetailsPage extends BaseJournalInquiryPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Subscriptions");
         clickSubMenu("Subscription Details");
+        */
+        String subURL = "Business/Journal/SubscriptionDetails/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

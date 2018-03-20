@@ -18,9 +18,13 @@ public class EditJournalRoyaltyPage extends MainJournalPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Royalty");
         clickSubMenu("Edit Royalty");
+        */
+        String subURL = "Business/Journal/RoyaltyInquiry/Edit/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

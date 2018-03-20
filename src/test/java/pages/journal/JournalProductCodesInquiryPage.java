@@ -1,5 +1,7 @@
 package pages.journal;
 
+import com.webtestsbase.WebDriverFactory;
+
 public class JournalProductCodesInquiryPage extends BaseJournalInquiryPage {
     //====== Constructor ==============================
     public JournalProductCodesInquiryPage() {
@@ -11,8 +13,12 @@ public class JournalProductCodesInquiryPage extends BaseJournalInquiryPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Prod. Codes - Subj. Categories");
+        */
+        String subURL = "Business/Journal/ProductCodes/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

@@ -13,8 +13,12 @@ public class JournalProductCodeHistoryPage extends BaseJournalInquiryPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Prod. Codes History");
+        */
+        String subURL = "Business/Journal/ProductCodeHistory/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

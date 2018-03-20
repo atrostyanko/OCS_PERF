@@ -25,8 +25,12 @@ public class PublisherSearchPage extends BaseSearchPage {
 
     @Override
     public void openPage() {
+        /*
         clickSearch();
         clickSubMenu("Publishers");
+        */
+        String subURL = "Business/MainSearch/prompt.jsp?_psegment=1&beginsWith=1";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

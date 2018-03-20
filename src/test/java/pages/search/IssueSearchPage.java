@@ -25,8 +25,12 @@ public class IssueSearchPage extends BaseSearchPage {
 
     @Override
     public void openPage() {
+        /*
         clickSearch();
         clickSubMenu("Issues");
+        */
+        String subURL = "Business/MainSearch/prompt.jsp?_isegment=1";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

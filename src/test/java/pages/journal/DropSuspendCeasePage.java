@@ -21,9 +21,13 @@ public class DropSuspendCeasePage extends BaseJournalInquiryPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Journal XRef");
         clickSubMenu("Drop/Cease/Suspend");
+        */
+        String subURL = "Business/Journal/Transform/DropCeaseSuspend/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

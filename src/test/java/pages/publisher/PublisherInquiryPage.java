@@ -20,8 +20,12 @@ public class PublisherInquiryPage extends BaseInquiryPage {
 
     @Override
     public void openPage() {
+        /*
         clickPublisher();
         clickSubMenu("Publisher Inquiry");
+        */
+        String subURL = "Business/Publisher/Inquiry/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

@@ -69,7 +69,9 @@ public abstract class MenuPage extends BasePage {
         return searchMainMenu.click();
     }
     public boolean clickLogoff() {
-        return logoffMainMenu.click();
+        //return logoffMainMenu.click();
+        WebDriverFactory.navigateTo("logoff.do");
+        return true;
     }
 
     public void clickSubMenu(String sMenu) {

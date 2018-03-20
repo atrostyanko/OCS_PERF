@@ -13,9 +13,13 @@ public class SplitPage extends BaseJournalInquiryPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Journal XRef");
         clickSubMenu("Split");
+        */
+        String subURL = "Business/Journal/Transform/Split/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

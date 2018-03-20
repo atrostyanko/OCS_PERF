@@ -28,9 +28,13 @@ public class EditSubjectCategoriesForJournalsPage extends MainJournalPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Edit Subject Categories");
         clickSubMenu("For Journals");
+        */
+        String subURL = "Business/Journal/ProductCodes/Edit/prompt_subject_categories.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

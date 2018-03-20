@@ -40,6 +40,12 @@ public class TestsConfig {
     @Property("reports.path")
     private String reportsPath = "";
 
+    @Property("username")
+    private String username = "";
+
+    @Property("password")
+    private String password = "";
+
 
     /**
      * getting browser object
@@ -80,5 +86,21 @@ public class TestsConfig {
      */
     public String getReportsPath() {
         return reportsPath;
+    }
+
+    /**
+     * getting reports path
+     * @return reports path
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * getting reports path
+     * @return reports path
+     */
+    public String getPassword() {
+        return password;
     }
 }

@@ -27,8 +27,12 @@ public class EditXRefNotesPage extends BaseJournalInquiryPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Edit XRef Notes");
+        */
+        String subURL = "Business/Journal/Changes/Edit/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

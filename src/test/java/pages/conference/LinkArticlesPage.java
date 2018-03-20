@@ -1,5 +1,6 @@
 package pages.conference;
 
+import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.support.FindBy;
 
@@ -23,8 +24,12 @@ public class LinkArticlesPage extends BaseConferencePage {
 
     @Override
     public void openPage() {
+        /*
         clickConf();
         clickSubMenu("Link Articles");
+        */
+        String subURL = "Business/Conference/LinkArticles/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

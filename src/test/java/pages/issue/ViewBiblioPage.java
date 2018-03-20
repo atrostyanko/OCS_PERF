@@ -13,9 +13,13 @@ public class ViewBiblioPage extends BaseIssuePage {
 
     @Override
     public void openPage() {
+        /*
         clickIssue();
         clickSubMenu("Article");
         clickSubMenu("View Biblio");
+        */
+        String subURL = "Business/Article/Summary/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

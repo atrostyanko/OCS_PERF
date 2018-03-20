@@ -47,8 +47,12 @@ public class AddSampleBookPage extends MainPublisherPage {
 
     @Override
     public void openPage() {
+        /*
         clickPublisher();
         clickSubMenu("Add Sample Book");
+        */
+        String subURL = "Business/Journal/Edit/prompt_sample_book_add_new.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

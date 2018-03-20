@@ -1,5 +1,7 @@
 package pages.publisher;
 
+import com.webtestsbase.WebDriverFactory;
+
 public class ListJournalRoyaltiesPage extends BaseInquiryPage {
 
     //====== Constructor ==============================
@@ -12,9 +14,13 @@ public class ListJournalRoyaltiesPage extends BaseInquiryPage {
 
     @Override
     public void openPage() {
+        /*
         clickPublisher();
         clickSubMenu("Royalty");
         clickSubMenu("List Journal Royalties");
+        */
+        String subURL = "Business/Publisher/JournalsRoyalty/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

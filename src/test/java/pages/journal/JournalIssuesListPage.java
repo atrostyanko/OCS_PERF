@@ -13,8 +13,12 @@ public class JournalIssuesListPage extends BaseJournalInquiryPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("View Issues (CRDX)");
+        */
+        String subURL = "Business/Journal/IssuesList/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

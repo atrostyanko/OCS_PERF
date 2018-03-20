@@ -42,8 +42,12 @@ public class AddNewSeriePage extends MainPublisherPage {
 
     @Override
     public void openPage() {
+        /*
         clickPublisher();
         clickSubMenu("Add a Serie");
+        */
+        String subURL = "Business/Journal/Edit/prompt_series_add_new.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

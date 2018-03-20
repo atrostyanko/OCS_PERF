@@ -18,9 +18,13 @@ public class EditSeriesPage extends MainJournalPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Edit");
         clickSubMenu("Edit Series");
+        */
+        String subURL = "Business/Journal/Edit/prompt_series_edit.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

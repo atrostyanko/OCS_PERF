@@ -22,8 +22,12 @@ public class EditionIssuesListPage extends BaseIssuePage {
 
     @Override
     public void openPage() {
+        /*
         clickIssue();
         clickSubMenu("Issue Hold");
+        */
+        String subURL = "Business/Product/Edition/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

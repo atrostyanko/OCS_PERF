@@ -1,5 +1,7 @@
 package pages.publisher;
 
+import com.webtestsbase.WebDriverFactory;
+
 public class EditSamplePublisherPage extends AddPublisherPage {
 
     //====== Constructor ==============================
@@ -12,9 +14,13 @@ public class EditSamplePublisherPage extends AddPublisherPage {
 
     @Override
     public void openPage() {
+        /*
         clickPublisher();
         clickSubMenu("Edit");
         clickSubMenu("Edit Sample Publisher");
+        */
+        String subURL = "Business/Publisher/Edit/prompt_edit_sample_publisher.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

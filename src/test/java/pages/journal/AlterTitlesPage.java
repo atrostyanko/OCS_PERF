@@ -16,9 +16,13 @@ public class AlterTitlesPage extends BaseJournalInquiryPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Journal XRef");
         clickSubMenu("Alter Titles");
+        */
+        String subURL = "Business/Journal/Transform/AlterTitles/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

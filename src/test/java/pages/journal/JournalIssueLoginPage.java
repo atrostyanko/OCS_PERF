@@ -24,8 +24,12 @@ public class JournalIssueLoginPage extends BaseJournalInquiryPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Issue Login");
+        */
+        String subURL = "Business/Journal/AddNewIssue/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

@@ -25,9 +25,13 @@ public class ClaimingActivePage extends BaseIssuePage {
 
     @Override
     public void openPage() {
+        /*
         clickIssue();
         clickSubMenu("Claiming");
         clickSubMenu("Active Claim");
+        */
+        String subURL = "Business/Issue/Claiming/ActiveClaim/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

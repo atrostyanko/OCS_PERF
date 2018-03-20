@@ -19,9 +19,13 @@ public class JournalRoyaltyInquiryPage extends BaseJournalInquiryPage {
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Royalty");
         clickSubMenu("Royalty Inquiry");
+        */
+        String subURL = "Business/Journal/RoyaltyInquiry/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

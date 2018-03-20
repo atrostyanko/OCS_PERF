@@ -46,9 +46,13 @@ public class AddPublisherPage extends MainPublisherPage {
 
     @Override
     public void openPage() {
+        /*
         clickPublisher();
         clickSubMenu("Edit");
         clickSubMenu("Add Publisher");
+        */
+        String subURL = "PublisherEditRetrieve.do?publisherKey=&action=ADD_PUBLISHER";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

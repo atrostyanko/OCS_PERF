@@ -39,8 +39,12 @@ public class AddSampleJournalPage extends MainPublisherPage {
 
     @Override
     public void openPage() {
+        /*
         clickPublisher();
         clickSubMenu("Add Sample Journal");
+        */
+        String subURL = "Business/Journal/Edit/prompt_sample_journal_add_new.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

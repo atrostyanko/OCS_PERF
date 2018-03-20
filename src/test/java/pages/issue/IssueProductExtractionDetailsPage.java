@@ -22,8 +22,12 @@ public class IssueProductExtractionDetailsPage extends BaseIssuePage {
 
     @Override
     public void openPage() {
+        /*
         clickIssue();
         clickSubMenu("Extraction Details");
+        */
+        String subURL = "Business/Issue/Products/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

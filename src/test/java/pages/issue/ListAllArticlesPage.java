@@ -18,8 +18,12 @@ public class ListAllArticlesPage extends BaseIssuePage {
 
     @Override
     public void openPage() {
+        /*
         clickIssue();
         clickSubMenu("List All Articles");
+        */
+        String subURL = "Business/Issue/ListAllArticles/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

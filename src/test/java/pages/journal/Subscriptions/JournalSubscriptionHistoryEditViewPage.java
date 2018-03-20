@@ -25,9 +25,13 @@ public class JournalSubscriptionHistoryEditViewPage extends BaseJournalInquiryPa
 
     @Override
     public void openPage() {
+        /*
         clickJournal();
         clickSubMenu("Subscriptions");
         clickSubMenu("View / Edit History");
+        */
+        String subURL = "Business/Journal/SubscriptionHistory/prompt.jsp";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override

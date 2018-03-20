@@ -21,7 +21,11 @@ import tests.publisher.PublisherTests;
 import tests.reports.ReportsTests;
 import tests.search.SearchTests;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Alexandr Trostyanko.
@@ -277,7 +281,6 @@ public class BVT_Test {
         //===== Claim Request
         issueTests.ClaimRequestTest_BVT();
 
-
         eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
 
@@ -341,4 +344,5 @@ public class BVT_Test {
 
         eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
+
 }

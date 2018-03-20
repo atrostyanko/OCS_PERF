@@ -66,8 +66,12 @@ public class PublicationsSearchPage extends BaseSearchPage {
 
     @Override
     public void openPage() {
+        /*
         clickSearch();
         clickSubMenu("Publications");
+        */
+        String subURL = "Business/MainSearch/prompt.jsp?_jsegment=1&beginsWith=1";
+        WebDriverFactory.navigateTo(subURL);
     }
 
     @Override
