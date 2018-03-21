@@ -14,6 +14,10 @@ import pages.dictionaries.FirstSecondWordPage;
 import pages.dictionaries.HomographTablePage;
 import pages.dictionaries.PreliminaryCitedTitleListingPage;
 import pages.dictionaries.VariantPreferredPage;
+import pages.journalMaintenance.CreateNewJournalPage;
+import pages.journalMaintenance.IssnPage;
+import pages.journalMaintenance.ManageJournalsPage;
+import pages.journalMaintenance.PublicationTransactionPage;
 import tests.loginPage.LoginPage_Tests;
 
 import java.util.Properties;
@@ -45,7 +49,7 @@ public class BVT_Test {
     }
 
     @Test
-    public void publisherTests() {
+    public void mainTests() {
         eReports.createTest("PUBLISHER Tests.", "Verify all items from PUBLISHER menu.");
 
         MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
@@ -64,9 +68,25 @@ public class BVT_Test {
         eReports.compareNotNULL(preliminaryCitedTitleListingPage,
                 "Verify that Preliminary Cited Title Listing page is opened.");
 
-        FirstSecondWordPage firstSecondWordPage = mainPage.clickFirstSecondWordSubMenuSubMenu();
-        eReports.compareNotNULL(preliminaryCitedTitleListingPage,
+        FirstSecondWordPage firstSecondWordPage = mainPage.clickFirstSecondWordSubMenu();
+        eReports.compareNotNULL(firstSecondWordPage,
                 "Verify that First/Second Word page is opened.");
+
+        ManageJournalsPage manageJournalsPage = mainPage.clickManageJournalsSubMenu();
+        eReports.compareNotNULL(manageJournalsPage,
+                "Verify that Manage Journals page is opened.");
+
+        CreateNewJournalPage createNewJournalPage = mainPage.clickCreateNewJournalSubMenu();
+        eReports.compareNotNULL(createNewJournalPage,
+                "Verify that Create New Journal page is opened.");
+
+        PublicationTransactionPage publicationTransactionPage = mainPage.clickPublicationTransactionSubMenu();
+        eReports.compareNotNULL(publicationTransactionPage,
+                "Verify that Publication Transaction page is opened.");
+
+        IssnPage issnPage = mainPage.clickISSNSubMenu();
+        eReports.compareNotNULL(issnPage,
+                "Verify that ISSN page is opened.");
 
         eReports.compareTrue(mainPage.logoffMainMenu.click(), "Logoff from the APP.");
     }

@@ -8,6 +8,10 @@ import pages.dictionaries.FirstSecondWordPage;
 import pages.dictionaries.HomographTablePage;
 import pages.dictionaries.PreliminaryCitedTitleListingPage;
 import pages.dictionaries.VariantPreferredPage;
+import pages.journalMaintenance.CreateNewJournalPage;
+import pages.journalMaintenance.IssnPage;
+import pages.journalMaintenance.ManageJournalsPage;
+import pages.journalMaintenance.PublicationTransactionPage;
 
 public abstract class MenuPage extends BasePage {
     //=== Main Menu Sections ===========================================================================================
@@ -39,6 +43,18 @@ public abstract class MenuPage extends BasePage {
     @FindBy(css = "[href='/jcr/html/word.html']")
     public Button FirstSecondWordSubMenu;
 
+    @FindBy(css = "[href='/jcr/html/journals/journal.html']")
+    public Button ManageJournalsSubMenu;
+
+    @FindBy(css = "[href='/jcr/html/journals/journal.html?jen=true']")
+    public Button CreateNewJournalSubMenu;
+
+    @FindBy(css = "[href='/jcr/html/dictionaries/transaction.html']")
+    public Button PublicationTransactionSubMenu;
+
+    @FindBy(css = "[href='/jcr/html/issn.html']")
+    public Button ISSNSubMenu;
+
     //=== Constructor ==================================================================================================
     public MenuPage() {
         super(false);
@@ -69,11 +85,31 @@ public abstract class MenuPage extends BasePage {
                 ? new PreliminaryCitedTitleListingPage()
                 : null;
     }
-    public FirstSecondWordPage clickFirstSecondWordSubMenuSubMenu() {
+    public FirstSecondWordPage clickFirstSecondWordSubMenu() {
         return DictionariesMainMenu.click() && FirstSecondWordSubMenu.click()
                 ? new FirstSecondWordPage()
                 : null;
     }
 
+    public ManageJournalsPage clickManageJournalsSubMenu() {
+        return JournalMaintenanceMainMenu.click() && ManageJournalsSubMenu.click()
+                ? new ManageJournalsPage()
+                : null;
+    }
+    public CreateNewJournalPage clickCreateNewJournalSubMenu() {
+        return JournalMaintenanceMainMenu.click() && CreateNewJournalSubMenu.click()
+                ? new CreateNewJournalPage()
+                : null;
+    }
+    public PublicationTransactionPage clickPublicationTransactionSubMenu() {
+        return JournalMaintenanceMainMenu.click() && PublicationTransactionSubMenu.click()
+                ? new PublicationTransactionPage()
+                : null;
+    }
+    public IssnPage clickISSNSubMenu() {
+        return JournalMaintenanceMainMenu.click() && ISSNSubMenu.click()
+                ? new IssnPage()
+                : null;
+    }
 
 }
