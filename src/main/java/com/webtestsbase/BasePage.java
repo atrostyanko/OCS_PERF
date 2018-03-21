@@ -24,12 +24,6 @@ public abstract class BasePage {
     protected abstract void openPage();
 
     /**
-     * checks is search page opened
-     * @return true if opened
-     */
-    public abstract boolean isSearchPageOpened();
-
-    /**
      * checks is page opened
      * @return true if opened
      */
@@ -40,27 +34,8 @@ public abstract class BasePage {
         PageFactory.initElements(new ExtendedFieldDecorator(WebDriverFactory.getDriver()), this);
         if (openFromMenu) {
             openPage();
-            waitForOpenSearchPage();
-        } else {
-            waitForOpenPage();
         }
-    }
-
-    /**
-     * Waiting for page opening
-     */
-    public void waitForOpenSearchPage(){
-        int secondsCount = 0;
-        boolean isPageOpenedIndicator = isSearchPageOpened();
-        while (!isPageOpenedIndicator && secondsCount < WAIT_FOR_PAGE_LOAD_IN_SECONDS) {
-            TimeUtils.waitForSeconds(1);
-            secondsCount++;
-            isPageOpenedIndicator = isSearchPageOpened();
-        }
-        if(!isPageOpenedIndicator) {
-            //throw new AssertionError("Page was not opened");
-            ExtentManager.compareTrue(false, "Page was not opened");
-        }
+        waitForOpenPage();
     }
 
     /**
@@ -75,7 +50,6 @@ public abstract class BasePage {
             isPageOpenedIndicator = isPageOpened();
         }
         if(!isPageOpenedIndicator) {
-            //throw new AssertionError("Page was not opened");
             ExtentManager.compareTrue(false, "Page was not opened");
         }
     }

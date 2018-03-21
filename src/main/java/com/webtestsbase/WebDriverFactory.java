@@ -36,7 +36,7 @@ public class WebDriverFactory {
     private static String URL;
     private static String username;
     private static String password;
-    private static String manuContext;
+    private static Browser browser;
 
     public static void setPassword(String password) {
         WebDriverFactory.password = password;
@@ -54,12 +54,20 @@ public class WebDriverFactory {
         return username;
     }
 
+    public static Browser getBrowser() {
+        return browser;
+    }
+
     public static void setURL(String URL) {
         WebDriverFactory.URL = URL;
     }
 
     public static void setUsername(String username) {
         WebDriverFactory.username = username;
+    }
+
+    public static void setBrowser(Browser browser) {
+        WebDriverFactory.browser = browser;
     }
 
     /**
@@ -69,11 +77,10 @@ public class WebDriverFactory {
      */
     public static void startBrowser(boolean isLocal) {
         if (driver == null) {
-            Browser browser = TestsConfig.getConfig().getBrowser();
-
             setURL(TestsConfig.getConfig().getBrowserURL());
             setUsername(TestsConfig.getConfig().getUsername());
             setPassword(TestsConfig.getConfig().getPassword());
+            setBrowser(TestsConfig.getConfig().getBrowser());
 
             if (!isLocal) {
                 driver = new RemoteWebDriver(CapabilitiesGenerator.getDefaultCapabilities(browser));

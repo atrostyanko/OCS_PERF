@@ -1,44 +1,45 @@
 package pages;
 
+import com.google.errorprone.annotations.Var;
 import com.webtestsbase.BasePage;
-import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
-import pages.issue.IssueDetailsPage;
-import pages.journal.JournalInquiryPage;
-import pages.publisher.PublisherInquiryPage;
-
-import java.util.List;
+import pages.dictionaries.FirstSecondWordPage;
+import pages.dictionaries.HomographTablePage;
+import pages.dictionaries.PreliminaryCitedTitleListingPage;
+import pages.dictionaries.VariantPreferredPage;
 
 public abstract class MenuPage extends BasePage {
     //=== Main Menu Sections ===========================================================================================
-    @FindBy(xpath = ".//div[.= 'PUBLISHER']")
-    private Button publisherMainMenu;
+    @FindBy(xpath = "[href='/jcr/html/main.html']")
+    public Button homeMenu;
 
-    @FindBy(xpath = ".//div[.= 'JOURNAL']")
-    private Button journalMainMenu;
+    @FindBy(xpath = ".//span[.='Dictionaries']")
+    public Button DictionariesMainMenu;
 
-    @FindBy(xpath = ".//div[.= 'ISSUE']")
-    private Button issueMainMenu;
+    @FindBy(xpath = ".//span[.= 'Journal Maintenance']")
+    public Button JournalMaintenanceMainMenu;
 
-    @FindBy(xpath = ".//div[.= 'Conf.']")
-    private Button confMainMenu;
+    @FindBy(xpath = ".//span[.= 'JCR Control']")
+    public Button JCRControlMainMenu;
 
-    @FindBy(xpath = ".//div[.= 'Misc.']")
-    private Button miscMainMenu;
+    @FindBy(css = "[href='/jcr/html/logout']")
+    public Button logoffMainMenu;
 
-    @FindBy(xpath = ".//div[.= 'Search']")
-    private Button searchMainMenu;
+    //=== Sub Menu Sections ============================================================================================
+    @FindBy(css = "[href='/jcr/html/dictionaries/variant.html']")
+    public Button VariantPreferredSubMenu;
 
-    @FindBy(xpath = ".//div[.= 'Logoff']")
-    private Button logoffMainMenu;
+    @FindBy(css = "[href='/jcr/html/homograph.html']")
+    public Button HomographTableSubMenu;
 
-    //=== Sub Menu Sections ==============
-    @FindBy(xpath = ".//div[contains(@style, 'position: absolute; padding: 3px;')]")
-    private List<WebElement> subMenuList;
+    @FindBy(css = "[href='/jcr/html/dictionaries/citation.html']")
+    public Button PreliminaryCitedTitleListingSubMenu;
 
+    @FindBy(css = "[href='/jcr/html/word.html']")
+    public Button FirstSecondWordSubMenu;
+
+    //=== Constructor ==================================================================================================
     public MenuPage() {
         super(false);
     }
@@ -47,37 +48,32 @@ public abstract class MenuPage extends BasePage {
         super(openFromMenu);
     }
 
-    //===== Set methods ================================================================================================
-    public boolean clickPublisher() {
-        return publisherMainMenu.click();
+    //=== Click methods ================================================================================================
+    public MainPage clickHome() {
+        return homeMenu.click()
+                ? new MainPage()
+                : null;
     }
-    public static JournalInquiryPage clickJournalInquiry() { return new JournalInquiryPage(); }
+    public VariantPreferredPage clickVariantPreferredSubMenu() {
+        return DictionariesMainMenu.click() && VariantPreferredSubMenu.click()
+                ? new VariantPreferredPage()
+                : null;
+    }
+    public HomographTablePage clickHomographTableSubMenu() {
+        return DictionariesMainMenu.click() && HomographTableSubMenu.click()
+                ? new HomographTablePage()
+                : null;
+    }
+    public PreliminaryCitedTitleListingPage clickPreliminaryCitedTitleListingSubMenu() {
+        return DictionariesMainMenu.click() && PreliminaryCitedTitleListingSubMenu.click()
+                ? new PreliminaryCitedTitleListingPage()
+                : null;
+    }
+    public FirstSecondWordPage clickFirstSecondWordSubMenuSubMenu() {
+        return DictionariesMainMenu.click() && FirstSecondWordSubMenu.click()
+                ? new FirstSecondWordPage()
+                : null;
+    }
 
-    public boolean clickJournal() {
-        return journalMainMenu.click();
-    }
-    public boolean clickIssue() {
-        return issueMainMenu.click();
-    }
-    public boolean clickConf() {
-        return confMainMenu.click();
-    }
-    public boolean clickMisc() {
-        return miscMainMenu.click();
-    }
-    public boolean clickSearch() {
-        return searchMainMenu.click();
-    }
-    public boolean clickLogoff() {
-        //return logoffMainMenu.click();
-        WebDriverFactory.navigateTo("logoff.do");
-        return true;
-    }
 
-    public void clickSubMenu(String sMenu) {
-        WebElement webElement = WebDriverFactory.getElementWithMatchingText(subMenuList, sMenu);
-        if (webElement != null) {
-            WebDriverFactory.clickElement(webElement);
-        }
-    }
 }

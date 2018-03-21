@@ -6,21 +6,17 @@ import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
-    @FindBy(name = "username")
-    private TextInput userID;
+    @FindBy(id = "uName")
+    public TextInput username;
 
-    @FindBy(name = "password")
-    private TextInput password;
+    @FindBy(id = "uPwd")
+    public TextInput password;
 
-    @FindBy(name = "submit")
+    @FindBy(css = "[type='submit']")
     private Button submit;
 
     public LoginPage() {
         super(false);
-    }
-
-    public LoginPage(boolean openFromMenu) {
-        super(openFromMenu);
     }
 
     @Override
@@ -28,24 +24,11 @@ public class LoginPage extends BasePage {
     }
 
     @Override
-    public boolean isSearchPageOpened() {
-        return userID.isDisplayed();
-    }
-
-    @Override
     public boolean isPageOpened() {
-        return true;
+        return username.isDisplayed();
     }
 
-    //===== Set methods ================================================================================================
-    public boolean setPassword(String password) {
-        return this.password.setText(password);
-    }
-
-    public boolean setUserID(String userID) {
-        return this.userID.setText(userID);
-    }
-
+    //===== Click methods ==============================================================================================
     public MainPage submit() {
         return this.submit.click()
                 ? new MainPage()

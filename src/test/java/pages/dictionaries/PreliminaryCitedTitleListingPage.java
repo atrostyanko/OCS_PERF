@@ -1,26 +1,26 @@
-package pages;
+package pages.dictionaries;
 
 import com.webtestsbase.WebDriverFactory;
-import com.webtestsbase.commonElements.elements.Button;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import pages.MenuPage;
 
-public class MainPage extends MenuPage {
-    @FindBy(css = "[name='toolsForm'][action='/jcr/html/main.html']")
+public class PreliminaryCitedTitleListingPage extends MenuPage {
+    @FindBy(id = "beginField")
     private WebElement openIndicator;
 
-    public MainPage() {
+    public PreliminaryCitedTitleListingPage() {
         super(false);
     }
 
-    public MainPage(boolean openFromMenu) {
+    public PreliminaryCitedTitleListingPage(boolean openFromMenu) {
         super(openFromMenu);
     }
 
     @Override
     public void openPage() {
-        homeMenu.click();
+        DictionariesMainMenu.click();
+        PreliminaryCitedTitleListingSubMenu.click();
     }
 
     @Override
