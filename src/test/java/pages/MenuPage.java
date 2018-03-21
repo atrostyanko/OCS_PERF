@@ -1,6 +1,7 @@
 package pages;
 
 import com.google.errorprone.annotations.Var;
+import com.utils.TimeUtils;
 import com.webtestsbase.BasePage;
 import com.webtestsbase.commonElements.elements.Button;
 import org.openqa.selenium.support.FindBy;
@@ -15,7 +16,7 @@ import pages.journalMaintenance.PublicationTransactionPage;
 
 public abstract class MenuPage extends BasePage {
     //=== Main Menu Sections ===========================================================================================
-    @FindBy(xpath = "[href='/jcr/html/main.html']")
+    @FindBy(css = "[href='/jcr/html/main.html']")
     public Button homeMenu;
 
     @FindBy(xpath = ".//span[.='Dictionaries']")
@@ -24,8 +25,11 @@ public abstract class MenuPage extends BasePage {
     @FindBy(xpath = ".//span[.= 'Journal Maintenance']")
     public Button JournalMaintenanceMainMenu;
 
-    @FindBy(xpath = ".//span[.= 'JCR Control']")
+    @FindBy(css = "[href='/jcr/html/jcrControl.html']")
     public Button JCRControlMainMenu;
+
+    @FindBy(xpath = ".//span[.= 'Switch Collection']")
+    public Button SwitchCollectionMainMenu;
 
     @FindBy(css = "[href='/jcr/html/logout']")
     public Button logoffMainMenu;
@@ -54,6 +58,12 @@ public abstract class MenuPage extends BasePage {
 
     @FindBy(css = "[href='/jcr/html/issn.html']")
     public Button ISSNSubMenu;
+
+    @FindBy(css = "[href='/jcr/html/main.html?to=wos']")
+    public Button wosSubMenu;
+
+    @FindBy(css = "[href='/jcr/html/main.html?to=scielo']")
+    public Button scieloSubMenu;
 
     //=== Constructor ==================================================================================================
     public MenuPage() {
@@ -109,6 +119,25 @@ public abstract class MenuPage extends BasePage {
     public IssnPage clickISSNSubMenu() {
         return JournalMaintenanceMainMenu.click() && ISSNSubMenu.click()
                 ? new IssnPage()
+                : null;
+    }
+
+    public JCRControlPage clickJCRControlMainMenu() {
+        return JCRControlMainMenu.click()
+                ? new JCRControlPage()
+                : null;
+    }
+
+    public MainPage clickWOSSubMenu() {
+        return SwitchCollectionMainMenu.click() && wosSubMenu.click()
+                ? new MainPage()
+                : null;
+    }
+    public MainPage clickScieloSubMenu() {
+        SwitchCollectionMainMenu.click();
+        TimeUtils.waitForSeconds(1);
+        return scieloSubMenu.click()
+                ? new MainPage()
                 : null;
     }
 

@@ -9,6 +9,7 @@ import com.webtestsbase.WebDriverFactory;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import pages.JCRControlPage;
 import pages.MainPage;
 import pages.dictionaries.FirstSecondWordPage;
 import pages.dictionaries.HomographTablePage;
@@ -88,6 +89,30 @@ public class BVT_Test {
         eReports.compareNotNULL(issnPage,
                 "Verify that ISSN page is opened.");
 
+        JCRControlPage jcrControlPage = mainPage.clickJCRControlMainMenu();
+        eReports.compareNotNULL(jcrControlPage,
+                "Verify that JCR Control page is opened.");
+
+        mainPage = mainPage.clickHome();
+        eReports.compareNotNULL(mainPage,
+                "Verify that Home page is opened.");
+/*
+        mainPage = mainPage.clickScieloSubMenu();
+        eReports.compareNotNULL(mainPage,
+                "Switch to Scielo Collection.");
+
+        homographTablePage = mainPage.clickHomographTableSubMenu();
+        eReports.compareNotNULL(homographTablePage,
+                "Verify that Homograph Table page is opened.");
+
+        variantPreferredPage = mainPage.clickVariantPreferredSubMenu();
+        eReports.compareNotNULL(variantPreferredPage,
+                "Verify that Variant/Preferred page is opened.");
+
+        mainPage = mainPage.clickHome();
+        eReports.compareNotNULL(mainPage,
+                "Verify that Home page is opened.");
+*/
         eReports.compareTrue(mainPage.logoffMainMenu.click(), "Logoff from the APP.");
     }
 }

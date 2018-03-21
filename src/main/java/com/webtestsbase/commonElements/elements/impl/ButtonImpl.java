@@ -14,12 +14,16 @@ class ButtonImpl extends ElementImpl implements Button {
 
     @Override
     public boolean click() {
+        mouseHoverJScript();
+        return WebDriverFactory.clickElement(wrappedElement);
+        /*
         if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
             mouseHoverJScript();
             wrappedElement.click();
             return true;
         }
         return WebDriverFactory.clickElement(wrappedElement);
+        */
     }
 
     private void mouseHoverJScript() {
