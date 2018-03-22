@@ -81,43 +81,51 @@ public abstract class MenuPage extends BasePage {
                 : null;
     }
     public VariantPreferredPage clickVariantPreferredSubMenu() {
-        return DictionariesMainMenu.click() && VariantPreferredSubMenu.click()
+        DictionariesMainMenu.mouseHoverJScript();
+        return VariantPreferredSubMenu.click()
                 ? new VariantPreferredPage()
                 : null;
     }
     public HomographTablePage clickHomographTableSubMenu() {
-        return DictionariesMainMenu.click() && HomographTableSubMenu.click()
+        DictionariesMainMenu.mouseHoverJScript();
+        return HomographTableSubMenu.click()
                 ? new HomographTablePage()
                 : null;
     }
     public PreliminaryCitedTitleListingPage clickPreliminaryCitedTitleListingSubMenu() {
-        return DictionariesMainMenu.click() && PreliminaryCitedTitleListingSubMenu.click()
+        DictionariesMainMenu.mouseHoverJScript();
+        return PreliminaryCitedTitleListingSubMenu.click()
                 ? new PreliminaryCitedTitleListingPage()
                 : null;
     }
     public FirstSecondWordPage clickFirstSecondWordSubMenu() {
-        return DictionariesMainMenu.click() && FirstSecondWordSubMenu.click()
+        DictionariesMainMenu.mouseHoverJScript();
+        return FirstSecondWordSubMenu.click()
                 ? new FirstSecondWordPage()
                 : null;
     }
 
     public ManageJournalsPage clickManageJournalsSubMenu() {
-        return JournalMaintenanceMainMenu.click() && ManageJournalsSubMenu.click()
+        JournalMaintenanceMainMenu.mouseHoverJScript();
+        return ManageJournalsSubMenu.click()
                 ? new ManageJournalsPage()
                 : null;
     }
     public CreateNewJournalPage clickCreateNewJournalSubMenu() {
-        return JournalMaintenanceMainMenu.click() && CreateNewJournalSubMenu.click()
+        JournalMaintenanceMainMenu.mouseHoverJScript();
+        return CreateNewJournalSubMenu.click()
                 ? new CreateNewJournalPage()
                 : null;
     }
     public PublicationTransactionPage clickPublicationTransactionSubMenu() {
-        return JournalMaintenanceMainMenu.click() && PublicationTransactionSubMenu.click()
+        JournalMaintenanceMainMenu.mouseHoverJScript();
+        return PublicationTransactionSubMenu.click()
                 ? new PublicationTransactionPage()
                 : null;
     }
     public IssnPage clickISSNSubMenu() {
-        return JournalMaintenanceMainMenu.click() && ISSNSubMenu.click()
+        JournalMaintenanceMainMenu.mouseHoverJScript();
+        return ISSNSubMenu.click()
                 ? new IssnPage()
                 : null;
     }
@@ -129,12 +137,13 @@ public abstract class MenuPage extends BasePage {
     }
 
     public MainPage clickWOSSubMenu() {
-        return SwitchCollectionMainMenu.click() && wosSubMenu.click()
+        SwitchCollectionMainMenu.mouseHoverJScript();
+        return wosSubMenu.click()
                 ? new MainPage()
                 : null;
     }
     public MainPage clickScieloSubMenu() {
-        SwitchCollectionMainMenu.click();
+        SwitchCollectionMainMenu.mouseHoverJScript();
         TimeUtils.waitForSeconds(1);
         return scieloSubMenu.click()
                 ? new MainPage()

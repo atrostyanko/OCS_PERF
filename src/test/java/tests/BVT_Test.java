@@ -96,23 +96,27 @@ public class BVT_Test {
         mainPage = mainPage.clickHome();
         eReports.compareNotNULL(mainPage,
                 "Verify that Home page is opened.");
-/*
+
         mainPage = mainPage.clickScieloSubMenu();
         eReports.compareNotNULL(mainPage,
                 "Switch to Scielo Collection.");
 
-        homographTablePage = mainPage.clickHomographTableSubMenu();
+        eReports.compareTrue(mainPage.HomographTableSubMenu.click(),
+                "Click 'Homograph Table' menu. ");
+        homographTablePage = new HomographTablePage(false);
         eReports.compareNotNULL(homographTablePage,
                 "Verify that Homograph Table page is opened.");
 
-        variantPreferredPage = mainPage.clickVariantPreferredSubMenu();
+        eReports.compareTrue(mainPage.VariantPreferredSubMenu.click(),
+                "Click 'Variant/Preferred' menu. ");
+        variantPreferredPage = new VariantPreferredPage(false);
         eReports.compareNotNULL(variantPreferredPage,
                 "Verify that Variant/Preferred page is opened.");
 
         mainPage = mainPage.clickHome();
         eReports.compareNotNULL(mainPage,
                 "Verify that Home page is opened.");
-*/
+
         eReports.compareTrue(mainPage.logoffMainMenu.click(), "Logoff from the APP.");
     }
 }

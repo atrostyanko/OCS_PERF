@@ -14,7 +14,7 @@ class ButtonImpl extends ElementImpl implements Button {
 
     @Override
     public boolean click() {
-        mouseHoverJScript();
+        //mouseHoverJScript();
         return WebDriverFactory.clickElement(wrappedElement);
         /*
         if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
@@ -26,7 +26,7 @@ class ButtonImpl extends ElementImpl implements Button {
         */
     }
 
-    private void mouseHoverJScript() {
+    public void mouseHoverJScript() {
         String mouseOverScript = "if(document.createEvent){var evObj = document.createEvent('MouseEvents');evObj." +
                     "initEvent('mouseover', true, false); arguments[0].dispatchEvent(evObj);} else if(document.createEventObject) { arguments[0].fireEvent('onmouseover');}";
         ((JavascriptExecutor) driver).executeScript(mouseOverScript, wrappedElement);

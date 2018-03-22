@@ -91,6 +91,7 @@ public class WebDriverFactory {
                         break;
                     case CHROME:
                         driver = new ChromeDriver(CapabilitiesGenerator.getChromeOptions());
+                        //driver = new ChromeDriver(CapabilitiesGenerator.getDefaultCapabilities(Browser.CHROME));
                         break;
                     case IE10:
                         driver = new InternetExplorerDriver(CapabilitiesGenerator.getDefaultCapabilities(Browser.IE10));

@@ -24,9 +24,9 @@ public class CapabilitiesGenerator {
         switch (browser) {
             case FIREFOX:
                 if (os.contains("win")) {
-                    System.setProperty("webdriver.gecko.driver", TestsConfig.getConfig().getDriversPath() + "/geckodriver.exe");
+                    System.setProperty("webdriver.gecko.driver", TestsConfig.getConfig().getDriversPath() + "/win/geckodriver.exe");
                 } else if (os.contains("mac")) {
-                    System.setProperty("webdriver.gecko.driver", TestsConfig.getConfig().getDriversPath() + "/geckodriver");
+                    System.setProperty("webdriver.gecko.driver", TestsConfig.getConfig().getDriversPath() + "/mac/geckodriver");
                 } else {
 
                 }
@@ -36,9 +36,9 @@ public class CapabilitiesGenerator {
                 return DesiredCapabilities.firefox();
             case CHROME:
                 if (os.contains("win")) {
-                    System.setProperty("webdriver.chrome.driver", TestsConfig.getConfig().getDriversPath() + "/chromedriver.exe");
+                    System.setProperty("webdriver.chrome.driver", TestsConfig.getConfig().getDriversPath() + "/win/chromedriver.exe");
                 } else if (os.contains("mac")) {
-                    System.setProperty("webdriver.chrome.driver", TestsConfig.getConfig().getDriversPath() + "/chromedriver");
+                    System.setProperty("webdriver.chrome.driver", TestsConfig.getConfig().getDriversPath() + "/mac/chromedriver");
                 } else {
 
                 }
@@ -57,8 +57,14 @@ public class CapabilitiesGenerator {
                 DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
                 capabilities.setJavascriptEnabled(true);
                 capabilities.setCapability("takesScreenshot", true);
+                String subFolder = "";
+                if (os.contains("linux")) {
+                    subFolder = "/linux";
+                } else if (os.contains("mac")) {
+                    subFolder = "/mac";
+                }
                 capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-                        TestsConfig.getConfig().getDriversPath() + "/phantomjs");
+                        TestsConfig.getConfig().getDriversPath() + subFolder + "/phantomjs");
                 return capabilities;
             default:
                 throw new IllegalStateException("Browser is not supported");
@@ -69,9 +75,9 @@ public class CapabilitiesGenerator {
         ChromeOptions options = new ChromeOptions();
         String os = System.getProperty("os.name").toLowerCase();
         if (os.contains("win")) {
-            System.setProperty("webdriver.chrome.driver", TestsConfig.getConfig().getDriversPath() + "/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", TestsConfig.getConfig().getDriversPath() + "/win/chromedriver.exe");
         } else if (os.contains("mac")) {
-            System.setProperty("webdriver.chrome.driver", TestsConfig.getConfig().getDriversPath() + "/chromedriver");
+            System.setProperty("webdriver.chrome.driver", TestsConfig.getConfig().getDriversPath() + "/mac/chromedriver");
         }
         options.addArguments("--start-maximized");
         options.addArguments("--ignore-certificate-errors");
