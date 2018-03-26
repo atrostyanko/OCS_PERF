@@ -2,30 +2,29 @@ package pages;
 
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
-public class MainPage extends MenuPage {
-    @FindBy(xpath = ".//span[contains(text(), 'CHEMICAL INFORMATION')]")
-    private WebElement openIndicator;
+public class DictionaryUpdatePage extends MenuPage {
+    @FindBy(name = "printcb")
+    public Button printcb;
 
-    public MainPage() {
-        super(false);
+    public DictionaryUpdatePage() {
+        super(true);
     }
 
-    public MainPage(boolean openFromMenu) {
+    public DictionaryUpdatePage(boolean openFromMenu) {
         super(openFromMenu);
     }
 
     @Override
     public void openPage() {
-
+        dictBtn.click();
     }
 
     @Override
     public boolean isPageOpened() {
-        return WebDriverFactory.isElementDisplayed(openIndicator);
+        return WebDriverFactory.getDriver().getTitle().trim().equalsIgnoreCase("Dictionary Update Page")
+                && printcb.isDisplayed();
     }
 
     //===== Click methods ==============================================================================================

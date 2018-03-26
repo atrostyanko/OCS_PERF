@@ -2,30 +2,32 @@ package pages;
 
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
-public class MainPage extends MenuPage {
-    @FindBy(xpath = ".//span[contains(text(), 'CHEMICAL INFORMATION')]")
-    private WebElement openIndicator;
+public class NNCPage extends MenuPage {
+    @FindBy(name = "newBtn")
+    public Button newBtn;
 
-    public MainPage() {
-        super(false);
+    @FindBy(name = "retrieveBtn")
+    public Button retrieveBtn;
+
+    public NNCPage() {
+        super(true);
     }
 
-    public MainPage(boolean openFromMenu) {
+    public NNCPage(boolean openFromMenu) {
         super(openFromMenu);
     }
 
     @Override
     public void openPage() {
-
+        nncBtn.click();
     }
 
     @Override
     public boolean isPageOpened() {
-        return WebDriverFactory.isElementDisplayed(openIndicator);
+        return WebDriverFactory.getDriver().getTitle().trim().equalsIgnoreCase("NNC Journal Input")
+                && retrieveBtn.isDisplayed();
     }
 
     //===== Click methods ==============================================================================================

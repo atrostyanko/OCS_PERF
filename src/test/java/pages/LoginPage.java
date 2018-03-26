@@ -6,14 +6,14 @@ import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
-    @FindBy(id = "uName")
+    @FindBy(name = "userId")
     public TextInput username;
 
-    @FindBy(id = "uPwd")
+    @FindBy(name = "userPwd")
     public TextInput password;
 
-    @FindBy(css = "[type='submit']")
-    private Button submit;
+    @FindBy(name = "LoginBtn")
+    private Button LoginBtn;
 
     public LoginPage() {
         super(false);
@@ -30,7 +30,7 @@ public class LoginPage extends BasePage {
 
     //===== Click methods ==============================================================================================
     public MainPage submit() {
-        return this.submit.click()
+        return this.LoginBtn.click()
                 ? new MainPage()
                 : null;
     }

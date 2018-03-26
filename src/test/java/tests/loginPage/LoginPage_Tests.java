@@ -22,8 +22,8 @@ public class LoginPage_Tests {
     }
 
     public MainPage login() {
-        String userID = WebDriverFactory.getUsername(); //prop.getProperty("userID");
-        String password = WebDriverFactory.getPassword(); //prop.getProperty("password");
+        String userID = WebDriverFactory.getUsername();
+        String password = WebDriverFactory.getPassword();
         MainPage returnPage = null;
 
         eReports.createNode("Login Page.", "Verify that user can login to the APP.");

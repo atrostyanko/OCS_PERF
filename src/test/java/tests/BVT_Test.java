@@ -9,16 +9,10 @@ import com.webtestsbase.WebDriverFactory;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import pages.JCRControlPage;
-import pages.MainPage;
-import pages.dictionaries.FirstSecondWordPage;
-import pages.dictionaries.HomographTablePage;
-import pages.dictionaries.PreliminaryCitedTitleListingPage;
-import pages.dictionaries.VariantPreferredPage;
-import pages.journalMaintenance.CreateNewJournalPage;
-import pages.journalMaintenance.IssnPage;
-import pages.journalMaintenance.ManageJournalsPage;
-import pages.journalMaintenance.PublicationTransactionPage;
+import pages.*;
+import pages.extraction.ExtractionConfirmPage;
+import pages.extraction.ExtractionResultPage;
+import pages.extraction.ExtractionSearchPage;
 import tests.loginPage.LoginPage_Tests;
 
 import java.util.Properties;
@@ -38,7 +32,7 @@ public class BVT_Test {
     public static void beforeClass() {
         eReports = new ExtentManager();
         ExtentManager.setFolderPath(TestsConfig.getConfig().getReportsPath());
-        ExtentManager.GetExtent("OCS Performance Test.");
+        ExtentManager.GetExtent("CHEM Performance Test.");
         WebDriverFactory.startBrowser(true);
         PropertiesLoader.populate(new BVT_Test());
     }
@@ -51,71 +45,48 @@ public class BVT_Test {
 
     @Test
     public void mainTests() {
-        eReports.createTest("PUBLISHER Tests.", "Verify all items from PUBLISHER menu.");
+        eReports.createTest("CHEM Build Verification Test.", "Verify all items from CHEM menu.");
 
         MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
         eReports.compareNotNULL(mainPage,
                 "Verify that Main page is opened.");
 
-        VariantPreferredPage variantPreferredPage = mainPage.clickVariantPreferredSubMenu();
-        eReports.compareNotNULL(variantPreferredPage,
-                "Verify that Variant/Preferred page is opened.");
+        //=== Toc Menu
+        TocPage tocPage = new TocPage();
+        eReports.compareNotNULL(tocPage,
+                "Verify that 'Toc' page is opened.");
 
-        HomographTablePage homographTablePage = mainPage.clickHomographTableSubMenu();
-        eReports.compareNotNULL(homographTablePage,
-                "Verify that Homograph Table page is opened.");
+        //=== Input menu
+        //ToDo: new window is opened - need add additional methods to handle it
 
-        PreliminaryCitedTitleListingPage preliminaryCitedTitleListingPage = mainPage.clickPreliminaryCitedTitleListingSubMenu();
-        eReports.compareNotNULL(preliminaryCitedTitleListingPage,
-                "Verify that Preliminary Cited Title Listing page is opened.");
+        //=== Edit menu
+        //ToDo: An exception on the page
 
-        FirstSecondWordPage firstSecondWordPage = mainPage.clickFirstSecondWordSubMenu();
-        eReports.compareNotNULL(firstSecondWordPage,
-                "Verify that First/Second Word page is opened.");
+        //=== Extract menu
+        ExtractionSearchPage extractionSearchPage = new ExtractionSearchPage();
+        eReports.compareNotNULL(tocPage,
+                "Verify that 'Extraction' page is opened.");
 
-        ManageJournalsPage manageJournalsPage = mainPage.clickManageJournalsSubMenu();
-        eReports.compareNotNULL(manageJournalsPage,
-                "Verify that Manage Journals page is opened.");
+        ExtractionConfirmPage extractionConfirmPage = extractionSearchPage.clickSubmit();
+        eReports.compareNotNULL(extractionConfirmPage,
+                "Click 'Submit' and verify that Extraction Confirmation page is opened.");
 
-        CreateNewJournalPage createNewJournalPage = mainPage.clickCreateNewJournalSubMenu();
-        eReports.compareNotNULL(createNewJournalPage,
-                "Verify that Create New Journal page is opened.");
+        ExtractionResultPage extractionResultPage = extractionConfirmPage.clickExtract();
+        eReports.compareNotNULL(extractionResultPage,
+                "Click 'Extract' and verify that Extraction Result page is opened.");
 
-        PublicationTransactionPage publicationTransactionPage = mainPage.clickPublicationTransactionSubMenu();
-        eReports.compareNotNULL(publicationTransactionPage,
-                "Verify that Publication Transaction page is opened.");
+        //=== Report menu
+        //ToDo: not working is the APP
 
-        IssnPage issnPage = mainPage.clickISSNSubMenu();
-        eReports.compareNotNULL(issnPage,
-                "Verify that ISSN page is opened.");
+        //=== Dictionary menu
+        DictionaryUpdatePage dictionaryUpdatePage = new DictionaryUpdatePage();
+        eReports.compareNotNULL(dictionaryUpdatePage,
+                "Verify that 'Dictionary Update' page is opened.");
 
-        JCRControlPage jcrControlPage = mainPage.clickJCRControlMainMenu();
-        eReports.compareNotNULL(jcrControlPage,
-                "Verify that JCR Control page is opened.");
-
-        mainPage = mainPage.clickHome();
-        eReports.compareNotNULL(mainPage,
-                "Verify that Home page is opened.");
-
-        mainPage = mainPage.clickScieloSubMenu();
-        eReports.compareNotNULL(mainPage,
-                "Switch to Scielo Collection.");
-
-        eReports.compareTrue(mainPage.HomographTableSubMenu.click(),
-                "Click 'Homograph Table' menu. ");
-        homographTablePage = new HomographTablePage(false);
-        eReports.compareNotNULL(homographTablePage,
-                "Verify that Homograph Table page is opened.");
-
-        eReports.compareTrue(mainPage.VariantPreferredSubMenu.click(),
-                "Click 'Variant/Preferred' menu. ");
-        variantPreferredPage = new VariantPreferredPage(false);
-        eReports.compareNotNULL(variantPreferredPage,
-                "Verify that Variant/Preferred page is opened.");
-
-        mainPage = mainPage.clickHome();
-        eReports.compareNotNULL(mainPage,
-                "Verify that Home page is opened.");
+        //=== NNC menu
+        NNCPage nncPage = new NNCPage();
+        eReports.compareNotNULL(nncPage,
+                "Verify that 'NNC Journal Input' page is opened.");
 
         eReports.compareTrue(mainPage.logoffMainMenu.click(), "Logoff from the APP.");
     }
