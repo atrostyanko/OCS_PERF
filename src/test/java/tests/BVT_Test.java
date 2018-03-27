@@ -52,11 +52,17 @@ public class BVT_Test {
                 "Verify that Main page is opened.");
 
         //=== Toc Menu
+
         TocPage tocPage = new TocPage();
         eReports.compareNotNULL(tocPage,
                 "Verify that 'Toc' page is opened.");
 
         //=== Input menu
+        ChemInputSelectionPage chemInputSelectionPage = new ChemInputSelectionPage();
+        eReports.compareNotNULL(chemInputSelectionPage,
+                "Verify that 'Chem Input Selection' page is opened.");
+        chemInputSelectionPage.closeWindow();
+
         //ToDo: new window is opened - need add additional methods to handle it
 
         //=== Edit menu
@@ -64,7 +70,7 @@ public class BVT_Test {
 
         //=== Extract menu
         ExtractionSearchPage extractionSearchPage = new ExtractionSearchPage();
-        eReports.compareNotNULL(tocPage,
+        eReports.compareNotNULL(extractionSearchPage,
                 "Verify that 'Extraction' page is opened.");
 
         ExtractionConfirmPage extractionConfirmPage = extractionSearchPage.clickSubmit();
