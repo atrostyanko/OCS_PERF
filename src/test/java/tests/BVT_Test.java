@@ -51,8 +51,9 @@ public class BVT_Test {
         eReports.compareNotNULL(mainPage,
                 "Verify that Main page is opened.");
 
-        //=== Toc Menu
+        eReports.createNode("Test All pages.", "Verify that all pages can be opened.");
 
+        //=== Toc Menu
         TocPage tocPage = new TocPage();
         eReports.compareNotNULL(tocPage,
                 "Verify that 'Toc' page is opened.");

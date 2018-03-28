@@ -15,7 +15,6 @@ import com.configuration.TestsConfig;
 import com.reporting.ExtentManager;
 import com.utils.TimeUtils;
 
-import java.util.HashMap;
 import java.util.List;
 
 /**

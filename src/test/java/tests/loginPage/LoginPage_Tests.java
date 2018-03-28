@@ -31,8 +31,10 @@ public class LoginPage_Tests {
         LoginPage loginPage = new LoginPage();
         if (eReports.compareNotNULL(loginPage, "Check that HOME Page is opened.")) {
 
-            eReports.compareTrue(loginPage.username.setText(userID), "Set user ID: " + userID);
-            eReports.compareTrue(loginPage.password.setText(password), "Set password: " + password);
+            eReports.compareTrue(loginPage.username.setText(userID), "Set user ID: ******");
+            eReports.compareTrue(loginPage.password.setText(password), "Set password: ******");
+            //eReports.compareTrue(loginPage.username.setText(userID), "Set user ID: ******" + userID);
+            //eReports.compareTrue(loginPage.password.setText(password), "Set password: " + password);
 
             returnPage = loginPage.submit();
             eReports.compareNotNULL(returnPage, "Click 'Submit' button and check that the main page is opened.");
