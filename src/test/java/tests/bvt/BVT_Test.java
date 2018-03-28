@@ -1,4 +1,4 @@
-package tests;
+package tests.bvt;
 
 import com.configuration.TestsConfig;
 import com.configuration.properties.AllProperties;
@@ -21,7 +21,7 @@ import java.util.Properties;
  * Created by Alexandr Trostyanko.
  */
 
-@PropertyFile("testData/bvt.properties")
+@PropertyFile("testData/bvt/bvt.properties")
 public class BVT_Test {
     public static ExtentManager eReports;
 

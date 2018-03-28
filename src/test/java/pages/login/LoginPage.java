@@ -1,9 +1,10 @@
-package pages;
+package pages.login;
 
 import com.webtestsbase.BasePage;
 import com.webtestsbase.commonElements.elements.Button;
 import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.support.FindBy;
+import pages.MainPage;
 
 public class LoginPage extends BasePage {
     @FindBy(name = "userId")

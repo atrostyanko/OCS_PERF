@@ -2,8 +2,9 @@ package tests.loginPage;
 
 import com.reporting.ExtentManager;
 import com.webtestsbase.WebDriverFactory;
-import pages.login.LoginPage;
 import pages.MainPage;
+import pages.login.CalendarLoginPage;
+import pages.login.LoginPage;
 
 import java.util.Properties;
 
@@ -12,11 +13,11 @@ import java.util.Properties;
  * Uses JUnit test framework
  * Build Verification Test for JCR
  */
-public class LoginPage_Tests {
+public class CalendarLoginPage_Tests {
     private ExtentManager eReports;
     private Properties prop;
 
-    public LoginPage_Tests(ExtentManager eReports, Properties prop) {
+    public CalendarLoginPage_Tests(ExtentManager eReports, Properties prop) {
         this.eReports = eReports;
         this.prop = prop;
     }
@@ -28,7 +29,7 @@ public class LoginPage_Tests {
 
         eReports.createNode("Login Page.", "Verify that user can login to the APP.");
 
-        LoginPage loginPage = new LoginPage();
+        CalendarLoginPage loginPage = new CalendarLoginPage();
         if (eReports.compareNotNULL(loginPage, "Check that HOME Page is opened.")) {
 
             eReports.compareTrue(loginPage.username.setText(userID), "Set user ID: " + userID);
