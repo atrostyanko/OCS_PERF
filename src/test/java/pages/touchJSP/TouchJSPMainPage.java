@@ -16,6 +16,9 @@ public class TouchJSPMainPage extends BasePage {
     @FindBy (name = "search")
     public Button searchButton;
 
+    @FindBy (className = "myTable")
+    private WebElement resultTable;
+
     @FindBy(name = "logout")
     private Button logoffButton;
 
@@ -37,6 +40,9 @@ public class TouchJSPMainPage extends BasePage {
     }
 
     //===== Click methods ==============================================================================================
+    public boolean clickSearchButton() {
+        return searchButton.click() && WebDriverFactory.waitElementIsVisible(resultTable);
+    }
     public TouchJSPLoginPage logout() {
         return logoffButton.click()
                 ? new TouchJSPLoginPage()

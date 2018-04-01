@@ -21,7 +21,7 @@ import java.util.Properties;
  * Created by Alexandr Trostyanko.
  */
 
-@PropertyFile("testData/bvt/calendar.properties")
+@PropertyFile("testData/bvt/touchJSP.properties")
 public class BVT_TouchJSP_Test {
     public static ExtentManager eReports;
 
@@ -45,11 +45,17 @@ public class BVT_TouchJSP_Test {
 
     @Test
     public void mainTests() {
+        String issueNo = prop.getProperty("issueNo");
+
         eReports.createTest("TouchJSP Build Verification Test.", "Verify all items from TouchJSP menu.");
 
         TouchJSPMainPage touchJSPMainPage = new TouchJSPLoginPage_Tests(eReports, prop).login();
 
         if (eReports.compareNotNULL(touchJSPMainPage, "Verify that Main page is opened.")) {
+
+            eReports.compareTrue(touchJSPMainPage.issueNo.setText(issueNo), "Set Issue No: " + issueNo);
+
+            eReports.compareTrue(touchJSPMainPage.clickSearchButton(), "Click 'search' button.");
 
             eReports.createNode("Logoff from the APP", "Logoff from the APP");
 
