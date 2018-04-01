@@ -10,7 +10,10 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import pages.calendar.CalendarMainPage;
+import pages.login.TouchJSPLoginPage;
+import pages.touchJSP.TouchJSPMainPage;
 import tests.loginPage.CalendarLoginPage_Tests;
+import tests.loginPage.TouchJSPLoginPage_Tests;
 
 import java.util.Properties;
 
@@ -19,7 +22,7 @@ import java.util.Properties;
  */
 
 @PropertyFile("testData/bvt/calendar.properties")
-public class BVT_Calendar_Test {
+public class BVT_TouchJSP_Test {
     public static ExtentManager eReports;
 
     @AllProperties
@@ -31,7 +34,7 @@ public class BVT_Calendar_Test {
         ExtentManager.setFolderPath(TestsConfig.getConfig().getReportsPath());
         ExtentManager.GetExtent("CORRECTIONS BVT Test.");
         WebDriverFactory.startBrowser(true);
-        PropertiesLoader.populate(new BVT_Calendar_Test());
+        PropertiesLoader.populate(new BVT_TouchJSP_Test());
     }
 
     @AfterClass
@@ -42,17 +45,16 @@ public class BVT_Calendar_Test {
 
     @Test
     public void mainTests() {
-        eReports.createTest("CHEM Build Verification Test.", "Verify all items from CHEM menu.");
+        eReports.createTest("TouchJSP Build Verification Test.", "Verify all items from TouchJSP menu.");
 
-        CalendarMainPage calendarMainPage = new CalendarLoginPage_Tests(eReports, prop).login();
+        TouchJSPMainPage touchJSPMainPage = new TouchJSPLoginPage_Tests(eReports, prop).login();
 
-        if (eReports.compareNotNULL(calendarMainPage, "Verify that Main page is opened.")) {
+        if (eReports.compareNotNULL(touchJSPMainPage, "Verify that Main page is opened.")) {
 
             eReports.createNode("Logoff from the APP", "Logoff from the APP");
 
-            eReports.compareTrue(calendarMainPage.clickEditCalendarLink(), "Click ''");
-
-            eReports.compareTrue(calendarMainPage.logout(), "Logoff from the APP.");
+            TouchJSPLoginPage touchJSPLoginPage = touchJSPMainPage.logout();
+            eReports.compareNotNULL(touchJSPLoginPage, "Logoff from the APP.");
         }
     }
 }

@@ -5,25 +5,24 @@ import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
 import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.support.FindBy;
-import pages.MainPage;
 
-public class CalendarLoginPage extends BasePage {
-    @FindBy(name = "userid")
+public class TouchJSPLoginPage extends BasePage {
+    @FindBy(name = "j_username")
     public TextInput username;
 
-    @FindBy(name = "password")
+    @FindBy(name = "j_password")
     public TextInput password;
 
-    @FindBy(css = "input[value='LOG IN']")
+    @FindBy(css = "input[value='Login']")
     public Button loginBtn;
 
-    public CalendarLoginPage() {
+    public TouchJSPLoginPage() {
         super(true);
     }
 
     @Override
     public void openPage() {
-        WebDriverFactory.navigateTo("/Calendar/");
+        WebDriverFactory.navigateTo("/touchJSP");
     }
 
     @Override

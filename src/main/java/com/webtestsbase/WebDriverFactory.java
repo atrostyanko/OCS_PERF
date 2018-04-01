@@ -107,10 +107,10 @@ public class WebDriverFactory {
                         throw new IllegalStateException("Unsupported browser type");
                 }
             }
-            driver.get(getURL());
+            //driver.get(getURL());
 
             System.out.println("Browser is started...");
-            System.out.println(driver.getTitle());
+            //System.out.println(driver.getTitle());
         } else {
             throw new IllegalStateException("Driver has already been initialized. Quit it before using this method");
         }
@@ -447,6 +447,45 @@ public class WebDriverFactory {
         return null;
     }
 
+    public static boolean switchToFrame(WebElement frameElement) {
+        try {
+            driver.switchTo().frame(frameElement);
+            return true;
+        } catch (NoSuchFrameException e) {
+            ExtentManager.getCurrentTest().error("Unable to locate frame with element " + frameElement + e.getStackTrace());
+        } catch (StaleElementReferenceException e) {
+            ExtentManager.getCurrentTest().error("Element with " + frameElement + "is not attached to the page document" + e.getStackTrace());
+        } catch (Exception e) {
+            ExtentManager.getCurrentTest().error("Unable to navigate to frame with element " + frameElement + e.getStackTrace());
+        }
+        return false;
+    }
+    public static boolean switchToFrame(int i) {
+        try {
+            driver.switchTo().frame(i);
+            return true;
+        } catch (NoSuchFrameException e) {
+            ExtentManager.getCurrentTest().error("Unable to locate frame with ID: " + i + e.getStackTrace());
+        } catch (StaleElementReferenceException e) {
+            ExtentManager.getCurrentTest().error("Element with " + i + "is not attached to the page document" + e.getStackTrace());
+        } catch (Exception e) {
+            ExtentManager.getCurrentTest().error("Unable to navigate to frame with element " + i + e.getStackTrace());
+        }
+        return false;
+    }
+    public static boolean switchToFrame(String name) {
+        try {
+            driver.switchTo().frame(name);
+            return true;
+        } catch (NoSuchFrameException e) {
+            ExtentManager.getCurrentTest().error("Unable to locate frame with ID: " + name + e.getStackTrace());
+        } catch (StaleElementReferenceException e) {
+            ExtentManager.getCurrentTest().error("Element with " + name + "is not attached to the page document" + e.getStackTrace());
+        } catch (Exception e) {
+            ExtentManager.getCurrentTest().error("Unable to navigate to frame with element " + name + e.getStackTrace());
+        }
+        return false;
+    }
 /*
 
 

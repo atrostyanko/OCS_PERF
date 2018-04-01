@@ -10,7 +10,6 @@ import java.util.Properties;
 /**
  * Created by Alexandr Trostyanko.
  * Uses JUnit test framework
- * Build Verification Test for JCR
  */
 public class LoginPage_Tests {
     private ExtentManager eReports;
@@ -29,7 +28,7 @@ public class LoginPage_Tests {
         eReports.createNode("Login Page.", "Verify that user can login to the APP.");
 
         LoginPage loginPage = new LoginPage();
-        if (eReports.compareNotNULL(loginPage, "Check that HOME Page is opened.")) {
+        if (eReports.compareNotNULL(loginPage, "Check that LOGIN Page is opened.")) {
 
             eReports.compareTrue(loginPage.username.setText(userID), "Set user ID: " + userID);
             eReports.compareTrue(loginPage.password.setText(password), "Set password: " + password);
