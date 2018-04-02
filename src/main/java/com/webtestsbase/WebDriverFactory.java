@@ -228,6 +228,10 @@ public class WebDriverFactory {
         return sReturn;
     }
 
+    public static String getTitle() {
+        return driver.getTitle().trim();
+    }
+
     //===== CheckBox Methods ===========================================================================================
     public static boolean setCheckBox(WebElement el, boolean flag) {
         boolean bResult = false;

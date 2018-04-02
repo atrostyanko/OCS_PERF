@@ -1,5 +1,6 @@
 package pages;
 
+import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -35,11 +36,13 @@ public class MainPage extends MenuPage {
 
     @Override
     public boolean isPageOpened() {
-        return true;
+        return WebDriverFactory.getTitle().equalsIgnoreCase("Main Page");
     }
 
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         return submitBtn.click();
     }
+
+
 }
