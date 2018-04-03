@@ -2,19 +2,21 @@ package pages;
 
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
 public class MainPage extends MenuPage {
+    @FindBy (css = ".BackgroundBigHeader td[align='center'] b")
+    public WebElement pageTitle;
+
     @FindBy(name = "submit")
-    @CacheLookup
     public Button submitBtn;
 
     @FindBy(id = "divoCMenu0_0")
     private Button menuOpenIndicator;
 
     @FindBy(css = "span.Note")
-    @CacheLookup
     private Button openIndicator;
 
     public MainPage() {
@@ -40,9 +42,9 @@ public class MainPage extends MenuPage {
     }
 
     //===== Click methods ==============================================================================================
+    /*
     public boolean clickSubmit() {
         return submitBtn.click();
     }
-
-
+    */
 }

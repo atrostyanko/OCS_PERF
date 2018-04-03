@@ -4,33 +4,23 @@ import com.webtestsbase.BasePage;
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
-import pages.issue.IssueDetailsPage;
-import pages.journal.JournalInquiryPage;
-import pages.publisher.PublisherInquiryPage;
 
 import java.util.List;
 
 public abstract class MenuPage extends BasePage {
     //=== Main Menu Sections ===========================================================================================
-    @FindBy(xpath = ".//div[.= 'PUBLISHER']")
-    private Button publisherMainMenu;
+    @FindBy(xpath = ".//div[.= 'REQUEST']")
+    private Button requestMainMenu;
 
-    @FindBy(xpath = ".//div[.= 'JOURNAL']")
-    private Button journalMainMenu;
+    @FindBy(xpath = ".//div[.= 'UT']")
+    private Button utMainMenu;
 
-    @FindBy(xpath = ".//div[.= 'ISSUE']")
-    private Button issueMainMenu;
-
-    @FindBy(xpath = ".//div[.= 'Conf.']")
-    private Button confMainMenu;
+    @FindBy(xpath = ".//div[.= 'UT Sequences']")
+    private Button utSequencesMainMenu;
 
     @FindBy(xpath = ".//div[.= 'Misc.']")
     private Button miscMainMenu;
-
-    @FindBy(xpath = ".//div[.= 'Search']")
-    private Button searchMainMenu;
 
     @FindBy(xpath = ".//div[.= 'Logoff']")
     private Button logoffMainMenu;
@@ -48,26 +38,22 @@ public abstract class MenuPage extends BasePage {
     }
 
     //===== Set methods ================================================================================================
-    public boolean clickPublisher() {
-        return publisherMainMenu.click();
+    public boolean clickRequestMainMenu() {
+        return requestMainMenu.click();
     }
-    public static JournalInquiryPage clickJournalInquiry() { return new JournalInquiryPage(); }
 
-    public boolean clickJournal() {
-        return journalMainMenu.click();
+    public boolean clickUTMainMenu() {
+        return utMainMenu.click();
     }
-    public boolean clickIssue() {
-        return issueMainMenu.click();
+
+    public boolean clickUtSequencesMainMenu() {
+        return utSequencesMainMenu.click();
     }
-    public boolean clickConf() {
-        return confMainMenu.click();
-    }
-    public boolean clickMisc() {
+
+    public boolean clickMiscMainMenu() {
         return miscMainMenu.click();
     }
-    public boolean clickSearch() {
-        return searchMainMenu.click();
-    }
+
     public boolean clickLogoff() {
         //return logoffMainMenu.click();
         WebDriverFactory.navigateTo("logoff.do");

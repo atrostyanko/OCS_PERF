@@ -33,31 +33,36 @@ public class WebDriverFactory {
 
     private static WebDriver driver;
 
+    private static Browser browser;
     private static String URL;
     private static String username;
     private static String password;
     private static String manuContext;
 
-    public static void setPassword(String password) {
-        WebDriverFactory.password = password;
+    //=== Getter
+    public static Browser getBrowser() {
+        return browser;
     }
-
     public static String getPassword() {
         return password;
     }
-
     public static String getURL() {
         return URL;
     }
-
     public static String getUsername() {
         return username;
     }
 
+    //=== Setter
+    public static void setBrowser(Browser browser) {
+        WebDriverFactory.browser = browser;
+    }
+    public static void setPassword(String password) {
+        WebDriverFactory.password = password;
+    }
     public static void setURL(String URL) {
         WebDriverFactory.URL = URL;
     }
-
     public static void setUsername(String username) {
         WebDriverFactory.username = username;
     }
@@ -69,8 +74,7 @@ public class WebDriverFactory {
      */
     public static void startBrowser(boolean isLocal) {
         if (driver == null) {
-            Browser browser = TestsConfig.getConfig().getBrowser();
-
+            setBrowser(TestsConfig.getConfig().getBrowser());
             setURL(TestsConfig.getConfig().getBrowserURL());
             setUsername(TestsConfig.getConfig().getUsername());
             setPassword(TestsConfig.getConfig().getPassword());
@@ -387,6 +391,16 @@ public class WebDriverFactory {
         WebDriverWait wait = webDriverWait();
         try {
             wait.until(ExpectedConditions.visibilityOf(webElement));
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+    public static boolean waitAllElementsVisible(List<WebElement> webElementList) {
+        WebDriverWait wait = webDriverWait();
+        try {
+            wait.until(ExpectedConditions.visibilityOfAllElements(webElementList));
             return true;
         } catch (TimeoutException e) {
             return false;
