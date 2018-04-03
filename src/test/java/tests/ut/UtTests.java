@@ -22,7 +22,7 @@ public class UtTests {
         eReports.createNode("UT -> UT Details page.", "Verify the UT Details page.");
 
         UTDetailsPage utDetailsPage = new UTDetailsPage();
-        if (eReports.compareNotNULL(utDetailsPage, "Open 'REQUEST -> UT Details' page.")) {
+        if (eReports.compareNotNULL(utDetailsPage, "Open 'UT -> UT Details' page.")) {
 
             eReports.compareTrue(utDetailsPage.corrId.setText(corrID),
                     "Set Corr ID to " + corrID);
@@ -37,7 +37,7 @@ public class UtTests {
         eReports.createNode("UT -> Add/Delete UTs page.", "Verify the Add/Delete UTs page.");
 
         AddDeleteUTPage addDeleteUTPage = new AddDeleteUTPage();
-        if (eReports.compareNotNULL(addDeleteUTPage, "Open 'REQUEST -> Add/Delete UTs' page.")) {
+        if (eReports.compareNotNULL(addDeleteUTPage, "Open 'UT -> Add/Delete UTs' page.")) {
 
             eReports.compareTrue(addDeleteUTPage.corrId.setText(corrID),
                     "Set Corr ID to " + corrID);

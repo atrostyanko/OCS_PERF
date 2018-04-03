@@ -15,6 +15,7 @@ import pages.MainPage;
 import tests.loginPage.LoginPage_Tests;
 import tests.request.RequestTests;
 import tests.ut.UtTests;
+import tests.utSequences.UTSequencesTests;
 
 import java.util.Properties;
 
@@ -69,6 +70,19 @@ public class BVT_Test {
 
         utTests.UtDetails_BVT();
         utTests.AddDeleteUT_BVT();
+
+        eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
+    }
+
+    @Test
+    public void utSequencesTests() {
+        eReports.createTest("UT Sequences Tests.", "Verify all items from UT Sequences menu.");
+
+        MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
+        UTSequencesTests utSequencesTests = new UTSequencesTests(eReports, prop);
+
+        utSequencesTests.ViewUTSequences_BVT();
+        utSequencesTests.ViewDeleteUTSequences_BVT();
 
         eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
