@@ -58,7 +58,6 @@ public abstract class BasePage {
             isPageOpenedIndicator = isSearchPageOpened();
         }
         if(!isPageOpenedIndicator) {
-            //throw new AssertionError("Page was not opened");
             ExtentManager.compareTrue(false, "Page was not opened");
         }
     }

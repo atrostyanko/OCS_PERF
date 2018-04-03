@@ -14,6 +14,7 @@ import org.junit.runners.MethodSorters;
 import pages.MainPage;
 import tests.loginPage.LoginPage_Tests;
 import tests.request.RequestTests;
+import tests.ut.UtTests;
 
 import java.util.Properties;
 
@@ -55,6 +56,19 @@ public class BVT_Test {
         requestTests.AddRequest_BVT();
         requestTests.ViewAllRequests_BVT();
         requestTests.RequestsReadyForRelease_BVT();
+
+        eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
+    }
+
+    @Test
+    public void utTests() {
+        eReports.createTest("UT Tests.", "Verify all items from UT menu.");
+
+        MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
+        UtTests utTests = new UtTests(eReports, prop);
+
+        utTests.UtDetails_BVT();
+        utTests.AddDeleteUT_BVT();
 
         eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
