@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import pages.MainPage;
 import tests.loginPage.LoginPage_Tests;
+import tests.misc.MiscTests;
 import tests.request.RequestTests;
 import tests.ut.UtTests;
 import tests.utSequences.UTSequencesTests;
@@ -83,6 +84,21 @@ public class BVT_Test {
 
         utSequencesTests.ViewUTSequences_BVT();
         utSequencesTests.ViewDeleteUTSequences_BVT();
+
+        eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
+    }
+
+    @Test
+    public void miscTests() {
+        eReports.createTest("MISC. Tests.", "Verify all items from MISC menu.");
+
+        MainPage mainPage = new LoginPage_Tests(eReports, prop).login();
+        MiscTests miscTests = new MiscTests(eReports, prop);
+
+        miscTests.Statistics_All_BVT();
+        miscTests.Statistics_CorrectionId_BVT();
+        miscTests.Statistics_RequestStatus_BVT();
+        miscTests.Statistics_UserId_BVT();
 
         eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }

@@ -33,7 +33,7 @@ public class UTSequencesTests {
     }
 
     public void ViewDeleteUTSequences_BVT() {
-        String corrID = prop.getProperty("addDeleteUTPage_corrID");
+        String corrID = prop.getProperty("viewDeleteUTSequencesPage_corrID");
 
         eReports.createNode("UT Sequences -> View/Delete UT Sequences page.", "Verify the View/Delete UT Sequences page.");
 
