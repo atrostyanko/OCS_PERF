@@ -53,6 +53,8 @@ public class BVT_Test {
         requestTests.RequestDetails_BVT();
         requestTests.EditRequest_BVT();
         requestTests.AddRequest_BVT();
+        requestTests.ViewAllRequests_BVT();
+        requestTests.RequestsReadyForRelease_BVT();
 
         eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }

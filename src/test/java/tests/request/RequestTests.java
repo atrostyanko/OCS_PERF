@@ -1,10 +1,7 @@
 package tests.request;
 
 import com.reporting.ExtentManager;
-import pages.request.AddRequestPage;
-import pages.request.EditRequestPage;
-import pages.request.RequestDetailsPage;
-import pages.request.ViewAllRequestsPage;
+import pages.request.*;
 
 import java.util.Properties;
 
@@ -55,17 +52,20 @@ public class RequestTests {
     }
 
     public void ViewAllRequests_BVT() {
-        String corrID = prop.getProperty("editRequestPage_corrID");
-
         eReports.createNode("REQUEST -> View All Requests page.", "Verify the View All Requests page.");
 
         ViewAllRequestsPage viewAllRequestsPage = new ViewAllRequestsPage();
-        if (eReports.compareNotNULL(viewAllRequestsPage, "Open 'REQUEST -> View All Requests' page.")) {
+            if (eReports.compareNotNULL(viewAllRequestsPage, "Open 'REQUEST -> View All Requests' page.")) {
 
-            eReports.compareTrue(viewAllRequestsPage.corrId.setText(corrID),
-                    "Set Corr ID to " + corrID);
             eReports.compareTrue(viewAllRequestsPage.clickSubmit(),
-                    "Click 'Submit' button and verify that Edit Request Details page is is displayed.");
+                    "Click 'Submit' button and verify that Requests list is is displayed.");
         }
+    }
+
+    public void RequestsReadyForRelease_BVT() {
+        eReports.createNode("REQUEST -> Requests Ready For Release page.", "Verify the Requests Ready For Release page.");
+
+        RequestsReadyForReleasePage requestsReadyForReleasePage = new RequestsReadyForReleasePage();
+        eReports.compareNotNULL(requestsReadyForReleasePage, "Open 'REQUEST -> Requests Ready For Release' page.");
     }
 }
