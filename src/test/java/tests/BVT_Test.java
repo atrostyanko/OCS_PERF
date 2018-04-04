@@ -100,6 +100,14 @@ public class BVT_Test {
         miscTests.Statistics_RequestStatus_BVT();
         miscTests.Statistics_UserId_BVT();
 
+        miscTests.PasswordChange_BVT();
+
+        miscTests.Admin_AddUser_BVT();
+        miscTests.Admin_EditUser_BVT();
+        miscTests.Admin_EditGCSLimits_BVT();
+        miscTests.Admin_EditGCSFields_BVT();
+        miscTests.Admin_AddGCSField_BVT();
+
         eReports.compareTrue(mainPage.clickLogoff(), "Logoff from the APP.");
     }
 }

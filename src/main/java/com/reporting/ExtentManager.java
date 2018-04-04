@@ -65,7 +65,7 @@ public class ExtentManager {
         htmlReporter = new ExtentHtmlReporter(filePath);
 
         htmlReporter.config().setChartVisibilityOnOpen(true);
-        htmlReporter.config().setDocumentTitle("OCS Automation Test Report");
+        htmlReporter.config().setDocumentTitle("GCS Automation Test Report");
         htmlReporter.config().setProtocol(Protocol.HTTP);
 
         return htmlReporter;

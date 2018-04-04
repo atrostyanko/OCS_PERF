@@ -1,10 +1,7 @@
 package tests.misc;
 
 import com.reporting.ExtentManager;
-import pages.misc.StatisticsByAllPage;
-import pages.misc.StatisticsByCorrectionIdPage;
-import pages.misc.StatisticsByRequestStatusPage;
-import pages.misc.StatisticsByUserIdPage;
+import pages.misc.*;
 import pages.utSequences.ViewDeleteUTSequencesPage;
 import pages.utSequences.ViewUTSequencesPage;
 
@@ -71,4 +68,54 @@ public class MiscTests {
         }
     }
 
+    public void PasswordChange_BVT() {
+        eReports.createNode("Misc. -> Password Change page.", "Verify the Password Change page.");
+
+        PasswordChangePage passwordChangePage = new PasswordChangePage();
+        eReports.compareNotNULL(passwordChangePage, "Open 'Misc. -> Password Change' page.");
+    }
+
+    public void Admin_AddUser_BVT() {
+        eReports.createNode("Misc. -> Admin -> Add User page.", "Verify the Add New User page.");
+
+        AddNewUserPage addNewUserPage = new AddNewUserPage();
+        eReports.compareNotNULL(addNewUserPage, "Open 'Misc. -> Admin -> Add User' page.");
+    }
+
+    public void Admin_EditUser_BVT() {
+        String username = prop.getProperty("editUserPage_username");
+
+        eReports.createNode("Misc. -> Admin -> Edit User page.", "Verify the Edit User page.");
+
+        EditUserPage editUserPage = new EditUserPage();
+        if (eReports.compareNotNULL(editUserPage, "Open 'Misc. -> Admin -> Edit User' page.")) {
+
+            eReports.compareTrue(editUserPage.selectUser(username),
+                    "Select '" + username + "' in the dropdown.");
+
+            eReports.compareTrue(editUserPage.clickSubmit(),
+                    "Click 'Submit' button and verify that the Edit User form is displayed.");
+        }
+    }
+
+    public void Admin_EditGCSLimits_BVT() {
+        eReports.createNode("Misc. -> Admin -> Edit GCS_Limits page.", "Verify the Edit GCS_Limits page.");
+
+        EditGCSLimitsPage editGCSLimitsPage = new EditGCSLimitsPage();
+        eReports.compareNotNULL(editGCSLimitsPage, "Open 'Misc. -> Admin -> Edit GCS_Limits' page.");
+    }
+
+    public void Admin_EditGCSFields_BVT() {
+        eReports.createNode("Misc. -> Admin -> Edit GCS_Fields page.", "Verify the Edit GCS Fields page.");
+
+        EditGCSFieldsPage editGCSFieldsPage = new EditGCSFieldsPage();
+        eReports.compareNotNULL(editGCSFieldsPage, "Open 'Misc. -> Admin -> Edit GCS_Fields' page.");
+    }
+
+    public void Admin_AddGCSField_BVT() {
+        eReports.createNode("Misc. -> Admin -> Add GCS Field page.", "Verify the Add GCS Field page.");
+
+        AddGCSFieldPage addGCSFieldPage = new AddGCSFieldPage();
+        eReports.compareNotNULL(addGCSFieldPage, "Open 'Misc. -> Admin -> Add GCS Field' page.");
+    }
 }
