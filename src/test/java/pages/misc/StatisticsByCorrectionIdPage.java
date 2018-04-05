@@ -25,9 +25,9 @@ public class StatisticsByCorrectionIdPage extends MainPage {
 
     @Override
     public void openPage() {
-        if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
+        if (webDriverFactory.getBrowser() == Browser.PHANTOMJS) {
             String subURL = "Business/Misc/Statistics/ByCorrId/prompt.jsp";
-            WebDriverFactory.navigateTo(subURL);
+            webDriverFactory.navigateTo(subURL);
         } else {
             clickMiscMainMenu();
             clickSubMenu("Statistics");
@@ -48,7 +48,7 @@ public class StatisticsByCorrectionIdPage extends MainPage {
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         return submitBtn.click()
-                && WebDriverFactory.waitElementIsVisible(grid)
+                && webDriverFactory.waitElementIsVisible(grid)
                 && isPageOpened();
     }
 

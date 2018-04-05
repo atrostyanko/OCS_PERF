@@ -1,5 +1,6 @@
 package pages;
 
+import com.reporting.ExtentManager;
 import com.webtestsbase.BasePage;
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
@@ -29,12 +30,12 @@ public abstract class MenuPage extends BasePage {
     @FindBy(xpath = ".//div[contains(@style, 'position: absolute; padding: 3px;')]")
     private List<WebElement> subMenuList;
 
-    public MenuPage() {
-        super(false);
+    public MenuPage(WebDriverFactory webDriverFactory, ExtentManager extentManager) {
+        super(webDriverFactory, extentManager, false);
     }
 
-    public MenuPage(boolean openFromMenu) {
-        super(openFromMenu);
+    public MenuPage(WebDriverFactory webDriverFactory, ExtentManager extentManager, boolean openFromMenu) {
+        super(webDriverFactory, extentManager, openFromMenu);
     }
 
     //===== Set methods ================================================================================================
@@ -55,15 +56,14 @@ public abstract class MenuPage extends BasePage {
     }
 
     public boolean clickLogoff() {
-        //return logoffMainMenu.click();
-        WebDriverFactory.navigateTo("logoff.do");
+        webDriverFactory.navigateTo("logoff.do");
         return true;
     }
 
     public void clickSubMenu(String sMenu) {
-        WebElement webElement = WebDriverFactory.getElementWithMatchingText(subMenuList, sMenu);
+        WebElement webElement = webDriverFactory.getElementWithMatchingText(subMenuList, sMenu);
         if (webElement != null) {
-            WebDriverFactory.clickElement(webElement);
+            webDriverFactory.clickElement(webElement);
         }
     }
 }

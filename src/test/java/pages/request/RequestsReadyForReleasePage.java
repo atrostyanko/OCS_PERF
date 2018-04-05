@@ -21,9 +21,9 @@ public class RequestsReadyForReleasePage extends MainPage {
 
     @Override
     public void openPage() {
-        if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
+        if (webDriverFactory.getBrowser() == Browser.PHANTOMJS) {
             String subURL = "RequestsForRelease.do";
-            WebDriverFactory.navigateTo(subURL);
+            webDriverFactory.navigateTo(subURL);
         } else {
             clickRequestMainMenu();
             clickSubMenu("Requests Ready For Release");

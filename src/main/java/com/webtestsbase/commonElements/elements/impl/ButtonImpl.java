@@ -5,13 +5,12 @@ import org.openqa.selenium.WebElement;
 import com.webtestsbase.commonElements.elements.Button;
 
 class ButtonImpl extends ElementImpl implements Button {
-
-    protected ButtonImpl(final WebElement wrappedElement) {
-        super(wrappedElement);
+    protected ButtonImpl(WebDriverFactory webDriverFactory, final WebElement wrappedElement) {
+        super(webDriverFactory, wrappedElement);
     }
 
     @Override
     public boolean click() {
-        return WebDriverFactory.clickElement(wrappedElement);
+        return webDriverFactory.clickElement(wrappedElement);
     }
 }

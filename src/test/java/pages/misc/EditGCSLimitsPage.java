@@ -19,9 +19,9 @@ public class EditGCSLimitsPage extends MainPage {
 
     @Override
     public void openPage() {
-        if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
+        if (webDriverFactory.getBrowser() == Browser.PHANTOMJS) {
             String subURL = "GetEditGcsLimits.do";
-            WebDriverFactory.navigateTo(subURL);
+            webDriverFactory.navigateTo(subURL);
         } else {
             clickMiscMainMenu();
             clickSubMenu("Admin");

@@ -8,18 +8,17 @@ import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.CheckBox;
 
 public class CheckBoxImpl extends ElementImpl implements CheckBox {
-
-    protected CheckBoxImpl(WebElement wrappedElement) {
-        super(wrappedElement);
+    protected CheckBoxImpl(WebDriverFactory webDriverFactory, WebElement wrappedElement) {
+        super(webDriverFactory, wrappedElement);
     }
 
     boolean set(boolean flag) {
-        return WebDriverFactory.setCheckBox(wrappedElement, flag);
+        return webDriverFactory.setCheckBox(wrappedElement, flag);
     }
 
     @Override
     public boolean set() {
-        return WebDriverFactory.setCheckBox(wrappedElement, true);
+        return webDriverFactory.setCheckBox(wrappedElement, true);
     }
 
     @Override
@@ -29,7 +28,7 @@ public class CheckBoxImpl extends ElementImpl implements CheckBox {
 
     @Override
     public boolean remove() {
-        return WebDriverFactory.setCheckBox(wrappedElement, false);
+        return webDriverFactory.setCheckBox(wrappedElement, false);
     }
 
     @Override
@@ -37,7 +36,6 @@ public class CheckBoxImpl extends ElementImpl implements CheckBox {
         if (set(flag)) {
             return returnNewInstance(t);
         } else {
-            ExtentManager.getCurrentTest().warning("failed to set the value of '" + flag + "' to the current CheckBox");
             return returnNewInstance(t);
         }
     }

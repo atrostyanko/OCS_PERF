@@ -23,7 +23,7 @@ public class ScreenShotOnFailRule implements TestRule {
                 try {
                     base.evaluate();
                 } catch (Throwable t) {
-                    ExtentManager.capture();
+                    //ExtentManager.capture();
                     throw t;
                 }
             }

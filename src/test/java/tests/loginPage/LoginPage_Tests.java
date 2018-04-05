@@ -16,20 +16,22 @@ import java.util.Properties;
 public class LoginPage_Tests {
     private ExtentManager eReports;
     private Properties prop;
+    WebDriverFactory webDriverFactory;
 
-    public LoginPage_Tests(ExtentManager eReports, Properties prop) {
+    public LoginPage_Tests(WebDriverFactory webDriverFactory, ExtentManager eReports, Properties prop) {
+        this.webDriverFactory = webDriverFactory;
         this.eReports = eReports;
         this.prop = prop;
     }
 
     public MainPage login() {
-        String userID = WebDriverFactory.getUsername();
-        String password = WebDriverFactory.getPassword();
+        String userID = webDriverFactory.getUsername();
+        String password = webDriverFactory.getPassword();
         MainPage returnPage = null;
 
         eReports.createNode("Login Page.", "Verify that user can login to the APP.");
 
-        LoginPage loginPage = new LoginPage();
+        LoginPage loginPage = new LoginPage(webDriverFactory, eReports);
         if (eReports.compareNotNULL(loginPage, "Check that Login Page is opened.")) {
 
             eReports.compareTrue(loginPage.setUserID(userID), "Set user ID: " + userID);

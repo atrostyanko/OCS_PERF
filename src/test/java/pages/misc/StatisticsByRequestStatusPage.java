@@ -1,5 +1,6 @@
 package pages.misc;
 
+import com.reporting.ExtentManager;
 import com.webtestsbase.Browser;
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.CheckBox;
@@ -16,19 +17,19 @@ public class StatisticsByRequestStatusPage extends MainPage {
     public WebElement grid;
 
     //====== Constructor ==============================
-    public StatisticsByRequestStatusPage() {
-        super(true);
+    public StatisticsByRequestStatusPage(WebDriverFactory webDriverFactory, ExtentManager extentManager) {
+        super(webDriverFactory, extentManager, true);
     }
 
-    public StatisticsByRequestStatusPage(boolean openFromMenu) {
-        super(openFromMenu);
+    public StatisticsByRequestStatusPage(WebDriverFactory webDriverFactory, ExtentManager extentManager, boolean openFromMenu) {
+        super(webDriverFactory, extentManager, openFromMenu);
     }
 
     @Override
     public void openPage() {
-        if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
+        if (webDriverFactory.getBrowser() == Browser.PHANTOMJS) {
             String subURL = "Business/Misc/Statistics/ByStatus/prompt.jsp";
-            WebDriverFactory.navigateTo(subURL);
+            webDriverFactory.navigateTo(subURL);
         } else {
             clickMiscMainMenu();
             clickSubMenu("Statistics");
@@ -49,7 +50,7 @@ public class StatisticsByRequestStatusPage extends MainPage {
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         return submitBtn.click()
-                && WebDriverFactory.waitElementIsVisible(grid)
+                && webDriverFactory.waitElementIsVisible(grid)
                 && isPageOpened();
     }
 

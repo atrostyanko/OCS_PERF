@@ -1,5 +1,6 @@
 package pages.ut;
 
+import com.reporting.ExtentManager;
 import com.webtestsbase.Browser;
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Label;
@@ -21,19 +22,19 @@ public class AddDeleteUTPage extends MainPage {
     public List<WebElement> fieldsList;
 
     //====== Constructor ==============================
-    public AddDeleteUTPage() {
-        super(true);
+    public AddDeleteUTPage(WebDriverFactory webDriverFactory, ExtentManager extentManager) {
+        super(webDriverFactory, extentManager, true);
     }
 
-    public AddDeleteUTPage(boolean openFromMenu) {
-        super(openFromMenu);
+    public AddDeleteUTPage(WebDriverFactory webDriverFactory, ExtentManager extentManager, boolean openFromMenu) {
+        super(webDriverFactory, extentManager, openFromMenu);
     }
 
     @Override
     public void openPage() {
-        if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
+        if (webDriverFactory.getBrowser() == Browser.PHANTOMJS) {
             String subURL = "ut/edit/requests.do";
-            WebDriverFactory.navigateTo(subURL);
+            webDriverFactory.navigateTo(subURL);
         } else {
             clickUTMainMenu();
             clickSubMenu("Add/Delete UTs");
@@ -54,7 +55,7 @@ public class AddDeleteUTPage extends MainPage {
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         return submitBtn.click()
-                && WebDriverFactory.waitAllElementsVisible(fieldsList);
+                && webDriverFactory.waitAllElementsVisible(fieldsList);
     }
 
     //===== Check methods ==============================================================================================

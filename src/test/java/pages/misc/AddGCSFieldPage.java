@@ -21,9 +21,9 @@ public class AddGCSFieldPage extends MainPage {
 
     @Override
     public void openPage() {
-        if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
+        if (webDriverFactory.getBrowser() == Browser.PHANTOMJS) {
             String subURL = "Business/Misc/Admin/AddGcsField/gcs_fields_section.jsp";
-            WebDriverFactory.navigateTo(subURL);
+            webDriverFactory.navigateTo(subURL);
         } else {
             clickMiscMainMenu();
             clickSubMenu("Admin");

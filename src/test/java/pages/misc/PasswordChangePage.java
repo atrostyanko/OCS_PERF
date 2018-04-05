@@ -17,9 +17,9 @@ public class PasswordChangePage extends MainPage {
 
     @Override
     public void openPage() {
-        if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
+        if (webDriverFactory.getBrowser() == Browser.PHANTOMJS) {
             String subURL = "PasswordDetails.do";
-            WebDriverFactory.navigateTo(subURL);
+            webDriverFactory.navigateTo(subURL);
         } else {
             clickMiscMainMenu();
             clickSubMenu("Password Change");

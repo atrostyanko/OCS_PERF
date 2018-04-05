@@ -1,5 +1,6 @@
 package pages.request;
 
+import com.reporting.ExtentManager;
 import com.webtestsbase.Browser;
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
@@ -11,19 +12,19 @@ public class AddRequestPage extends MainPage {
     private Button addRequestButton;
 
     //====== Constructor ==============================
-    public AddRequestPage() {
-        super(true);
+    public AddRequestPage(WebDriverFactory webDriverFactory, ExtentManager eReport) {
+        super(webDriverFactory, eReport, true);
     }
 
-    public AddRequestPage(boolean openFromMenu) {
-        super(openFromMenu);
+    public AddRequestPage(WebDriverFactory webDriverFactory, ExtentManager eReport, boolean openFromMenu) {
+        super(webDriverFactory, eReport, openFromMenu);
     }
 
     @Override
     public void openPage() {
-        if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
+        if (webDriverFactory.getBrowser() == Browser.PHANTOMJS) {
             String subURL = "Business/Request/Add/prompt.jsp";
-            WebDriverFactory.navigateTo(subURL);
+            webDriverFactory.navigateTo(subURL);
         } else {
             clickRequestMainMenu();
             clickSubMenu("Add Request");

@@ -31,9 +31,9 @@ public class UTDetailsPage extends MainPage {
 
     @Override
     public void openPage() {
-        if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
+        if (webDriverFactory.getBrowser() == Browser.PHANTOMJS) {
             String subURL = "ut/details/view.do";
-            WebDriverFactory.navigateTo(subURL);
+            webDriverFactory.navigateTo(subURL);
         } else {
             clickUTMainMenu();
             clickSubMenu("UT Details");
@@ -54,7 +54,7 @@ public class UTDetailsPage extends MainPage {
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         return submitBtn.click()
-                && WebDriverFactory.waitAllElementsVisible(fieldsList);
+                && webDriverFactory.waitAllElementsVisible(fieldsList);
     }
 
     //===== Check methods ==============================================================================================

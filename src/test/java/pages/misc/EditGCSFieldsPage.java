@@ -21,9 +21,9 @@ public class EditGCSFieldsPage extends MainPage {
 
     @Override
     public void openPage() {
-        if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
+        if (webDriverFactory.getBrowser() == Browser.PHANTOMJS) {
             String subURL = "GetEditGcsFields.do";
-            WebDriverFactory.navigateTo(subURL);
+            webDriverFactory.navigateTo(subURL);
         } else {
             clickMiscMainMenu();
             clickSubMenu("Admin");
@@ -38,6 +38,6 @@ public class EditGCSFieldsPage extends MainPage {
 
     @Override
     public boolean isSearchPageOpened() {
-        return isPageOpened() && WebDriverFactory.isElementDisplayed(gridid);
+        return isPageOpened() && webDriverFactory.isElementDisplayed(gridid);
     }
 }

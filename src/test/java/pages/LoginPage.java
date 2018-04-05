@@ -1,6 +1,8 @@
 package pages;
 
+import com.reporting.ExtentManager;
 import com.webtestsbase.BasePage;
+import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
 import com.webtestsbase.commonElements.elements.TextInput;
 import org.openqa.selenium.support.FindBy;
@@ -15,12 +17,12 @@ public class LoginPage extends BasePage {
     @FindBy(name = "submit")
     private Button submit;
 
-    public LoginPage() {
-        super(false);
+    public LoginPage(WebDriverFactory webDriverFactory, ExtentManager eReport) {
+        super(webDriverFactory, eReport);
     }
 
-    public LoginPage(boolean openFromMenu) {
-        super(openFromMenu);
+    public LoginPage(WebDriverFactory webDriverFactory, ExtentManager extentManager, boolean openFromMenu) {
+        super(webDriverFactory, extentManager, openFromMenu);
     }
 
     @Override

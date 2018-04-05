@@ -1,22 +1,21 @@
 package com.webtestsbase.commonElements.elements.impl;
 
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.TextInput;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 
 class TextInputImpl extends ElementImpl implements TextInput {
 
-    protected TextInputImpl(final WebElement wrappedElement) {
-        super(wrappedElement);
+    protected TextInputImpl(WebDriverFactory webDriverFactory, final WebElement wrappedElement) {
+        super(webDriverFactory, wrappedElement);
     }
 
     @Override
     public boolean setText(final String text) {
         try {
-            return WebDriverFactory.sendKeys(wrappedElement, text);
+            return webDriverFactory.sendKeys(wrappedElement, text);
         } catch (Exception ex) {
             return false;
         }
@@ -30,7 +29,7 @@ class TextInputImpl extends ElementImpl implements TextInput {
     @Override
     public boolean sendKeys(Keys keys) {
         try {
-            return WebDriverFactory.sendKeys(wrappedElement, keys);
+            return webDriverFactory.sendKeys(wrappedElement, keys);
         } catch (Exception ex) {
             return false;
         }

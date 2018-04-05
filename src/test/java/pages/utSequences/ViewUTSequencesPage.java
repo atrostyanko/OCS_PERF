@@ -31,9 +31,9 @@ public class ViewUTSequencesPage extends MainPage {
 
     @Override
     public void openPage() {
-        if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
+        if (webDriverFactory.getBrowser() == Browser.PHANTOMJS) {
             String subURL = "ut/sequences/requests.do";
-            WebDriverFactory.navigateTo(subURL);
+            webDriverFactory.navigateTo(subURL);
         } else {
             clickUtSequencesMainMenu();
             clickSubMenu("View UT Sequences");
@@ -54,7 +54,7 @@ public class ViewUTSequencesPage extends MainPage {
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         return submitBtn.click()
-                && WebDriverFactory.waitAllElementsVisible(fieldsList)
+                && webDriverFactory.waitAllElementsVisible(fieldsList)
                 && isPageOpened();
     }
 

@@ -8,9 +8,10 @@ import org.openqa.selenium.WebElement;
 
 abstract class AbstractContainerImpl implements Container {
     protected WebElement wrappedElement;
-    protected WebDriver driver;
+    WebDriverFactory webDriverFactory;
 
-    protected AbstractContainerImpl(final WebElement wrappedElement) {
+    protected AbstractContainerImpl(WebDriverFactory webDriverFactory, final WebElement wrappedElement) {
+        this.webDriverFactory = webDriverFactory;
         this.wrappedElement = wrappedElement;
     }
 
@@ -21,7 +22,7 @@ abstract class AbstractContainerImpl implements Container {
 
     @Override
     public boolean isDisplayed() {
-        return WebDriverFactory.isElementDisplayed(wrappedElement);
+        return webDriverFactory.isElementDisplayed(wrappedElement);
     }
 
     @Override

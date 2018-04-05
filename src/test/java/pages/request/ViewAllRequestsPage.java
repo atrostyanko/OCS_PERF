@@ -27,9 +27,9 @@ public class ViewAllRequestsPage extends MainPage {
 
     @Override
     public void openPage() {
-        if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
+        if (webDriverFactory.getBrowser() == Browser.PHANTOMJS) {
             String subURL = "ViewAllRequestsPrompt.do";
-            WebDriverFactory.navigateTo(subURL);
+            webDriverFactory.navigateTo(subURL);
         } else {
             clickRequestMainMenu();
             clickSubMenu("View All Requests");
@@ -49,7 +49,7 @@ public class ViewAllRequestsPage extends MainPage {
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         return submitBtn.click()
-                && WebDriverFactory.waitElementIsVisible(requestsGrid);
+                && webDriverFactory.waitElementIsVisible(requestsGrid);
     }
 
     //===== Check methods ==============================================================================================

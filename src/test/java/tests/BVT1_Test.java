@@ -25,9 +25,9 @@ import java.util.Properties;
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @PropertyFile("testData/bvt.properties")
-public class BVT_Test {
+public class BVT1_Test {
     public static ExtentManager eReports;
-    public static WebDriverFactory webDriverFactory = new WebDriverFactory();
+    private static WebDriverFactory webDriverFactory;
 
     @AllProperties
     public static Properties prop;
@@ -38,8 +38,7 @@ public class BVT_Test {
         eReports.setFolderPath(TestsConfig.getConfig().getReportsPath());
         eReports.GetExtent("GCS Performance Test.");
         webDriverFactory.startBrowser(true);
-
-        PropertiesLoader.populate(new BVT_Test());
+        PropertiesLoader.populate(new BVT1_Test());
     }
 
     @AfterClass

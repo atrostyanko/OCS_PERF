@@ -25,9 +25,9 @@ public class EditUserPage extends MainPage {
 
     @Override
     public void openPage() {
-        if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
+        if (webDriverFactory.getBrowser() == Browser.PHANTOMJS) {
             String subURL = "UsersListForEdit.do";
-            WebDriverFactory.navigateTo(subURL);
+            webDriverFactory.navigateTo(subURL);
         } else {
             clickMiscMainMenu();
             clickSubMenu("Admin");
@@ -42,18 +42,18 @@ public class EditUserPage extends MainPage {
 
     @Override
     public boolean isSearchPageOpened() {
-        return isPageOpened() && WebDriverFactory.isElementDisplayed(userDropDown) && submitBtn.isDisplayed();
+        return isPageOpened() && webDriverFactory.isElementDisplayed(userDropDown) && submitBtn.isDisplayed();
     }
 
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         return submitBtn.click()
-                && WebDriverFactory.waitElementIsVisible(updateUserButton.asWebElement())
+                && webDriverFactory.waitElementIsVisible(updateUserButton.asWebElement())
                 && isPageOpened();
     }
 
     //===== Select methods =============================================================================================
     public boolean selectUser(String username) {
-        return WebDriverFactory.selectByText(userDropDown, username);
+        return webDriverFactory.selectByText(userDropDown, username);
     }
 }

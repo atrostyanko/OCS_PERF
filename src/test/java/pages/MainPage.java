@@ -1,5 +1,6 @@
 package pages;
 
+import com.reporting.ExtentManager;
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
 import org.openqa.selenium.WebElement;
@@ -19,12 +20,12 @@ public class MainPage extends MenuPage {
     @FindBy(css = "span.Note")
     private Button openIndicator;
 
-    public MainPage() {
-        super(false);
+    public MainPage(WebDriverFactory webDriverFactory, ExtentManager extentManager) {
+        super(webDriverFactory, extentManager, false);
     }
 
-    public MainPage(boolean openFromMenu) {
-        super(openFromMenu);
+    public MainPage(WebDriverFactory webDriverFactory, ExtentManager extentManager, boolean openFromMenu) {
+        super(webDriverFactory, extentManager, openFromMenu);
     }
 
     @Override
@@ -38,7 +39,7 @@ public class MainPage extends MenuPage {
 
     @Override
     public boolean isPageOpened() {
-        return WebDriverFactory.getTitle().equalsIgnoreCase("Main Page");
+        return webDriverFactory.getTitle().equalsIgnoreCase("Main Page");
     }
 
     //===== Click methods ==============================================================================================

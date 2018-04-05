@@ -15,17 +15,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ExtentManager {
-    private static ExtentReports extent;
-    private static ExtentTest test;
-    private static ExtentTest currentTest;
-    private static ExtentHtmlReporter htmlReporter;
+    private ExtentReports extent;
+    private ExtentTest test;
+    private ExtentTest currentTest;
+    private ExtentHtmlReporter htmlReporter;
     private static String folderPath;
     private static String filePath;
     private static String screenShotPath;
-    private static File logsDir = null;
-    private static boolean bResult = true;
+    private File logsDir = null;
+    private boolean bResult = true;
+    WebDriverFactory webDriverFactory;
 
-    private static void prepareFolder() {
+    public ExtentManager(WebDriverFactory webDriverFactory) {
+        this.webDriverFactory = webDriverFactory;
+    }
+    private void prepareFolder() {
         File f = new File(folderPath);
         if (!f.exists() || !f.isDirectory()) {
             if (!f.mkdirs()) {
@@ -42,25 +46,25 @@ public class ExtentManager {
         }
     }
 
-    public static void setFolderPath(String folderPath) {
+    public void setFolderPath(String folderPath) {
         ExtentManager.folderPath = folderPath;
         setFilePath(folderPath);
         setScreenShotPath(folderPath);
         logsDir = new File(folderPath);
     }
-    private static void setFilePath(String folderPath) {
+    private void setFilePath(String folderPath) {
         String reportFileName = "testReport.html";
         ExtentManager.filePath = folderPath + reportFileName;
     }
-    private static void setScreenShotPath(String folderPath) {
+    private void setScreenShotPath(String folderPath) {
         String screenShotFolder = "ScreenShots/";
         ExtentManager.screenShotPath = folderPath + screenShotFolder;
     }
 
-    public static ExtentTest getCurrentTest() {
+    public ExtentTest getCurrentTest() {
         return currentTest;
     }
-    private static ExtentHtmlReporter getHtmlReporter() {
+    private ExtentHtmlReporter getHtmlReporter() {
         prepareFolder();
         htmlReporter = new ExtentHtmlReporter(filePath);
 
@@ -70,13 +74,13 @@ public class ExtentManager {
 
         return htmlReporter;
     }
-    private static ExtentHtmlReporter getHtmlReporter(String sReportName) {
+    private ExtentHtmlReporter getHtmlReporter(String sReportName) {
         htmlReporter = getHtmlReporter();
         htmlReporter.config().setReportName(sReportName);
 
         return htmlReporter;
     }
-    public static void GetExtent(String sReportName){
+    public void GetExtent(String sReportName){
         if (extent != null)
             return;
         extent = new ExtentReports();
@@ -87,16 +91,16 @@ public class ExtentManager {
         extent.setAnalysisStrategy(AnalysisStrategy.SUITE);
     }
 
-    public static void createTest(String name, String description){
+    public void createTest(String name, String description){
         checkTestStatus();
         test = extent.createTest(name, description);
         currentTest = test;
     }
-    public static void createNode(String name, String description) {
+    public void createNode(String name, String description) {
         currentTest = test.createNode(name, description);
     }
 
-    public static void flush() {
+    public void flush() {
         checkTestStatus();
         extent.flush();
         /*
@@ -108,11 +112,11 @@ public class ExtentManager {
             Assert.fail();
         }
     }
-    public static void switchToParentTest() {
+    public void switchToParentTest() {
         currentTest = test;
     }
 
-    public static boolean compare(boolean expectedResult, boolean actualResult, String description) {
+    public boolean compare(boolean expectedResult, boolean actualResult, String description) {
         if (expectedResult == actualResult) {
             currentTest.pass(description);
             return true;
@@ -121,7 +125,7 @@ public class ExtentManager {
             return false;
         }
     }
-    public static boolean compare(ArrayList<String> expectedResult, ArrayList<String> actualResult, String description) {
+    public boolean compare(ArrayList<String> expectedResult, ArrayList<String> actualResult, String description) {
         if (expectedResult.equals(actualResult)) {
             currentTest.pass(description);
             return true;
@@ -130,7 +134,7 @@ public class ExtentManager {
             return false;
         }
     }
-    public static boolean compare(boolean expectedResult, boolean actualResult, String description, String priority) {
+    public boolean compare(boolean expectedResult, boolean actualResult, String description, String priority) {
         if (expectedResult == actualResult) {
             currentTest.pass(description);
             return true;
@@ -159,7 +163,7 @@ public class ExtentManager {
             }
         }
     }
-    public static boolean compare(String expectedResult, String actualResult, String description) {
+    public boolean compare(String expectedResult, String actualResult, String description) {
         if (actualResult != null && expectedResult != null) {
             if (expectedResult.trim().equals(actualResult.trim())) {
                 currentTest.pass(description);
@@ -173,7 +177,7 @@ public class ExtentManager {
             return false;
         }
     }
-    public static boolean compare(int expectedResult, int actualResult, String description) {
+    public boolean compare(int expectedResult, int actualResult, String description) {
         if (expectedResult == actualResult) {
             currentTest.pass(description);
             return true;
@@ -182,13 +186,13 @@ public class ExtentManager {
             return false;
         }
     }
-    public static boolean compareTrue(boolean actualResult, String description){
+    public boolean compareTrue(boolean actualResult, String description){
         return compare(true, actualResult, description);
     }
-    public static boolean compareFalse(boolean actualResult, String description){
+    public boolean compareFalse(boolean actualResult, String description){
         return compare(false, actualResult, description);
     }
-    public static boolean compareNotNULL(Object actualResult, String description) {
+    public boolean compareNotNULL(Object actualResult, String description) {
         if (actualResult != null) {
             currentTest.pass(description);
             return true;
@@ -203,7 +207,7 @@ public class ExtentManager {
             }
         }
     }
-    public static boolean compareIsNULL(Object actualResult, String description) {
+    public boolean compareIsNULL(Object actualResult, String description) {
         if (actualResult == null) {
             currentTest.pass(description);
             return true;
@@ -219,8 +223,8 @@ public class ExtentManager {
         }
     }
 
-    public static String capture() {
-        File src = ((TakesScreenshot) WebDriverFactory.getDriver()).getScreenshotAs(OutputType.FILE);
+    public String capture() {
+        File src = ((TakesScreenshot) webDriverFactory.getDriver()).getScreenshotAs(OutputType.FILE);
         String filename = "SCREEN_CAPTURE_" + System.currentTimeMillis() + ".png";
         filename = filename.replaceAll("[^0-9a-zA-Z.]", "_");
         String IMAGES_DIR = "ScreenShots";
@@ -233,7 +237,7 @@ public class ExtentManager {
     }
 
     //=== Private methods
-    private static void putFailResult(String expectedResult, String actualResult, String description) {
+    private void putFailResult(String expectedResult, String actualResult, String description) {
         try {
             if (currentTest != null) {
                 currentTest.fail(description + " <div><b>Expected Result:</b> " + expectedResult + "<div><b>Actual Result:</b> "
@@ -243,7 +247,7 @@ public class ExtentManager {
             currentTest.fatal("putFailResult: Exception during screenShot creation." + e.toString());
         }
     }
-    private static void checkTestStatus() {
+    private void checkTestStatus() {
         if (test != null) {
             bResult &= test.getStatus() == Status.PASS;
         }

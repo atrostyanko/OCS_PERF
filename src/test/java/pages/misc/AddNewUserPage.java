@@ -1,5 +1,6 @@
 package pages.misc;
 
+import com.reporting.ExtentManager;
 import com.webtestsbase.Browser;
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
@@ -11,19 +12,19 @@ public class AddNewUserPage extends MainPage {
     public Button saveUserButton;
 
     //====== Constructor ==============================
-    public AddNewUserPage() {
-        super(true);
+    public AddNewUserPage(WebDriverFactory webDriverFactory, ExtentManager extentManager) {
+        super(webDriverFactory, extentManager, true);
     }
 
-    public AddNewUserPage(boolean openFromMenu) {
-        super(openFromMenu);
+    public AddNewUserPage(WebDriverFactory webDriverFactory, ExtentManager extentManager, boolean openFromMenu) {
+        super(webDriverFactory, extentManager, openFromMenu);
     }
 
     @Override
     public void openPage() {
-        if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
+        if (webDriverFactory.getBrowser() == Browser.PHANTOMJS) {
             String subURL = "AddUserPrompt.do";
-            WebDriverFactory.navigateTo(subURL);
+            webDriverFactory.navigateTo(subURL);
         } else {
             clickMiscMainMenu();
             clickSubMenu("Admin");

@@ -29,9 +29,9 @@ public class RequestDetailsPage extends MainPage {
 
     @Override
     public void openPage() {
-        if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
+        if (webDriverFactory.getBrowser() == Browser.PHANTOMJS) {
             String subURL = "Business/Request/Details/prompt.jsp";
-            WebDriverFactory.navigateTo(subURL);
+            webDriverFactory.navigateTo(subURL);
         } else {
             clickRequestMainMenu();
             clickSubMenu("Request Details");
@@ -51,7 +51,7 @@ public class RequestDetailsPage extends MainPage {
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         return submitBtn.click()
-                && WebDriverFactory.waitAllElementsVisible(fieldsList);
+                && webDriverFactory.waitAllElementsVisible(fieldsList);
     }
 
     //===== Check methods ==============================================================================================

@@ -28,9 +28,9 @@ public class EditRequestPage extends MainPage {
 
     @Override
     public void openPage() {
-        if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
+        if (webDriverFactory.getBrowser() == Browser.PHANTOMJS) {
             String subURL = "Business/Request/Edit/prompt.jsp";
-            WebDriverFactory.navigateTo(subURL);
+            webDriverFactory.navigateTo(subURL);
         } else {
             clickRequestMainMenu();
             clickSubMenu("Edit Request");
@@ -50,7 +50,7 @@ public class EditRequestPage extends MainPage {
     //===== Click methods ==============================================================================================
     public boolean clickSubmit() {
         return submitBtn.click()
-                && WebDriverFactory.waitElementIsVisible(saveRequestButton.asWebElement());
+                && webDriverFactory.waitElementIsVisible(saveRequestButton.asWebElement());
     }
 
     //===== Check methods ==============================================================================================

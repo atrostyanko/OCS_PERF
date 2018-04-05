@@ -13,9 +13,13 @@ import org.openqa.selenium.support.PageFactory;
  */
 public abstract class BasePage {
     private static final int WAIT_FOR_PAGE_LOAD_IN_SECONDS = 60;
+    public WebDriverFactory webDriverFactory;
+    public ExtentManager extentManager;
 
-    public BasePage() {
+    public BasePage(WebDriverFactory webDriverFactory, ExtentManager extentManager) {
         super();
+        this.webDriverFactory = webDriverFactory;
+        this.extentManager = extentManager;
     }
 
     /**
@@ -35,9 +39,9 @@ public abstract class BasePage {
      */
     public abstract boolean isPageOpened();
 
-    public BasePage(boolean openFromMenu){
-        PageFactory.initElements(WebDriverFactory.getDriver(), this);
-        PageFactory.initElements(new ExtendedFieldDecorator(WebDriverFactory.getDriver()), this);
+    public BasePage(WebDriverFactory webDriverFactory, ExtentManager extentManager, boolean openFromMenu){
+        PageFactory.initElements(webDriverFactory.getDriver(), this);
+        PageFactory.initElements(new ExtendedFieldDecorator(webDriverFactory.getDriver()), this);
         if (openFromMenu) {
             openPage();
             waitForOpenSearchPage();
@@ -58,7 +62,7 @@ public abstract class BasePage {
             isPageOpenedIndicator = isSearchPageOpened();
         }
         if(!isPageOpenedIndicator) {
-            ExtentManager.compareTrue(false, "Page was not opened");
+            extentManager.compareTrue(false, "Page was not opened");
         }
     }
 
@@ -75,7 +79,7 @@ public abstract class BasePage {
         }
         if(!isPageOpenedIndicator) {
             //throw new AssertionError("Page was not opened");
-            ExtentManager.compareTrue(false, "Page was not opened");
+            extentManager.compareTrue(false, "Page was not opened");
         }
     }
 }

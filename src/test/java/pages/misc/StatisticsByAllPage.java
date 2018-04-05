@@ -1,5 +1,6 @@
 package pages.misc;
 
+import com.reporting.ExtentManager;
 import com.webtestsbase.Browser;
 import com.webtestsbase.WebDriverFactory;
 import com.webtestsbase.commonElements.elements.Button;
@@ -12,19 +13,19 @@ public class StatisticsByAllPage extends MainPage {
     private WebElement resultsGrid;
 
     //====== Constructor ==============================
-    public StatisticsByAllPage() {
-        super(true);
+    public StatisticsByAllPage(WebDriverFactory webDriverFactory, ExtentManager eReport) {
+        super(webDriverFactory, eReport, true);
     }
 
-    public StatisticsByAllPage(boolean openFromMenu) {
-        super(openFromMenu);
+    public StatisticsByAllPage(WebDriverFactory webDriverFactory, ExtentManager eReport, boolean openFromMenu) {
+        super(webDriverFactory, eReport, openFromMenu);
     }
 
     @Override
     public void openPage() {
-        if (WebDriverFactory.getBrowser() == Browser.PHANTOMJS) {
+        if (webDriverFactory.getBrowser() == Browser.PHANTOMJS) {
             String subURL = "StatsAll.do";
-            WebDriverFactory.navigateTo(subURL);
+            webDriverFactory.navigateTo(subURL);
         } else {
             clickMiscMainMenu();
             clickSubMenu("Statistics");
@@ -35,7 +36,7 @@ public class StatisticsByAllPage extends MainPage {
     @Override
     public boolean isPageOpened() {
         return pageTitle.getText().equals("Statistics By All")
-                && WebDriverFactory.isElementDisplayed(resultsGrid);
+                && webDriverFactory.isElementDisplayed(resultsGrid);
     }
 
     @Override
